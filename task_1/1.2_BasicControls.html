@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Controls 1.2</title>
+</head>
+
+<body>
+    <!-- In html we use form tag to get input / data form the user  -->
+    <!-- It includes attributes like action , method -->
+
+    <!-- The action attribute defines the action/task to be performed when the form is submitted by clicking on the submit button -->
+    <!-- Usually, the data from the form is sent to a file on the server when the user clicks on the submit button. -->
+    <!-- So generally we mention the script file path in the action attribute so after submitting the form that particular script will get executed -->
+
+    <!-- Method attribute in form tag defines how the data will be transferred to the server we have two methods get , post -->
+    <!-- Get is default method , not secure,not applicable for larger form and have limited length, it appends the info in the url it self  -->
+    <!-- Post is more secure and have larger length then  get it will bind whole data into packet and send the whole info at once here url is not modified so its more secure  -->
+
+    <!-- target is used to define where to display the response that is received after submitting the form. -->
+    <!-- _blank : The response is displayed in a new window or tab -->
+    <!-- _self	: The response is displayed in the current window -->
+    <!-- _parent: The response is displayed in the parent frame -->
+    <!-- and many more but we generally use these only -->
+    <!-- The default value is _self which means that the response will open in the current window. -->
+    <form action="#" method="post" target="_blank">
+
+        <!-- following are some attributes used with input tags 
+        type : to define type
+        id : to give unique name to field / tag 
+        value : used to give default value to field
+        checked : to by default select radio / checkbox
+        required : Ensures the field must be filled out.
+        placeholder : used to add placeholder to field
+        accept : Specifies acceptable file types for file input
+        src : used to give path of img
+        alt : used to give alternate element is in case our img is not loaded
+        readonly : to make it read only
+        disable : to disable field
+        autocomplete : we can on / off autocomplete
+        -->
+        <fieldset>
+            <legend>Form Input Types</legend>
+
+            <table border="3" width="100%">
+                <thead>
+                    <tr>
+                        <th width="20%">Type</th>
+                        <th width="30%">Use</th>
+                        <th width="50%">Demo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Label</td>
+                        <td>Defines a label for an input element.</td>
+                        <td>
+                            <label for="myText">Text Input:</label>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Text</td>
+                        <td>To get single-line text.</td>
+                        <td>
+                            <input type="text" id="myText" name="textName" value="Default Text"
+                                placeholder="Enter text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td>To get a password.</td>
+                        <td>
+                            <input type="password" id="myPassword" name="passwordName" value=""
+                                placeholder="Enter your password" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>Used for entering an email address. Validates email format.</td>
+                        <td>
+                            <input type="email" id="myEmail" name="emailName" value="example@example.com" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Number</td>
+                        <td>Allows the user to enter a number with optional min, max, and step values.</td>
+                        <td>
+                            <input type="number" id="myNumber" name="numberName" value="0" min="0" max="100" step="1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Search</td>
+                        <td>Provides a search box for entering search queries.</td>
+                        <td>
+                            <input type="search" id="mySearch" name="searchName" placeholder="Search...">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Checkbox</td>
+                        <td>Allows the user to select multiple options from a set.</td>
+                        <td>
+                            <input type="checkbox" id="myCheckbox" name="checkboxName" value="checkValue" checked>
+                            Option1 <br>
+                            <input type="checkbox" id="myCheckbox" name="checkboxName" value="checkValue2"> Option2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Radio</td>
+                        <td>Allows the user to select one option from a set of choices.</td>
+                        <td>
+                            <input type="radio" id="radio1" name="radioGroup" value="option1" checked> option-1<br>
+                            <input type="radio" id="radio2" name="radioGroup" value="option2"> option-2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Color</td>
+                        <td>Provides a color picker to choose a color.</td>
+                        <td>
+                            <input type="color" id="myColor" name="colorName" value="#db0b10">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Date</td>
+                        <td>Allows the user to select a date.</td>
+                        <td>
+                            <input type="date" id="myDate" name="dateName" value="2024-01-01">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>DateTime-Local</td>
+                        <td>Allows the user to select a date and time.</td>
+                        <td>
+                            <input type="datetime-local" id="myDateTime" name="datetimeName" value="2024-01-01T12:00">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>File</td>
+                        <td>Allows the user to upload a file.</td>
+                        <td>
+                            <input type="file" id="myFile" name="fileName" accept=".jpg,.png">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Hidden</td>
+                        <td>Stores data that is not visible to the user.</td>
+                        <td>
+                            <input type="hidden" id="myHidden" name="hiddenName" value="hiddenValue">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Image</td>
+                        <td>Displays an image as a submit button.</td>
+                        <td>
+                            <input type="image" id="myImage" name="imageName"
+                                src="https://www.rkitsoftware.com/assets/img/miraclelogo.svg" height="50">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Month</td>
+                        <td>Allows the user to select a month and year.</td>
+                        <td>
+                            <input type="month" id="myMonth" name="monthName" value="2024-01">
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Range</td>
+                        <td>Allows the user to select a value from a range.</td>
+                        <td>
+                            <input type="range" id="myRange" name="rangeName" value="50" min="0" max="100" step="1">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Tel</td>
+                        <td>Used for entering a telephone number.</td>
+                        <td>
+                            <input type="tel" id="myTel" name="telName" value="" placeholder="123-456-7890">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Time</td>
+                        <td>Allows the user to select a time.</td>
+                        <td>
+                            <input type="time" id="myTime" name="timeName" value="12:00">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Week</td>
+                        <td>Allows the user to select a week and year.</td>
+                        <td>
+                            <input type="week" id="myWeek" name="weekName" value="2024-W01">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Textarea</td>
+                        <td>Used for multi-line text input.</td>
+                        <td>
+                            <textarea id="myTextarea" name="textareaName" rows="4" cols="50"
+                                placeholder="Enter your text here...">
+                            </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Select</td>
+                        <td>Creates a dropdown list of options.</td>
+                        <td>
+                            <select id="mySelect" name="selectName">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3" selected>Option 3</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Button</td>
+                        <td>Triggers a JavaScript function or performs an action.</td>
+                        <td>
+                            <input type="button" id="myButton" name="buttonName" value="Click Me"
+                                onclick="handleClick()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Submit</td>
+                        <td>Submits the form data to the server.</td>
+                        <td>
+                            <input type="submit" id="mySubmit" name="submitName" value="Submit">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Reset</td>
+                        <td>Resets the form to its default values.</td>
+                        <td>
+                            <input type="reset" id="myReset" name="resetName" value="Reset">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </form>
+</body>
+
+</html>
