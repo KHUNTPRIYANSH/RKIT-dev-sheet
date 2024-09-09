@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A professional website demo showcasing different sections like Home, About, Services, and Contact.">
+    <meta name="author" content="KPD">
+    <meta name="keywords" content="HTML, CSS, Web Development, Demo Website">
+    <title>Professional Website Demo</title>
+    <link rel="stylesheet" href="style1.3.css">
+</head>
+
+<body>
+
+    <!-- Header with logo and navigation -->
+    <header>
+        <div class="logo">KPD</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#service">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="full-screen section-home">
+        <h1>Home</h1>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="full-screen section-about">
+        <h1>About</h1>
+    </section>
+
+    <!-- Main Content Area with Three Containers -->
+    <main>
+        <div id="cont1" class="content-block">
+            <h1>#cont1</h1>
+        </div>
+        <div id="cont2" class="content-block">
+            <h1>#cont2</h1>
+        </div>
+        <div id="cont3" class="content-block">
+            <h1>#cont3</h1>
+        </div>
+    </main>
+
+    <!-- Services Section -->
+    <section id="service" class="full-screen section-services">
+        <h1>Services</h1>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="section-contact">
+        <div class="contact-wrapper">
+            <div class="contact-image">
+                <img src="./contact.gif" alt="Contact Image">
+            </div>
+            <form action="#" method="POST">
+                <input type="text" placeholder="Enter username" required>
+                <input type="email" placeholder="Example@gmail.com" required>
+                <input type="password" placeholder="Enter your password" required>
+
+                <!-- Radio Buttons (Demo for : Type) -->
+                <div class="user-type">
+                    <label><input type="radio" name="type" value="admin"> Admin</label>
+                    <label><input type="radio" name="type" value="manager"> Manager</label>
+                    <label><input type="radio" name="type" value="other"> Other</label>
+                </div>
+
+
+                <!-- Message Input Area -->
+                <textarea name="message" rows="5" placeholder="Enter your message..." required></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Made with 💖 by KPD</p>
+    </footer>
+
+</body>
+
+</html>
