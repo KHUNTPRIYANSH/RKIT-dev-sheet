@@ -1,0 +1,96 @@
+section#home main img {
+    height: 50vh !important;
+    width: 100dvw !important;
+    object-fit: cover;
+    position: relative;
+    display: block;
+    filter: brightness(0.5);
+}
+
+section#home main .carousel-caption {
+    margin-bottom: 7vh;
+}
+
+section#home main .carousel-caption h5 {
+    font-size: 3rem !important;
+}
+
+section#home main .carousel-caption p {
+    font-size: 1.5rem !important;
+}
+
+.breadcrumb {
+    /* border: 5px solid red; */
+    padding: 15px;
+}
+
+#blog {
+    /* background: url('./img/bg2.png') !important; */
+    height: auto;
+
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background: #353535; */
+    background: #191923;
+}
+
+#blog img {
+    height: 35vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.breadcrumb a {
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+.breadcrumb-item::before {
+    color: rgb(255, 255, 255) !important;
+}
+
+.jumbotron {
+    background: linear-gradient(300deg, #22263d, #536976, #303344);
+    background-size: 180% 180%;
+    animation: gradient-animation 7s ease infinite;
+
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#blog .card {
+    background: #323240;
+    color: #fff;
+    /* border: 1px solid rgba(255, 255, 255, 0.114); */
+    box-shadow: 0 0 15px 1px rgba(68, 68, 68, 0.097);
+}
+
+#blog .card-footer {
+    border-top: 1px solid white;
+}
+
+#footer {
+    background: #536976;
+    background: -webkit-linear-gradient(to top, #292E49, #30434e);
+    background: linear-gradient(to top, #292E49, #314956);
+
+}
+
+#footer ul li a,
+#footer p {
+    color: #fff !important;
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-Element Demonstration</title>
+    <style>
+        /* Pseudo-element to style the first letter of a paragraph */
+        p::first-letter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #FF6347;
+        }
+
+        /* Pseudo-element to style the first line of a paragraph */
+        p::first-line {
+            font-weight: bold;
+            color: #2E8B57;
+        }
+
+        /* Pseudo-element to insert content before an element */
+        h2::before {
+            content: "📝 ";
+            font-size: 2rem;
+        }
+
+        /* Pseudo-element to insert content after an element */
+        h2::after {
+            content: " 🖋️";
+            font-size: 2rem;
+        }
+
+        li::after {
+            content: " ✅";
+            color: green;
+        }
+
+        /* Styling the selection of text using ::selection */
+        ::selection {
+            background-color: yellow;
+            color: black;
+        }
+
+
+        /* Styling placeholder text using ::placeholder */
+        input::placeholder {
+            color: grey;
+            font-style: italic;
+            letter-spacing: 3px;
+            font-size: 0.7rem;
+        }
+
+        /* Pseudo-element to create a custom underline effect on links */
+        a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #FF4500;
+            transition: ease-in-out 0.3s;
+        }
+
+        a:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Pseudo-Element Demonstration</h1>
+
+    <h2>Example Heading</h2>
+
+    <p>
+        This is a paragraph demonstrating pseudo-elements like <code>::first-letter</code>, <code>::first-line</code>,
+        and more. The first letter is styled differently, and the first line has a different color and weight.
+    </p>
+
+    <h3>Unordered List with Pseudo-Elements</h3>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <h3>Links with Pseudo-Elements</h3>
+    <p>
+        Here is a link with custom hover underline using <code>::after</code>:
+        <a href="#">Hover over this link</a>
+    </p>
+
+    <h3>Input with Placeholder Styling</h3>
+    <form>
+        <label for="Name">Name:</label>
+        <input type="text" id="Name" placeholder="Enter your name" autocomplete="off">
+    </form>
+
+    <p>Try selecting some text on this page to see how <code>::selection</code> works.</p>
+
+</body>
+
+</html>

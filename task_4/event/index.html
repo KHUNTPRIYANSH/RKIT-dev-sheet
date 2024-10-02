@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main {
+            background: rgb(24, 24, 55);
+            border: 5px solid red;
+            padding: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+
+        }
+
+        main>*:hover {
+            background: rgb(213, 144, 16);
+        }
+
+        main>* {
+            display: grid;
+            place-items: center;
+            color: #fff;
+            background: rgb(255, 166, 0);
+            height: 250px;
+            width: auto;
+            min-width: 250px;
+            font-size: 2rem;
+            transition: 0.4s ease;
+            cursor: pointer;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        input {
+            background-color: #ffffff69;
+            border: none;
+            outline: none;
+            padding: 7px 15px;
+            font-size: 1.5rem;
+            width: 250px;
+            box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.189);
+            /* width: 100%; */
+        }
+    </style>
+</head>
+
+<body>
+    <main id="container">
+        <div class="box" id="box1"> Mouse events</div>
+        <div class="box" id="box3" onclick="alert('button clicked')"> on click</div>
+        <div class="box" id="box4"> bubbling / capture </div>
+        <form action="#" class="box" id="box2"> <input type="text" placeholder="Keyboard events" id="field"
+                onkeyup="onKeyUpEvent()"> </form>
+    </main>
+
+    <script>
+        // code for box 1
+        const box1 = document.getElementById('box1')
+        const inputField = document.getElementById('field')
+
+        box1.addEventListener("mouseover", () => {
+            console.log("Box 1 :  mouse over")
+        })
+        box1.addEventListener("mouseout", () => {
+            console.log("Box 1 :  mouse out")
+        })
+        box1.addEventListener("mousedown", () => {
+            console.log("Box 1 :  mouse down")
+        })
+        box1.addEventListener("mouseup", () => {
+            console.log("Box 1 :  mouse up")
+        })
+        box1.addEventListener("mousemove", (e) => {
+            let x = e.clientX;
+            let y = e.clientY;
+            // console.log("x: " + x)
+            // console.log("y: " + y)
+        })
+        //  code for box 4
+        const keyInformation = document.getElementById('field')
+        keyInformation.addEventListener("keypress", (e) => {
+            // e.ctrlKey
+            // e.shiftKey
+            // e.key == "F2"
+            console.log("Key pressed !!!", e.key)
+        })
+        const onKeyUpEvent = () => {
+            console.log("Key up !!!")
+        }
+        // document.getElementById('field').addEventListener("keydown", () => {
+        //     console.log("Key down !!!")
+        // })
+
+
+
+        // code for box 4
+        let child = document.getElementById('box4')
+        let container = document.getElementById("container")
+        /* ! concept of bubbling ::false
+        event will be triggered on top most child in z index
+        here box has some event and its working and their may be case in which container also may have event and body can also have so event will applied on top most element in z index
+        */
+        // child.addEventListener("click", () => {
+        //     console.log("Child box clicked")
+        // })
+        // container.addEventListener("click", () => {
+        //     console.log("Parent container clicked")
+        // })
+
+        // capture concept ::true
+        // at first parent tag get event than its only direct child get event and than so on
+        // child.addEventListener("click", () => {
+        //     console.log("Child box clicked")
+        // })
+        // container.addEventListener("click", () => {
+        //     console.log("Parent container clicked")
+        // }, true)
+    </script>
+
+</body>
+
+</html>

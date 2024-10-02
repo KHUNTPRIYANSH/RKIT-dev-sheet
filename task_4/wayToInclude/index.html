@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Internal JavaScript Example</title>
+    <!-- <script>
+        function showMessage() {
+            alert('Hello from internal JavaScript!');
+        }
+    </script> -->
+
+    <!-- async and defer are boolean attribute used along with script tag to load script efficiently into our code -->
+    <!-- total 3 things happen when someone open a site
+    1 html parsing
+    2 js script fetching / downloading
+    3 script executing -->
+
+
+
+    <!-- three ways to load script in head  -->
+
+    <script src="./main.js"></script>
+    <!-- in thi case as browser parse html as if it encounter the script tag it stops html parsing and first download script and run script and after running whole script continue with html parsing  -->
+    <script async src="./main.js"></script>
+    <!-- async don't give guarantee about order of executing script -->
+    <!-- in this case html + script downloading done one once ass soon as script downloaded html parsing stops and script executing starts and after script execution it again continue with html parsing -->
+    <script defer src="./main.js"></script>
+    <!-- defer does maintain order of running script -->
+    <!-- here html parsing + script downloading done at once and if script it downloaded than also browser will wait until whole html parse and then it will run cript at the end -->
+</head>
+
+<body>
+    <!-- <button onclick="showMessage()" id="clickButton">Click Me</button> -->
+
+
+    <button id="clickButton">Click Me</button>
+    <script>
+        document.getElementById('clickButton').addEventListener('click', function () {
+            alert('Hello from internal JavaScript!');
+        });
+    </script>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>

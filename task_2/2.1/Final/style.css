@@ -23,13 +23,19 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.244);
 }
 
 .logo {
     font-size: 2rem;
     color: #fff;
     font-family: 'Georgia', serif;
+}
+
+#ManuIcon {
+    color: white;
+    cursor: pointer;
+    display: none;
 }
 
 nav {
@@ -69,26 +75,47 @@ h1 {
     color: #eeeeee4a;
     font-size: 15rem;
     font-family: 'Gill Sans',
-    'Gill Sans MT',
-    Calibri,
-    'Trebuchet MS',
-    sans-serif;
+        'Gill Sans MT',
+        Calibri,
+        'Trebuchet MS',
+        sans-serif;
 }
 
 .section-home h1 {
     color: rgba(47, 47, 47, 0.2);
 }
 
+#home {
+    background:
+        linear-gradient(to top, rgba(19, 19, 19, 0.404), rgba(240, 240, 240, 0.075)),
+        url('https://images.pexels.com/photos/691668/pexels-photo-691668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+#home h1 {
+    color: #eeeeee4a;
+}
+
 /* Main Content Area */
 main {
     display: flex;
     align-items: center;
-    height: 50vh;
+    height: fit-content;
+    min-height: 50vh;
     justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#home h1 {
+    color: #eeeeee72;
+    text-shadow: 0px 0px 5px rgba(213, 213, 213, 0.111) !important;
 }
 
 .content-block h1 {
-    color: #eeeeee4a;
     font-size: 5rem;
 }
 
@@ -98,6 +125,7 @@ main {
     place-items: center;
     text-align: center;
     height: 50vh;
+    min-width: 380px;
 }
 
 #cont1 {
@@ -186,4 +214,82 @@ footer {
     text-align: center;
     padding: 25px;
     font-size: 1rem;
+}
+
+@media (width < 980px) {
+
+    h1 {
+        font-size: 7rem !important;
+    }
+
+    .content-block h1 {
+        font-size: 5rem !important;
+        width: 80%;
+    }
+
+    #contact .contact-wrapper {
+        flex-direction: column;
+    }
+
+    #contact .contact-wrapper>* {
+        width: 100%;
+        flex: 1;
+    }
+
+    .contact-image img {
+        width: 70%;
+    }
+
+}
+
+@media (width < 680px) {
+    .content-block {
+        min-width: fit-content !important;
+        width: 100%;
+
+    }
+
+    .content-block h1 {
+        font-size: 4rem !important;
+        width: 80%;
+    }
+}
+
+@media (width < 460px) {
+    h1 {
+        font-size: 5rem !important;
+    }
+
+    nav {
+        display: none;
+    }
+
+    #ManuIcon {
+        display: inline-block;
+        font-size: 1.3rem;
+    }
+
+    .user-type {
+        flex-direction: column;
+    }
+
+    .contact-image img {
+        width: 100%;
+    }
+
+    section {
+        padding: 5vh 5vw !important;
+    }
+
+    #contact {
+        padding: 0 !important;
+    }
+
+    .contact-wrapper {
+        gap: 0 !important;
+    }
+
+    form {
+        padding: 25px !important;
+    }
 }

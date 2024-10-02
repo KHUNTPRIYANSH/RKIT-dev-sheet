@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-Class Demonstration</title>
+    <style>
+        /* unvisited link */
+        :root {
+            --Color: red;
+        }
+
+        a {
+            font-size: 2rem;
+            padding: 0 15px;
+        }
+
+        a:link {
+            color: var(--Color);
+        }
+
+        /* visited link */
+        a:visited {
+            color: #00FF00;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: #FF00FF;
+        }
+
+        /* selected link */
+        a:active {
+            color: #0000FF;
+        }
+
+        /* Pseudo-classes demonstration */
+        input:checked {
+            outline: 2px solid green;
+        }
+
+        input:disabled {
+            background-color: lightgray;
+            opacity: 0.3;
+        }
+
+        input:enabled {
+            background-color: white;
+        }
+
+        p:empty {
+            border: 1px solid red;
+            padding: 45px;
+            font-style: italic;
+        }
+
+        input:focus {
+            outline: 2px solid blue;
+        }
+
+        /* This pseudo-class specifically applies to input fields that have min and max attributes, checking whether the input
+value is within the specified range. It focuses solely on the numerical range and ignores other validation rules. */
+        input:in-range {
+            background-color: rgb(144, 238, 164);
+        }
+
+        input:out-of-range {
+            background-color: pink;
+        }
+
+        input:invalid {
+            border: 2px solid red;
+        }
+
+        /* This pseudo-class is triggered when an input field has a valid value according to its HTML attributes like min, max,
+type, pattern, or required. It checks the overall validity of the input based on all constraints. */
+        input:valid {
+            border: 2px solid green;
+        }
+
+        p {
+            background: #fff;
+        }
+
+        section p:first-child {
+            background-color: yellow !important;
+        }
+
+        p:last-child {
+            background-color: lightblue;
+        }
+
+        :not(p) {
+            background: #ccc;
+            /* border: 5px solid red !important; */
+        }
+
+        p:nth-child(2) {
+            color: blue;
+        }
+
+        p:nth-last-child(2) {
+            color: green;
+        }
+
+        input:read-only {
+            background-color: lightyellow;
+        }
+
+        input:required {
+            border: 2px solid orange;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Pseudo-Class Demonstration</h2>
+
+    <h3>Anchor Links</h3>
+    <nav id="Header">
+        <a href="#a1">Link1</a>
+        <a href="#a2">Link2</a>
+        <a href="#a3">Link3</a>
+        <a href="#a4">Link4</a>
+        <a href="#a5">Link5</a>
+    </nav>
+
+    <h3>Input Fields</h3>
+    <form>
+        <label>Checkbox (checked):</label>
+        <input type="checkbox" checked><br><br>
+
+        <label>Disabled Input:</label>
+        <input type="text" disabled><br><br>
+
+        <label>Enabled Input:</label>
+        <input type="text" enabled><br><br>
+
+        <label>Input (required):</label>
+        <input type="text" required><br><br>
+
+        <label>Input (read-only):</label>
+        <input type="text" readonly value="Read-only"><br><br>
+
+        <label>Number (valid):</label>
+        <input type="number" min="10" max="20" value="15"><br><br>
+
+        <label>Number (invalid):</label>
+        <input type="number" min="10" max="20" value="25"><br><br>
+
+        <label>Number (in-range):</label>
+        <input type="number" min="10" max="20" value="12"><br><br>
+
+        <label>Number (out-of-range):</label>
+        <input type="number" min="10" max="20" value="8"><br><br>
+    </form>
+    <h3>Paragraphs</h3>
+    <section>
+
+        <p>This is the first child paragraph.</p>
+        <p>This is the second child paragraph.</p>
+        <p></p> <!-- Empty paragraph -->
+        <p>This is the last child paragraph.</p>
+
+        <h3>Target Pseudo-Class</h3>
+        <p>Click on this <a href="#Header">target link</a> to change the background color.</p>
+    </section>
+</body>
+
+</html>

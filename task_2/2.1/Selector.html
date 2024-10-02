@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* as a selector we can give styling to perticular tag by writing name of it */
+        html {
+            height: auto;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* following is a universal selector in css we use it to give styling to all elements in our site */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Descendant Selector : The descendant selector matches all elements that are descendants of a specified
+        element. */
+        section header nav a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        /* element selector  */
+        p {
+            margin: 25px 0;
+        }
+
+        section {
+            height: auto;
+            min-height: 50vh;
+            width: 100%;
+            background: #eee;
+        }
+
+        /* Child Selector: > is used to specify direct child of a parent element */
+        header>a {
+            /* it will give styling to .Logo not all anchor tags in nav */
+        }
+
+        /* Adjacent Sibling Selector: The + selector is used to select an element that is directly after another
+        specific element.
+        The following example selects the first p element that are placed immediately after h3 elements: */
+        h3+p {
+            background: salmon;
+        }
+
+        /* General Sibling Selector */
+        /* The general sibling selector (~) selects all elements that are next siblings of a specified element. */
+        hr~p {
+            background: gold;
+        }
+
+        /* Same style rule for multiple elements can be giving by comma  */
+        h1,
+        h3,
+        footer {
+            background: rgb(108, 192, 108);
+            padding: 25px;
+        }
+
+
+        /* class selector */
+        .Logo {
+            font-family: Arial, sans-serif;
+            color: red;
+        }
+
+        .Container {
+            display: flex;
+            flex-direction: column;
+            padding: 45px;
+            margin: 0 10vw;
+            border: 5px solid blue;
+        }
+
+        /* id selector */
+        #HomeSection {
+            background: #252525;
+        }
+
+        #AboutSection {
+            background: #a290ff;
+            padding-bottom: 10vh;
+        }
+
+        #FooterSection {
+            min-height: fit-content;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="HomeSection">
+        <header>
+            <a href="#" class="Logo">
+                LOGO
+            </a>
+            <nav>
+                <a href="#">Link1</a>
+                <a href="#">Link2</a>
+                <a href="#">Link3</a>
+                <a href="#">Link4</a>
+                <a href="#">Link5</a>
+            </nav>
+
+        </header>
+    </section>
+    <section id="AboutSection">
+        <main>
+            <h1>About Page Title</h1>
+            <div class="Container">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi et obcaecati adipisci maxime numquam
+                    qui sunt dolore, harum modi, mollitia repudiandae? Neque reiciendis nostrum eos veritatis harum,
+                    eveniet maxime ullam reprehenderit esse repellat doloribus facilis, ratione voluptatum repudiandae
+                    hic voluptates ipsa? Dolorum fugit nemo, possimus eligendi dignissimos autem debitis rem!</p>
+                <h3>Vision</h3>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta fugiat nihil iusto placeat iste optio
+                    sequi, explicabo sed illo
+                    <a href="#">veniam nisi</a> Est quos soluta dolor, corrupti perspiciatis
+                    magni totam.</p>
+
+                <h3>Mission</h3>
+
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit esse porro illo atque eum illum
+                    officia magni debitis
+                </p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit esse porro illo atque eum illum
+                    officia magni debitis
+                </p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit esse porro illo atque eum illum
+                    officia magni debitis
+                </p>
+                <hr>
+                <p>
+
+                    Asperiores at consequuntur accusantium minus, neque odit officiis pariatur
+                    quasi necessitatibus, dolore, iusto commodi autem quibusdam eaque quas? Libero dolorem minus
+                    necessitatibus, voluptatum eveniet ad consequuntur a?</p>
+                <h4>Some other tags</h4>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi culpa expedita repellendus architecto
+                    eius quibusdam?</p>
+                <button>
+                    Read More
+                </button>
+            </div>
+        </main>
+    </section>
+    <section id="FooterSection">
+        <footer>
+            this is footer
+        </footer>
+    </section>
+</body>
+
+</html>

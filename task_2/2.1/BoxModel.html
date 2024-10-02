@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model Demo</title>
+    <style>
+        body {
+            background: #252525;
+        }
+
+        /* 
+        Understanding the Box Model:
+        Every HTML element is like a box. The box model consists of:
+        1. Content (The actual text or image inside the element).
+        2. Padding (Space between the content and the border).
+        3. Border (A line that goes around the element).
+        4. Margin (Space outside the border, separating this box from others).
+        */
+
+        .Box {
+            width: 300px;
+            height: 150px;
+            background-color: lightblue;
+
+            /* Padding: Space inside the box around the content */
+            padding: 20px;
+            /* Border: Creates a visible border around the padding */
+            border: 5px solid blue;
+            /* Margin: Space outside the border to separate it from other elements */
+            margin: 30px;
+        }
+
+        /* 
+        Box-Sizing Property:
+        By default, the width and height only apply to the content area.
+        Padding and border are added on top of that, making the element bigger.
+        
+        box-sizing: border-box makes the padding and border included within the width and height. 
+        */
+        .BoxSizing {
+            box-sizing: border-box;
+            /* Includes padding and border inside the set width and height */
+            width: 300px;
+            height: 150px;
+            padding: 20px;
+            border: 5px solid green;
+            background-color: lightcoral;
+            margin: 30px;
+        }
+
+        /* 
+        Overflow: When content inside a box is too big, overflow controls what happens:
+        - visible: The content spills out (default behavior).
+        - hidden: The overflowing content is hidden.
+        - scroll: Adds a scrollbar to view the content.
+        */
+        .BoxOverflow {
+            width: 300px;
+            height: 100px;
+            background-color: lightgreen;
+            padding: 20px;
+            border: 5px solid orange;
+            margin: 30px;
+
+            /* Overflow behavior (in this case, scrolls if content overflows) */
+            overflow: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Basic Box Model with Content, Padding, Border, and Margin -->
+    <div class="Box">
+        Content Area: This is a simple box demonstrating the box model.
+    </div>
+
+    <!-- Box with box-sizing: border-box applied -->
+    <div class="BoxSizing">
+        Content Area: This box uses the border-box model, meaning the padding and border are included within the width.
+    </div>
+
+    <!-- Box with Overflow: scroll -->
+    <div class="BoxOverflow">
+        Content Area: This box has a limited height, but the content is overflowing.
+        So a scrollbar appears to handle the extra content. <br> <br> Following is lorem to see overflow <br> <br> Lorem
+        ipsum dolor, sit amet consectetur adipisicing elit. Ullam, quasi?
+        <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque aspernatur sunt soluta obcaecati eius
+        dolorem, maxime odio dicta nam quibusdam voluptate eaque ducimus quia ratione aperiam blanditiis magnam
+        exercitationem amet vero quasi aliquid voluptatum beatae. Dolorum corrupti excepturi fugit? Quaerat veniam
+        nostrum officiis quia ex doloribus ipsa repudiandae dolorem iste?
+        content!
+    </div>
+</body>
+
+</html>

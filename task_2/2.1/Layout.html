@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Layout Techniques Demo</title>
+    <style>
+        /* CSS Layout Techniques */
+
+        /* Flexbox Layout */
+        .FlexContainer {
+            height: auto;
+            height: 70vh;
+            background: #f6db51;
+            padding: 25px 0;
+            /* Makes the container a flex container */
+            display: flex;
+            /* Space between flex items */
+            gap: 25px;
+
+            /* Border for visibility */
+            border: 2px solid black;
+            /* justify-content: flex-start; */
+
+            /* align-items: flex-start; */
+            /* align-items: flex-end; */
+            /* align-items: center; */
+            /* align-items: first baseline; */
+            /* align-items: last baseline; */
+            flex-wrap: wrap;
+        }
+
+        .FlexItem {
+            background-color: lightblue;
+            border: 2px solid blue;
+            padding: 20px;
+            width: 100px;
+            height: fit-content;
+            /* flex: 1; */
+            /* flex-grow: 1; */
+            /* flex-shrink: 0; */
+            /* min-width: 300px; */
+        }
+
+        /* Grid Layout */
+        .GridContainer {
+            /* Makes the container a grid container */
+            display: grid;
+            gap: 10px;
+            border: 2px solid black;
+            padding: 10px;
+            margin: 10px;
+            height: 500px;
+            /* Define grid template rows and columns */
+            grid-template-columns: repeat(3, 1fr);
+            /* grid-template-columns: 300px 300px 300px; */
+            /* 3 equal columns */
+            grid-template-rows: repeat(2, 1fr);
+            /* 2 rows with fixed height */
+            grid-template-areas:
+                "header header header"
+                "main main sidebar"
+                "footer footer footer";
+        }
+
+        .GridItem {
+            background-color: lightcoral;
+            border: 2px solid red;
+            padding: 20px;
+        }
+
+        .Header {
+            background-color: lightgreen;
+            grid-area: header;
+        }
+
+        .Main {
+            background-color: lightyellow;
+            grid-area: main;
+        }
+
+        .Sidebar {
+            background-color: lightblue;
+            grid-area: sidebar;
+        }
+
+        .Footer {
+            background-color: lightgray;
+            grid-area: footer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Flexbox Layout Example -->
+    <h2>Flexbox Layout</h2>
+    <div class="FlexContainer">
+        <div class="FlexItem">Item 1 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente beatae minima,
+            aliquam, expedita ratione aliquid aperiam at asperiores voluptatibus accusantium dolores ex deserunt
+            reprehenderit recusandae?</div>
+        <div class="FlexItem">Item 2 Lorem ng elit. Sapiente beatae minima, aliquam, expedita ratione aliquid aperiam at
+            asperiores voluptatibus accusantium dolores ex deserunt reprehenderit recusandae?</div>
+        <div class="FlexItem">Item 3 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente beatae minima,
+            aliquam, expedita ratione aliquid aperiam at asperiores voluptatibus accusantium dolores ex deserunt
+            reprehenderit recusandae?</div>
+        <div class="FlexItem">Item 4 Lorem ipsum dolor sit, amet conta ratione aliquid aperiam at asperiores
+            voluptatibus accusantium dolores ex deserunt reprehenderit recusandae?</div>
+        <div class="FlexItem">Item 5 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente beatae min
+            expedita ratione aliquid aperiam at asperiores voluptatibus accusantium dolores ex deserunt reprehenderit
+            recusandae?</div>
+        <div class="FlexItem">Item 6 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente beatae minima,
+            aliquam, expedita ratione aliquid aperiam at asperiores voluptatibus accusantium dolores ex deserunt
+            reprehenderit recusandae?</div>
+        <div class="FlexItem">Item 7 Lorem ipsum dolor sit, amet consectetur adipisicing e asperiores voluptatibus
+            accusantium dolores ex deserunt reprehenderit recusandae?</div>
+    </div>
+
+    <!-- Grid Layout Example -->
+    <h2>Grid Layout</h2>
+    <div class="GridContainer">
+        <div class="Header">Header</div>
+        <div class="Main">Main Content</div>
+        <div class="Sidebar">Sidebar</div>
+        <div class="Footer">Footer</div>
+    </div>
+</body>
+
+</html>
