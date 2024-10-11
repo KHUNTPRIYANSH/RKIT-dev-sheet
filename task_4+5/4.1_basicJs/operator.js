@@ -1,17 +1,13 @@
-// ?operators
+//! 1. Arithmetic Operators
 
-console.log("--- JavaScript Operators Demo ---\n");
-
-/*
- * 1. Arithmetic Operators
- */
 console.log("1. Arithmetic Operators");
 
 let num1 = 10;
 let num2 = 5;
 
+//+  code written between `` called template in js can we can use value of variable with ${variable name} so no need of concat
+
 console.log(`num1 = ${num1}, num2 = ${num2}`);
-// ! code written between `` called template in js can we can use value of variable with ${variable name} so no need of concat
 console.log(`Addition (num1 + num2): ${num1 + num2}`); // 15
 console.log(`Subtraction (num1 - num2): ${num1 - num2}`); // 5
 console.log(`Multiplication (num1 * num2): ${num1 * num2}`); // 50
@@ -30,9 +26,8 @@ console.log(`After count--: ${count}`); // 0
 
 console.log("\n----------------------------------------\n");
 
-/*
- * 2. Assignment Operators
- */
+//! 2. Assignment Operators
+
 console.log("2. Assignment Operators");
 
 let a = 20;
@@ -55,9 +50,8 @@ console.log(`After a %= 3: ${a}`); // 1
 
 console.log("\n----------------------------------------\n");
 
-/*
- * 3. Comparison Operators
- */
+//! 3. Comparison Operators
+
 console.log("3. Comparison Operators");
 
 let x = 10;
@@ -78,9 +72,8 @@ console.log(`x <= y: ${x <= y}`); // true
 
 console.log("\n----------------------------------------\n");
 
-/*
- * 4. Logical Operators
- */
+//! 4. Logical Operators
+
 console.log("4. Logical Operators");
 
 let isSunny = true;
@@ -88,20 +81,19 @@ let hasUmbrella = false;
 
 console.log(`isSunny = ${isSunny}, hasUmbrella = ${hasUmbrella}`);
 
-// !Logical AND (&&)
+//+ Logical AND (&&)
 console.log(`isSunny && hasUmbrella: ${isSunny && hasUmbrella}`); // false
 
-// !Logical OR (||)
+//+ Logical OR (||)
 console.log(`isSunny || hasUmbrella: ${isSunny || hasUmbrella}`); // true
 
-// !Logical NOT (!)
+//+ Logical NOT (!)
 console.log(`!isSunny: ${!isSunny}`); // false
 
 console.log("\n----------------------------------------\n");
 
-/*
- * 5. String Operators
- */
+// ! 5. String Operators
+
 console.log("5. String Operators");
 
 let firstName = "Jane";
@@ -120,9 +112,8 @@ console.log(`Greeting after +=: '${greeting}'`); // 'Hello, Jane Doe!'
 
 console.log("\n----------------------------------------\n");
 
-/*
- * 6. Ternary Operator
- */
+//! 6. Ternary Operator
+
 console.log("6. Ternary Operator");
 
 let age = 18;

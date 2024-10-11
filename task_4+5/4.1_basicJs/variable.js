@@ -1,11 +1,12 @@
-// ! this is how we write single line comment in js
+//  this is how we write single line comment in js
 /*  this is how we write multiline comment in js */
 
 // ? variable in js
 // ? variables are identifiers which is used to give name to any data class function or anything
 // ? we have three ways to make variable
 // *****************************************************************************************************************************
-// ? var it is module scoped
+// ! var 
+// ? it is module scoped
 var x = 3;
 var x = 5;
 var y = 6;
@@ -13,7 +14,7 @@ var z = x + y;
 console.log("z: ", z);
 
 // *****************************************************************************************************************************
-// ? let
+// ! let
 // ? The let keyword was introduced in ES6 (2015)
 // ? Variables declared with let have Block Scope
 // ? Variables declared with let must be Declared before use
@@ -25,7 +26,7 @@ let c = a + b;
 console.log("c: ", c);
 
 // *****************************************************************************************************************************
-// ? const
+// ! const
 // ? The let keyword was introduced in ES6 (2015)
 // ? Variables declared with let have Block Scope
 // ? Variables declared with let must be Declared before use

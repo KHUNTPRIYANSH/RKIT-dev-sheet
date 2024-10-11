@@ -1,4 +1,5 @@
-// Selecting form and input elements
+//! Selecting form and input elements
+
 const signupForm = document.getElementById("signupForm");
 const fullName = document.getElementById("fullName");
 const email = document.getElementById("email");
@@ -6,7 +7,7 @@ const password = document.getElementById("password");
 const mobileNumber = document.getElementById("mobileNumber");
 const terms = document.getElementById("terms");
 
-// Selecting error message elements
+//! Selecting error message elements
 const fullNameError = document.getElementById("fullNameError");
 const emailError = document.getElementById("emailError");
 const passwordError = document.getElementById("passwordError");
@@ -14,7 +15,7 @@ const mobileError = document.getElementById("mobileError");
 const termsError = document.getElementById("termsError");
 const successMessage = document.getElementById("successMessage");
 
-// Function to validate Full Name
+//! Function to validate Full Name
 function validateFullName() {
   const nameValue = fullName.value.trim();
   if (nameValue === "") {
@@ -26,7 +27,7 @@ function validateFullName() {
   }
 }
 
-// Function to validate Email
+//! Function to validate Email
 function validateEmail() {
   const emailValue = email.value.trim();
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -42,7 +43,7 @@ function validateEmail() {
   }
 }
 
-// Function to validate Password
+//! Function to validate Password
 function validatePassword() {
   const passwordValue = password.value;
   if (passwordValue === "") {
@@ -57,7 +58,7 @@ function validatePassword() {
   }
 }
 
-// Function to validate Mobile Number
+//! Function to validate Mobile Number
 function validateMobileNumber() {
   const mobileValue = mobileNumber.value.trim();
   const mobilePattern = /^[0-9]{10}$/; // Assuming 10-digit mobile numbers
@@ -73,7 +74,7 @@ function validateMobileNumber() {
   }
 }
 
-// Function to validate Terms and Conditions
+//! Function to validate Terms and Conditions
 function validateTerms() {
   if (!terms.checked) {
     termsError.textContent = "You must agree to the terms and conditions.";
@@ -84,25 +85,25 @@ function validateTerms() {
   }
 }
 
-// Adding event listeners for real-time validation
+//! Adding event listeners for real-time validation
 fullName.addEventListener("input", validateFullName);
 email.addEventListener("input", validateEmail);
 password.addEventListener("input", validatePassword);
 mobileNumber.addEventListener("input", validateMobileNumber);
 terms.addEventListener("change", validateTerms);
 
-// Form submission event
+//! Form submission event
 signupForm.addEventListener("submit", function (event) {
   event.preventDefault(); // Prevent form from submitting
 
-  // Validate all fields
+  //! Validate all fields
   const isFullNameValid = validateFullName();
   const isEmailValid = validateEmail();
   const isPasswordValid = validatePassword();
   const isMobileValid = validateMobileNumber();
   const isTermsValid = validateTerms();
 
-  // If all validations pass
+  //! If all validations pass
   if (
     isFullNameValid &&
     isEmailValid &&
