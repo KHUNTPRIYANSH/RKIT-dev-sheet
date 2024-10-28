@@ -101,11 +101,11 @@ let lastName = "Doe";
 
 console.log(`firstName = '${firstName}', lastName = '${lastName}'`);
 
-// ?Concatenation using +
+// ? Concatenation using +
 let fullName = firstName + " " + lastName;
 console.log(`Full Name (firstName + ' ' + lastName): '${fullName}'`);
 
-// ?Concatenation using +=
+// ? Concatenation using +=
 let greeting = "Hello";
 greeting += ", " + fullName + "!";
 console.log(`Greeting after +=: '${greeting}'`); // 'Hello, Jane Doe!'

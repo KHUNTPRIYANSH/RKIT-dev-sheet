@@ -17,8 +17,8 @@ box1.addEventListener("mouseup", () => {
 box1.addEventListener("mousemove", (e) => {
   let x = e.clientX;
   let y = e.clientY;
-  // console.log("x: " + x)
-  // console.log("y: " + y)
+  // console.log("x: " + x);
+  // console.log("y: " + y);
 });
 
 //!  code for box having form field
@@ -46,18 +46,22 @@ let container = document.getElementById("container");
 //? here box has some event and its working and their may be case in which container also may have event and body can also have so event will applied on top most element in z index
 
 // child.addEventListener("click", () => {
-//     console.log("Child box clicked")
-// })
+//   console.log("Child box clicked");
+// });
 // container.addEventListener("click", () => {
-//     console.log("Parent container clicked")
-// })
+//   console.log("Parent container clicked");
+// });
 
 //+ capture concept ::true
 //? at first parent tag get event than its only direct child get event and than so on
 
-// child.addEventListener("click", () => {
-//     console.log("Child box clicked")
-// })
-// container.addEventListener("click", () => {
-//     console.log("Parent container clicked")
-// }, true)
+child.addEventListener("click", () => {
+  console.log("Child box clicked");
+});
+container.addEventListener(
+  "click",
+  () => {
+    console.log("Parent container clicked");
+  },
+  true
+);

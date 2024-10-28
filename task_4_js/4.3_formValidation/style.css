@@ -117,12 +117,14 @@
       margin-top: 0.3125rem;
   }
 
-  .success-message {
+  /* .success-message {
       color: green;
       font-size: 0.875rem;
       text-align: center;
       margin-top: 0.625rem;
   }
+
+  */
 
   .one-line {
       display: flex;
