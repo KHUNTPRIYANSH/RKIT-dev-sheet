@@ -25,10 +25,10 @@ const user = localStorage.getItem("username"); // Retrieves the value for the ke
 console.log("Username: ", user); // Logs "Username: JaneDoe"
 
 // ! 3. Removing an item
-// localStorage.removeItem("username"); // Removes the item with the key 'username'
+localStorage.removeItem("username"); // Removes the item with the key 'username'
 
 // ! 4. Clearing all items in Local Storage
-// localStorage.clear(); // Clears all stored data in Local Storage
+localStorage.clear(); // Clears all stored data in Local Storage
 // ! 5. length function in Local Storage
 console.log("Length of local storage : " + localStorage.length);
 // ! 6. key function in Local Storage

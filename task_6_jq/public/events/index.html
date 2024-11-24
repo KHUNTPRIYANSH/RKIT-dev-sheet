@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>events in jq</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    body {
+      background: #252525;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    section {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 15px;
+      padding: 25px;
+      border: 5px solid crimson;
+      flex-wrap: wrap;
+      margin-bottom: 10vh;
+    }
+
+    .child {
+      background: rgb(19, 226, 78);
+      color: #fff;
+      flex: 1;
+      min-width: 250px;
+      height: 250px;
+      display: grid;
+      place-items: center;
+      transition: 0.35s ease-in-out;
+      cursor: pointer;
+    }
+
+    .child:hover {
+      background: rgb(14, 109, 41);
+    }
+
+    span {
+      font-size: 2rem;
+    }
+
+    h1 {
+      background: crimson;
+      color: gold;
+      padding: 15px;
+      text-align: center;
+    }
+
+    #keyboardEvent .child {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    input::placeholder {
+      color: #fff;
+    }
+
+    input,
+    select {
+      background: transparent;
+      border: 2px solid white;
+      color: #fff;
+      padding: 7px 12px;
+      border-radius: 15px;
+    }
+
+    select {
+      color: #000;
+    }
+
+    #WindowEvent .child {
+
+      height: 300px;
+      overflow-y: auto;
+      flex-shrink: 0;
+    }
+
+    .red {
+      color: crimson
+    }
+
+    #setMethods .child {
+      min-width: 500px;
+    }
+
+    #cl-1 {
+      align-items: flex-start !important;
+      justify-content: flex-start;
+      padding: 25px;
+    }
+
+    #cl-1 * {
+      text-align: left;
+      width: 100%;
+    }
+
+    .newClass {
+      background: linear-gradient(to right, #e96443, #904e95);
+    }
+
+    .newClass h2 {
+      color: lime;
+    }
+
+    .newClass p {
+      color: rgb(211, 202, 219);
+      font-size: 1.5rem;
+    }
+    .onClick{
+      background: crimson;
+    }
+    .ondblClick{
+      background: gold;
+    }
+    .onRightClick{
+      background: rgb(14, 177, 218);
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1>Mouse Events</h1>
+  <section>
+    <div id="c-1" class="child">
+      <span>
+        .click()
+      </span>
+    </div>
+    <div id="c-2" class="child">
+      <span>
+        .dblclick()
+      </span>
+    </div>
+    <div id="c-3" class="child">
+      <span>
+        .contextmenu()
+        <br />
+        [right click]
+      </span>
+    </div>
+    <div id="c-4" class="child">
+      <span>
+        .mouseenter()
+      </span>
+    </div>
+    <div id="c-5" class="child">
+      <span>
+        .mouseleave()
+      </span>
+    </div>
+  </section>
+
+  <h1>Keyboard Events</h1>
+  <section id="keyboardEvent">
+    <div id="k-1" class="child">
+      <span>
+        .keypress()
+      </span>
+      <input type="text" placeholder="type here ...">
+    </div>
+    <div id="k-2" class="child">
+      <span>
+        .keydown()
+      </span>
+      <input type="text" placeholder="type here ...">
+    </div>
+    <div id="k-3" class="child">
+      <span>
+        .keyup()
+      </span>
+      <input type="text" placeholder="type here ...">
+    </div>
+
+    </div>
+  </section>
+  <h1>Form Events</h1>
+  <form action="" method="post">
+
+    <section id="keyboardEvent">
+      <div id="f-1" class="child">
+        <span>
+          .focus()
+        </span>
+        <input type="text" placeholder="type here ...">
+      </div>
+      <div id="f-2" class="child">
+        <span>
+          .blur()
+        </span>
+        <input type="text" placeholder="type here ...">
+      </div>
+      <div id="f-3" class="child">
+        <span>
+          .change()
+        </span>
+        <select>
+          <option selected value="-1">Choose Any</option>
+          <option value="1">option 1</option>
+          <option value="2">option 2</option>
+          <option value="3">option 3</option>
+          <option value="4">option 4</option>
+          <option value="5">option 5</option>
+        </select>
+      </div>
+      <div id="f-4" class="child">
+        <span>
+          .select()
+        </span>
+        <input type="text" placeholder="type here ...">
+      </div>
+      <div id="f-5" class="child">
+        <span>
+          .submit()
+        </span>
+        <input type="submit" value="Submit Form Button">
+      </div>
+
+
+      </div>
+    </section>
+  </form>
+  <h1>Window Events</h1>
+  <section id="WindowEvent">
+    <div id="w-1" class="child">
+      <span>
+        .scroll()
+      </span>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea inventore impedit deserunt, facilis, assumenda
+        necessitatibus nisi molestiae, nesciunt sapiente fuga veritatis esse eveniet quae quidem architecto aut placeat.
+        Ducimus, hic autem. Qui recusandae quas nisi aut. Consequatur qui ad, possimus magni aut molestias odit
+        cupiditate, fugit ullam animi id consequuntur sint velit dolorem voluptatibus aliquid quo dolore quibusdam
+        fugiat impedit quis. Corporis dignissimos voluptatibus ullam quisquam cupiditate, assumenda ut eveniet iste.
+        Mollitia fuga quam iure a? Aliquam, aut? Eum accusantium quos quo corporis ducimus nobis nam corrupti
+        consequuntur, hic sequi enim provident ipsa minus illum veniam modi! Voluptatem, distinctio dolore. Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Officiis pariatur ad similique iusto ipsam voluptatum quaerat cum
+        magni rerum voluptas voluptates atque sit quibusdam animi tempore, officia nostrum architecto quia cumque!
+        Labore non molestiae excepturi, sequi in ab ipsa, hic eos ea illo obcaecati, cum eum soluta omnis minus illum
+        nobis nostrum! Illo quas mollitia modi nam eaque dolores beatae laborum similique delectus. In dignissimos
+        quaerat doloremque quisquam laudantium numquam quos sequi libero odio, natus hic, nam delectus incidunt
+        necessitatibus voluptatibus vel suscipit quod corrupti a nulla? Nemo a dolore eligendi quidem consequatur
+        aliquid reprehenderit quibusdam quas voluptatibus! Mollitia ut iste repellat esse, voluptates dolorum distinctio
+        corrupti iure molestiae aspernatur provident tempora natus, velit harum sit? Aliquam nihil iste adipisci
+        inventore odit dolor. Saepe dolorem facere eos quam dignissimos dicta architecto animi consequatur repellendus
+        recusandae. Ipsa, commodi, modi dolorum doloremque quaerat, in suscipit tenetur provident labore iste
+        reiciendis. Recusandae saepe, debitis reiciendis omnis doloremque incidunt, error magnam voluptate quidem aut
+        sequi distinctio autem quos fugiat molestias illum ratione sit eos beatae. Corporis, saepe in cum excepturi
+        pariatur rem veritatis iusto dolorum dolor aliquid, enim itaque numquam mollitia aspernatur laborum quaerat
+        animi est labore ducimus debitis rerum optio! Sint, minus alias.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea inventore impedit deserunt, facilis, assumenda
+        necessitatibus nisi molestiae, nesciunt sapiente fuga veritatis esse eveniet quae quidem architecto aut placeat.
+        Ducimus, hic autem. Qui recusandae quas nisi aut. Consequatur qui ad, possimus magni aut molestias odit
+        cupiditate, fugit ullam animi id consequuntur sint velit dolorem voluptatibus aliquid quo dolore quibusdam
+        fugiat impedit quis. Corporis dignissimos voluptatibus ullam quisquam cupiditate, assumenda ut eveniet iste.
+        Mollitia fuga quam iure a? Aliquam, aut? Eum accusantium quos quo corporis ducimus nobis nam corrupti
+        consequuntur, hic sequi enim provident ipsa minus illum veniam modi! Voluptatem, distinctio dolore. Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Officiis pariatur ad similique iusto ipsam voluptatum quaerat cum
+        magni rerum voluptas voluptates atque sit quibusdam animi tempore, officia nostrum architecto quia cumque!
+        Labore non molestiae excepturi, sequi in ab ipsa, hic eos ea illo obcaecati, cum eum soluta omnis minus illum
+        nobis nostrum! Illo quas mollitia modi nam eaque dolores beatae laborum similique delectus. In dignissimos
+        quaerat doloremque quisquam laudantium numquam quos sequi libero odio, natus hic, nam delectus incidunt
+        necessitatibus voluptatibus vel suscipit quod corrupti a nulla? Nemo a dolore eligendi quidem consequatur
+        aliquid reprehenderit quibusdam quas voluptatibus! Mollitia ut iste repellat esse, voluptates dolorum distinctio
+        corrupti iure molestiae aspernatur provident tempora natus, velit harum sit? Aliquam nihil iste adipisci
+        inventore odit dolor. Saepe dolorem facere eos quam dignissimos dicta architecto animi consequatur repellendus
+        recusandae. Ipsa, commodi, modi dolorum doloremque quaerat, in suscipit tenetur provident labore iste
+        reiciendis. Recusandae saepe, debitis reiciendis omnis doloremque incidunt, error magnam voluptate quidem aut
+        sequi distinctio autem quos fugiat molestias illum ratione sit eos beatae. Corporis, saepe in cum excepturi
+        pariatur rem veritatis iusto dolorum dolor aliquid, enim itaque numquam mollitia aspernatur laborum quaerat
+        animi est labore ducimus debitis rerum optio! Sint, minus alias.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea inventore impedit deserunt, facilis, assumenda
+        necessitatibus nisi molestiae, nesciunt sapiente fuga veritatis esse eveniet quae quidem architecto aut placeat.
+        Ducimus, hic autem. Qui recusandae quas nisi aut. Consequatur qui ad, possimus magni aut molestias odit
+        cupiditate, fugit ullam animi id consequuntur sint velit dolorem voluptatibus aliquid quo dolore quibusdam
+        fugiat impedit quis. Corporis dignissimos voluptatibus ullam quisquam cupiditate, assumenda ut eveniet iste.
+        Mollitia fuga quam iure a? Aliquam, aut? Eum accusantium quos quo corporis ducimus nobis nam corrupti
+        consequuntur, hic sequi enim provident ipsa minus illum veniam modi! Voluptatem, distinctio dolore. Lorem ipsum
+        dolor sit amet consectetur adipisicing elit. Officiis pariatur ad similique iusto ipsam voluptatum quaerat cum
+        magni rerum voluptas voluptates atque sit quibusdam animi tempore, officia nostrum architecto quia cumque!
+        Labore non molestiae excepturi, sequi in ab ipsa, hic eos ea illo obcaecati, cum eum soluta omnis minus illum
+        nobis nostrum! Illo quas mollitia modi nam eaque dolores beatae laborum similique delectus. In dignissimos
+        quaerat doloremque quisquam laudantium numquam quos sequi libero odio, natus hic, nam delectus incidunt
+        necessitatibus voluptatibus vel suscipit quod corrupti a nulla? Nemo a dolore eligendi quidem consequatur
+        aliquid reprehenderit quibusdam quas voluptatibus! Mollitia ut iste repellat esse, voluptates dolorum distinctio
+        corrupti iure molestiae aspernatur provident tempora natus, velit harum sit? Aliquam nihil iste adipisci
+        inventore odit dolor. Saepe dolorem facere eos quam dignissimos dicta architecto animi consequatur repellendus
+        recusandae. Ipsa, commodi, modi dolorum doloremque quaerat, in suscipit tenetur provident labore iste
+        reiciendis. Recusandae saepe, debitis reiciendis omnis doloremque incidunt, error magnam voluptate quidem aut
+        sequi distinctio autem quos fugiat molestias illum ratione sit eos beatae. Corporis, saepe in cum excepturi
+        pariatur rem veritatis iusto dolorum dolor aliquid, enim itaque numquam mollitia aspernatur laborum quaerat
+        animi est labore ducimus debitis rerum optio! Sint, minus alias.
+      </p>
+    </div>
+    <div id="w-2" class="child">
+      <span>
+        .resize()
+      </span>
+
+    </div>
+
+
+    </div>
+  </section>
+
+  <h1>JQ get methods</h1>
+  <section id="getMethods">
+    <div id="g-1" class="child">
+      <span>
+        .text()
+      </span>
+    </div>
+    <div id="g-2" class="child">
+      <span>
+        .html()
+      </span>
+    </div>
+    <div id="g-3" class="child toDemoAttr">
+      <span>
+        .attr()
+      </span>
+    </div>
+    <div id="g-4" class="child">
+      <input type="button" value="someValue" />
+
+    </div>
+
+    </div>
+  </section>
+  <h1>JQ set methods</h1>
+  <section id="setMethods">
+    <div id="s-1" class="child">
+      <span>
+
+      </span>
+    </div>
+    <div id="s-2" class="child">
+      <span>
+
+      </span>
+    </div>
+    <div id="s-3" class="child toDemoAttr">
+      <span>
+        click to change my class
+      </span>
+    </div>
+    <div id="s-4" class="child">
+      <input type="button" value="click me !!!" />
+
+    </div>
+
+    </div>
+  </section>
+  <h1>class methods</h1>
+  <section id="setMethods">
+    <div id="cl-1" class="child">
+      <h2>
+        this is some title
+      </h2>
+      <p>this is some random text</p>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem voluptatibus incidunt neque veniam. Eveniet
+        amet quidem repellendus minima quae magnam.</p>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </div>
+    <div id="cl-2" class="child">
+      <button class="add-btn">add Class</button>
+      <button class="remove-btn">remove Class</button>
+      <button class="toggle-btn">toggle Class</button>
+    </div>
+  </section>
+  <h1>on / off methods</h1>
+  <section id="onOffMethods">
+    <div id="onf-1" class="child">
+      <h2>
+        this is some title
+      </h2>
+      <p>this is some random text</p>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem voluptatibus incidunt neque veniam. Eveniet
+        amet quidem repellendus minima quae magnam.</p>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </div>
+  </section>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../../src/events/main.js"></script>
+</body>
+
+</html>

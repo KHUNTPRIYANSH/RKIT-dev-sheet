@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectors in jQ</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            margin: 15px 0;
+            font-family: sans-serif;
+        }
+        body{
+            background: #252525;
+            color: #fff;
+            padding: 10vh 5vw;
+        }
+        .parent{
+            padding: 15px;
+            border: 2px solid rgb(255, 255, 255);
+        }
+        .child{
+            margin: 15px 0;
+        }
+        button{
+            padding: 7.5px 22px;
+            background: crimson;
+            color: #fff;
+            border: none;
+        }
+        .row{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+
+        <h1>tag selector</h1> <button> Clear Console</button> 
+    </div>
+    <p class="className">class selector</p>
+    <b id="idName">id selector</b>
+    
+
+    <section class="parent">
+        <div id="child1" class="child child-1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis saepe exercitationem enim nobis provident! Aliquam?</div>
+        <div id="child2" class="child child-2">Lorem ipsum dolor, pe exercitationem enim nobis provident! Aliquam?</div>
+        <div id="child3" class="child child-3">Lorem ing elit. Blanditiis saepe exercitationem enim nobis provident! Aliquam?</div>
+        <div id="child4" class="child child-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis saem enim nobis provident! Aliquam?</div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> 
+    <script src="../../src/selector/main.js"></script>
+</body>
+</html>

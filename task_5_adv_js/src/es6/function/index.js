@@ -17,7 +17,7 @@ const sub = (a, b) => {
 };
 // ! arrow function expression with implicit return
 
-const div = (a, b) => a - b;
+const div = a => a ;
 
 // + ===================================================================
 // ! Difference between Arrow Function and Normal Function in JavaScript

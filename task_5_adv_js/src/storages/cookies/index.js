@@ -1,4 +1,4 @@
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ! +++++++++++++++++++++++++++++++++++++++++++++++++++++
 // ! Cookies in JavaScript: A Detailed Guide
 // ------------------------------------------------------
 // * Cookies are small pieces of data stored by the browser, typically

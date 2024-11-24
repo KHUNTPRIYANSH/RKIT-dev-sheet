@@ -21,6 +21,7 @@ animal1.speak(); // Dog makes a noise.
 
 function AnimalConstructor(name) {
   this.name = name;
+  // this.fun = function()
 }
 
 // Adding methods to the prototype
