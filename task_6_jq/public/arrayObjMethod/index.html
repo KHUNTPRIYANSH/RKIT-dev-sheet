@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Functions Demo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      h1,
+      h2 {
+        color: #4caf50;
+      }
+      pre {
+        background: #f4f4f4;
+        padding: 10px;
+        border-left: 5px solid #4caf50;
+      }
+      .example {
+        margin-bottom: 20px;
+      }
+      .output {
+        background: #e7f3fe;
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #2196f3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>jQuery Functions Demo</h1>
+
+    <div class="example">
+      <h2>1. <code>map()</code></h2>
+      <p>
+        Transforms each element in an array or object and returns a new array of
+        results.
+      </p>
+      <pre>
+Syntax: 
+$.map(array, function(element, index) { return new_value; });
+
+Use Case: 
+Convert an array of numbers to their squares.</pre
+      >
+      <p><strong>Example:</strong></p>
+      <button id="mapExample">Run map()</button>
+      <div class="output" id="mapOutput"></div>
+    </div>
+
+    <div class="example">
+      <h2>2. <code>grep()</code></h2>
+      <p>
+        Filters an array based on a condition and returns matching elements.
+      </p>
+      <pre>
+Syntax: 
+$.grep(array, function(element, index) { return condition; }, [invert]);
+
+Use Case: 
+Find all even numbers in an array.</pre
+      >
+      <p><strong>Example:</strong></p>
+      <button id="grepExample">Run grep()</button>
+      <div class="output" id="grepOutput"></div>
+    </div>
+
+    <div class="example">
+      <h2>3. <code>extend()</code></h2>
+      <p>Merge two or more objects into the first object.</p>
+      <pre>
+Syntax: 
+$.extend(target, object1, [objectN]);
+
+Use Case: 
+Combine default settings with user-provided settings.</pre
+      >
+      <p><strong>Example:</strong></p>
+      <button id="extendExample">Run extend()</button>
+      <div class="output" id="extendOutput"></div>
+    </div>
+
+    <div class="example">
+      <h2>4. <code>each()</code></h2>
+      <p>
+        Iterates over an array or object and applies a function to each element.
+      </p>
+      <pre>
+Syntax: 
+$.each(array_or_object, function(index, value) { ... });
+
+Use Case: 
+Iterate over an array of names and log them.</pre
+      >
+      <p><strong>Example:</strong></p>
+      <button id="eachExample">Run each()</button>
+      <div class="output" id="eachOutput"></div>
+    </div>
+
+    <div class="example">
+      <h2>5. <code>merge()</code></h2>
+      <p>Merges two arrays into a single array.</p>
+      <pre>
+Syntax: 
+$.merge(array1, array2);
+
+Use Case: 
+Combine two arrays of fruits into one.</pre
+      >
+      <p><strong>Example:</strong></p>
+      <button id="mergeExample">Run merge()</button>
+      <div class="output" id="mergeOutput"></div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        // Example 1: map()
+        $("#mapExample").click(function () {
+          const numbers = [1, 2, 3, 4];
+          const squares = $.map(numbers, function (num) {
+            return num * num;
+          });
+          $("#mapOutput").html(
+            "Input: " +
+              JSON.stringify(numbers) +
+              "<br>Output: " +
+              JSON.stringify(squares)
+          );
+        });
+
+        // Example 2: grep()
+        $("#grepExample").click(function () {
+          const numbers = [1, 2, 3, 4, 5, 6];
+          const evens = $.grep(numbers, function (num) {
+            return num % 2 === 0;
+          });
+          $("#grepOutput").html(
+            "Input: " +
+              JSON.stringify(numbers) +
+              "<br>Output (Evens): " +
+              JSON.stringify(evens)
+          );
+        });
+
+        // Example 3: extend()
+        $("#extendExample").click(function () {
+          const defaults = { name: "Anonymous", age: 25 };
+          const user = { name: "John Doe", city: "New York" };
+          const result = $.extend({}, defaults, user);
+          $("#extendOutput").html(
+            "Default: " +
+              JSON.stringify(defaults) +
+              "<br>User: " +
+              JSON.stringify(user) +
+              "<br>Result: " +
+              JSON.stringify(result)
+          );
+        });
+
+        // Example 4: each()
+        $("#eachExample").click(function () {
+          const names = ["Alice", "Bob", "Charlie"];
+          let result = "Names:<br>";
+          $.each(names, function (index, name) {
+            result += index + ": " + name + "<br>";
+          });
+          $("#eachOutput").html(result);
+        });
+
+        // Example 5: merge()
+        $("#mergeExample").click(function () {
+          const fruits1 = ["Apple", "Banana"];
+          const fruits2 = ["Cherry", "Date"];
+          const combined = $.merge(fruits1, fruits2);
+          $("#mergeOutput").html(
+            "Array 1: " +
+              JSON.stringify(fruits1) +
+              "<br>Array 2: " +
+              JSON.stringify(fruits2) +
+              "<br>Merged: " +
+              JSON.stringify(combined)
+          );
+        });
+      });
+    </script>
+  </body>
+</html>

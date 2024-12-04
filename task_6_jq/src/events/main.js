@@ -131,3 +131,15 @@ $("#onOffMethods").on({
 //     $("#onf-1").addClass("onRightClick");
 //   },
 // })
+
+// ! jQ event trigger
+$("#triggerButton").click(function () {
+  //! Triggering custom event when the button is clicked
+  $("#message").trigger("displayMessage");
+  $("#clickEvent").trigger("click");
+});
+
+$("#message").on("displayMessage", function () {
+  $(this).text("The event has been triggered programmatically!");
+});
+$("#clickEvent").css("background", "purple");

@@ -1,0 +1,52 @@
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+.card {
+  border: none;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 0px 10px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+  background-color: #f8f9fa;
+}
+.main-sec {
+  min-height: 80dvh !important;
+}
+
+body {
+  background: #6d7a84; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    -45deg,
+    #6d7a84,
+    #8e9eab,
+    #eef2f3
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    -45deg,
+    #6d7a84,
+    #8e9eab,
+    #eef2f3
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  background-size: 180% 180%;
+  animation: gradient-animation 5s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

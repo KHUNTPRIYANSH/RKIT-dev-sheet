@@ -5,133 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>events in jq</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: sans-serif;
-    }
-
-    body {
-      background: #252525;
-      padding: 25px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    section {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 15px;
-      padding: 25px;
-      border: 5px solid crimson;
-      flex-wrap: wrap;
-      margin-bottom: 10vh;
-    }
-
-    .child {
-      background: rgb(19, 226, 78);
-      color: #fff;
-      flex: 1;
-      min-width: 250px;
-      height: 250px;
-      display: grid;
-      place-items: center;
-      transition: 0.35s ease-in-out;
-      cursor: pointer;
-    }
-
-    .child:hover {
-      background: rgb(14, 109, 41);
-    }
-
-    span {
-      font-size: 2rem;
-    }
-
-    h1 {
-      background: crimson;
-      color: gold;
-      padding: 15px;
-      text-align: center;
-    }
-
-    #keyboardEvent .child {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 25px;
-    }
-
-    input::placeholder {
-      color: #fff;
-    }
-
-    input,
-    select {
-      background: transparent;
-      border: 2px solid white;
-      color: #fff;
-      padding: 7px 12px;
-      border-radius: 15px;
-    }
-
-    select {
-      color: #000;
-    }
-
-    #WindowEvent .child {
-
-      height: 300px;
-      overflow-y: auto;
-      flex-shrink: 0;
-    }
-
-    .red {
-      color: crimson
-    }
-
-    #setMethods .child {
-      min-width: 500px;
-    }
-
-    #cl-1 {
-      align-items: flex-start !important;
-      justify-content: flex-start;
-      padding: 25px;
-    }
-
-    #cl-1 * {
-      text-align: left;
-      width: 100%;
-    }
-
-    .newClass {
-      background: linear-gradient(to right, #e96443, #904e95);
-    }
-
-    .newClass h2 {
-      color: lime;
-    }
-
-    .newClass p {
-      color: rgb(211, 202, 219);
-      font-size: 1.5rem;
-    }
-    .onClick{
-      background: crimson;
-    }
-    .ondblClick{
-      background: gold;
-    }
-    .onRightClick{
-      background: rgb(14, 177, 218);
-    }
-
-  </style>
+  
+    <link href="../../styles/events.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -392,6 +267,20 @@
       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem voluptatibus incidunt neque veniam. Eveniet
         amet quidem repellendus minima quae magnam.</p>
       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+    </div>
+  </section>
+
+  
+  <h1>Fire event programmatically</h1>
+  <section>
+    <div id="t-1">
+      <span>
+        <button id="triggerButton">Click me to trigger the event</button>
+      </span>
+      <div id="message"></div>
+      <div id="clickEvent"> this is click event</div>
+
+ 
     </div>
   </section>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

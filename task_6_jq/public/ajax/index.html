@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax demo</title>
+    <link href="../../styles/ajax.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <h1>Load function in AJAX</h1>
+    <section>
+      <p id="dataParagraph"></p>
+      <div class="btns">
+        <button id="ajaxLoadTxtBtn">Load Text File[ajax]</button>
+        <button id="ajaxLoadHtmlBtn">Load Html File [ajax]</button>
+        <button id="ajaxLoadHtmlImgBtn">
+          Load Html file but only img tag [ajax]
+        </button>
+        <button id="ajaxLoadBtnWithCallback">Load with API [ajax]</button>
+      </div>
+    </section>
+
+    <h1>Get function in AJAX</h1>
+    <section>
+      <div id="weatherData"></div>
+      <form id="cityForm">
+        <input
+          type="text"
+          id="cityInput"
+          placeholder="Enter city name"
+          required
+        />
+        <button type="submit" id="ajaxGetWeatherBtn">Get Weather [AJAX]</button>
+      </form>
+    </section>
+
+    <h1>Post function in AJAX</h1>
+    <section>
+      <div id="postDataResult"></div>
+      <form id="postForm">
+        <input
+          type="text"
+          id="postDataInput"
+          placeholder="Enter data to send"
+          required
+        />
+        <button type="submit" id="ajaxPostBtn">Send Data [AJAX]</button>
+      </form>
+    </section>
+
+    <h1>AJAX Demo using $.ajax()</h1>
+    <section>
+      <div id="ajaxResponseData"></div>
+      <div class="btns">
+        <button id="ajaxDemoBtn">Fetch Data with $.ajax()</button>
+      </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../../src/ajax/main.js"></script>
+  </body>
+</html>
