@@ -1,0 +1,73 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\RKIT-dev-sheet\\Basic_API\\MVCProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FDF7A61B-9FDA-46F7-8708-45078D08C1AF}|MVCProject.csproj|f:\\rkit-dev-sheet\\basic_api\\mvcproject\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FDF7A61B-9FDA-46F7-8708-45078D08C1AF}|MVCProject.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDF7A61B-9FDA-46F7-8708-45078D08C1AF}|MVCProject.csproj|F:\\RKIT-dev-sheet\\Basic_API\\MVCProject\\Views\\Home\\About.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FDF7A61B-9FDA-46F7-8708-45078D08C1AF}|MVCProject.csproj|solutionrelative:Views\\Home\\About.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FDF7A61B-9FDA-46F7-8708-45078D08C1AF}|MVCProject.csproj|F:\\RKIT-dev-sheet\\Basic_API\\MVCProject\\Controllers\\HomeController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FDF7A61B-9FDA-46F7-8708-45078D08C1AF}|MVCProject.csproj|solutionrelative:Controllers\\HomeController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\MVCProject\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\MVCProject\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T10:09:34.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "About.cshtml",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\MVCProject\\Views\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\About.cshtml",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\MVCProject\\Views\\Home\\About.cshtml",
+              "RelativeToolTip": "Views\\Home\\About.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-18T10:09:20.802Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\MVCProject\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\MVCProject\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T10:08:49.885Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

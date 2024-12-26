@@ -1,0 +1,1 @@
+This is some dummy text to put into the newly created file called dummy.txt. ...... Appending more text.

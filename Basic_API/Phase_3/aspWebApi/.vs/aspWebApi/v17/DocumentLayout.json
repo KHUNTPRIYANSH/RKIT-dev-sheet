@@ -1,0 +1,75 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\aspWebApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FD429FB8-BE3D-4B5B-A8BA-2E3659F1AD25}|aspWebApi.csproj|f:\\rkit-dev-sheet\\basic_api\\phase_3\\aspwebapi\\app_start\\webapiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD429FB8-BE3D-4B5B-A8BA-2E3659F1AD25}|aspWebApi.csproj|solutionrelative:app_start\\webapiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD429FB8-BE3D-4B5B-A8BA-2E3659F1AD25}|aspWebApi.csproj|F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\aspWebApi\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD429FB8-BE3D-4B5B-A8BA-2E3659F1AD25}|aspWebApi.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD429FB8-BE3D-4B5B-A8BA-2E3659F1AD25}|aspWebApi.csproj|f:\\rkit-dev-sheet\\basic_api\\phase_3\\aspwebapi\\controllers\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD429FB8-BE3D-4B5B-A8BA-2E3659F1AD25}|aspWebApi.csproj|solutionrelative:controllers\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WebApiConfig.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\aspWebApi\\App_Start\\WebApiConfig.cs",
+              "RelativeDocumentMoniker": "App_Start\\WebApiConfig.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\aspWebApi\\App_Start\\WebApiConfig.cs",
+              "RelativeToolTip": "App_Start\\WebApiConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T11:42:08.532Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ValuesController.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\aspWebApi\\Controllers\\ValuesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ValuesController.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\aspWebApi\\Controllers\\ValuesController.cs",
+              "RelativeToolTip": "Controllers\\ValuesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T11:14:20.957Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\aspWebApi\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\aspWebApi\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T11:14:15.535Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

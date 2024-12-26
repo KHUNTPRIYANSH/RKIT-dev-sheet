@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\RKIT-dev-sheet\\Basic_API\\EmptyProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{704939B8-2B13-44BB-8CAB-C3E909A8023A}|EmptyProject.csproj|f:\\rkit-dev-sheet\\basic_api\\emptyproject\\dummywebform.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{704939B8-2B13-44BB-8CAB-C3E909A8023A}|EmptyProject.csproj|solutionrelative:dummywebform.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "dummyWebForm.aspx",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\EmptyProject\\dummyWebForm.aspx",
+              "RelativeDocumentMoniker": "dummyWebForm.aspx",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\EmptyProject\\dummyWebForm.aspx",
+              "RelativeToolTip": "dummyWebForm.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-12-18T10:04:03.224Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

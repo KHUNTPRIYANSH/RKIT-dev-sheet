@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "tXbZSTp4HRQ=",
+  "success": true,
+  "projectFilePath": "F:\\RKIT-dev-sheet\\Basic_API\\CSharpFinalDemo\\CSharpFinalDemo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\KPD\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512"
+  ],
+  "logs": []
+}

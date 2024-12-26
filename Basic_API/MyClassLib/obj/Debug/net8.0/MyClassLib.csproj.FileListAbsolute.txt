@@ -1,0 +1,12 @@
+F:\RKIT-dev-sheet\Basic_API\MyClassLib\bin\Debug\net8.0\MyClassLib.deps.json
+F:\RKIT-dev-sheet\Basic_API\MyClassLib\bin\Debug\net8.0\MyClassLib.dll
+F:\RKIT-dev-sheet\Basic_API\MyClassLib\bin\Debug\net8.0\MyClassLib.pdb
+F:\RKIT-dev-sheet\Basic_API\MyClassLib\obj\Debug\net8.0\MyClassLib.GeneratedMSBuildEditorConfig.editorconfig
+F:\RKIT-dev-sheet\Basic_API\MyClassLib\obj\Debug\net8.0\MyClassLib.AssemblyInfoInputs.cache
+F:\RKIT-dev-sheet\Basic_API\MyClassLib\obj\Debug\net8.0\MyClassLib.AssemblyInfo.cs
+F:\RKIT-dev-sheet\Basic_API\MyClassLib\obj\Debug\net8.0\MyClassLib.csproj.CoreCompileInputs.cache
+F:\RKIT-dev-sheet\Basic_API\MyClassLib\obj\Debug\net8.0\MyClassLib.sourcelink.json
+F:\RKIT-dev-sheet\Basic_API\MyClassLib\obj\Debug\net8.0\MyClassLib.dll
+F:\RKIT-dev-sheet\Basic_API\MyClassLib\obj\Debug\net8.0\refint\MyClassLib.dll
+F:\RKIT-dev-sheet\Basic_API\MyClassLib\obj\Debug\net8.0\MyClassLib.pdb
+F:\RKIT-dev-sheet\Basic_API\MyClassLib\obj\Debug\net8.0\ref\MyClassLib.dll

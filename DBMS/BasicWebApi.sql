@@ -1,0 +1,9 @@
+CREATE DATABASE BasicWebApi;
+USE BasicWebApi;
+
+CREATE TABLE Employees (
+    Id INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(255) NOT NULL,
+    City VARCHAR(75) NOT NULL,
+    IsActive bool NOT NULL
+);

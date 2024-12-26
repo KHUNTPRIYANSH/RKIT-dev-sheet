@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Bk/mANil1mU=",
+  "success": true,
+  "projectFilePath": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\LearningCSharp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\KPD\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512",
+    "C:\\Users\\KPD\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
