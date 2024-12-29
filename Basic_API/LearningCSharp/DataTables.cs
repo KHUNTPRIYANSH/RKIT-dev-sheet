@@ -13,7 +13,6 @@ namespace LearningCSharp
                 //employees.Columns.Add("ID", typeof(int));
                 DataColumn id = new DataColumn("ID")
                 {
-                    Caption = "Emp_Id",
                     DataType = typeof(int),
                     Unique = true,
                     AllowDBNull = false,  // if false => not null ; default value is true
@@ -23,29 +22,28 @@ namespace LearningCSharp
                 };
 
                 DataColumn name = new DataColumn("NAME");
-                name.Caption = "Emp_Name";
                 name.DataType = typeof(string);
                 name.AllowDBNull = false;
                 name.MaxLength = 100;
                 name.DefaultValue = "Anonymous";
-                
+
                 DataColumn dept_id = new DataColumn("DID");
-                id.Caption = "Dept_Id";
                 id.DataType = typeof(int);
-                id.AllowDBNull = false;  
-                
+                id.AllowDBNull = false;
+
                 // adding column to datatable
                 employees.Columns.Add(id);
                 employees.Columns.Add(name);
                 employees.Columns.Add(dept_id);
 
 
-                employees.Rows.Add(null,"Mr. abcde" , 7);
-                employees.Rows.Add(null,"Mr. pqrst" , 3);
-                employees.Rows.Add(null,"Mr. uvwxyz" , 2);
-                employees.Rows.Add(null,"Mr. mnopq" , 1);
+                employees.Rows.Add(null, "Mr. abcde", 7);
+                employees.Rows.Add(null, "Mr. pqrst", 3);
+                employees.Rows.Add(null, "Mr. uvwxyz", 2);
+                employees.Rows.Add(null, "Mr. mnopq", 1);
 
                 // other way
+
                 DataRow dataRow1 = employees.NewRow();
                 //dataRow1["ID"] = 4; 
                 dataRow1["ID"] = 3;
@@ -56,7 +54,7 @@ namespace LearningCSharp
                 employees.Rows.Add(dataRow1);
 
                 // primary key 
-                employees.PrimaryKey = new DataColumn[] {id};
+                employees.PrimaryKey = new DataColumn[] { id };
 
                 // printing all the rows in table
                 DisplayDataTable(employees);
@@ -71,9 +69,8 @@ namespace LearningCSharp
                 // Accessing specific data from a specific row (Row 2, Name column)
                 Console.WriteLine("\nAccessing specific data:");
                 Console.WriteLine($"Employee Name (Row 2): {employees.Rows[1]["NAME"]}");
-                    Console.WriteLine();
+                Console.WriteLine();
 
-                
 
                 // another table belong to dataset called compnay
                 DataTable departments = new DataTable("departments");
@@ -81,17 +78,18 @@ namespace LearningCSharp
                 {
                     DataType = typeof(int),
                 };
-                DataColumn dept_Name = new DataColumn("DEPT_NAME") { 
+                DataColumn dept_Name = new DataColumn("DEPT_NAME")
+                {
                     DataType = typeof(string),
                     MaxLength = 50,
                     AllowDBNull = true,
                 };
                 departments.Columns.Add(did);
                 departments.Columns.Add(dept_Name);
-                departments.Rows.Add(1,"HR.");
-                departments.Rows.Add(2,"QA.");
-                departments.Rows.Add(3,"Design");
-                departments.Rows.Add(7,"Dev");
+                departments.Rows.Add(1, "HR.");
+                departments.Rows.Add(2, "QA.");
+                departments.Rows.Add(3, "Design");
+                departments.Rows.Add(7, "Dev");
 
                 // Demonstrate DataSet containing multiple tables
                 DataSet dataSet = new DataSet("Company");
@@ -99,7 +97,7 @@ namespace LearningCSharp
                 dataSet.Tables.Add(departments);
 
                 // display all tables in dataset compnay
-                foreach(DataTable table in dataSet.Tables)
+                foreach (DataTable table in dataSet.Tables)
                 {
                     Console.WriteLine("Table : " + table);
                     DisplayDataTable(table);

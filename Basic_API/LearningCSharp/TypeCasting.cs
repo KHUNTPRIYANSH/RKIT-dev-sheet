@@ -13,27 +13,25 @@ namespace LearningCSharp
         public static void RunTypeCastingDemo()
         {
             #region Implicit Casting (Safe Casting)
-            // Implicit casting automatically converts a smaller type to a larger type.
-            // This is safe because there is no data loss.
-            int intNumber = 42; // Integer (4 bytes)
-            double doubleNumber = intNumber; // Implicit casting to double (8 bytes)
+            int num1 = 42; // Integer (4 bytes)
+            double num2 = num1; // Implicit casting to double (8 bytes)
             Console.WriteLine("=== Implicit Casting ===");
-            Console.WriteLine($"Integer value: {intNumber} (4 bytes)");
-            Console.WriteLine($"Implicitly casted to double: {doubleNumber} (8 bytes)");
+            Console.WriteLine($"Integer value: {num1} (4 bytes)");
+            Console.WriteLine($"Implicitly casted to double: {num2} (8 bytes)");
             #endregion
 
             #region Explicit Casting (Manual Casting)
-            // Explicit casting requires manual intervention to convert a larger type to a smaller type.
-            // This can lead to data loss if the larger type contains values outside the range of the smaller type.
-            double largeDouble = 42.58; // Double value (8 bytes)
-            int truncatedInt = (int)largeDouble; // Explicit casting to int (4 bytes)
+            double num3 = 42.58; // Double value (8 bytes)
+            int num4 = (int)num3; // Explicit casting to int (4 bytes)
             Console.WriteLine("\n=== Explicit Casting ===");
-            Console.WriteLine($"Double value: {largeDouble} (8 bytes)");
-            Console.WriteLine($"Explicitly casted to integer (truncated): {truncatedInt} (4 bytes)");
+            Console.WriteLine($"Double value: {num3} (8 bytes)");
+            Console.WriteLine($"Explicitly casted to integer (truncated): {num4} (4 bytes)");
             #endregion
 
             #region Convert Class
+            
             // Convert class safely converts between types.
+            
             string numericString = "12345";
             int convertedInt = Convert.ToInt32(numericString); // Converts string to integer
 
@@ -42,14 +40,17 @@ namespace LearningCSharp
             Console.WriteLine($"Converted to integer using Convert.ToInt32: {convertedInt}");
 
             // Converts string to other types
+            
             string floatString = "42.42";
             double convertedDouble = Convert.ToDouble(floatString);
             Console.WriteLine($"Converted to double using Convert.ToDouble: {convertedDouble}");
 
             // Note: Convert handles null input gracefully by returning default values
+
             string nullString = null;
             int defaultInt = Convert.ToInt32(nullString);
             Console.WriteLine($"Convert.ToInt32(null) returns: {defaultInt} (default value for int)");
+            
             #endregion
 
             #region Parse Method
@@ -69,10 +70,12 @@ namespace LearningCSharp
             // Uncomment below to see exceptions for invalid input
             // string invalidParseString = "NotANumber";
             // int errorInt = int.Parse(invalidParseString); // Throws FormatException
+            
             #endregion
 
             #region TryParse Method
             // TryParse is a safer alternative to Parse as it avoids exceptions.
+            
             string tryParseString = "789";
             int tryParsedInt;
             bool parseSuccess = int.TryParse(tryParseString, out tryParsedInt); // Safely attempts to parse
@@ -105,15 +108,12 @@ namespace LearningCSharp
             // - Use Convert for versatile conversions with null handling.
             // - Use Parse if input validity is guaranteed.
             // - Use TryParse when input validity is uncertain.
-            Console.WriteLine("\n=== Difference Between Convert, Parse, and TryParse ===");
-            Console.WriteLine("Convert: Versatile, handles null gracefully, but throws for invalid formats.");
-            Console.WriteLine("Parse: Converts strings but throws exceptions for null or invalid formats.");
-            Console.WriteLine("TryParse: Safer than Parse; returns false for invalid formats.");
             #endregion
 
             #region Boxing and Unboxing
             // Boxing converts a value type to an object.
             // Unboxing retrieves the value type from the object.
+
             int boxValue = 99;
             object boxed = boxValue; // Boxing
             int unboxed = (int)boxed; // Unboxing

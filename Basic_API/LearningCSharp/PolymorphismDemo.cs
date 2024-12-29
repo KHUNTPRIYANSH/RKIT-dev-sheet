@@ -76,6 +76,33 @@ namespace LearningCSharp
 
     internal class PolymorphismDemo
     {
+        #region Method Overloading: Add Methods
+
+        /// <summary>
+        /// Adds two integers.
+        /// </summary>
+        public static int Add(int a, int b)
+        {
+            return a + b;
+        }
+
+        /// <summary>
+        /// Adds three integers.
+        /// </summary>
+        public static int Add(int a, int b, int c)
+        {
+            return a + b + c;
+        }
+
+        /// <summary>
+        /// Adds two floating-point numbers.
+        /// </summary>
+        public static double Add(double a, double b)
+        {
+            return a + b;
+        }
+
+        #endregion
         public static void RunPolymorphismDemo()
         {
             #region Demonstrating Runtime Polymorphism (Method Overriding)
@@ -107,33 +134,5 @@ namespace LearningCSharp
 
             #endregion
         }
-
-        #region Method Overloading: Add Methods
-
-        /// <summary>
-        /// Adds two integers.
-        /// </summary>
-        public static int Add(int a, int b)
-        {
-            return a + b;
-        }
-
-        /// <summary>
-        /// Adds three integers.
-        /// </summary>
-        public static int Add(int a, int b, int c)
-        {
-            return a + b + c;
-        }
-
-        /// <summary>
-        /// Adds two floating-point numbers.
-        /// </summary>
-        public static double Add(double a, double b)
-        {
-            return a + b;
-        }
-
-        #endregion
     }
 }

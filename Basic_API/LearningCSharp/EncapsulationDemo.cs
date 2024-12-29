@@ -4,7 +4,9 @@ namespace LearningCSharp
 {
     #region BankAccount Class
 
-    // Encapsulation in action using a BankAccount class
+    /// <summary>
+    /// Encapsulation in action using a BankAccount class   
+    /// </summary>
     public class BankAccount
     {
         #region Private Fields
@@ -43,8 +45,11 @@ namespace LearningCSharp
         #endregion
 
         #region Public Methods
-
-        // Public method to deposit money into the account
+    
+        /// <summary>
+        /// Deposits the specified amount.
+        /// </summary>
+        /// <param name="amount">The amount.</param>
         public void Deposit(decimal amount)
         {
             if (amount > 0)
@@ -57,8 +62,11 @@ namespace LearningCSharp
                 Console.WriteLine("Deposit amount must be positive.");
             }
         }
-
-        // Public method to withdraw money from the account
+    
+        /// <summary>
+        /// Withdraws the specified amount.
+        /// </summary>
+        /// <param name="amount">The amount.</param>
         public void Withdraw(decimal amount)
         {
             if (amount > 0 && amount <= _BalanceVariable)

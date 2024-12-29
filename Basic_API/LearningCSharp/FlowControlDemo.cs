@@ -13,7 +13,6 @@ namespace LearningCSharp
         public static void RunFlowControlDemo()
         {
             #region If-Else Statement
-            // If-else is used to make decisions based on conditions.
 
             int number = 10;
             Console.WriteLine("=== If-Else Statement ===");
@@ -28,7 +27,6 @@ namespace LearningCSharp
             #endregion
 
             #region If-Else If Ladder
-            // The if-else if ladder is used to check multiple conditions.
 
             Console.WriteLine("\n=== If-Else If Ladder ===");
             int score = 85;
@@ -51,7 +49,6 @@ namespace LearningCSharp
             #endregion
 
             #region Nested If-Else Statement
-            // Nested if-else allows multiple levels of decision making.
 
             Console.WriteLine("\n=== Nested If-Else Statement ===");
             int age = 20;
@@ -73,7 +70,6 @@ namespace LearningCSharp
             #endregion
 
             #region Switch Statement
-            // Switch statement is used for comparing multiple values of a variable.
 
             Console.WriteLine("\n=== Switch Statement ===");
             string day = "Monday";
@@ -95,7 +91,6 @@ namespace LearningCSharp
             #endregion
 
             #region For Loop
-            // A for loop is used when the number of iterations is known.
 
             Console.WriteLine("\n=== For Loop ===");
             for (int i = 0; i < 5; i++)
@@ -105,7 +100,6 @@ namespace LearningCSharp
             #endregion
 
             #region While Loop
-            // A while loop is used when the number of iterations is not fixed but based on a condition.
 
             Console.WriteLine("\n=== While Loop ===");
             int count = 0;
@@ -117,7 +111,6 @@ namespace LearningCSharp
             #endregion
 
             #region Do-While Loop
-            // A do-while loop is similar to a while loop but guarantees at least one iteration.
 
             Console.WriteLine("\n=== Do-While Loop ===");
             int n = 0;
@@ -130,7 +123,6 @@ namespace LearningCSharp
             #endregion
 
             #region Break Statement
-            // The break statement is used to exit a loop or switch early.
 
             Console.WriteLine("\n=== Break Statement ===");
             for (int i = 0; i < 5; i++)
@@ -144,7 +136,6 @@ namespace LearningCSharp
             #endregion
 
             #region Continue Statement
-            // The continue statement is used to skip the current iteration of a loop and proceed to the next iteration.
 
             Console.WriteLine("\n=== Continue Statement ===");
             for (int i = 0; i < 5; i++)
@@ -158,7 +149,6 @@ namespace LearningCSharp
             #endregion
 
             #region Goto Statement
-            // The goto statement is used to jump to a labeled section of code.
 
             Console.WriteLine("\n=== Goto Statement ===");
             int number2 = 3;

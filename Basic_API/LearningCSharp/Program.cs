@@ -5,6 +5,9 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
+
+            // uncomment following one by one to run the code
+            
             //DataTypes.RunDataTypesCode();
             //TypeCasting.RunTypeCastingDemo();
             //OperatorsDemo.RunOperatorsDemo();
@@ -24,6 +27,7 @@
             //FileManagementDemo.RunFileManagementDemo();
             //StringClassDemo.RunStringClassDemo();
             //DateTimeClassDemo.RunDateTimeClassDemo();
+            
         }
     }
 }

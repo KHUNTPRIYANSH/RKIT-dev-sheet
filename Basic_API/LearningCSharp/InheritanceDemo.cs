@@ -12,7 +12,6 @@ namespace LearningCSharp
         {
             Console.WriteLine("Vehicle is starting...");
         }
-
         public void Stop()
         {
             Console.WriteLine("Vehicle is stopping...");
@@ -30,14 +29,23 @@ namespace LearningCSharp
         }
     }
 
-    // Multilevel Inheritance: Bus inherits from Vehicle, and ElectricCar inherits from Car
+    // Hierarchical Inheritance: Bus inherits from Vehicle
     public class Bus : Vehicle
     {
         public int SeatingCapacity;
 
-        public void BoardPassengers()
+        public void TakePassengers()
         {
-            Console.WriteLine("Passengers are boarding the bus...");
+            Console.WriteLine("Passengers are Takeing the bus...");
+        }
+    }
+    public class Plane : Vehicle
+    {
+        public int NumberOfEngines;
+
+        public void Fly()
+        {
+            Console.WriteLine("Plane is flying...");
         }
     }
 
@@ -49,17 +57,6 @@ namespace LearningCSharp
         public void Charge()
         {
             Console.WriteLine("Charging electric car...");
-        }
-    }
-
-    // Hierarchical Inheritance: Plane inherits from Vehicle (multiple classes inherit from Vehicle)
-    public class Plane : Vehicle
-    {
-        public int NumberOfEngines;
-
-        public void Fly()
-        {
-            Console.WriteLine("Plane is flying...");
         }
     }
 
@@ -115,7 +112,7 @@ namespace LearningCSharp
             Console.WriteLine("\n=== Multilevel Inheritance: Bus ===");
             Bus myBus = new Bus { Maker = "Mercedes", Year = 2019, SeatingCapacity = 50 };
             myBus.Start();
-            myBus.BoardPassengers();
+            myBus.TakePassengers();
             myBus.Stop();
         }
     }

@@ -13,7 +13,6 @@ namespace LearningCSharp
         public static void RunOperatorsDemo()
         {
             #region Arithmetic Operators
-            // Arithmetic operators are used to perform basic mathematical operations.
 
             int a = 10, b = 5;
             Console.WriteLine("=== Arithmetic Operators ===");
@@ -21,11 +20,10 @@ namespace LearningCSharp
             Console.WriteLine($"a - b = {a - b}"); // Subtraction
             Console.WriteLine($"a * b = {a * b}"); // Multiplication
             Console.WriteLine($"a / b = {a / b}"); // Division
-            Console.WriteLine($"a % b = {a % b}"); // Modulus (Remainder)
+            Console.WriteLine($"a % b = {a % b}"); // Modulus
             #endregion
 
             #region Relational Operators
-            // Relational operators are used to compare two values.
 
             int x = 10, y = 20;
             Console.WriteLine("\n=== Relational Operators ===");
@@ -38,7 +36,6 @@ namespace LearningCSharp
             #endregion
 
             #region Logical Operators
-            // Logical operators are used to perform logical operations.
 
             bool condition1 = true, condition2 = false;
             Console.WriteLine("\n=== Logical Operators ===");
@@ -48,8 +45,7 @@ namespace LearningCSharp
             #endregion
 
             #region Bitwise Operators
-            // Bitwise operators perform operations on the binary representation of numbers.
-
+            
             int num1 = 5, num2 = 3; // Binary: 101, 011
             Console.WriteLine("\n=== Bitwise Operators ===");
             Console.WriteLine($"num1 & num2: {num1 & num2}"); // AND
@@ -61,7 +57,6 @@ namespace LearningCSharp
             #endregion
 
             #region Assignment Operators
-            // Assignment operators are used to assign values to variables.
 
             int z = 10;
             Console.WriteLine("\n=== Assignment Operators ===");
@@ -78,7 +73,6 @@ namespace LearningCSharp
             #endregion
 
             #region Unary Operators
-            // Unary operators operate on a single operand.
 
             int count = 10;
             Console.WriteLine("\n=== Unary Operators ===");
@@ -90,7 +84,6 @@ namespace LearningCSharp
             #endregion
 
             #region Conditional (Ternary) Operator
-            // The ternary operator is a shorthand for if-else.
 
             int result = (x > y) ? x : y; // If x is greater than y, result = x, otherwise result = y
             Console.WriteLine("\n=== Conditional (Ternary) Operator ===");
@@ -98,6 +91,7 @@ namespace LearningCSharp
             #endregion
 
             #region Null Coalescing Operator
+
             // The null-coalescing operator is used to assign a default value if the variable is null.
 
             string name = null;

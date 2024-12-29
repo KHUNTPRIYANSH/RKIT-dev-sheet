@@ -3,8 +3,14 @@ using System.IO;
 
 namespace LearningCSharp
 {
+    /// <summary>
+    /// File Management demo file 
+    /// </summary>
     internal class FileManagementDemo
     {
+        /// <summary>
+        /// Runs the file management demo.
+        /// </summary>
         public static void RunFileManagementDemo()
         {
             // Get the current directory and store it into string

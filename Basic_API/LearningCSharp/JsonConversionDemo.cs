@@ -31,11 +31,11 @@ namespace LearningCSharp
             #region Object to JSON Conversion
 
             // Create a new Person object
-            Person person = new Person
-            {
-                Name = "John Doe",
-                Age = 30
-            };
+            Person person = new Person();
+
+            person.Name = "Priyansh Khunt";
+            person.Age = 21;
+            
 
             // Convert the Person object to a JSON string
             string jsonString = JsonConvert.SerializeObject(person);
@@ -49,7 +49,7 @@ namespace LearningCSharp
             #region JSON to Object Conversion
 
             // JSON string representing a Person object
-            string json = "{\"Name\":\"Jane Smith\",\"Age\":25}";
+            string json = "{\"Name\":\"Priyansh Khunt\",\"Age\":21}";
 
             // Convert the JSON string back to a Person object
             Person deserializedPerson = JsonConvert.DeserializeObject<Person>(json);

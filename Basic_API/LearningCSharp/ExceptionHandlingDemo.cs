@@ -123,25 +123,5 @@ public class ExceptionHandlingDemo
 
         #endregion
 
-        #region Exception Filters Example
-
-        try
-        {
-            int age = -5;
-            if (age < 0)
-            {
-                throw new ArgumentOutOfRangeException("Age cannot be negative.");
-            }
-        }
-        catch (ArgumentOutOfRangeException ex) when (ex.Message.Contains("negative"))
-        {
-            Console.WriteLine("Filtered Exception: " + ex.Message);
-        }
-        finally
-        {
-            Console.WriteLine("Finally block executed for Exception Filters Example.");
-        }
-
-        #endregion
     }
 }
