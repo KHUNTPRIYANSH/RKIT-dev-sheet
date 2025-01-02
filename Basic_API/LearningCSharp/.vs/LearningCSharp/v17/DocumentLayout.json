@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E9800FF4-653B-4BC9-90B4-3BD3FAC1899F}|LearningCSharp.csproj|f:\\rkit-dev-sheet\\basic_api\\learningcsharp\\inheritancedemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E9800FF4-653B-4BC9-90B4-3BD3FAC1899F}|LearningCSharp.csproj|solutionrelative:inheritancedemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E9800FF4-653B-4BC9-90B4-3BD3FAC1899F}|LearningCSharp.csproj|f:\\rkit-dev-sheet\\basic_api\\learningcsharp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E9800FF4-653B-4BC9-90B4-3BD3FAC1899F}|LearningCSharp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -18,34 +14,25 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "InheritanceDemo.cs",
-              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\InheritanceDemo.cs",
-              "RelativeDocumentMoniker": "InheritanceDemo.cs",
-              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\InheritanceDemo.cs",
-              "RelativeToolTip": "InheritanceDemo.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAYwBkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T10:14:42.639Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-04T08:22:20.706Z",
               "EditorCaption": ""

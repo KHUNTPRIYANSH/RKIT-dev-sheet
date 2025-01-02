@@ -3,48 +3,28 @@
   "WorkspaceRootPath": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\DateTimeClassDemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DateTimeClassDemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E9800FF4-653B-4BC9-90B4-3BD3FAC1899F}|LearningCSharp.csproj|f:\\rkit-dev-sheet\\basic_api\\learningcsharp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9800FF4-653B-4BC9-90B4-3BD3FAC1899F}|LearningCSharp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\DataTables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DataTables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E9800FF4-653B-4BC9-90B4-3BD3FAC1899F}|LearningCSharp.csproj|f:\\rkit-dev-sheet\\basic_api\\learningcsharp\\filemanagementdemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9800FF4-653B-4BC9-90B4-3BD3FAC1899F}|LearningCSharp.csproj|solutionrelative:filemanagementdemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\StringClassDemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:StringClassDemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E9800FF4-653B-4BC9-90B4-3BD3FAC1899F}|LearningCSharp.csproj|f:\\rkit-dev-sheet\\basic_api\\learningcsharp\\datatables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9800FF4-653B-4BC9-90B4-3BD3FAC1899F}|LearningCSharp.csproj|solutionrelative:datatables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\MethodsDemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MethodsDemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E9800FF4-653B-4BC9-90B4-3BD3FAC1899F}|LearningCSharp.csproj|f:\\rkit-dev-sheet\\basic_api\\learningcsharp\\exceptionhandlingdemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9800FF4-653B-4BC9-90B4-3BD3FAC1899F}|LearningCSharp.csproj|solutionrelative:exceptionhandlingdemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\PolymorphismDemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PolymorphismDemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E9800FF4-653B-4BC9-90B4-3BD3FAC1899F}|LearningCSharp.csproj|f:\\rkit-dev-sheet\\basic_api\\learningcsharp\\collectionsdemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9800FF4-653B-4BC9-90B4-3BD3FAC1899F}|LearningCSharp.csproj|solutionrelative:collectionsdemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\FileManagementDemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FileManagementDemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\FlowControlDemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FlowControlDemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\ArraysDemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ArraysDemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\CollectionsDemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CollectionsDemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\InheritanceDemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:InheritanceDemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E9800FF4-653B-4BC9-90B4-3BD3FAC1899F}|LearningCSharp.csproj|f:\\rkit-dev-sheet\\basic_api\\learningcsharp\\encapsulationdemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9800FF4-653B-4BC9-90B4-3BD3FAC1899F}|LearningCSharp.csproj|solutionrelative:encapsulationdemo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,144 +34,93 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DateTimeClassDemo.cs",
-              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\DateTimeClassDemo.cs",
-              "RelativeDocumentMoniker": "DateTimeClassDemo.cs",
-              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\DateTimeClassDemo.cs",
-              "RelativeToolTip": "DateTimeClassDemo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T09:55:10.446Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "StringClassDemo.cs",
-              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\StringClassDemo.cs",
-              "RelativeDocumentMoniker": "StringClassDemo.cs",
-              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\StringClassDemo.cs",
-              "RelativeToolTip": "StringClassDemo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T09:51:16.899Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MethodsDemo.cs",
-              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\MethodsDemo.cs",
-              "RelativeDocumentMoniker": "MethodsDemo.cs",
-              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\MethodsDemo.cs",
-              "RelativeToolTip": "MethodsDemo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-08T04:53:40.473Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PolymorphismDemo.cs",
-              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\PolymorphismDemo.cs",
-              "RelativeDocumentMoniker": "PolymorphismDemo.cs",
-              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\PolymorphismDemo.cs",
-              "RelativeToolTip": "PolymorphismDemo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T09:07:11.709Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBkAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T08:22:20.706Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "FileManagementDemo.cs",
               "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\FileManagementDemo.cs",
               "RelativeDocumentMoniker": "FileManagementDemo.cs",
               "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\FileManagementDemo.cs",
               "RelativeToolTip": "FileManagementDemo.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAYwCgAAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T09:26:03.903Z"
+              "WhenOpened": "2024-12-29T07:47:07.706Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FlowControlDemo.cs",
-              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\FlowControlDemo.cs",
-              "RelativeDocumentMoniker": "FlowControlDemo.cs",
-              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\FlowControlDemo.cs",
-              "RelativeToolTip": "FlowControlDemo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T09:06:54.181Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "DataTables.cs",
               "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\DataTables.cs",
               "RelativeDocumentMoniker": "DataTables.cs",
               "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\DataTables.cs",
               "RelativeToolTip": "DataTables.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAYwHcAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T10:59:04.517Z"
+              "WhenOpened": "2024-12-29T07:43:35.979Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ArraysDemo.cs",
-              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\ArraysDemo.cs",
-              "RelativeDocumentMoniker": "ArraysDemo.cs",
-              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\ArraysDemo.cs",
-              "RelativeToolTip": "ArraysDemo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "ExceptionHandlingDemo.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\ExceptionHandlingDemo.cs",
+              "RelativeDocumentMoniker": "ExceptionHandlingDemo.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\ExceptionHandlingDemo.cs",
+              "RelativeToolTip": "ExceptionHandlingDemo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAH8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T09:06:58.677Z"
+              "WhenOpened": "2024-12-29T07:40:57.619Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
               "Title": "CollectionsDemo.cs",
               "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\CollectionsDemo.cs",
               "RelativeDocumentMoniker": "CollectionsDemo.cs",
               "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\CollectionsDemo.cs",
               "RelativeToolTip": "CollectionsDemo.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAQwHkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T12:05:34.965Z"
+              "WhenOpened": "2024-12-29T07:35:51.48Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "InheritanceDemo.cs",
-              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\InheritanceDemo.cs",
-              "RelativeDocumentMoniker": "InheritanceDemo.cs",
-              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\InheritanceDemo.cs",
-              "RelativeToolTip": "InheritanceDemo.cs",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAYwGsAAAANAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "EncapsulationDemo.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\EncapsulationDemo.cs",
+              "RelativeDocumentMoniker": "EncapsulationDemo.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\EncapsulationDemo.cs",
+              "RelativeToolTip": "EncapsulationDemo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHIAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T08:58:45.131Z"
+              "WhenOpened": "2024-12-29T07:21:45.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\LearningCSharp\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T08:22:20.706Z",
+              "EditorCaption": ""
             }
           ]
         }
