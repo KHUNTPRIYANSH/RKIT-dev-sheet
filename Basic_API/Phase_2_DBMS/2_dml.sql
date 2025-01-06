@@ -16,6 +16,7 @@ VALUES
 
 -- Inserting data into the Employees table
 -- Adds employee records with various details.
+-- If we are inserting all the field's as per DESC table's order then no need of mentioning all the field while typing insert query. 
 INSERT INTO Employees (FirstName, LastName, DepartmentID, HireDate, Salary)
 VALUES
     ('Rajesh', 'Kumar', 1, '2021-02-12', 52000.00),
@@ -34,7 +35,8 @@ VALUES
     ('Arjun', 'Desai', 2, '2022-11-08', 61000.00),
     ('Priya', 'Joshi', 7, '2020-09-14', 68000.00),
     ('Ramesh', 'Kulkarni', 5, '2023-02-19', 47000.00);
-
+REPLACE INTO employees (FirstName, LastName, DepartmentID, HireDate, Salary)
+VALUES ('Rajesh', 'Kumar', 7, '2021-02-12', 52000.00),
 -- Updating data in the Employees table
 -- Updates the salary of an employee.
 UPDATE Employees
@@ -57,48 +59,6 @@ WHERE EmployeeID = 2;
 DELETE FROM Employees
 WHERE Salary < 50000;
 
--- Selecting data from the Departments table
--- Retrieves all department records.
-SELECT * FROM Departments;
-
--- Selecting specific columns from the Employees table
--- Retrieves the first name, last name, and salary of all employees.
-SELECT FirstName, LastName, Salary FROM Employees;
-
--- Filtering data with WHERE clause
--- Retrieves employees in the Engineering department.
-SELECT * FROM Employees
-WHERE DepartmentID = 3;
-
--- Using ORDER BY to sort data
--- Retrieves employees ordered by salary in descending order.
-SELECT * FROM Employees
-ORDER BY Salary DESC;
-
--- Using LIMIT to restrict the number of rows returned
--- Retrieves the top 2 highest-paid employees.
-SELECT * FROM Employees
-ORDER BY Salary DESC
-LIMIT 2;
-
--- Demonstrating data aggregation
--- Retrieves the total salary expenditure per department.
-SELECT DepartmentID, SUM(Salary) AS TotalSalary
-FROM Employees
-GROUP BY DepartmentID;
-
--- Using HAVING to filter aggregated data
--- Retrieves departments with total salary expenditure greater than 100000.
-SELECT DepartmentID, SUM(Salary) AS TotalSalary
-FROM Employees
-GROUP BY DepartmentID
-HAVING TotalSalary > 100000;
-
--- Demonstrating JOIN operation
--- Retrieves employee details along with their department names.
-SELECT e.EmployeeID, e.FirstName, e.LastName, d.DepartmentName, e.Salary
-FROM Employees e
-JOIN Departments d ON e.DepartmentID = d.DepartmentID;
 
 -- Demonstrating INSERT INTO SELECT
 -- Copies employees from Engineering department into a backup table.
@@ -106,17 +66,3 @@ CREATE TABLE EmployeeBackup AS
 SELECT * FROM Employees
 WHERE DepartmentID = 3;
 
--- Demonstrating transaction control
--- Starts a transaction, updates salary, and rolls back the changes.
-START TRANSACTION;
-UPDATE Employees
-SET Salary = Salary + 5000
-WHERE DepartmentID = 1;
-ROLLBACK;
-
--- Starts a transaction, updates salary, and commits the changes.
-START TRANSACTION;
-UPDATE Employees
-SET Salary = Salary + 5000
-WHERE DepartmentID = 1;
-COMMIT;

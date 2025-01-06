@@ -21,11 +21,16 @@ WHERE Salary > 50000;
 -- Retrieves employees hired after 2022 and earning less than 70000.
 SELECT * FROM Employees
 WHERE HireDate > '2022-01-01' AND Salary < 70000;
+SELECT * FROM Employees
+WHERE HireDate > '2022-01-01' OR Salary < 70000;
+SELECT * FROM Employees
+WHERE NOT (HireDate > '2022-01-01' AND Salary < 70000);
 
 -- Using LIKE for pattern matching
--- Retrieves employees whose first name starts with 'J'.
+-- Retrieves employees whose first name starts with 'S'.
 SELECT * FROM Employees
 WHERE FirstName LIKE 'S%';
+-- here % stands for any number of char , and _ stands for only 1 char
 
 -- Using IN operator
 -- Retrieves employees working in specific departments.
@@ -41,6 +46,7 @@ WHERE Salary BETWEEN 40000 AND 60000;
 -- Retrieves employees ordered by their last name in ascending order.
 SELECT * FROM Employees
 ORDER BY LastName ASC;
+-- we can use NULL FIRST , NULL LAST to manage null values while using order by
 
 -- Sorting by multiple columns
 -- Retrieves employees sorted by department and then by salary in descending order.
@@ -52,6 +58,9 @@ ORDER BY DepartmentID ASC, Salary DESC;
 SELECT * FROM Employees
 ORDER BY Salary DESC
 LIMIT 1 OFFSET 1;
+-- Limit = limit's the count of row in result
+-- offset = skips number of row from original result
+
 
 -- Aggregation functions
 -- 1. COUNT: Counts the number of employees.

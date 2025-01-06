@@ -1,6 +1,9 @@
 -- File: ddl.sql
 -- This file demonstrates DDL (Data Definition Language) commands in a basic Employee Management Database.
 
+-- Check all existing DB in system
+SHOW DATABASES;
+
 -- Creating a database
 -- This command creates a new database named 'EmployeeManagement'.
 CREATE DATABASE EmployeeManagement;
@@ -9,23 +12,32 @@ CREATE DATABASE EmployeeManagement;
 -- USE switches the context to the specified database.
 USE EmployeeManagement;
 
+-- Check in which db we are corrently in?
+SELECT DATABASE();
+
 -- Creating a table for employees
 -- This table stores employee details, including their unique ID, name, department, hire date, and salary.
 CREATE TABLE Employees (
     EmployeeID INT PRIMARY KEY AUTO_INCREMENT, -- Auto-increment ensures unique EmployeeID
-    FirstName VARCHAR(50), -- Employee's first name
-    LastName VARCHAR(50), -- Employee's last name
-    DepartmentID INT, -- Links to the department the employee belongs to
-    HireDate DATE, -- Hiredate of employee
-    Salary DECIMAL(10, 2) -- Stores salary up to 10 digits with 2 decimal places
+    FirstName VARCHAR(50), 
+    LastName VARCHAR(50), 
+    DepartmentID INT, 
+    HireDate DATE DEFAULT NOW(), 
+    Salary DECIMAL(10, 2)  DEFAULT 0, -- Stores salary up to 10 digits with 2 decimal places
+    CHECK (Salary > 0) -- Ensures salary will be positive
 );
+-- if you insert 2 row with id 1 , 1001 than after that when you insert new row and dont give id so auto increment will be used and it will give id as 1002 
+-- auto increment will find largest id and add one to that
 
 -- Creating a table for departments
 -- This table stores department details.
 CREATE TABLE Departments (
-    DepartmentID INT PRIMARY KEY AUTO_INCREMENT, -- Unique DepartmentID
-    DepartmentName VARCHAR(100) -- Name of the department
+    DepartmentID INT PRIMARY KEY AUTO_INCREMENT, 
+    DepartmentName VARCHAR(100)
 );
+
+-- Check table made or not and it's structure
+DESC Employees;
 
 -- Adding constraints using ALTER TABLE
 
@@ -47,7 +59,15 @@ ADD CONSTRAINT CheckSalary CHECK (Salary > 0);
 -- Adding a foreign key constraint to link Employees to Departments
 -- Ensures DepartmentID in Employees references a valid DepartmentID in Departments.
 ALTER TABLE Employees
-ADD CONSTRAINT FK_Department FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID);
+ADD CONSTRAINT FK_Department FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID) ON DELETE CASCADE;
+-- on delete cascade is a constraint which deletes all the ref in all the tables if row in parent table is deleted
+-- ex in employess table department  id is foreign key 
+-- if their is a table like department's policy and having details of  policy_ID , FK_empId , FK_deptId
+-- if empId deleted form employees table it will also delte that employee from policy table 
+-- it ensure data intigrity
+
+-- ON DELETE NULL 
+-- it will replace other ref with NULL values if row from parent table is deleted and child table get's affected
 
 -- Adding an INDEX for faster lookup of DepartmentID in Employees
 -- Improves query performance when filtering by DepartmentID.

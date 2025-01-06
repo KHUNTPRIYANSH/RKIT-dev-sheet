@@ -1,8 +1,11 @@
 -- File: dcl.sql
 -- This file demonstrates DCL (Data Control Language) commands in detail with examples for managing user access and privileges.
 
+SELECT user FROM mysql.user;
+
 -- Creating a new user
 -- The following command creates a new user named 'EmployeeManager' with a password.
+
 CREATE USER 'EmployeeManager'@'localhost' IDENTIFIED BY 'StrongPassword123';
 
 -- Granting privileges
@@ -24,7 +27,7 @@ SHOW GRANTS FOR 'EmployeeManager'@'localhost';
 REVOKE INSERT, UPDATE ON EmployeeManagement.Employees FROM 'EmployeeManager'@'localhost';
 
 -- 2. Revoking all privileges from a user for the EmployeeManagement database.
-REVOKE ALL PRIVILEGES ON EmployeeManagement.* FROM 'EmployeeManager'@'localhost';
+REVOKE ALL PRIVILEGES ON EmployeeManagement.*;
 
 -- Dropping a user
 -- Removes the user from the MySQL server.
