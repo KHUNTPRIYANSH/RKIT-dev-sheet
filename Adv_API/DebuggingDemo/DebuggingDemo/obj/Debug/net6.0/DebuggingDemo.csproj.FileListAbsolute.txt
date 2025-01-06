@@ -1,0 +1,15 @@
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DebuggingDemo\DebuggingDemo\bin\Debug\net6.0\DebuggingDemo.exe
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DebuggingDemo\DebuggingDemo\bin\Debug\net6.0\DebuggingDemo.deps.json
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DebuggingDemo\DebuggingDemo\bin\Debug\net6.0\DebuggingDemo.runtimeconfig.json
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DebuggingDemo\DebuggingDemo\bin\Debug\net6.0\DebuggingDemo.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DebuggingDemo\DebuggingDemo\bin\Debug\net6.0\DebuggingDemo.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DebuggingDemo\DebuggingDemo\obj\Debug\net6.0\DebuggingDemo.csproj.AssemblyReference.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DebuggingDemo\DebuggingDemo\obj\Debug\net6.0\DebuggingDemo.GeneratedMSBuildEditorConfig.editorconfig
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DebuggingDemo\DebuggingDemo\obj\Debug\net6.0\DebuggingDemo.AssemblyInfoInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DebuggingDemo\DebuggingDemo\obj\Debug\net6.0\DebuggingDemo.AssemblyInfo.cs
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DebuggingDemo\DebuggingDemo\obj\Debug\net6.0\DebuggingDemo.csproj.CoreCompileInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DebuggingDemo\DebuggingDemo\obj\Debug\net6.0\DebuggingDemo.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DebuggingDemo\DebuggingDemo\obj\Debug\net6.0\refint\DebuggingDemo.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DebuggingDemo\DebuggingDemo\obj\Debug\net6.0\DebuggingDemo.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DebuggingDemo\DebuggingDemo\obj\Debug\net6.0\DebuggingDemo.genruntimeconfig.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DebuggingDemo\DebuggingDemo\obj\Debug\net6.0\ref\DebuggingDemo.dll

@@ -1,0 +1,15 @@
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\GenericsInCSharp\GenericsInCSharp\bin\Debug\net6.0\GenericsInCSharp.exe
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\GenericsInCSharp\GenericsInCSharp\bin\Debug\net6.0\GenericsInCSharp.deps.json
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\GenericsInCSharp\GenericsInCSharp\bin\Debug\net6.0\GenericsInCSharp.runtimeconfig.json
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\GenericsInCSharp\GenericsInCSharp\bin\Debug\net6.0\GenericsInCSharp.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\GenericsInCSharp\GenericsInCSharp\bin\Debug\net6.0\GenericsInCSharp.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\GenericsInCSharp\GenericsInCSharp\obj\Debug\net6.0\GenericsInCSharp.csproj.AssemblyReference.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\GenericsInCSharp\GenericsInCSharp\obj\Debug\net6.0\GenericsInCSharp.GeneratedMSBuildEditorConfig.editorconfig
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\GenericsInCSharp\GenericsInCSharp\obj\Debug\net6.0\GenericsInCSharp.AssemblyInfoInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\GenericsInCSharp\GenericsInCSharp\obj\Debug\net6.0\GenericsInCSharp.AssemblyInfo.cs
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\GenericsInCSharp\GenericsInCSharp\obj\Debug\net6.0\GenericsInCSharp.csproj.CoreCompileInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\GenericsInCSharp\GenericsInCSharp\obj\Debug\net6.0\GenericsInCSharp.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\GenericsInCSharp\GenericsInCSharp\obj\Debug\net6.0\refint\GenericsInCSharp.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\GenericsInCSharp\GenericsInCSharp\obj\Debug\net6.0\GenericsInCSharp.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\GenericsInCSharp\GenericsInCSharp\obj\Debug\net6.0\GenericsInCSharp.genruntimeconfig.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\GenericsInCSharp\GenericsInCSharp\obj\Debug\net6.0\ref\GenericsInCSharp.dll
