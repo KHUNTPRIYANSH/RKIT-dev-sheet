@@ -1,0 +1,15 @@
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LamdaDemo\LamdaDemo\obj\Debug\net6.0\LamdaDemo.csproj.AssemblyReference.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LamdaDemo\LamdaDemo\obj\Debug\net6.0\LamdaDemo.GeneratedMSBuildEditorConfig.editorconfig
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LamdaDemo\LamdaDemo\obj\Debug\net6.0\LamdaDemo.AssemblyInfoInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LamdaDemo\LamdaDemo\obj\Debug\net6.0\LamdaDemo.AssemblyInfo.cs
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LamdaDemo\LamdaDemo\obj\Debug\net6.0\LamdaDemo.csproj.CoreCompileInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LamdaDemo\LamdaDemo\bin\Debug\net6.0\LamdaDemo.exe
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LamdaDemo\LamdaDemo\bin\Debug\net6.0\LamdaDemo.deps.json
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LamdaDemo\LamdaDemo\bin\Debug\net6.0\LamdaDemo.runtimeconfig.json
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LamdaDemo\LamdaDemo\bin\Debug\net6.0\LamdaDemo.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LamdaDemo\LamdaDemo\bin\Debug\net6.0\LamdaDemo.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LamdaDemo\LamdaDemo\obj\Debug\net6.0\LamdaDemo.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LamdaDemo\LamdaDemo\obj\Debug\net6.0\refint\LamdaDemo.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LamdaDemo\LamdaDemo\obj\Debug\net6.0\LamdaDemo.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LamdaDemo\LamdaDemo\obj\Debug\net6.0\LamdaDemo.genruntimeconfig.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LamdaDemo\LamdaDemo\obj\Debug\net6.0\ref\LamdaDemo.dll

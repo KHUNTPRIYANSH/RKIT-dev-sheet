@@ -1,0 +1,15 @@
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LINQ_Demo\LINQ_Demo\bin\Debug\net6.0\LINQ_Demo.exe
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LINQ_Demo\LINQ_Demo\bin\Debug\net6.0\LINQ_Demo.deps.json
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LINQ_Demo\LINQ_Demo\bin\Debug\net6.0\LINQ_Demo.runtimeconfig.json
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LINQ_Demo\LINQ_Demo\bin\Debug\net6.0\LINQ_Demo.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LINQ_Demo\LINQ_Demo\bin\Debug\net6.0\LINQ_Demo.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LINQ_Demo\LINQ_Demo\obj\Debug\net6.0\LINQ_Demo.csproj.AssemblyReference.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LINQ_Demo\LINQ_Demo\obj\Debug\net6.0\LINQ_Demo.GeneratedMSBuildEditorConfig.editorconfig
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LINQ_Demo\LINQ_Demo\obj\Debug\net6.0\LINQ_Demo.AssemblyInfoInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LINQ_Demo\LINQ_Demo\obj\Debug\net6.0\LINQ_Demo.AssemblyInfo.cs
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LINQ_Demo\LINQ_Demo\obj\Debug\net6.0\LINQ_Demo.csproj.CoreCompileInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LINQ_Demo\LINQ_Demo\obj\Debug\net6.0\LINQ_Demo.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LINQ_Demo\LINQ_Demo\obj\Debug\net6.0\refint\LINQ_Demo.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LINQ_Demo\LINQ_Demo\obj\Debug\net6.0\LINQ_Demo.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LINQ_Demo\LINQ_Demo\obj\Debug\net6.0\LINQ_Demo.genruntimeconfig.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\LINQ_Demo\LINQ_Demo\obj\Debug\net6.0\ref\LINQ_Demo.dll

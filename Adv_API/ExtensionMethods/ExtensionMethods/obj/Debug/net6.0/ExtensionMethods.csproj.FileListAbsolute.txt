@@ -1,0 +1,15 @@
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\ExtensionMethods\ExtensionMethods\bin\Debug\net6.0\ExtensionMethods.exe
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\ExtensionMethods\ExtensionMethods\bin\Debug\net6.0\ExtensionMethods.deps.json
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\ExtensionMethods\ExtensionMethods\bin\Debug\net6.0\ExtensionMethods.runtimeconfig.json
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\ExtensionMethods\ExtensionMethods\bin\Debug\net6.0\ExtensionMethods.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\ExtensionMethods\ExtensionMethods\bin\Debug\net6.0\ExtensionMethods.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\ExtensionMethods\ExtensionMethods\obj\Debug\net6.0\ExtensionMethods.csproj.AssemblyReference.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\ExtensionMethods\ExtensionMethods\obj\Debug\net6.0\ExtensionMethods.GeneratedMSBuildEditorConfig.editorconfig
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\ExtensionMethods\ExtensionMethods\obj\Debug\net6.0\ExtensionMethods.AssemblyInfoInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\ExtensionMethods\ExtensionMethods\obj\Debug\net6.0\ExtensionMethods.AssemblyInfo.cs
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\ExtensionMethods\ExtensionMethods\obj\Debug\net6.0\ExtensionMethods.csproj.CoreCompileInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\ExtensionMethods\ExtensionMethods\obj\Debug\net6.0\ExtensionMethods.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\ExtensionMethods\ExtensionMethods\obj\Debug\net6.0\refint\ExtensionMethods.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\ExtensionMethods\ExtensionMethods\obj\Debug\net6.0\ExtensionMethods.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\ExtensionMethods\ExtensionMethods\obj\Debug\net6.0\ExtensionMethods.genruntimeconfig.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\ExtensionMethods\ExtensionMethods\obj\Debug\net6.0\ref\ExtensionMethods.dll
