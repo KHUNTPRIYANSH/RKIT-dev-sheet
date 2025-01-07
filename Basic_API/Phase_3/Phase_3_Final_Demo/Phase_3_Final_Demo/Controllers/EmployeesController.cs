@@ -5,7 +5,7 @@ using MySql.Data.MySqlClient;
 using System.Configuration;
 using Phase_3_Final_Demo.Models;
 using System.Data.SqlClient;
-
+using System.Runtime.Caching;
 namespace CRUD_Web_Api.Controllers
 {
 
@@ -38,72 +38,94 @@ namespace CRUD_Web_Api.Controllers
 
         #endregion
 
+        // MemoryCache instance for caching
+        private ObjectCache cache = MemoryCache.Default;
+
         #region GET Methods
 
         /// <summary>
-        /// Retrieves all employees from the database.
+        /// Retrieves all employees from the database or cache.
         /// </summary>
         /// <returns>List of Employee objects</returns>
-        // GET: api/Employees
         [HttpGet]
+        [Authorize(Roles = "Admin,Editor,User")]
         [Route("api/employees")]
         public IHttpActionResult Get()
         {
-            List<Employee> employees = new List<Employee>();
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Employees", conn);
-                var reader = cmd.ExecuteReader(); // reader reads each row from table row by row
+            // Check if the employees data is cached
+            var employees = cache["AllEmployees"] as List<Employee>;
 
-                while (reader.Read()) // if we have row fetch it as obj & go to next row
+            if (employees == null)
+            {
+                // Data is not in cache, fetch from database
+                employees = new List<Employee>();
+                using (var conn = new MySqlConnection(connectionString))
                 {
-                    employees.Add(new Employee
+                    conn.Open();
+                    var cmd = new MySqlCommand("SELECT * FROM Employees", conn);
+                    var reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
                     {
-                        ID = Convert.ToInt32(reader["ID"]),
-                        Name = reader["Name"].ToString(),
-                        City = reader["City"].ToString(),
-                        IsActive = Convert.ToBoolean(reader["IsActive"])
-                    });
+                        employees.Add(new Employee
+                        {
+                            ID = Convert.ToInt32(reader["ID"]),
+                            Name = reader["Name"].ToString(),
+                            City = reader["City"].ToString(),
+                            IsActive = Convert.ToBoolean(reader["IsActive"])
+                        });
+                    }
                 }
+
+                // Cache the employees data for 5 minutes
+                CacheItemPolicy policy = new CacheItemPolicy { AbsoluteExpiration = DateTimeOffset.Now.AddMinutes(5) };
+                cache.Set("AllEmployees", employees, policy);
             }
 
-            if (employees.Count == 0)
-            {
-                return NotFound(); // Return 404 if no employees found
-            }
-
-
-            return Ok(employees); // Return 200 OK with list of employees
+            return employees.Count == 0 ? (IHttpActionResult)NotFound() : Ok(employees);
         }
 
         /// <summary>
-        /// Retrieves a specific employee by ID.
+        /// Retrieves a specific employee by ID from the database or cache.
         /// </summary>
         /// <param name="id">Employee ID</param>
         /// <returns>Employee object</returns>
-        // GET: api/Employees/3
         [HttpGet]
+        [Authorize(Roles = "Admin,Editor,User")]
         [Route("api/employees/{id}")]
         public IHttpActionResult Get(int id)
         {
-            Employee employee = null;
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Employees WHERE ID = @ID", conn);
-                cmd.Parameters.AddWithValue("@ID", id);
-                var reader = cmd.ExecuteReader(); // reader reads each row as obj from table one by one
+            // Check if the employee data is cached
+            var employee = cache[$"Employee_{id}"] as Employee;
 
-                if (reader.Read()) // if we found row then
+            if (employee == null)
+            {
+                // Data is not in cache, fetch from database
+                employee = null;
+                using (var conn = new MySqlConnection(connectionString))
                 {
-                    employee = new Employee
+                    conn.Open();
+                    var cmd = new MySqlCommand("SELECT * FROM Employees WHERE ID = @ID", conn);
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    var reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
                     {
-                        ID = Convert.ToInt32(reader["ID"]),
-                        Name = reader["Name"].ToString(),
-                        City = reader["City"].ToString(),
-                        IsActive = Convert.ToBoolean(reader["IsActive"])
-                    };
+                        employee = new Employee
+                        {
+                            ID = Convert.ToInt32(reader["ID"]),
+                            Name = reader["Name"].ToString(),
+                            City = reader["City"].ToString(),
+                            IsActive = Convert.ToBoolean(reader["IsActive"])
+                        };
+                    }
+                }
+
+                // Cache the employee data for 5 minutes
+                if (employee != null)
+                {
+                    CacheItemPolicy policy = new CacheItemPolicy { AbsoluteExpiration = DateTimeOffset.Now.AddMinutes(5) };
+                    cache.Set($"Employee_{id}", employee, policy);
                 }
             }
 
@@ -126,37 +148,24 @@ namespace CRUD_Web_Api.Controllers
         /// <returns>HTTP response with a success message</returns>
         // POST: api/Employees
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Admin,Editor")]
         [Route("api/employees")]
         public IHttpActionResult Post(Employee employee)
         {
-            if (employee == null)
-            {
-                return BadRequest("Invalid employee data"); // Return 400 BadRequest if employee data is invalid
-            }
+            if (employee == null) return BadRequest("Invalid employee data");
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (var conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-
-                // Way 1 : string interpolation can make more readable code but 
-                // it's not recommended for database operations.
-                // Using string interpolation directly in SQL queries can lead to SQL injection attacks
-                // if the input data is not properly sanitized.
-
-                //MySqlCommand cmd = new MySqlCommand($"INSERT INTO Employees (Name, City, IsActive) VALUES ('{employee.Name}', '{employee.City}', {employee.IsActive})", conn);
-
-                // Way 2 :
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO Employees (Name, City, IsActive) VALUES (@Name, @City, @IsActive)", conn);
+                var cmd = new MySqlCommand("INSERT INTO Employees (Name, City, IsActive) VALUES (@Name, @City, @IsActive)", conn);
                 cmd.Parameters.AddWithValue("@Name", employee.Name);
                 cmd.Parameters.AddWithValue("@City", employee.City);
                 cmd.Parameters.AddWithValue("@IsActive", employee.IsActive);
                 cmd.ExecuteNonQuery();
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = employee.ID }, employee); // Return 201 Created with location of the new resource
+            return CreatedAtRoute("DefaultApi", new { id = employee.ID }, employee);
         }
-
         #endregion
 
         #region PUT Method
@@ -169,32 +178,24 @@ namespace CRUD_Web_Api.Controllers
         /// <returns>HTTP response with a success message</returns>
         // PUT: api/Employees/3
         [HttpPut]
-        [Authorize]
+        [Authorize(Roles = "Admin,Editor")]
         [Route("api/employees/{id}")]
         public IHttpActionResult Put(int id, Employee employee)
         {
-            if (employee == null)
-            {
-                return BadRequest("Invalid employee data"); // Return 400 BadRequest if employee data is invalid
-            }
+            if (employee == null) return BadRequest("Invalid employee data");
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (var conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("UPDATE Employees SET Name = @Name, City = @City, IsActive = @IsActive WHERE ID = @ID", conn);
+                var cmd = new MySqlCommand("UPDATE Employees SET Name = @Name, City = @City, IsActive = @IsActive WHERE ID = @ID", conn);
                 cmd.Parameters.AddWithValue("@ID", id);
                 cmd.Parameters.AddWithValue("@Name", employee.Name);
                 cmd.Parameters.AddWithValue("@City", employee.City);
                 cmd.Parameters.AddWithValue("@IsActive", employee.IsActive);
-                int rowsAffected = cmd.ExecuteNonQuery();
-
-                if (rowsAffected == 0)
-                {
-                    return NotFound(); // Return 404 if employee not found
-                }
+                if (cmd.ExecuteNonQuery() == 0) return NotFound();
             }
 
-            return Ok("Employee updated successfully!"); // Return 200 OK with success message
+            return Ok("Employee updated successfully!");
         }
 
         #endregion
@@ -208,24 +209,19 @@ namespace CRUD_Web_Api.Controllers
         /// <returns>HTTP response with a success message</returns>
         // DELETE: api/Employees/3
         [HttpDelete]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [Route("api/employees/{id}")]
         public IHttpActionResult Delete(int id)
         {
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (var conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("DELETE FROM Employees WHERE ID = @ID", conn);
+                var cmd = new MySqlCommand("DELETE FROM Employees WHERE ID = @ID", conn);
                 cmd.Parameters.AddWithValue("@ID", id);
-                int rowsAffected = cmd.ExecuteNonQuery();
-
-                if (rowsAffected == 0)
-                {
-                    return NotFound(); // Return 404 if employee not found
-                }
+                if (cmd.ExecuteNonQuery() == 0) return NotFound();
             }
 
-            return Ok("Employee deleted successfully!"); // Return 200 OK with success message
+            return Ok("Employee deleted successfully!");
         }
 
         #endregion
