@@ -10,6 +10,13 @@ namespace LINQ_Demo
         public string Name { get; set; }
         public int Age { get; set; }
     }
+    public class Order
+    {
+        public int OrderID { get; set; }
+        public int PersonId { get; set; }
+        public int TotalAmount { get; set; }
+    }
+    
 
     public class DataSource
     {
@@ -21,6 +28,14 @@ namespace LINQ_Demo
             new Person { PersonID = 3, Name = "Parth", Age = 35 },
             new Person { PersonID = 4, Name = "Yash", Age = 40 },
             new Person { PersonID = 5, Name = "Maulik", Age = 50 }
+        };
+
+        public List<Order> OrderList = new List<Order>()
+        {
+            new Order { OrderID = 101, PersonId = 1, TotalAmount = 500 },
+            new Order { OrderID = 102, PersonId = 2, TotalAmount = 700 },
+            new Order { OrderID = 103, PersonId = 3, TotalAmount = 300 },
+            new Order { OrderID = 104, PersonId = 4, TotalAmount = 800 }
         };
     }
 
@@ -45,11 +60,27 @@ namespace LINQ_Demo
 
             // Run quantifier methods demo
             QuantifierMethods(dataSource);
+
+            // Run set methods demo
+            SetMethods(dataSource);
+
+            // Run join methods demo
+            JoinMethods(dataSource);
+
+            // Run aggregate methods demo
+            AggregateMethods(dataSource);
+
+            // Run Group method demo
+            GroupMethods(dataSource);
+
+            // Run conversion methods demo
+            ConversionMethods(dataSource);
         }
 
         // Filter Methods Demo
         public static void FilterMethods(DataSource dataSource)
         {
+            Console.WriteLine("\n##### Filter Methods ####");
             // Where() - Filters adults aged 30 or above
             List<Person> adults = dataSource.PersonList.Where(p => p.Age >= 30).ToList();
             Console.WriteLine("Adults: " + string.Join(", ", adults.Select(p => p.Name)));
@@ -98,6 +129,8 @@ namespace LINQ_Demo
         /// </summary>
         public static void ProjectionMethods(DataSource dataSource)
         {
+
+            Console.WriteLine("\n##### Projection  Methods ####");
             // Select - Projects only the names of people
             var names = dataSource.PersonList.Select(p => p.Name);
             Console.WriteLine("Names: " + string.Join(", ", names));
@@ -125,6 +158,8 @@ namespace LINQ_Demo
         /// </summary>
         public static void PartitionMethods(DataSource dataSource)
         {
+
+            Console.WriteLine("\n##### Partition  Methods ####");
             // TakeWhile() - Takes elements while the condition is true
             IEnumerable<Person> PersonListStartingWithA = dataSource.PersonList.TakeWhile(p => p.Name.StartsWith("A"));
             Console.WriteLine("TakeWhile: " + string.Join(", ", PersonListStartingWithA.Select(p => p.Name)));
@@ -155,6 +190,8 @@ namespace LINQ_Demo
         /// </summary>
         public static void SortingMethods(DataSource dataSource)
         {
+
+            Console.WriteLine("\n##### Sorting  Methods ####");
             // OrderBy() - Sorts by age in ascending order
             List<Person> sortedByAgeAsc = dataSource.PersonList.OrderBy(p => p.Age).ToList();
             Console.WriteLine("Sorted by Age Ascending: " + string.Join(", ", sortedByAgeAsc.Select(p => p.Name)));
@@ -177,6 +214,8 @@ namespace LINQ_Demo
         /// </summary>
         public static void QuantifierMethods(DataSource dataSource)
         {
+
+            Console.WriteLine("\n##### Quantifier  Methods ####");
             // Any() - Checks if any person is aged 30 or above
             bool anyAdults = dataSource.PersonList.Any(p => p.Age >= 30);
             Console.WriteLine("Any adults: " + anyAdults);
@@ -193,6 +232,120 @@ namespace LINQ_Demo
             int totalPeople = dataSource.PersonList.Count();
             Console.WriteLine("Total people: " + totalPeople);
         }
+        /// <summary>
+        /// Demonstrates set operations like Distinct, Union, Intersect, and Except.
+        /// </summary>
+        public static void SetMethods(DataSource dataSource)
+        {
 
+            Console.WriteLine("\n##### Set  Methods ####");
+            List<int> set1 = new List<int> { 1, 2, 3 };
+            List<int> set2 = new List<int> { 3, 4, 5 };
+
+            var distinctSet1 = set1.Distinct().ToList();
+            Console.WriteLine("Distinct Set1: " + string.Join(", ", distinctSet1));
+
+            var union = set1.Union(set2).ToList();
+            Console.WriteLine("Union: " + string.Join(", ", union));
+
+            var intersect = set1.Intersect(set2).ToList();
+            Console.WriteLine("Intersect: " + string.Join(", ", intersect));
+
+            var except = set1.Except(set2).ToList();
+            Console.WriteLine("Except: " + string.Join(", ", except));
+
+            var concat = set1.Concat(set2).ToList();
+            Console.WriteLine("Concat: " + string.Join(", ", concat));
+        }
+
+        /// <summary>
+        /// Demonstrates join operations like Join and GroupJoin.
+        /// </summary>
+        public static void JoinMethods(DataSource dataSource)
+        {
+
+            Console.WriteLine("\n##### Join  Methods ####");
+            var personOrders = dataSource.PersonList.Join(dataSource.OrderList,
+                person => person.PersonID,
+                order => order.PersonId,
+                (person, order) => new { person.Name, order.TotalAmount });
+
+            foreach (var item in personOrders)
+            {
+                Console.WriteLine($"Person: {item.Name}, Order Amount: {item.TotalAmount}");
+            }
+
+            var groupedOrders = dataSource.PersonList.GroupJoin(dataSource.OrderList,
+                person => person.PersonID,
+                order => order.PersonId,
+                (person, orders) => new { person.Name, Orders = orders.Select(o => o.TotalAmount) });
+
+            foreach (var item in groupedOrders)
+            {
+                Console.WriteLine($"Person: {item.Name}, Orders: {string.Join(", ", item.Orders)}");
+            }
+        }
+
+        /// <summary>
+        /// Demonstrates aggregate methods like Sum, Average, Min, Max, and Aggregate.
+        /// </summary>
+        public static void AggregateMethods(DataSource dataSource)
+        {
+
+            Console.WriteLine("\n##### Aggregate  Methods ####");
+            int totalAmount = dataSource.OrderList.Sum(o => o.TotalAmount);
+            Console.WriteLine("Total Order Amount: " + totalAmount);
+
+            double averageAmount = dataSource.OrderList.Average(o => o.TotalAmount);
+            Console.WriteLine("Average Order Amount: " + averageAmount);
+
+            int minAmount = dataSource.OrderList.Min(o => o.TotalAmount);
+            Console.WriteLine("Minimum Order Amount: " + minAmount);
+
+            int maxAmount = dataSource.OrderList.Max(o => o.TotalAmount);
+            Console.WriteLine("Maximum Order Amount: " + maxAmount);
+
+            int totalSum = dataSource.OrderList.Select(o => o.TotalAmount).Aggregate((sum, next) => sum + next);
+            Console.WriteLine("Aggregate Total Amount: " + totalSum);
+        }
+
+        /// <summary>
+        /// Demonstrates grouping methods like GroupBy.
+        /// </summary>
+        public static void GroupMethods(DataSource dataSource)
+        {
+
+            Console.WriteLine("\n##### Group  Methods ####");
+            var groupedByAge = dataSource.PersonList.GroupBy(p => p.Age);
+
+            foreach (var group in groupedByAge)
+            {
+                Console.WriteLine($"Age: {group.Key}, People: {string.Join(", ", group.Select(p => p.Name))}");
+            }
+        }
+
+        /// <summary>
+        /// Demonstrates conversion methods like ToList, ToArray, ToDictionary, and OfType.
+        /// </summary>
+        public static void ConversionMethods(DataSource dataSource)
+        {
+
+            Console.WriteLine("\n##### Conversion  Methods ####");
+            var namesList = dataSource.PersonList.Select(p => p.Name).ToList();
+            Console.WriteLine("Names List: " + string.Join(", ", namesList));
+
+            var namesArray = dataSource.PersonList.Select(p => p.Name).ToArray();
+            Console.WriteLine("Names Array: " + string.Join(", ", namesArray));
+
+            var personDictionary = dataSource.PersonList.ToDictionary(p => p.PersonID, p => p.Name);
+            foreach (var kvp in personDictionary)
+            {
+                Console.WriteLine($"PersonID: {kvp.Key}, Name: {kvp.Value}");
+            }
+
+            List<object> mixedList = new List<object> { 1, "hello", 2.5, "world" };
+            var strings = mixedList.OfType<string>();
+            Console.WriteLine("Strings: " + string.Join(", ", strings));
+        }
     }
 }
