@@ -1,0 +1,11 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Offline_BasicAPI_Phase_1_Final
+build_property.ProjectDir = F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\MyClassLib\Offline_BasicAPI-Phase_1_Final\Offline_BasicAPI-Phase_1_Final\

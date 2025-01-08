@@ -1,0 +1,5 @@
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\Final_BasicAPI\Final_BasicAPI\obj\Debug\net7.0\Final_BasicAPI.csproj.AssemblyReference.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\Final_BasicAPI\Final_BasicAPI\obj\Debug\net7.0\Final_BasicAPI.GeneratedMSBuildEditorConfig.editorconfig
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\Final_BasicAPI\Final_BasicAPI\obj\Debug\net7.0\Final_BasicAPI.AssemblyInfoInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\Final_BasicAPI\Final_BasicAPI\obj\Debug\net7.0\Final_BasicAPI.AssemblyInfo.cs
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\Final_BasicAPI\Final_BasicAPI\obj\Debug\net7.0\Final_BasicAPI.csproj.CoreCompileInputs.cache

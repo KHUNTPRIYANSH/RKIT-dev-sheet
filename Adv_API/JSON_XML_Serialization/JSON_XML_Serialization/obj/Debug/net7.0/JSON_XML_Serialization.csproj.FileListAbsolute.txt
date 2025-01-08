@@ -1,0 +1,17 @@
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\JSON_XML_Serialization\JSON_XML_Serialization\obj\Debug\net7.0\JSON_XML_Serialization.csproj.AssemblyReference.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\JSON_XML_Serialization\JSON_XML_Serialization\obj\Debug\net7.0\JSON_XML_Serialization.GeneratedMSBuildEditorConfig.editorconfig
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\JSON_XML_Serialization\JSON_XML_Serialization\obj\Debug\net7.0\JSON_XML_Serialization.AssemblyInfoInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\JSON_XML_Serialization\JSON_XML_Serialization\obj\Debug\net7.0\JSON_XML_Serialization.AssemblyInfo.cs
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\JSON_XML_Serialization\JSON_XML_Serialization\obj\Debug\net7.0\JSON_XML_Serialization.csproj.CoreCompileInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\JSON_XML_Serialization\JSON_XML_Serialization\bin\Debug\net7.0\JSON_XML_Serialization.exe
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\JSON_XML_Serialization\JSON_XML_Serialization\bin\Debug\net7.0\JSON_XML_Serialization.deps.json
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\JSON_XML_Serialization\JSON_XML_Serialization\bin\Debug\net7.0\JSON_XML_Serialization.runtimeconfig.json
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\JSON_XML_Serialization\JSON_XML_Serialization\bin\Debug\net7.0\JSON_XML_Serialization.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\JSON_XML_Serialization\JSON_XML_Serialization\bin\Debug\net7.0\JSON_XML_Serialization.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\JSON_XML_Serialization\JSON_XML_Serialization\bin\Debug\net7.0\Newtonsoft.Json.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\JSON_XML_Serialization\JSON_XML_Serialization\obj\Debug\net7.0\JSON_XML_Serialization.csproj.CopyComplete
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\JSON_XML_Serialization\JSON_XML_Serialization\obj\Debug\net7.0\JSON_XML_Serialization.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\JSON_XML_Serialization\JSON_XML_Serialization\obj\Debug\net7.0\refint\JSON_XML_Serialization.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\JSON_XML_Serialization\JSON_XML_Serialization\obj\Debug\net7.0\JSON_XML_Serialization.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\JSON_XML_Serialization\JSON_XML_Serialization\obj\Debug\net7.0\JSON_XML_Serialization.genruntimeconfig.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\JSON_XML_Serialization\JSON_XML_Serialization\obj\Debug\net7.0\ref\JSON_XML_Serialization.dll

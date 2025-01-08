@@ -196,11 +196,11 @@ namespace LearningCSharp
         }
 
         // Helper method to print any collection
-        //private static void PrintCollection<T>(IEnumerable<T> collection)
-        //{
-        //    foreach (var item in collection)
-        //        Console.WriteLine(item);
-        //}
+        private static void PrintCollection<T>(IEnumerable<T> collection)
+        {
+            foreach (var item in collection)
+                Console.WriteLine(item);
+        }
 
     }
 }

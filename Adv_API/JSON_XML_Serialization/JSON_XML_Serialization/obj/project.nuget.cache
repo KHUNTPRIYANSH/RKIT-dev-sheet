@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "x7QWchRDdtTLS1NTAdxuiSeuNl1ZMpNB1Dbe4f9gviO2wS+sB4GqAu5ZRK2tBi2eY6Ki98uwOd4b2am6ZLrevg==",
+  "success": true,
+  "projectFilePath": "F:\\Priyansh_KPD\\GITHUB\\RKIT-dev-sheet\\Adv_API\\JSON_XML_Serialization\\JSON_XML_Serialization\\JSON_XML_Serialization.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\PRIYANSH.K\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
