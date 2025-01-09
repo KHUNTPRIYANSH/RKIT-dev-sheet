@@ -18,5 +18,14 @@ namespace Basic_ORM.BL.Operations
         private Response _objResponse; // Holds obj for response
         private readonly IDbConnectionFactory _dbFactory; // Factory to manage database connections.
 
+        /// <summary>
+        /// A = Add , E = Edit , D = Delete
+        /// </summary>
+        public EnmType Type { get; set; }
+
+        // Constructor
+
+
+
     }
 }
