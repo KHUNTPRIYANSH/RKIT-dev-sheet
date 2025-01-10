@@ -5,12 +5,12 @@
 SHOW DATABASES;
 
 -- Creating a database
--- This command creates a new database named 'EmployeeManagement'.
-CREATE DATABASE EmployeeManagement;
+-- This command creates a new database named 'KPD_EmployeeManagement_MYSQL'.
+CREATE DATABASE KPD_EmployeeManagement_MYSQL;
 
 -- Switching to the database
 -- USE switches the context to the specified database.
-USE EmployeeManagement;
+USE KPD_EmployeeManagement_MYSQL;
 
 -- Check in which db we are corrently in?
 SELECT DATABASE();
@@ -22,9 +22,10 @@ CREATE TABLE Employees (
     FirstName VARCHAR(50), 
     LastName VARCHAR(50), 
     DepartmentID INT, 
-    HireDate DATE DEFAULT NOW(), 
+    HireDate DATE, 
     Salary DECIMAL(10, 2)  DEFAULT 0, -- Stores salary up to 10 digits with 2 decimal places
-    CHECK (Salary > 0) -- Ensures salary will be positive
+    CHECK (Salary > 0), -- Ensures salary will be positive
+    IsActive BOOL DEFAULT TRUE
 );
 -- if you insert 2 row with id 1 , 1001 than after that when you insert new row and dont give id so auto increment will be used and it will give id as 1002 
 -- auto increment will find largest id and add one to that
@@ -38,6 +39,7 @@ CREATE TABLE Departments (
 
 -- Check table made or not and it's structure
 DESC Employees;
+DESCRIBE Employees;
 
 -- Adding constraints using ALTER TABLE
 
@@ -119,4 +121,21 @@ DROP TABLE Staff;
 ALTER TABLE Staff RENAME TO Employees;
 -- Demonstrating database deletion
 -- Deletes the entire EmployeeManagement database.
-DROP DATABASE EmployeeManagement;
+DROP DATABASE KPD_EmployeeManagement_MYSQL;
+
+-- Create table for active users
+CREATE TABLE Active_Employees (
+    EmployeeID INT PRIMARY KEY, 
+    FirstName VARCHAR(50), 
+    LastName VARCHAR(50), 
+    DepartmentID INT, 
+    IsActive BOOL DEFAULT TRUE
+);
+-- Create table for Inactive users
+CREATE TABLE InActive_Employees (
+    EmployeeID INT PRIMARY KEY, 
+    FirstName VARCHAR(50), 
+    LastName VARCHAR(50), 
+    DepartmentID INT, 
+    IsActive BOOL DEFAULT FALSE
+);

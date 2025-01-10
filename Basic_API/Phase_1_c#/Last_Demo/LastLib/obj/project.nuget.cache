@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "gGtAm+yyqa+bnxHp4RqrlynArfIjNnTzuiKluZG6pATJT7ih0Uvxedi2eENevIHgYtkV7b0ScqyuDLR4YEV8+Q==",
+  "success": true,
+  "projectFilePath": "F:\\Priyansh_KPD\\GITHUB\\RKIT-dev-sheet\\Basic_API\\Phase_1_c#\\Last_Demo\\LastLib\\LastLib.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\PRIYANSH.K\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\PRIYANSH.K\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

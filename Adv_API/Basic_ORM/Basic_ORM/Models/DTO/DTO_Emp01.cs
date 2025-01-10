@@ -1,16 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Basic_ORM.Models.DTO
 {
+    /// <summary>
+    /// Data Transfer Object for Employee entity.
+    /// </summary>
     public class DTO_Emp01
     {
-        public string Name { get; set; } // Employee's name
-        public string Department { get; set; } // Department name
-        public decimal Salary { get; set; } // Employee's salary
-        public string Email { get; set; } // Contact email
-        public bool IsActive { get; set; } // Active or inactive status
+        #region Properties
+
+        /// <summary>
+        /// Unique identifier for the employee.
+        /// </summary>
+        public int Id { get; set; }
+
+        /// <summary>
+        /// Employee's name.
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Name of the department where the employee works.
+        /// </summary>
+        public string Department { get; set; }
+
+        /// <summary>
+        /// Employee's salary.
+        /// </summary>
+        public decimal Salary { get; set; }
+
+        /// <summary>
+        /// Contact email of the employee.
+        /// </summary>
+        public string Email { get; set; }
+
+        /// <summary>
+        /// Indicates whether the employee is active.
+        /// </summary>
+        public bool IsActive { get; set; }
+
+        #endregion
     }
 }

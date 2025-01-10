@@ -1,0 +1,10 @@
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\Last_Demo\LastLib\obj\Debug\netstandard2.0\LastLib.csproj.AssemblyReference.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\Last_Demo\LastLib\obj\Debug\netstandard2.0\LastLib.GeneratedMSBuildEditorConfig.editorconfig
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\Last_Demo\LastLib\obj\Debug\netstandard2.0\LastLib.AssemblyInfoInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\Last_Demo\LastLib\obj\Debug\netstandard2.0\LastLib.AssemblyInfo.cs
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\Last_Demo\LastLib\obj\Debug\netstandard2.0\LastLib.csproj.CoreCompileInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\Last_Demo\LastLib\bin\Debug\netstandard2.0\LastLib.deps.json
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\Last_Demo\LastLib\bin\Debug\netstandard2.0\LastLib.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\Last_Demo\LastLib\bin\Debug\netstandard2.0\LastLib.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\Last_Demo\LastLib\obj\Debug\netstandard2.0\LastLib.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\Last_Demo\LastLib\obj\Debug\netstandard2.0\LastLib.pdb
