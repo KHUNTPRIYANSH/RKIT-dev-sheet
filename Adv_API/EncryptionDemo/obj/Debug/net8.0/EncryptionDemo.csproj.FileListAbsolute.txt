@@ -1,0 +1,15 @@
+F:\RKIT-dev-sheet\Adv_API\EncryptionDemo\bin\Debug\net8.0\EncryptionDemo.exe
+F:\RKIT-dev-sheet\Adv_API\EncryptionDemo\bin\Debug\net8.0\EncryptionDemo.deps.json
+F:\RKIT-dev-sheet\Adv_API\EncryptionDemo\bin\Debug\net8.0\EncryptionDemo.runtimeconfig.json
+F:\RKIT-dev-sheet\Adv_API\EncryptionDemo\bin\Debug\net8.0\EncryptionDemo.dll
+F:\RKIT-dev-sheet\Adv_API\EncryptionDemo\bin\Debug\net8.0\EncryptionDemo.pdb
+F:\RKIT-dev-sheet\Adv_API\EncryptionDemo\obj\Debug\net8.0\EncryptionDemo.GeneratedMSBuildEditorConfig.editorconfig
+F:\RKIT-dev-sheet\Adv_API\EncryptionDemo\obj\Debug\net8.0\EncryptionDemo.AssemblyInfoInputs.cache
+F:\RKIT-dev-sheet\Adv_API\EncryptionDemo\obj\Debug\net8.0\EncryptionDemo.AssemblyInfo.cs
+F:\RKIT-dev-sheet\Adv_API\EncryptionDemo\obj\Debug\net8.0\EncryptionDemo.csproj.CoreCompileInputs.cache
+F:\RKIT-dev-sheet\Adv_API\EncryptionDemo\obj\Debug\net8.0\EncryptionDemo.sourcelink.json
+F:\RKIT-dev-sheet\Adv_API\EncryptionDemo\obj\Debug\net8.0\EncryptionDemo.dll
+F:\RKIT-dev-sheet\Adv_API\EncryptionDemo\obj\Debug\net8.0\refint\EncryptionDemo.dll
+F:\RKIT-dev-sheet\Adv_API\EncryptionDemo\obj\Debug\net8.0\EncryptionDemo.pdb
+F:\RKIT-dev-sheet\Adv_API\EncryptionDemo\obj\Debug\net8.0\EncryptionDemo.genruntimeconfig.cache
+F:\RKIT-dev-sheet\Adv_API\EncryptionDemo\obj\Debug\net8.0\ref\EncryptionDemo.dll
