@@ -1,0 +1,15 @@
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DynamicType\DynamicType\bin\Debug\net6.0\DynamicType.exe
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DynamicType\DynamicType\bin\Debug\net6.0\DynamicType.deps.json
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DynamicType\DynamicType\bin\Debug\net6.0\DynamicType.runtimeconfig.json
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DynamicType\DynamicType\bin\Debug\net6.0\DynamicType.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DynamicType\DynamicType\bin\Debug\net6.0\DynamicType.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DynamicType\DynamicType\obj\Debug\net6.0\DynamicType.csproj.AssemblyReference.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DynamicType\DynamicType\obj\Debug\net6.0\DynamicType.GeneratedMSBuildEditorConfig.editorconfig
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DynamicType\DynamicType\obj\Debug\net6.0\DynamicType.AssemblyInfoInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DynamicType\DynamicType\obj\Debug\net6.0\DynamicType.AssemblyInfo.cs
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DynamicType\DynamicType\obj\Debug\net6.0\DynamicType.csproj.CoreCompileInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DynamicType\DynamicType\obj\Debug\net6.0\DynamicType.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DynamicType\DynamicType\obj\Debug\net6.0\refint\DynamicType.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DynamicType\DynamicType\obj\Debug\net6.0\DynamicType.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DynamicType\DynamicType\obj\Debug\net6.0\DynamicType.genruntimeconfig.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\DynamicType\DynamicType\obj\Debug\net6.0\ref\DynamicType.dll
