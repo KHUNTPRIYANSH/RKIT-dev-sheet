@@ -26,9 +26,12 @@ namespace Basic_ORM.BL.Operations
 
         public BL_Employee()
         {
+            // creating obj of response [data , isError , msg]
             _objResponse = new Response();
+            // strong ref of connection to _dbFactory
             _dbFactory = HttpContext.Current.Application["DbFactory"] as IDbConnectionFactory;
 
+            // checking if connection is their or not
             if (_dbFactory == null)
             {
                 throw new Exception("IDbConnectionFactory not found");
