@@ -16,6 +16,7 @@ namespace Basic_ORM.BL.Operations
 {
     public class BL_Employee : IDataHandler<DTO_Emp01>
     {
+        // following are field which are necessary and used manytime in operations
         private Emp01 _objEmp01;
         private int _id;
         private Response _objResponse;

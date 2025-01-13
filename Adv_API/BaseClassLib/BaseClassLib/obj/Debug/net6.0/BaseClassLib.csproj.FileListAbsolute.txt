@@ -1,0 +1,15 @@
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\BaseClassLib\BaseClassLib\bin\Debug\net6.0\BaseClassLib.exe
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\BaseClassLib\BaseClassLib\bin\Debug\net6.0\BaseClassLib.deps.json
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\BaseClassLib\BaseClassLib\bin\Debug\net6.0\BaseClassLib.runtimeconfig.json
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\BaseClassLib\BaseClassLib\bin\Debug\net6.0\BaseClassLib.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\BaseClassLib\BaseClassLib\bin\Debug\net6.0\BaseClassLib.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\BaseClassLib\BaseClassLib\obj\Debug\net6.0\BaseClassLib.csproj.AssemblyReference.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\BaseClassLib\BaseClassLib\obj\Debug\net6.0\BaseClassLib.GeneratedMSBuildEditorConfig.editorconfig
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\BaseClassLib\BaseClassLib\obj\Debug\net6.0\BaseClassLib.AssemblyInfoInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\BaseClassLib\BaseClassLib\obj\Debug\net6.0\BaseClassLib.AssemblyInfo.cs
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\BaseClassLib\BaseClassLib\obj\Debug\net6.0\BaseClassLib.csproj.CoreCompileInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\BaseClassLib\BaseClassLib\obj\Debug\net6.0\BaseClassLib.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\BaseClassLib\BaseClassLib\obj\Debug\net6.0\refint\BaseClassLib.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\BaseClassLib\BaseClassLib\obj\Debug\net6.0\BaseClassLib.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\BaseClassLib\BaseClassLib\obj\Debug\net6.0\BaseClassLib.genruntimeconfig.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\BaseClassLib\BaseClassLib\obj\Debug\net6.0\ref\BaseClassLib.dll
