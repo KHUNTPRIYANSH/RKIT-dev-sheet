@@ -1,0 +1,63 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\RKIT-dev-sheet\\Adv_API\\EncryptionDemo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5B06441B-FDAF-431A-8C83-5A76E15830A7}|EncryptionDemo.csproj|f:\\rkit-dev-sheet\\adv_api\\encryptiondemo\\aeshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B06441B-FDAF-431A-8C83-5A76E15830A7}|EncryptionDemo.csproj|solutionrelative:aeshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B06441B-FDAF-431A-8C83-5A76E15830A7}|EncryptionDemo.csproj|f:\\rkit-dev-sheet\\adv_api\\encryptiondemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B06441B-FDAF-431A-8C83-5A76E15830A7}|EncryptionDemo.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AESHelper.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Adv_API\\EncryptionDemo\\AESHelper.cs",
+              "RelativeDocumentMoniker": "AESHelper.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Adv_API\\EncryptionDemo\\AESHelper.cs",
+              "RelativeToolTip": "AESHelper.cs",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAAwIgAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-11T13:46:45.248Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Adv_API\\EncryptionDemo\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Adv_API\\EncryptionDemo\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-11T13:43:13.97Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
