@@ -39,6 +39,7 @@ namespace Basic_ORM.Models.DTO
         /// </summary>
         public bool IsActive { get; set; }
 
+        // Phone , date of joining in not their in dto
         #endregion
     }
 }

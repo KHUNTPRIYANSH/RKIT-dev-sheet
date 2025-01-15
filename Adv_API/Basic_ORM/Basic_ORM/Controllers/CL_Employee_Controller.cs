@@ -21,7 +21,7 @@ namespace Basic_ORM.Controllers
         /// Retrieves all employees.
         /// </summary>
         [HttpGet]
-        [Route("get-all-employees")]
+        [Route("get_all_employees")]
         public IHttpActionResult GetAllEmployees()
         {
             var employees = _objBLEmployee.GetAll();
@@ -32,7 +32,7 @@ namespace Basic_ORM.Controllers
         /// Retrieves an employee by ID.
         /// </summary>
         [HttpGet]
-        [Route("get-employee-by-id")]
+        [Route("get_employee_by_id")]
         public IHttpActionResult GetEmployeeByID(int id)
         {
             var employee = _objBLEmployee.Get(id);
@@ -45,7 +45,7 @@ namespace Basic_ORM.Controllers
         /// Adds a new employee.
         /// </summary>
         [HttpPost]
-        [Route("add-employee")]
+        [Route("add_employee")]
         public IHttpActionResult AddEmployee(DTO_Emp01 objDTOEmp01)
         {
             _objBLEmployee.Type = EnmType.A;
@@ -62,7 +62,7 @@ namespace Basic_ORM.Controllers
         /// Updates an existing employee.
         /// </summary>
         [HttpPut]
-        [Route("update-employee")]
+        [Route("update_employee")]
         public IHttpActionResult UpdateEmployee(DTO_Emp01 objDTOEmp01)
         {
             _objBLEmployee.Type = EnmType.E;
@@ -79,7 +79,7 @@ namespace Basic_ORM.Controllers
         /// Deletes an employee by ID.
         /// </summary>
         [HttpDelete]
-        [Route("delete-employee")]
+        [Route("delete_employee")]
         public IHttpActionResult DeleteEmployee(int id)
         {
             _objResponse = _objBLEmployee.Delete(id);
@@ -92,11 +92,63 @@ namespace Basic_ORM.Controllers
         /// Validates if an employee exists by their ID.
         /// </summary>
         [HttpGet]
-        [Route("check-employee-exists")]
+        [Route("check_employee_exists")]
         public IHttpActionResult IsEmployeeExists(int id)
         {
-            var exists = _objBLEmployee.Get(id) != null;
-            return Ok($"Employee Exists: {exists}");
+            var exists = _objBLEmployee.Get(id);
+            if (exists != null)
+            {
+                return Ok($"Employee Exists: {exists}");
+            }
+            else
+            {
+                return BadRequest(_objResponse.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("get-first-employee")]
+        public IHttpActionResult GetFirstEmployee()
+        {
+            var record = _objBLEmployee.FirstEmployee();
+            if(record != null)
+            {
+                return Ok(record);
+            }
+            return BadRequest(_objResponse.Message);
+        }
+        [HttpGet]
+        [Route("get_last_employee")]
+        public IHttpActionResult GetLastEmployee()
+        {
+            var record = _objBLEmployee.LastEmployee();
+            if(record != null)
+            {
+                return Ok(record);
+            }
+            return BadRequest(_objResponse.Message);
+        }
+
+        [HttpGet]
+        [Route("get_highest_paid_employee")]
+        public IHttpActionResult GetRichEmployee()
+        {
+            var record = _objBLEmployee.RichestEmployee();
+            if (record != null)
+            {
+                return Ok(record);
+            }
+            return BadRequest(_objResponse.Message);
+        }[HttpGet]
+        [Route("get_mployee_where_name_starts_with")]
+        public IHttpActionResult GetEmployeeWhereNameStartsWith(char ch)
+        {
+            var record = _objBLEmployee.EmployeeWhereNameStartsWith(ch);
+            if (record != null)
+            {
+                return Ok(record);
+            }
+            return BadRequest(_objResponse.Message);
         }
     }
 }

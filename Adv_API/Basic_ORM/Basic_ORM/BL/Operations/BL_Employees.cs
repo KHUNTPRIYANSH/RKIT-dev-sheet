@@ -146,5 +146,78 @@ namespace Basic_ORM.BL.Operations
             }
             return _objResponse;
         }
+
+        public Response FirstEmployee()
+        {
+            using (var db = _dbFactory.OpenDbConnection())
+            {
+                var emp = db.Select<Emp01>().FirstOrDefault();
+                if (emp != null)
+                {
+                    _objResponse.Data = emp;
+                    _objResponse.IsError = false;
+                    _objResponse.Message = "Success : First employee";
+                    return _objResponse;
+                }
+
+                _objResponse.IsError = true;
+                _objResponse.Message = "Error : No employees";
+                return _objResponse;
+            }
+
+        }
+        public Response LastEmployee()
+        {
+            using (var db = _dbFactory.OpenDbConnection())
+            {
+                var emp = db.Select<Emp01>().LastOrDefault();
+                if (emp != null)
+                {
+                    _objResponse.Data = emp;
+                    _objResponse.IsError = false;
+                    _objResponse.Message = "Success : Last employee";
+                    return _objResponse;
+                }
+
+                _objResponse.IsError = true;
+                _objResponse.Message = "Error : No employees";
+                return _objResponse;
+
+            }
+        }
+        public Response RichestEmployee()
+        {
+            using (var db = _dbFactory.OpenDbConnection())
+            {
+                var emp = db.Single(db.From<Emp01>().OrderBy(e => e.Salary));
+                _objResponse.Data = emp;
+                _objResponse.IsError = false;
+                _objResponse.Message = "Success : Get richest employee";
+                return _objResponse;
+            }
+            _objResponse.IsError = true;
+            _objResponse.Message = "Error : Failed to get richest employee";
+            return _objResponse;
+        }
+        public Response EmployeeWhereNameStartsWith(char ch)
+        {
+            using (var db = _dbFactory.OpenDbConnection())
+            {
+                var emp = db.Select(db.From<Emp01>().Where(e => e.Name.StartsWith(ch.ToString())));
+                if (emp != null)
+                {
+
+                    _objResponse.Data = emp;
+                    _objResponse.IsError = false;
+                    _objResponse.Message = "Success : Get employee where employee name starts with : " + ch;
+                return _objResponse;
+                }
+                _objResponse.IsError = true;
+                _objResponse.Message = "Error : Failed to employee where employee name starts with : " + ch;
+                return _objResponse;
+            }
+        }
+
+
     }
 }
