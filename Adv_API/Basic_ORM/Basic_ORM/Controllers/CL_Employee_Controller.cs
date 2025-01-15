@@ -24,7 +24,7 @@ namespace Basic_ORM.Controllers
         [Route("get_all_employees")]
         public IHttpActionResult GetAllEmployees()
         {
-            var employees = _objBLEmployee.GetAll();
+            List<Emp01> employees = _objBLEmployee.GetAll();
             return Ok(employees);
         }
 
@@ -35,7 +35,7 @@ namespace Basic_ORM.Controllers
         [Route("get_employee_by_id")]
         public IHttpActionResult GetEmployeeByID(int id)
         {
-            var employee = _objBLEmployee.Get(id);
+           Emp01 employee = _objBLEmployee.Get(id);
             if (employee == null)
                 return NotFound();
             return Ok(employee);
@@ -95,7 +95,7 @@ namespace Basic_ORM.Controllers
         [Route("check_employee_exists")]
         public IHttpActionResult IsEmployeeExists(int id)
         {
-            var exists = _objBLEmployee.Get(id);
+            Emp01 exists = _objBLEmployee.Get(id);
             if (exists != null)
             {
                 return Ok($"Employee Exists: {exists}");
@@ -110,10 +110,10 @@ namespace Basic_ORM.Controllers
         [Route("get-first-employee")]
         public IHttpActionResult GetFirstEmployee()
         {
-            var record = _objBLEmployee.FirstEmployee();
-            if(record != null)
+            _objResponse = _objBLEmployee.FirstEmployee();
+            if(_objResponse != null)
             {
-                return Ok(record);
+                return Ok(_objResponse);
             }
             return BadRequest(_objResponse.Message);
         }
@@ -121,10 +121,10 @@ namespace Basic_ORM.Controllers
         [Route("get_last_employee")]
         public IHttpActionResult GetLastEmployee()
         {
-            var record = _objBLEmployee.LastEmployee();
-            if(record != null)
+          _objResponse = _objBLEmployee.LastEmployee();
+            if(_objResponse != null)
             {
-                return Ok(record);
+                return Ok(_objResponse);
             }
             return BadRequest(_objResponse.Message);
         }
@@ -133,22 +133,37 @@ namespace Basic_ORM.Controllers
         [Route("get_highest_paid_employee")]
         public IHttpActionResult GetRichEmployee()
         {
-            var record = _objBLEmployee.RichestEmployee();
-            if (record != null)
+          _objResponse = _objBLEmployee.RichestEmployee();
+            if (_objResponse != null)
             {
-                return Ok(record);
+                return Ok(_objResponse);
             }
             return BadRequest(_objResponse.Message);
-        }[HttpGet]
-        [Route("get_mployee_where_name_starts_with")]
+        }
+        
+        [HttpGet]
+        [Route("get_employee_where_name_starts_with")]
         public IHttpActionResult GetEmployeeWhereNameStartsWith(char ch)
         {
-            var record = _objBLEmployee.EmployeeWhereNameStartsWith(ch);
-            if (record != null)
+           _objResponse = _objBLEmployee.EmployeeWhereNameStartsWith(ch);
+            if (_objResponse != null)
             {
-                return Ok(record);
+                return Ok(_objResponse);
             }
             return BadRequest(_objResponse.Message);
+        }
+
+        [HttpGet]
+        [Route("get_department_insights")]
+        public IHttpActionResult GetDepartmentInsigts(string dpt)
+        {
+            _objResponse = _objBLEmployee.DepartmentInsigts(dpt);
+            if (!_objResponse.IsError)
+            {
+                return Ok(_objResponse);
+            }
+            string strResponse = $"Data : {_objResponse.Data}, IsError : {_objResponse.IsError}, Message: {_objResponse.Message}";
+            return BadRequest(strResponse);
         }
     }
 }

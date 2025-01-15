@@ -96,6 +96,8 @@ namespace Basic_ORM.BL.Operations
 
         public void PreSave(DTO_Emp01 objDTO)
         {
+            objDTO.Name = objDTO.Name.ToLower();
+            objDTO.Department = objDTO.Department.ToLower();
             _objEmp01 = objDTO.Convert<Emp01>();
             if (Type == EnmType.E && objDTO.Id > 0)
             {
@@ -189,11 +191,15 @@ namespace Basic_ORM.BL.Operations
         {
             using (var db = _dbFactory.OpenDbConnection())
             {
-                var emp = db.Single(db.From<Emp01>().OrderBy(e => e.Salary));
-                _objResponse.Data = emp;
-                _objResponse.IsError = false;
-                _objResponse.Message = "Success : Get richest employee";
-                return _objResponse;
+                var emp = db.Single(db.From<Emp01>().OrderByDescending(e => e.Salary));
+                if (emp != null)
+                {
+
+                    _objResponse.Data = emp;
+                    _objResponse.IsError = false;
+                    _objResponse.Message = "Success : Get richest employee";
+                    return _objResponse;
+                }
             }
             _objResponse.IsError = true;
             _objResponse.Message = "Error : Failed to get richest employee";
@@ -204,18 +210,44 @@ namespace Basic_ORM.BL.Operations
             using (var db = _dbFactory.OpenDbConnection())
             {
                 var emp = db.Select(db.From<Emp01>().Where(e => e.Name.StartsWith(ch.ToString())));
-                if (emp != null)
+                if (emp.Count > 0)
                 {
 
                     _objResponse.Data = emp;
                     _objResponse.IsError = false;
                     _objResponse.Message = "Success : Get employee where employee name starts with : " + ch;
-                return _objResponse;
+                    return _objResponse;
                 }
                 _objResponse.IsError = true;
                 _objResponse.Message = "Error : Failed to employee where employee name starts with : " + ch;
                 return _objResponse;
             }
+        }
+
+        public Response DepartmentInsigts(string dpt)
+        {
+            dpt = dpt.ToLower();
+            using (var db = _dbFactory.OpenDbConnection())
+            {
+                long count = db.Count<Emp01>(e => e.Department == dpt);
+                int maxPay = db.Scalar<int>(db.From<Emp01>().Where(e => e.Department == dpt).Select(e => Sql.Max(e.Salary)));
+                int avgPay = db.Scalar<int>($"SELECT AVG(Salary) FROM Emp01 WHERE Department = \"{dpt}\"");
+                int minPay = db.Scalar<int>($"SELECT MIN(Salary) FROM  Emp01 WHERE Department = \"{dpt}\"");
+                var res = $"Count : {count}, Max Pay : {maxPay}, Min Pay : {minPay}, Avg Pay : {avgPay}";
+                if (count > 0 && maxPay >0 && avgPay > 0 && minPay > 0)
+                {
+                    _objResponse.Data = res; _objResponse.IsError = false;
+                    _objResponse.Message = "Success : Got insights";
+                }
+                else
+                {
+
+                _objResponse.IsError = true;
+                _objResponse.Message = "Error : Can't get insights";
+                }
+
+            }
+            return _objResponse;
         }
 
 
