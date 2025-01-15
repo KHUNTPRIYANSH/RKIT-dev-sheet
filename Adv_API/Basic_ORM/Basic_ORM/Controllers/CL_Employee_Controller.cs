@@ -102,7 +102,7 @@ namespace Basic_ORM.Controllers
             }
             else
             {
-                return BadRequest(_objResponse.Message);
+                return BadRequest("Employee not found");
             }
         }
 
