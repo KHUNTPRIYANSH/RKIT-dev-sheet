@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Basic_ORM</name>
+    </assembly>
+    <members>
+        <member name="T:Basic_ORM.BL.Interface.IDataHandler`1">
+            <summary>
+            Interface for handling data operations of a specific type.
+            </summary>
+            <typeparam name="T">The type of data to handle.</typeparam>
+        </member>
+        <member name="P:Basic_ORM.BL.Interface.IDataHandler`1.Type">
+            <summary>
+            Gets or sets the type of operation (e.g., Edit, Add).
+            </summary>
+        </member>
+        <member name="M:Basic_ORM.BL.Interface.IDataHandler`1.PreSave(`0)">
+            <summary>
+            Performs pre-save operations on the data object before saving.
+            </summary>
+            <param name="objDto">The data object to be saved.</param>
+        </member>
+        <member name="M:Basic_ORM.BL.Interface.IDataHandler`1.Validation">
+            <summary>
+            Validates the data before saving.
+            </summary>
+            <returns>A response indicating whether the validation was successful.</returns>
+        </member>
+        <member name="M:Basic_ORM.BL.Interface.IDataHandler`1.Save">
+            <summary>
+            Saves the data.
+            </summary>
+            <returns>A response indicating the result of the save operation.</returns>
+        </member>
+        <member name="T:Basic_ORM.Controllers.CL_Employee_Controller">
+            <summary>
+            Controller to manage employee-related API operations.
+            </summary>
+        </member>
+        <member name="M:Basic_ORM.Controllers.CL_Employee_Controller.GetAllEmployees">
+            <summary>
+            Retrieves all employees.
+            </summary>
+        </member>
+        <member name="M:Basic_ORM.Controllers.CL_Employee_Controller.GetEmployeeByID(System.Int32)">
+            <summary>
+            Retrieves an employee by ID.
+            </summary>
+        </member>
+        <member name="M:Basic_ORM.Controllers.CL_Employee_Controller.AddEmployee(Basic_ORM.Models.DTO.DTO_Emp01)">
+            <summary>
+            Adds a new employee.
+            </summary>
+        </member>
+        <member name="M:Basic_ORM.Controllers.CL_Employee_Controller.UpdateEmployee(Basic_ORM.Models.DTO.DTO_Emp01)">
+            <summary>
+            Updates an existing employee.
+            </summary>
+        </member>
+        <member name="M:Basic_ORM.Controllers.CL_Employee_Controller.DeleteEmployee(System.Int32)">
+            <summary>
+            Deletes an employee by ID.
+            </summary>
+        </member>
+        <member name="M:Basic_ORM.Controllers.CL_Employee_Controller.IsEmployeeExists(System.Int32)">
+            <summary>
+            Validates if an employee exists by their ID.
+            </summary>
+        </member>
+        <member name="T:Basic_ORM.Extensions.DTO_To_POCO">
+            <summary>
+            Extension methods to convert DTO from POCO.
+            </summary>
+        </member>
+        <member name="M:Basic_ORM.Extensions.DTO_To_POCO.Convert``1(System.Object)">
+            <summary>
+            Converts a DTO object to its corresponding POCO type.
+            </summary>
+            <typeparam name="POCO">The target POCO type that the DTO will be converted to.</typeparam>
+            <param name="objDTO">The DTO object to be converted.</param>
+            <returns>A POCO instance with the same property values as the DTO.</returns>
+        </member>
+        <member name="T:Basic_ORM.Models.DTO.DTO_Emp01">
+            <summary>
+            Data Transfer Object for Employee entity.
+            </summary>
+        </member>
+        <member name="P:Basic_ORM.Models.DTO.DTO_Emp01.Id">
+            <summary>
+            Unique identifier for the employee.
+            </summary>
+        </member>
+        <member name="P:Basic_ORM.Models.DTO.DTO_Emp01.Name">
+            <summary>
+            Employee's name.
+            </summary>
+        </member>
+        <member name="P:Basic_ORM.Models.DTO.DTO_Emp01.Department">
+            <summary>
+            Name of the department where the employee works.
+            </summary>
+        </member>
+        <member name="P:Basic_ORM.Models.DTO.DTO_Emp01.Salary">
+            <summary>
+            Employee's salary.
+            </summary>
+        </member>
+        <member name="P:Basic_ORM.Models.DTO.DTO_Emp01.Email">
+            <summary>
+            Contact email of the employee.
+            </summary>
+        </member>
+        <member name="P:Basic_ORM.Models.DTO.DTO_Emp01.IsActive">
+            <summary>
+            Indicates whether the employee is active.
+            </summary>
+        </member>
+        <member name="F:Basic_ORM.Models.Enum.EnmType.A">
+            <summary>
+            A denotes Add operation(api req).
+            </summary>
+        </member>
+        <member name="F:Basic_ORM.Models.Enum.EnmType.E">
+            <summary>
+            E denotes Edit operation(api req).
+            </summary>
+        </member>
+        <member name="F:Basic_ORM.Models.Enum.EnmType.D">
+            <summary>
+            D denotes Delete operation(api req).
+            </summary>
+        </member>
+        <member name="T:Basic_ORM.Models.POCO.Emp01">
+            <summary>
+            Represents an employee record in the system.
+            </summary>
+        </member>
+        <member name="P:Basic_ORM.Models.POCO.Emp01.Id">
+            <summary>
+            Unique identifier for the employee.
+            </summary>
+        </member>
+        <member name="P:Basic_ORM.Models.POCO.Emp01.Name">
+            <summary>
+            Employee's name.
+            </summary>
+        </member>
+        <member name="P:Basic_ORM.Models.POCO.Emp01.Department">
+            <summary>
+            Department name where the employee works.
+            </summary>
+        </member>
+        <member name="P:Basic_ORM.Models.POCO.Emp01.Salary">
+            <summary>
+            Employee's salary.
+            </summary>
+        </member>
+        <member name="P:Basic_ORM.Models.POCO.Emp01.DateOfJoining">
+            <summary>
+            Date the employee joined the organization.
+            Defaults to the current date and time.
+            </summary>
+        </member>
+        <member name="P:Basic_ORM.Models.POCO.Emp01.Email">
+            <summary>
+            Contact email address of the employee.
+            </summary>
+        </member>
+        <member name="P:Basic_ORM.Models.POCO.Emp01.Phone">
+            <summary>
+            Contact phone number of the employee.
+            </summary>
+        </member>
+        <member name="P:Basic_ORM.Models.POCO.Emp01.IsActive">
+            <summary>
+            Indicates whether the employee is active.
+            </summary>
+        </member>
+        <member name="T:Basic_ORM.Models.Response">
+            <summary>
+            Response for the specific response during API request.
+            </summary>
+        </member>
+        <member name="P:Basic_ORM.Models.Response.Data">
+            <summary>
+            Gets or Sets the response data according to the request.
+            </summary>
+        </member>
+        <member name="P:Basic_ORM.Models.Response.IsError">
+            <summary>
+            Gets or Sets the error status of the request.
+            </summary>
+        </member>
+        <member name="P:Basic_ORM.Models.Response.Message">
+            <summary>
+            Gets or Sets the message according to the success or error response.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -58,7 +58,7 @@ namespace Basic_ORM.BL.Operations
         {
             using (var db = _dbFactory.OpenDbConnection())
             {
-                return db.Exists<Emp01>(id);
+                return db.Exists<Emp01>(e => e.Id == id);
             }
         }
 

@@ -163,3 +163,5 @@ WHERE EXISTS (
     SELECT 1 FROM Employees e
     WHERE e.DepartmentID = d.DepartmentID AND e.Salary > 70000
 );
+
+SELECT e.* , max(salary) over(partition by departmentID) FROM Employees as e; 

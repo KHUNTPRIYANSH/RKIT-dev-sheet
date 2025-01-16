@@ -3,7 +3,7 @@ CREATE DATABASE KPD_Basic_ORM;
 USE KPD_Basic_ORM;
 
 CREATE TABLE Emp01 (
-id INT PRIMARY KEY AUTO_INCREMENT,
+id INT PRIMARY KEY AUTO_INCREMENT comment "this is comment",
 name VARCHAR(100) NOT NULL,
 department VARCHAR(50),
 salary DECIMAL(10,2),
@@ -12,3 +12,5 @@ email VARCHAR(100),
 phone INT,
 isActive BOOL
 );
+
+DROP TABLE Emp01;

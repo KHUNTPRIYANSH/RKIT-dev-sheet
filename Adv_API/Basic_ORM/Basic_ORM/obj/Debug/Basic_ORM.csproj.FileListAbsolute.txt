@@ -117,3 +117,4 @@ F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\Basic_ORM\Basic_ORM\obj\Debug\Basi
 F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\Basic_ORM\Basic_ORM\obj\Debug\Basic_ORM.csproj.CopyComplete
 F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\Basic_ORM\Basic_ORM\obj\Debug\Basic_ORM.dll
 F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\Basic_ORM\Basic_ORM\obj\Debug\Basic_ORM.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\Basic_ORM\Basic_ORM\bin\Basic_ORM.xml
