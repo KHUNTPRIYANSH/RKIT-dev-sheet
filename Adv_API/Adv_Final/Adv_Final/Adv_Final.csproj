@@ -178,7 +178,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\POCO\Emp01.cs" />
+    <Compile Include="Models\DTO\DTODEPT01.cs" />
+    <Compile Include="Models\DTO\DTOEMP01.cs" />
+    <Compile Include="Models\DTO\DTOUSR01.cs" />
+    <Compile Include="Models\Enum\EnmRole.cs" />
+    <Compile Include="Models\POCO\DEPT01.cs" />
+    <Compile Include="Models\POCO\EMP01.cs" />
+    <Compile Include="Models\POCO\USR01.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -193,8 +199,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Models\DTO\" />
-    <Folder Include="Models\Enum\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

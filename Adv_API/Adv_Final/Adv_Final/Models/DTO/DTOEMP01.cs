@@ -2,13 +2,12 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace YourNamespace.Models.POCO
+namespace YourNamespace.Models.DTO
 {
     /// <summary>
     /// Represents the Employee entity for employee management.
     /// </summary>
-    [Table("EMP01")] // Specifies the table name in the database.
-    public class EMP01
+    public class DTOEMP01
     {
         #region Properties
 
@@ -50,12 +49,6 @@ namespace YourNamespace.Models.POCO
         [Required]
         [StringLength(100)]
         public string P01F06 { get; set; }
-
-        /// <summary>
-        /// P01F07 = IsActive
-        /// </summary>
-        [Required]
-        public bool P01F07 { get; set; } = true;
 
         #endregion
     }

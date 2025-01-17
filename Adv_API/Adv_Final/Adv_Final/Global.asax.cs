@@ -1,13 +1,7 @@
-using Adv_Final.Models.POCO;
 using ServiceStack.OrmLite;
-using ServiceStack.OrmLite.Dapper;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Web;
 using System.Web.Http;
-using System.Web.Routing;
+using YourNamespace.Models.POCO;
 
 namespace Adv_Final
 {
@@ -21,22 +15,23 @@ namespace Adv_Final
             var dbFactory = new OrmLiteConnectionFactory(connectionString, MySqlDialect.Provider);
             string[] connStr = connectionString.Split
                 (';');
-            string[] dbStr = connStr[1].Split('=');
+            string[] database = connStr[1].Split('=');
             
             // Storing OrmLiteConnectionFactory instance for further usage in any other component.
             
             Application["DbFactory"] = dbFactory;
 
             // Following code will create table automatically if table not their in DB
-            InitilizeDB(dbFactory , dbStr[1]);
+            InitilizeDB(dbFactory , database[1]);
         }
 
         private void InitilizeDB(OrmLiteConnectionFactory dbFactory , string schema)
         {
             using(var db = dbFactory.OpenDbConnection())
             {
-                db.CreateSchema(schema);
-                db.CreateTableIfNotExists<Emp01>();
+                db.CreateTableIfNotExists<USR01>();
+                db.CreateTableIfNotExists<EMP01>();
+                db.CreateTableIfNotExists<DEPT01>();
             }
         }
     }
