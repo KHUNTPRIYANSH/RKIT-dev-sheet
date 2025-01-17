@@ -1,4 +1,6 @@
-﻿namespace Basic_ORM.Models
+﻿using Basic_ORM.Models.POCO;
+
+namespace Basic_ORM.Models
 {
     /// <summary>
     /// Response for the specific response during API request.

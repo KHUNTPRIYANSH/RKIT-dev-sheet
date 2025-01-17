@@ -54,17 +54,28 @@ namespace Basic_ORM.BL.Operations
             }
         }
 
-        private bool IsEmployeeExist(int id)
+        private Response IsEmployeeExist(int id)
         {
             using (var db = _dbFactory.OpenDbConnection())
             {
-                return db.Exists<Emp01>(e => e.Id == id);
+                _objResponse.Data= db.Exists<Emp01>(e => e.Id == id);
+                if(_objResponse.Data == true)
+                {
+                    _objResponse.IsError = false;
+                    _objResponse.Message = "Success : employee exists";
+                }
+                else
+                {
+                    _objResponse.IsError = true;
+                    _objResponse.Message = "Error : employee not exists";
+                }
+                return _objResponse;
             }
         }
 
         private Emp01 PreDelete(int id)
         {
-            if (IsEmployeeExist(id))
+            if (!IsEmployeeExist(id).IsError)
             {
                 return Get(id);
             }
@@ -99,9 +110,23 @@ namespace Basic_ORM.BL.Operations
             objDTO.Name = objDTO.Name.ToLower();
             objDTO.Department = objDTO.Department.ToLower();
             _objEmp01 = objDTO.Convert<Emp01>();
-            if (Type == EnmType.E && objDTO.Id > 0)
+            if (Type == EnmType.E)
             {
                 _id = objDTO.Id;
+            }
+            else if(Type == EnmType.A )
+            {
+                _id = objDTO.Id;
+                if (!IsEmployeeExist(_id).IsError)
+                {
+                    _objResponse.Data = null;
+                    _objResponse.IsError = true;
+                    _objResponse.Message = "Error: Can't add employee, already their";
+                }
+            }
+            else
+            {
+                _id = 0;
             }
         }
 
@@ -114,7 +139,7 @@ namespace Basic_ORM.BL.Operations
                     _objResponse.IsError = true;
                     _objResponse.Message = "Enter Correct Id";
                 }
-                else if (!IsEmployeeExist(_id))
+                else if (IsEmployeeExist(_id).IsError)
                 {
                     _objResponse.IsError = true;
                     _objResponse.Message = "Employee Not Found";

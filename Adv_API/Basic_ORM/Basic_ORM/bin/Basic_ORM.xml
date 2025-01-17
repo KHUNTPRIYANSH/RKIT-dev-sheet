@@ -167,11 +167,6 @@
             Contact email address of the employee.
             </summary>
         </member>
-        <member name="P:Basic_ORM.Models.POCO.Emp01.Phone">
-            <summary>
-            Contact phone number of the employee.
-            </summary>
-        </member>
         <member name="P:Basic_ORM.Models.POCO.Emp01.IsActive">
             <summary>
             Indicates whether the employee is active.

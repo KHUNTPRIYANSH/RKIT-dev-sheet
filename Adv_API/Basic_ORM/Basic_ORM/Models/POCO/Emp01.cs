@@ -52,12 +52,6 @@ namespace Basic_ORM.Models.POCO
         [Unique]  // Ensures uniqueness of the email address
         public string Email { get; set; }
 
-        /// <summary>
-        /// Contact phone number of the employee.
-        /// </summary>
-        [Required]
-        [StringLength(15)]
-        public string Phone { get; set; }
 
         /// <summary>
         /// Indicates whether the employee is active.

@@ -15,7 +15,7 @@ namespace Basic_ORM.Controllers
     public class CL_Employee_Controller : ApiController
     {
         private readonly BL_Employee _objBLEmployee = new BL_Employee();
-        private Response _objResponse;
+        private Response _objResponse = new Response();
 
         /// <summary>
         /// Retrieves all employees.
@@ -35,10 +35,22 @@ namespace Basic_ORM.Controllers
         [Route("get_employee_by_id")]
         public IHttpActionResult GetEmployeeByID(int id)
         {
-           Emp01 employee = _objBLEmployee.Get(id);
-            if (employee == null)
-                return NotFound();
-            return Ok(employee);
+           var _objRes = _objBLEmployee.Get(id);
+            if (_objRes == null)
+            {
+                _objResponse.IsError = true;
+                _objResponse.Message = "Error : can't get use by id";
+                string strResponse = $"Data : [no data], IsError : {_objResponse.IsError}, Message: {_objResponse.Message}";
+                return BadRequest(strResponse);
+               
+            }
+            else
+            {
+            _objResponse.Data = _objRes;
+            _objResponse.IsError = false;
+            _objResponse.Message = "Success : get use by id";
+            return Ok(_objResponse);
+            }
         }
 
         /// <summary>
@@ -51,9 +63,15 @@ namespace Basic_ORM.Controllers
             _objBLEmployee.Type = EnmType.A;
             _objBLEmployee.PreSave(objDTOEmp01);
             _objResponse = _objBLEmployee.Validation();
-            if (!_objResponse.IsError)
+            if (_objResponse.IsError)
             {
                 _objResponse = _objBLEmployee.Save();
+                
+            }
+            else if (!_objResponse.IsError)
+            {
+                string strResponse = $"Data : [no data], IsError : {_objResponse.IsError}, Message: {_objResponse.Message}";
+                return BadRequest(strResponse);
             }
             return Ok(_objResponse);
         }
