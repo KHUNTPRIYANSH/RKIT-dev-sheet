@@ -37,7 +37,10 @@ namespace Basic_ORM.BL.Operations
                 throw new Exception("IDbConnectionFactory not found");
             }
         }
-
+        /// <summary>
+        /// GetAll method fetches all the employeees from the db
+        /// </summary>
+        /// <returns>List of employees</returns>
         public List<Emp01> GetAll()
         {
             using (var db = _dbFactory.OpenDbConnection())
@@ -45,7 +48,11 @@ namespace Basic_ORM.BL.Operations
                 return db.Select<Emp01>();
             }
         }
-
+        /// <summary>
+        /// Get method fetch only 1 employee based on id
+        /// </summary>
+        /// <param name="id">unique identity of the entity</param>
+        /// <returns>return row [data of employee]</returns>
         public Emp01 Get(int id)
         {
             using (var db = _dbFactory.OpenDbConnection())
@@ -53,7 +60,11 @@ namespace Basic_ORM.BL.Operations
                 return db.SingleById<Emp01>(id);
             }
         }
-
+        /// <summary>
+        /// method checks employee exists or not
+        /// </summary>
+        /// <param name="id">unique identity of employee</param>
+        /// <returns>return [bool data , is error , message ]</returns>
         private Response IsEmployeeExist(int id)
         {
             using (var db = _dbFactory.OpenDbConnection())
@@ -72,7 +83,11 @@ namespace Basic_ORM.BL.Operations
                 return _objResponse;
             }
         }
-
+        /// <summary>
+        /// checks id exists or not in table
+        /// </summary>
+        /// <param name="id">unique identity of employee</param>
+        /// <returns>return row</returns>
         private Emp01 PreDelete(int id)
         {
             if (!IsEmployeeExist(id).IsError)
@@ -81,7 +96,11 @@ namespace Basic_ORM.BL.Operations
             }
             return null;
         }
-
+        /// <summary>
+        /// checks employee id their or not based on pre delete
+        /// </summary>
+        /// <param name="objEmp01">obj of employee data</param>
+        /// <returns>[null , error , message]</returns>
         private Response ValidateOnDelete(Emp01 objEmp01)
         {
             if (objEmp01 == null)
@@ -89,7 +108,11 @@ namespace Basic_ORM.BL.Operations
 
             return new Response { IsError = false };
         }
-
+        /// <summary>
+        /// use pre delete and validation delete to delete employee 
+        /// </summary>
+        /// <param name="id">unique identity of employee</param>
+        /// <returns>[null , isError , message]</returns>
         public Response Delete(int id)
         {
             var employee = PreDelete(id);
@@ -101,10 +124,15 @@ namespace Basic_ORM.BL.Operations
             {
                 db.DeleteById<Emp01>(id);
             }
+            _objResponse.Data = null;
+            _objResponse.IsError = false;
             _objResponse.Message = "Data Deleted";
             return _objResponse;
         }
-
+        /// <summary>
+        /// Pre save perform dto to poco , and id management
+        /// </summary>
+        /// <param name="objDTO">dto model from gui</param>
         public void PreSave(DTO_Emp01 objDTO)
         {
             objDTO.Name = objDTO.Name.ToLower();
@@ -114,22 +142,25 @@ namespace Basic_ORM.BL.Operations
             {
                 _id = objDTO.Id;
             }
-            else if(Type == EnmType.A )
-            {
-                _id = objDTO.Id;
-                if (!IsEmployeeExist(_id).IsError)
-                {
-                    _objResponse.Data = null;
-                    _objResponse.IsError = true;
-                    _objResponse.Message = "Error: Can't add employee, already their";
-                }
-            }
+            //else if(Type == EnmType.A )
+            //{
+            //    _id = objDTO.Id;
+            //    if (!IsEmployeeExist(_id).IsError)
+            //    {
+            //        _objResponse.Data = null;
+            //        _objResponse.IsError = true;
+            //        _objResponse.Message = "Error: Can't add employee, already their";
+            //    }
+            //}
             else
             {
                 _id = 0;
             }
         }
-
+        /// <summary>
+        /// validates before save
+        /// </summary>
+        /// <returns>[data , IsError  ,Message]</returns>
         public Response Validation()
         {
             if (Type == EnmType.E)
@@ -147,7 +178,10 @@ namespace Basic_ORM.BL.Operations
             }
             return _objResponse;
         }
-
+        /// <summary>
+        /// Store record into table
+        /// </summary>
+        /// <returns>[data , isError , Message]</returns>
         public Response Save()
         {
             try
@@ -173,7 +207,10 @@ namespace Basic_ORM.BL.Operations
             }
             return _objResponse;
         }
-
+        /// <summary>
+        /// use single orm method to fetch first record
+        /// </summary>
+        /// <returns>[first record , isError, message]</returns>
         public Response FirstEmployee()
         {
             using (var db = _dbFactory.OpenDbConnection())
@@ -192,7 +229,10 @@ namespace Basic_ORM.BL.Operations
                 return _objResponse;
             }
 
-        }
+        }/// <summary>
+        /// return last record from table
+        /// </summary>
+        /// <returns>[data , isError , Message]</returns>
         public Response LastEmployee()
         {
             using (var db = _dbFactory.OpenDbConnection())
@@ -212,6 +252,10 @@ namespace Basic_ORM.BL.Operations
 
             }
         }
+        /// <summary>
+        /// find employee having heighest salary in whole table
+        /// </summary>
+        /// <returns>[rich employee data , is error, message]</returns>
         public Response RichestEmployee()
         {
             using (var db = _dbFactory.OpenDbConnection())
@@ -230,6 +274,11 @@ namespace Basic_ORM.BL.Operations
             _objResponse.Message = "Error : Failed to get richest employee";
             return _objResponse;
         }
+        /// <summary>
+        /// Return matching record based on ch
+        /// </summary>
+        /// <param name="ch">starting charactor of name</param>
+        /// <returns>matched record , is error , message</returns>
         public Response EmployeeWhereNameStartsWith(char ch)
         {
             using (var db = _dbFactory.OpenDbConnection())
@@ -248,7 +297,11 @@ namespace Basic_ORM.BL.Operations
                 return _objResponse;
             }
         }
-
+        /// <summary>
+        /// insights : count of total employee in department , min max avg pay per employee in that department
+        /// </summary>
+        /// <param name="dpt">nameof department</param>
+        /// <returns>insights , is error, message</returns>
         public Response DepartmentInsigts(string dpt)
         {
             dpt = dpt.ToLower();

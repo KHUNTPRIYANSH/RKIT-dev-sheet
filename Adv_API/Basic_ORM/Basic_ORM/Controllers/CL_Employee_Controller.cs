@@ -6,6 +6,7 @@ using Basic_ORM.Models.Enum;
 using System.Web.Http;
 using System.Collections.Generic;
 using System;
+using Google.Protobuf.Collections;
 
 namespace Basic_ORM.Controllers
 {
@@ -14,8 +15,14 @@ namespace Basic_ORM.Controllers
     /// </summary>
     public class CL_Employee_Controller : ApiController
     {
+        #region Fields
+
         private readonly BL_Employee _objBLEmployee = new BL_Employee();
         private Response _objResponse = new Response();
+
+        #endregion
+
+        #region API Methods
 
         /// <summary>
         /// Retrieves all employees.
@@ -35,21 +42,20 @@ namespace Basic_ORM.Controllers
         [Route("get_employee_by_id")]
         public IHttpActionResult GetEmployeeByID(int id)
         {
-           var _objRes = _objBLEmployee.Get(id);
+            var _objRes = _objBLEmployee.Get(id);
             if (_objRes == null)
             {
                 _objResponse.IsError = true;
                 _objResponse.Message = "Error : can't get use by id";
                 string strResponse = $"Data : [no data], IsError : {_objResponse.IsError}, Message: {_objResponse.Message}";
                 return BadRequest(strResponse);
-               
             }
             else
             {
-            _objResponse.Data = _objRes;
-            _objResponse.IsError = false;
-            _objResponse.Message = "Success : get use by id";
-            return Ok(_objResponse);
+                _objResponse.Data = _objRes;
+                _objResponse.IsError = false;
+                _objResponse.Message = "Success : get use by id";
+                return Ok(_objResponse);
             }
         }
 
@@ -63,12 +69,11 @@ namespace Basic_ORM.Controllers
             _objBLEmployee.Type = EnmType.A;
             _objBLEmployee.PreSave(objDTOEmp01);
             _objResponse = _objBLEmployee.Validation();
-            if (_objResponse.IsError)
+            if (!_objResponse.IsError)
             {
                 _objResponse = _objBLEmployee.Save();
-                
             }
-            else if (!_objResponse.IsError)
+            else if (_objResponse.IsError)
             {
                 string strResponse = $"Data : [no data], IsError : {_objResponse.IsError}, Message: {_objResponse.Message}";
                 return BadRequest(strResponse);
@@ -103,7 +108,7 @@ namespace Basic_ORM.Controllers
             _objResponse = _objBLEmployee.Delete(id);
             if (_objResponse.IsError)
                 return BadRequest(_objResponse.Message);
-            return Ok(_objResponse.Message);
+            return Ok(_objResponse);
         }
 
         /// <summary>
@@ -113,10 +118,12 @@ namespace Basic_ORM.Controllers
         [Route("check_employee_exists")]
         public IHttpActionResult IsEmployeeExists(int id)
         {
-            Emp01 exists = _objBLEmployee.Get(id);
-            if (exists != null)
+            _objResponse.Data = _objBLEmployee.Get(id);
+            if (_objResponse.Data != null)
             {
-                return Ok($"Employee Exists: {exists}");
+                _objResponse.IsError = false;
+                _objResponse.Message = $"Success : Employee Exists";
+                return Ok(_objResponse);
             }
             else
             {
@@ -124,46 +131,44 @@ namespace Basic_ORM.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves the first employee in the list.
+        /// </summary>
         [HttpGet]
         [Route("get-first-employee")]
         public IHttpActionResult GetFirstEmployee()
         {
             _objResponse = _objBLEmployee.FirstEmployee();
-            if(_objResponse != null)
+            if (_objResponse != null)
             {
                 return Ok(_objResponse);
             }
             return BadRequest(_objResponse.Message);
         }
+
+        /// <summary>
+        /// Retrieves the last employee in the list.
+        /// </summary>
         [HttpGet]
         [Route("get_last_employee")]
         public IHttpActionResult GetLastEmployee()
         {
-          _objResponse = _objBLEmployee.LastEmployee();
-            if(_objResponse != null)
+            _objResponse = _objBLEmployee.LastEmployee();
+            if (_objResponse != null)
             {
                 return Ok(_objResponse);
             }
             return BadRequest(_objResponse.Message);
         }
 
+        /// <summary>
+        /// Retrieves the highest-paid employee.
+        /// </summary>
         [HttpGet]
         [Route("get_highest_paid_employee")]
         public IHttpActionResult GetRichEmployee()
         {
-          _objResponse = _objBLEmployee.RichestEmployee();
-            if (_objResponse != null)
-            {
-                return Ok(_objResponse);
-            }
-            return BadRequest(_objResponse.Message);
-        }
-        
-        [HttpGet]
-        [Route("get_employee_where_name_starts_with")]
-        public IHttpActionResult GetEmployeeWhereNameStartsWith(char ch)
-        {
-           _objResponse = _objBLEmployee.EmployeeWhereNameStartsWith(ch);
+            _objResponse = _objBLEmployee.RichestEmployee();
             if (_objResponse != null)
             {
                 return Ok(_objResponse);
@@ -171,6 +176,24 @@ namespace Basic_ORM.Controllers
             return BadRequest(_objResponse.Message);
         }
 
+        /// <summary>
+        /// Retrieves employees where the name starts with a specific character.
+        /// </summary>
+        [HttpGet]
+        [Route("get_employee_where_name_starts_with")]
+        public IHttpActionResult GetEmployeeWhereNameStartsWith(char ch)
+        {
+            _objResponse = _objBLEmployee.EmployeeWhereNameStartsWith(ch);
+            if (_objResponse != null)
+            {
+                return Ok(_objResponse);
+            }
+            return BadRequest(_objResponse.Message);
+        }
+
+        /// <summary>
+        /// Retrieves insights for a specific department.
+        /// </summary>
         [HttpGet]
         [Route("get_department_insights")]
         public IHttpActionResult GetDepartmentInsigts(string dpt)
@@ -183,5 +206,7 @@ namespace Basic_ORM.Controllers
             string strResponse = $"Data : {_objResponse.Data}, IsError : {_objResponse.IsError}, Message: {_objResponse.Message}";
             return BadRequest(strResponse);
         }
+
+        #endregion
     }
 }
