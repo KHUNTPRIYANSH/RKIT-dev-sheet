@@ -29,18 +29,19 @@ namespace Adv_Final.Models.POCO
         [StringLength(100)]
         public string R01F02 { get; set; }
 
-        private string _hashedPassword;
+        //private string _hashedPassword;
 
         /// <summary>
         /// ROTFO3 = [hashed] Password
         /// </summary>
         [Required]
         [StringLength(255)]
-        public string R01F03
-        {
-            get => _hashedPassword;
-            set => _hashedPassword = HashPassword(value);
-        }
+        public string R01F03 { get; set; } // Hashed password.  
+        //public string R01F03
+        //{
+        //    get => _hashedPassword;
+        //    set => _hashedPassword = HashPassword(value);
+        //}
 
         /// <summary>
         /// ROTFO4 = Role (e.g., Admin, Editor, Normal).
