@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Adv_Final.BL.Operation;
 using Adv_Final.Extensions;
+using Adv_Final.Filters;
 using Adv_Final.Models;
 using Adv_Final.Models.DTO;
 using Adv_Final.Models.Enum;
@@ -26,7 +27,8 @@ namespace Adv_Final.Controllers
 
         [HttpGet]
         [Route("get_all_employees")]
-        [RoleAuthorize("Admin", "Editor", "Normal")]
+
+        [JWTAuthorizationFilter(EnmRole.Admin, EnmRole.Editor, EnmRole.Normal)]
         public IHttpActionResult GetAllEmployees()
         {
             Response employees = _objBLEmployee.GetAll();
@@ -34,7 +36,7 @@ namespace Adv_Final.Controllers
         }
         [HttpGet]
         [Route("get_employee_by_id")]
-        [RoleAuthorize("Admin", "Editor", "Normal")]
+        [JWTAuthorizationFilter(EnmRole.Admin, EnmRole.Editor, EnmRole.Normal)]
         public IHttpActionResult GetEmployeeByID(int id)
         {
             Response _objRes = _objBLEmployee.Get(id);
@@ -55,7 +57,7 @@ namespace Adv_Final.Controllers
         }
         [HttpPost]
         [Route("add_employee")]
-        [RoleAuthorize("Admin", "Editor")]
+        [JWTAuthorizationFilter(EnmRole.Admin, EnmRole.Editor)]
         public IHttpActionResult AddEmployee(DTOEMP01 objDTOEmp01)
         {
             _objBLEmployee.Type = EnmType.A;
@@ -74,7 +76,7 @@ namespace Adv_Final.Controllers
         }
         [HttpPut]
         [Route("update_employee")]
-        [RoleAuthorize("Admin", "Editor")]
+        [JWTAuthorizationFilter(EnmRole.Admin, EnmRole.Editor)]
         public IHttpActionResult UpdateEmployee(DTOEMP01 objDTOEmp01)
         {
             _objBLEmployee.Type = EnmType.E;
@@ -88,7 +90,8 @@ namespace Adv_Final.Controllers
         }
         [HttpDelete]
         [Route("delete_employee")]
-        [RoleAuthorize("Admin")]
+
+        [JWTAuthorizationFilter(EnmRole.Admin)]
         public IHttpActionResult DeleteEmployee(int id)
         {
             _objResponse = _objBLEmployee.Delete(id);
@@ -99,7 +102,9 @@ namespace Adv_Final.Controllers
 
         [HttpGet]
         [Route("check_employee_exists")]
-        [RoleAuthorize("Admin", "Editor", "Normal")]
+
+        [JWTAuthorizationFilter(EnmRole.Admin, EnmRole.Editor, EnmRole.Normal)]
+        //[RoleAuthorize(EnmRole.Admin, EnmRole.Editor, EnmRole.Normal)]
         public IHttpActionResult IsEmployeeExists(int id)
         {
             _objResponse = _objBLEmployee.IsEmployeeExist(id);

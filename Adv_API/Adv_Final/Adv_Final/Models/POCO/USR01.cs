@@ -47,6 +47,7 @@ namespace Adv_Final.Models.POCO
         /// ROTFO4 = Role (e.g., Admin, Editor, Normal).
         /// </summary>
         [Required]
+
         public EnmRole R01F04 { get; set; } // Enum type for fixed roles.
 
         /// <summary>
@@ -79,19 +80,7 @@ namespace Adv_Final.Models.POCO
             R01F07 = DateTime.Now;
         }
 
-        /// <summary>
-        /// Hashes the password using SHA256.
-        /// </summary>
-        /// <param name="password">The plain text password to hash.</param>
-        /// <returns>The hashed password as a string.</returns>
-        private static string HashPassword(string password)
-        {
-            using (var sha256 = SHA256.Create())
-            {
-                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                return Convert.ToBase64String(hashedBytes);
-            }
-        }
+       
 
         #endregion
     }

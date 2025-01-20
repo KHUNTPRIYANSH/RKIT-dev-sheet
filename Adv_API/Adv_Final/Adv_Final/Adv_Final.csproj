@@ -216,8 +216,9 @@
     <Compile Include="Controllers\EMP01Controller.cs" />
     <Compile Include="Controllers\TokenGenController.cs" />
     <Compile Include="Controllers\USR01Controller.cs" />
+    <Compile Include="Extensions\JWTHelper.cs" />
     <Compile Include="Extensions\Sha256Hashing.cs" />
-    <Compile Include="Extensions\RoleAuthorizeAttribute.cs" />
+    <Compile Include="Extensions\JWTAuthorizationFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
