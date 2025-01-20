@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace YourNamespace.Models.POCO
+namespace Adv_Final.Models.POCO
 {
     /// <summary>
     /// Represents the Department entity for department management.
@@ -16,6 +16,7 @@ namespace YourNamespace.Models.POCO
         /// T01F01 = DeptId
         /// </summary>
         [Key] // Indicates this is the primary key.
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int T01F01 { get; set; } // DepartmentId
 
         /// <summary>

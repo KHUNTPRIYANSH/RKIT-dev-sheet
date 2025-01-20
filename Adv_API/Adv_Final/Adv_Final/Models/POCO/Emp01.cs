@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace YourNamespace.Models.POCO
+namespace Adv_Final.Models.POCO
 {
     /// <summary>
     /// Represents the Employee entity for employee management.
@@ -15,7 +15,9 @@ namespace YourNamespace.Models.POCO
         /// <summary>
         /// P01F01 = EmployeeId
         /// </summary>
+        
         [Key] // Indicates this is the primary key.
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int P01F01 { get; set; }
 
         /// <summary>

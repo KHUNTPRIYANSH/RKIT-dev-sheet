@@ -2,8 +2,10 @@
 using ServiceStack.DataAnnotations;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
-using ServiceStack.DataAnnotations;
-namespace YourNamespace.Models.POCO
+using System.Security.Cryptography;
+using System.Text;
+
+namespace Adv_Final.Models.POCO
 {
     /// <summary>
     /// Represents the User entity for login and role management.
@@ -27,12 +29,18 @@ namespace YourNamespace.Models.POCO
         [StringLength(100)]
         public string R01F02 { get; set; }
 
+        private string _hashedPassword;
+
         /// <summary>
         /// ROTFO3 = [hashed] Password
         /// </summary>
         [Required]
         [StringLength(255)]
-        public string R01F03 { get; set; }
+        public string R01F03
+        {
+            get => _hashedPassword;
+            set => _hashedPassword = HashPassword(value);
+        }
 
         /// <summary>
         /// ROTFO4 = Role (e.g., Admin, Editor, Normal).
@@ -41,7 +49,7 @@ namespace YourNamespace.Models.POCO
         public EnmRole R01F04 { get; set; } // Enum type for fixed roles.
 
         /// <summary>
-        /// ROTFO5 =  IsActive.
+        /// ROTFO5 = IsActive.
         /// </summary>
         [Required]
         public bool R01F05 { get; set; } = true; // Default value: active account.
@@ -70,8 +78,20 @@ namespace YourNamespace.Models.POCO
             R01F07 = DateTime.Now;
         }
 
+        /// <summary>
+        /// Hashes the password using SHA256.
+        /// </summary>
+        /// <param name="password">The plain text password to hash.</param>
+        /// <returns>The hashed password as a string.</returns>
+        private static string HashPassword(string password)
+        {
+            using (var sha256 = SHA256.Create())
+            {
+                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return Convert.ToBase64String(hashedBytes);
+            }
+        }
+
         #endregion
     }
-
-    
 }

@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\Phase_3_Final_Demo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{90DE3E4F-6C99-4796-9E56-A477209B77F8}|Phase_3_Final_Demo\\Phase_3_Final_Demo.csproj|f:\\rkit-dev-sheet\\basic_api\\phase_3\\phase_3_final_demo\\phase_3_final_demo\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{90DE3E4F-6C99-4796-9E56-A477209B77F8}|Phase_3_Final_Demo\\Phase_3_Final_Demo.csproj|solutionrelative:phase_3_final_demo\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{90DE3E4F-6C99-4796-9E56-A477209B77F8}|Phase_3_Final_Demo\\Phase_3_Final_Demo.csproj|f:\\rkit-dev-sheet\\basic_api\\phase_3\\phase_3_final_demo\\phase_3_final_demo\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90DE3E4F-6C99-4796-9E56-A477209B77F8}|Phase_3_Final_Demo\\Phase_3_Final_Demo.csproj|solutionrelative:phase_3_final_demo\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{90DE3E4F-6C99-4796-9E56-A477209B77F8}|Phase_3_Final_Demo\\Phase_3_Final_Demo.csproj|f:\\rkit-dev-sheet\\basic_api\\phase_3\\phase_3_final_demo\\phase_3_final_demo\\controllers\\tokengencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{90DE3E4F-6C99-4796-9E56-A477209B77F8}|Phase_3_Final_Demo\\Phase_3_Final_Demo.csproj|F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\Phase_3_Final_Demo\\phase_3_final_demo\\controllers\\tokengencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{90DE3E4F-6C99-4796-9E56-A477209B77F8}|Phase_3_Final_Demo\\Phase_3_Final_Demo.csproj|solutionrelative:phase_3_final_demo\\controllers\\tokengencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -15,8 +15,12 @@
       "RelativeMoniker": "D:0:0:{90DE3E4F-6C99-4796-9E56-A477209B77F8}|Phase_3_Final_Demo\\Phase_3_Final_Demo.csproj|solutionrelative:phase_3_final_demo\\app_start\\webapiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{90DE3E4F-6C99-4796-9E56-A477209B77F8}|Phase_3_Final_Demo\\Phase_3_Final_Demo.csproj|f:\\rkit-dev-sheet\\basic_api\\phase_3\\phase_3_final_demo\\phase_3_final_demo\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{90DE3E4F-6C99-4796-9E56-A477209B77F8}|Phase_3_Final_Demo\\Phase_3_Final_Demo.csproj|solutionrelative:phase_3_final_demo\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{90DE3E4F-6C99-4796-9E56-A477209B77F8}|Phase_3_Final_Demo\\Phase_3_Final_Demo.csproj|F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\Phase_3_Final_Demo\\phase_3_final_demo\\app_start\\swaggerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{90DE3E4F-6C99-4796-9E56-A477209B77F8}|Phase_3_Final_Demo\\Phase_3_Final_Demo.csproj|solutionrelative:phase_3_final_demo\\app_start\\swaggerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{90DE3E4F-6C99-4796-9E56-A477209B77F8}|Phase_3_Final_Demo\\Phase_3_Final_Demo.csproj|F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\Phase_3_Final_Demo\\phase_3_final_demo\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{90DE3E4F-6C99-4796-9E56-A477209B77F8}|Phase_3_Final_Demo\\Phase_3_Final_Demo.csproj|solutionrelative:phase_3_final_demo\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +30,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Web.config",
               "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\Phase_3_Final_Demo\\Phase_3_Final_Demo\\Web.config",
               "RelativeDocumentMoniker": "Phase_3_Final_Demo\\Web.config",
@@ -53,12 +57,24 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "SwaggerConfig.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\Phase_3_Final_Demo\\Phase_3_Final_Demo\\App_Start\\SwaggerConfig.cs",
+              "RelativeDocumentMoniker": "Phase_3_Final_Demo\\App_Start\\SwaggerConfig.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\Phase_3_Final_Demo\\Phase_3_Final_Demo\\App_Start\\SwaggerConfig.cs",
+              "RelativeToolTip": "Phase_3_Final_Demo\\App_Start\\SwaggerConfig.cs",
+              "ViewState": "AgIAAPcAAAAAAAAAAAAQwPoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-19T17:19:48.751Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "EmployeesController.cs",
               "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\Phase_3_Final_Demo\\Phase_3_Final_Demo\\Controllers\\EmployeesController.cs",
               "RelativeDocumentMoniker": "Phase_3_Final_Demo\\Controllers\\EmployeesController.cs",
               "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\Phase_3_Final_Demo\\Phase_3_Final_Demo\\Controllers\\EmployeesController.cs",
               "RelativeToolTip": "Phase_3_Final_Demo\\Controllers\\EmployeesController.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAmwHcAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAmwDIAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-07T17:00:42.47Z",
               "EditorCaption": ""
@@ -71,10 +87,9 @@
               "RelativeDocumentMoniker": "Phase_3_Final_Demo\\Controllers\\TokenGenController.cs",
               "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\Phase_3_Final_Demo\\Phase_3_Final_Demo\\Controllers\\TokenGenController.cs",
               "RelativeToolTip": "Phase_3_Final_Demo\\Controllers\\TokenGenController.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAYwF8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T16:58:18.352Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T16:58:18.352Z"
             },
             {
               "$type": "Document",
@@ -84,10 +99,9 @@
               "RelativeDocumentMoniker": "Phase_3_Final_Demo\\App_Start\\WebApiConfig.cs",
               "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\Phase_3_Final_Demo\\Phase_3_Final_Demo\\App_Start\\WebApiConfig.cs",
               "RelativeToolTip": "Phase_3_Final_Demo\\App_Start\\WebApiConfig.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAgwHEAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwB4AAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T16:53:05.975Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T16:53:05.975Z"
             }
           ]
         }

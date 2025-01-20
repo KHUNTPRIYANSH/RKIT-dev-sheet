@@ -11,18 +11,20 @@ namespace Adv_Final.Models.Enum
     public enum EnmRole
     {
         /// <summary>
-        /// Represents an Admin user with full privileges.
+        /// Represents a Normal user with limited privileges.
         /// </summary>
-        Admin,
+        Normal = 1,
+
 
         /// <summary>
         /// Represents an Editor user with editing privileges.
         /// </summary>
-        Editor,
+        Editor = 2,
 
         /// <summary>
-        /// Represents a Normal user with limited privileges.
+        /// Represents an Admin user with full privileges.
         /// </summary>
-        Normal
+        Admin = 3
+
     }
 }

@@ -1,0 +1,62 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\RKIT-dev-sheet\\Adv_API\\Basic_ORM\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EAC4F0D8-C422-4E58-9F36-FD689513A677}|Basic_ORM\\Basic_ORM.csproj|F:\\RKIT-dev-sheet\\Adv_API\\Basic_ORM\\basic_orm\\controllers\\cl_employee_controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAC4F0D8-C422-4E58-9F36-FD689513A677}|Basic_ORM\\Basic_ORM.csproj|solutionrelative:basic_orm\\controllers\\cl_employee_controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAC4F0D8-C422-4E58-9F36-FD689513A677}|Basic_ORM\\Basic_ORM.csproj|F:\\RKIT-dev-sheet\\Adv_API\\Basic_ORM\\basic_orm\\bl\\operations\\bl_employees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAC4F0D8-C422-4E58-9F36-FD689513A677}|Basic_ORM\\Basic_ORM.csproj|solutionrelative:basic_orm\\bl\\operations\\bl_employees.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CL_Employee_Controller.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Adv_API\\Basic_ORM\\Basic_ORM\\Controllers\\CL_Employee_Controller.cs",
+              "RelativeDocumentMoniker": "Basic_ORM\\Controllers\\CL_Employee_Controller.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Adv_API\\Basic_ORM\\Basic_ORM\\Controllers\\CL_Employee_Controller.cs",
+              "RelativeToolTip": "Basic_ORM\\Controllers\\CL_Employee_Controller.cs",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAowIMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-19T06:58:22.181Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BL_Employees.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Adv_API\\Basic_ORM\\Basic_ORM\\BL\\Operations\\BL_Employees.cs",
+              "RelativeDocumentMoniker": "Basic_ORM\\BL\\Operations\\BL_Employees.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Adv_API\\Basic_ORM\\Basic_ORM\\BL\\Operations\\BL_Employees.cs",
+              "RelativeToolTip": "Basic_ORM\\BL\\Operations\\BL_Employees.cs",
+              "ViewState": "AgIAAMEAAAAAAAAAAAAcwNAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-19T06:58:22.295Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

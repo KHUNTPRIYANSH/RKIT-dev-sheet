@@ -1,7 +1,7 @@
 using ServiceStack.OrmLite;
 using System.Configuration;
 using System.Web.Http;
-using YourNamespace.Models.POCO;
+using Adv_Final.Models.POCO;
 
 namespace Adv_Final
 {

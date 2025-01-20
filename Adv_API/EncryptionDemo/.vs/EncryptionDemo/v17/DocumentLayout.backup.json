@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "F:\\RKIT-dev-sheet\\Adv_API\\EncryptionDemo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5B06441B-FDAF-431A-8C83-5A76E15830A7}|EncryptionDemo.csproj|f:\\rkit-dev-sheet\\adv_api\\encryptiondemo\\aeshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B06441B-FDAF-431A-8C83-5A76E15830A7}|EncryptionDemo.csproj|solutionrelative:aeshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5B06441B-FDAF-431A-8C83-5A76E15830A7}|EncryptionDemo.csproj|f:\\rkit-dev-sheet\\adv_api\\encryptiondemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B06441B-FDAF-431A-8C83-5A76E15830A7}|EncryptionDemo.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B06441B-FDAF-431A-8C83-5A76E15830A7}|EncryptionDemo.csproj|f:\\rkit-dev-sheet\\adv_api\\encryptiondemo\\rijndaelhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B06441B-FDAF-431A-8C83-5A76E15830A7}|EncryptionDemo.csproj|solutionrelative:rijndaelhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B06441B-FDAF-431A-8C83-5A76E15830A7}|EncryptionDemo.csproj|f:\\rkit-dev-sheet\\adv_api\\encryptiondemo\\rsahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B06441B-FDAF-431A-8C83-5A76E15830A7}|EncryptionDemo.csproj|solutionrelative:rsahelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B06441B-FDAF-431A-8C83-5A76E15830A7}|EncryptionDemo.csproj|f:\\rkit-dev-sheet\\adv_api\\encryptiondemo\\deshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B06441B-FDAF-431A-8C83-5A76E15830A7}|EncryptionDemo.csproj|solutionrelative:deshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B06441B-FDAF-431A-8C83-5A76E15830A7}|EncryptionDemo.csproj|f:\\rkit-dev-sheet\\adv_api\\encryptiondemo\\aeshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B06441B-FDAF-431A-8C83-5A76E15830A7}|EncryptionDemo.csproj|solutionrelative:aeshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,20 +30,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "AESHelper.cs",
               "DocumentMoniker": "F:\\RKIT-dev-sheet\\Adv_API\\EncryptionDemo\\AESHelper.cs",
               "RelativeDocumentMoniker": "AESHelper.cs",
               "ToolTip": "F:\\RKIT-dev-sheet\\Adv_API\\EncryptionDemo\\AESHelper.cs",
               "RelativeToolTip": "AESHelper.cs",
-              "ViewState": "AgIAAHUAAAAAAAAAAAAAwIgAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAQwK8AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-11T13:46:45.248Z",
               "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RijndaelHelper.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Adv_API\\EncryptionDemo\\RijndaelHelper.cs",
+              "RelativeDocumentMoniker": "RijndaelHelper.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Adv_API\\EncryptionDemo\\RijndaelHelper.cs",
+              "RelativeToolTip": "RijndaelHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-11T15:26:05.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RSAHelper.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Adv_API\\EncryptionDemo\\RSAHelper.cs",
+              "RelativeDocumentMoniker": "RSAHelper.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Adv_API\\EncryptionDemo\\RSAHelper.cs",
+              "RelativeToolTip": "RSAHelper.cs",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAkwHUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-11T14:58:47.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DESHelper.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Adv_API\\EncryptionDemo\\DESHelper.cs",
+              "RelativeDocumentMoniker": "DESHelper.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Adv_API\\EncryptionDemo\\DESHelper.cs",
+              "RelativeToolTip": "DESHelper.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBYAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-11T14:45:24.231Z",
               "EditorCaption": ""
             },
             {
@@ -44,13 +95,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\RKIT-dev-sheet\\Adv_API\\EncryptionDemo\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "F:\\RKIT-dev-sheet\\Adv_API\\EncryptionDemo\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAzwBgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-11T13:43:13.97Z",
               "EditorCaption": ""

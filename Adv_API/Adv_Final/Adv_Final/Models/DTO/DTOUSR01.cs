@@ -1,7 +1,7 @@
 ﻿using Adv_Final.Models.Enum;
 using ServiceStack.DataAnnotations;
 using System;
-namespace YourNamespace.Models.DTO
+namespace Adv_Final.Models.DTO
 {
     /// <summary>
     /// Represents the User entity for login and role management.

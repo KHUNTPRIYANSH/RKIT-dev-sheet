@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace YourNamespace.Models.DTO
+namespace Adv_Final.Models.DTO
 {
     /// <summary>
     /// Represents the Department entity for department management.
