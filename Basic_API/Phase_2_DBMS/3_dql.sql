@@ -13,18 +13,20 @@ SELECT * FROM Employees;
 SELECT FirstName, LastName FROM Employees;
 
 -- Using WHERE clause for filtering
--- Retrieves employees with a salary greater than 50000.
+-- Retrieves employees with a salary greater than 60000.
 SELECT * FROM Employees
-WHERE Salary > 50000;
+WHERE Salary > 60000;
 
 -- Using WHERE with multiple conditions
 -- Retrieves employees hired after 2022 and earning less than 70000.
 SELECT * FROM Employees
 WHERE HireDate > '2022-01-01' AND Salary < 70000;
+
 SELECT * FROM Employees
 WHERE HireDate > '2022-01-01' OR Salary < 70000;
+
 SELECT * FROM Employees
-WHERE NOT (HireDate > '2022-01-01' AND Salary < 70000);
+WHERE NOT (IsActive = 0 AND Salary < 50000);
 
 -- Using LIKE for pattern matching
 -- Retrieves employees whose first name starts with 'S'.
@@ -38,15 +40,14 @@ SELECT * FROM Employees
 WHERE DepartmentID IN (1, 2, 3);
 
 -- Using BETWEEN for range filtering
--- Retrieves employees with salaries between 40000 and 80000.
+-- Retrieves employees with salaries between 40000 and 55000.
 SELECT * FROM Employees
-WHERE Salary BETWEEN 40000 AND 60000;
+WHERE Salary BETWEEN 40000 AND 55000;
 
 -- Using ORDER BY for sorting
 -- Retrieves employees ordered by their last name in ascending order.
 SELECT * FROM Employees
 ORDER BY LastName ASC;
--- we can use NULL FIRST , NULL LAST to manage null values while using order by
 
 -- Sorting by multiple columns
 -- Retrieves employees sorted by department and then by salary in descending order.
@@ -58,6 +59,10 @@ ORDER BY DepartmentID ASC, Salary DESC;
 SELECT * FROM Employees
 ORDER BY Salary DESC
 LIMIT 1 OFFSET 1;
+
+SELECT * FROM Employees
+ORDER BY Salary DESC
+LIMIT 1 , 1;
 -- Limit = limit's the count of row in result
 -- offset = skips number of row from original result
 
@@ -85,11 +90,11 @@ FROM Employees
 GROUP BY DepartmentID;
 
 -- Using GROUP BY with HAVING
--- Retrieves departments with total salary expenditure greater than 100000.
+-- Retrieves departments with total salary expenditure greater than 150000.
 SELECT DepartmentID, SUM(Salary) AS TotalSalary
 FROM Employees
 GROUP BY DepartmentID
-HAVING TotalSalary > 100000;
+HAVING TotalSalary > 150000;
 
 -- Using DISTINCT to remove duplicates
 -- Retrieves distinct department IDs from Employees table.
@@ -99,7 +104,7 @@ SELECT DISTINCT DepartmentID FROM Employees;
 -- Retrieves employee details along with their department names.
 SELECT e.EmployeeID, e.FirstName, e.LastName, d.DepartmentName
 FROM Employees e
-JOIN Departments d ON e.DepartmentID = d.DepartmentID;
+JOIN Departments d ON e.DepartmentID = d.DepartmentID ORDER BY e.EmployeeID;
 
 -- Using LEFT JOIN
 -- Retrieves all employees and their department names, including employees without a department.
@@ -117,7 +122,12 @@ RIGHT JOIN Departments d ON e.DepartmentID = d.DepartmentID;
 -- Retrieves all employees and departments, including unmatched rows.
 SELECT e.EmployeeID, e.FirstName, e.LastName, d.DepartmentName
 FROM Employees e
-JOIN Departments d ON e.DepartmentID = d.DepartmentID;
+LEFT JOIN Departments d ON e.DepartmentID = d.DepartmentID
+UNION
+SELECT e.EmployeeID, e.FirstName, e.LastName, d.DepartmentName
+FROM Employees e
+RIGHT JOIN Departments d ON e.DepartmentID = d.DepartmentID;
+
 
 -- Using Subqueries
 -- Retrieves employees earning more than the average salary.
@@ -125,12 +135,13 @@ SELECT * FROM Employees
 WHERE Salary > (SELECT AVG(Salary) FROM Employees);
 
 -- Using UNION
--- Combines employees and departments into one result set with unique records.
-SELECT EmployeeID AS ID, FirstName AS Name
-FROM Employees
+SELECT e.EmployeeID, e.FirstName, e.LastName, d.DepartmentName
+FROM Employees e
+LEFT JOIN Departments d ON e.DepartmentID = d.DepartmentID
 UNION
-SELECT DepartmentID AS ID, DepartmentName AS Name
-FROM Departments;
+SELECT e.EmployeeID, e.FirstName, e.LastName, d.DepartmentName
+FROM Employees e
+RIGHT JOIN Departments d ON e.DepartmentID = d.DepartmentID;
 
 -- Using UNION ALL
 -- Combines employees and departments into one result set including duplicates.
@@ -141,7 +152,8 @@ SELECT DepartmentID AS ID, DepartmentName AS Name
 FROM Departments;
 
 -- Demonstrating nested subqueries
--- Retrieves the highest-paid employee from the department with the highest total salary expenditure.
+-- Retrieves the highest-paid employee from the department 
+-- with the highest total salary expenditure.
 SELECT * FROM Employees
 WHERE Salary = (
     SELECT MAX(Salary) FROM Employees
@@ -163,5 +175,6 @@ WHERE EXISTS (
     SELECT 1 FROM Employees e
     WHERE e.DepartmentID = d.DepartmentID AND e.Salary > 70000
 );
-
+ 
+-- window function 
 SELECT e.* , max(salary) over(partition by departmentID) FROM Employees as e; 

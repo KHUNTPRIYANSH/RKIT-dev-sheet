@@ -122,6 +122,22 @@ namespace FinalDemo.Controllers
                 return BadRequest("Department not found");
             }
         }
+        [HttpGet]
+        [Route("check_department_insights")]
+        [JWTAuthorizationFilter(EnmRoleType.Admin)]
+        public IHttpActionResult DepartmentInsights(int id)
+        {
+            _objResponse = _objBLDepartment.IsDepartmentExist(id);
+            if (_objResponse.Data != false && (bool)_objResponse.Data)
+            {
+                _objResponse = _objBLDepartment.GetDepartmentInsights(id);
+                return Ok(_objResponse);
+            }
+            else
+            {
+                return BadRequest("Department not found 😞");
+            }
+        }
 
         #endregion
     }

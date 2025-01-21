@@ -10,6 +10,7 @@ using ServiceStack.OrmLite;
 using FinalDemo.Models.DTO;
 using FinalDemo.Models.POCO;
 using FinalDemo.Models.ENUM;
+using Google.Protobuf.WellKnownTypes;
 
 namespace FinalDemo.BL.Operation
 {
@@ -148,6 +149,31 @@ namespace FinalDemo.BL.Operation
             {
                 _objResponse.IsError = true;
                 _objResponse.Message = ex.Message;
+            }
+            return _objResponse;
+        }
+        public Response GetDepartmentInsights(int id)
+        {
+            using (var db = _dbFactory.OpenDbConnection())
+            {
+                long count = db.Count<EMP01>(e => e.P01F05 == id);
+                decimal maxPay = db.Scalar<decimal>(db.From<EMP01>().Where(e => e.P01F05 == id).Select(e => Sql.Max(e.P01F08)));
+                decimal avgPay = db.Scalar<decimal>($"SELECT AVG(P01F08) FROM EMP01 WHERE P01F05 = \"{id}\"");
+                decimal minPay = db.Scalar<decimal>($"SELECT MIN(P01F08) FROM EMP01 WHERE P01F05 = \"{id}\"");
+                var res = $"Count : {count}, Max Pay : {maxPay}, Min Pay : {minPay}, Avg Pay : {avgPay}";
+                if (count > 0 && maxPay > 0 && avgPay > 0 && minPay > 0)
+                {
+                    _objResponse.Data = res; 
+                    _objResponse.IsError = false;
+                    _objResponse.Message = "Success : Got insights";
+                }
+                else
+                {
+
+                    _objResponse.IsError = true;
+                    _objResponse.Message = "Error : Can't get insights";
+                }
+
             }
             return _objResponse;
         }

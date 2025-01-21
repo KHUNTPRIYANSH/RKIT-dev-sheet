@@ -17,7 +17,7 @@ FROM Employees;
 SELECT * FROM EmployeeSummary;
 
 -- Creating a view with additional filtering
--- This view shows employees earning more than $50,000.
+-- This view shows employees earning more than 50,000.
 CREATE VIEW HighEarners AS
 SELECT 
     EmployeeID, 

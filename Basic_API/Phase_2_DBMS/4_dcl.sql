@@ -25,9 +25,9 @@ SHOW GRANTS FOR 'KPD_EmployeeManagement_MYSQL'@'localhost';
 -- Revoking privileges
 -- 1. Revoking specific privileges (INSERT, UPDATE) from a user.
 REVOKE INSERT, UPDATE ON KPD_EmployeeManagement_MYSQL.Employees FROM 'KPD_EmployeeManagement_MYSQL'@'localhost';
-
+-- error
 -- 2. Revoking all privileges from a user for the EmployeeManagement database.
-REVOKE ALL PRIVILEGES ON KPD_EmployeeManagement_MYSQL.*;
+REVOKE ALL PRIVILEGES ON KPD_EmployeeManagement_MYSQL.Employees FROM 'KPD_EmployeeManagement_MYSQL'@'localhost' ;
 
 -- Dropping a user
 -- Removes the user from the MySQL server.

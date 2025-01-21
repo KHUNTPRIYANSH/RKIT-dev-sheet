@@ -33,6 +33,97 @@
             </summary>
             <returns>A response indicating the result of the save operation.</returns>
         </member>
+        <member name="M:Basic_ORM.BL.Operations.BL_Employee.GetAll">
+            <summary>
+            GetAll method fetches all the employeees from the db
+            </summary>
+            <returns>List of employees</returns>
+        </member>
+        <member name="M:Basic_ORM.BL.Operations.BL_Employee.Get(System.Int32)">
+            <summary>
+            Get method fetch only 1 employee based on id
+            </summary>
+            <param name="id">unique identity of the entity</param>
+            <returns>return row [data of employee]</returns>
+        </member>
+        <member name="M:Basic_ORM.BL.Operations.BL_Employee.IsEmployeeExist(System.Int32)">
+            <summary>
+            method checks employee exists or not
+            </summary>
+            <param name="id">unique identity of employee</param>
+            <returns>return [bool data , is error , message ]</returns>
+        </member>
+        <member name="M:Basic_ORM.BL.Operations.BL_Employee.PreDelete(System.Int32)">
+            <summary>
+            checks id exists or not in table
+            </summary>
+            <param name="id">unique identity of employee</param>
+            <returns>return row</returns>
+        </member>
+        <member name="M:Basic_ORM.BL.Operations.BL_Employee.ValidateOnDelete(Basic_ORM.Models.POCO.Emp01)">
+            <summary>
+            checks employee id their or not based on pre delete
+            </summary>
+            <param name="objEmp01">obj of employee data</param>
+            <returns>[null , error , message]</returns>
+        </member>
+        <member name="M:Basic_ORM.BL.Operations.BL_Employee.Delete(System.Int32)">
+            <summary>
+            use pre delete and validation delete to delete employee 
+            </summary>
+            <param name="id">unique identity of employee</param>
+            <returns>[null , isError , message]</returns>
+        </member>
+        <member name="M:Basic_ORM.BL.Operations.BL_Employee.PreSave(Basic_ORM.Models.DTO.DTO_Emp01)">
+            <summary>
+            Pre save perform dto to poco , and id management
+            </summary>
+            <param name="objDTO">dto model from gui</param>
+        </member>
+        <member name="M:Basic_ORM.BL.Operations.BL_Employee.Validation">
+            <summary>
+            validates before save
+            </summary>
+            <returns>[data , IsError  ,Message]</returns>
+        </member>
+        <member name="M:Basic_ORM.BL.Operations.BL_Employee.Save">
+            <summary>
+            Store record into table
+            </summary>
+            <returns>[data , isError , Message]</returns>
+        </member>
+        <member name="M:Basic_ORM.BL.Operations.BL_Employee.FirstEmployee">
+            <summary>
+            use single orm method to fetch first record
+            </summary>
+            <returns>[first record , isError, message]</returns>
+        </member>
+        <member name="M:Basic_ORM.BL.Operations.BL_Employee.LastEmployee">
+            <summary>
+            return last record from table
+            </summary>
+            <returns>[data , isError , Message]</returns>
+        </member>
+        <member name="M:Basic_ORM.BL.Operations.BL_Employee.RichestEmployee">
+            <summary>
+            find employee having heighest salary in whole table
+            </summary>
+            <returns>[rich employee data , is error, message]</returns>
+        </member>
+        <member name="M:Basic_ORM.BL.Operations.BL_Employee.EmployeeWhereNameStartsWith(System.Char)">
+            <summary>
+            Return matching record based on ch
+            </summary>
+            <param name="ch">starting charactor of name</param>
+            <returns>matched record , is error , message</returns>
+        </member>
+        <member name="M:Basic_ORM.BL.Operations.BL_Employee.DepartmentInsigts(System.String)">
+            <summary>
+            insights : count of total employee in department , min max avg pay per employee in that department
+            </summary>
+            <param name="dpt">nameof department</param>
+            <returns>insights , is error, message</returns>
+        </member>
         <member name="T:Basic_ORM.Controllers.CL_Employee_Controller">
             <summary>
             Controller to manage employee-related API operations.
@@ -66,6 +157,31 @@
         <member name="M:Basic_ORM.Controllers.CL_Employee_Controller.IsEmployeeExists(System.Int32)">
             <summary>
             Validates if an employee exists by their ID.
+            </summary>
+        </member>
+        <member name="M:Basic_ORM.Controllers.CL_Employee_Controller.GetFirstEmployee">
+            <summary>
+            Retrieves the first employee in the list.
+            </summary>
+        </member>
+        <member name="M:Basic_ORM.Controllers.CL_Employee_Controller.GetLastEmployee">
+            <summary>
+            Retrieves the last employee in the list.
+            </summary>
+        </member>
+        <member name="M:Basic_ORM.Controllers.CL_Employee_Controller.GetRichEmployee">
+            <summary>
+            Retrieves the highest-paid employee.
+            </summary>
+        </member>
+        <member name="M:Basic_ORM.Controllers.CL_Employee_Controller.GetEmployeeWhereNameStartsWith(System.Char)">
+            <summary>
+            Retrieves employees where the name starts with a specific character.
+            </summary>
+        </member>
+        <member name="M:Basic_ORM.Controllers.CL_Employee_Controller.GetDepartmentInsigts(System.String)">
+            <summary>
+            Retrieves insights for a specific department.
             </summary>
         </member>
         <member name="T:Basic_ORM.Extensions.DTO_To_POCO">

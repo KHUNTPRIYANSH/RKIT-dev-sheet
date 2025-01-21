@@ -15,7 +15,7 @@
     <AssemblyName>FinalDemo</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>false</Use64BitIISExpress>
     <IISExpressSSLPort>44390</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -215,7 +215,7 @@
     <Compile Include="BL\Operations\BLEMP01.cs" />
     <Compile Include="BL\Operations\BLencryption.cs" />
     <Compile Include="BL\Operations\BLUSR01.cs" />
-    <Compile Include="Controllers\CLauthenticationController.cs" />
+    <Compile Include="Controllers\LoginPanel.cs" />
     <Compile Include="Controllers\DEPT01Controller.cs" />
     <Compile Include="Controllers\EMP01Controller.cs" />
     <Compile Include="Controllers\USR01Controller.cs" />
@@ -265,7 +265,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>64228</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44390/</IISUrl>
+          <IISUrl>https://localhost:44395/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -62,13 +62,5 @@ WHERE DepartmentID = 2;
 -- Rolling back all changes in this transaction.
 ROLLBACK;
 
--- Example scenario: Using implicit transactions
--- MySQL automatically commits each statement unless a transaction is explicitly started.
--- To demonstrate implicit transactions, no START TRANSACTION is used here.
-INSERT INTO Departments (DepartmentName) VALUES ('Quality Assurance');
--- This insert is committed automatically by default.
 
--- Best practices
--- Always use START TRANSACTION, COMMIT, and ROLLBACK for critical operations.
--- Use SAVEPOINT for finer control during long transactions.
--- FLUSH TABLES can be used after a commit to ensure data is written to disk (optional).
+
