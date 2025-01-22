@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Threading;
 using System.Web;
 
 namespace FinalDemo.BL.Operations
@@ -97,9 +98,18 @@ namespace FinalDemo.BL.Operations
 
         private Response PreDelete(int id)
         {
-            if (!IsUserExist(id).IsError)
+            using (var db = _dbFactory.OpenDbConnection())
             {
-                return Get(id);
+                int count = (int)db.Count<USR01>(u => u.R01F04 == EnmRoleType.Admin);
+                if (!IsUserExist(id).IsError)
+                {
+                    var temp = Get(id);
+
+                    if (temp.Data.R01F04 == EnmRoleType.Admin && count > 1)
+                    {
+                        return temp;
+                    }
+                }
             }
             _objResponse.Data = null;
             return _objResponse;
