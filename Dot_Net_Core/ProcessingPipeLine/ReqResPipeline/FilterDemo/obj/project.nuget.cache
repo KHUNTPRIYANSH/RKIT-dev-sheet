@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZUsp3AdxrhlUx5SggF2z3YQa7jjjU6TpPeArH63zYH073sspHel1f6mg80n+22g8aVpKA9rgtA4pdcqG12GBeg==",
+  "success": true,
+  "projectFilePath": "F:\\Priyansh_KPD\\GITHUB\\RKIT-dev-sheet\\Dot_Net_Core\\ProcessingPipeLine\\ReqResPipeline\\FilterDemo\\FilterDemo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\PRIYANSH.K\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.4\\microsoft.aspnetcore.openapi.7.0.4.nupkg.sha512",
+    "C:\\Users\\PRIYANSH.K\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\PRIYANSH.K\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\PRIYANSH.K\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\PRIYANSH.K\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\PRIYANSH.K\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\PRIYANSH.K\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}

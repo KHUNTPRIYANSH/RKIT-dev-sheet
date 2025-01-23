@@ -5,7 +5,9 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiddlewareDemo", "MiddlewareDemo\MiddlewareDemo.csproj", "{02551C40-C579-4E46-B1BF-23BB2B091B6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Routes", "Routes\Routes.csproj", "{34542F5F-0363-4162-949E-47AA66723EFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Routes", "Routes\Routes.csproj", "{34542F5F-0363-4162-949E-47AA66723EFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilterDemo", "FilterDemo\FilterDemo.csproj", "{13FBA9F2-9B2A-4533-BC98-468FD6CF20AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{34542F5F-0363-4162-949E-47AA66723EFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34542F5F-0363-4162-949E-47AA66723EFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34542F5F-0363-4162-949E-47AA66723EFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13FBA9F2-9B2A-4533-BC98-468FD6CF20AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13FBA9F2-9B2A-4533-BC98-468FD6CF20AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13FBA9F2-9B2A-4533-BC98-468FD6CF20AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13FBA9F2-9B2A-4533-BC98-468FD6CF20AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
