@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "Hash": "z2fsi0TZmeezL1BOMFptoMuzWdwxcWB5pKMb96X+bBY=",
+  "Source": "MiddlewareDemo",
+  "BasePath": "_content/MiddlewareDemo",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "MiddlewareDemo\\wwwroot",
+      "Source": "MiddlewareDemo",
+      "ContentRoot": "F:\\Priyansh_KPD\\GITHUB\\RKIT-dev-sheet\\Dot_Net_Core\\ProcessingPipeLine\\ReqResPipeline\\MiddlewareDemo\\wwwroot\\",
+      "BasePath": "_content/MiddlewareDemo",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "F:\\Priyansh_KPD\\GITHUB\\RKIT-dev-sheet\\Dot_Net_Core\\ProcessingPipeLine\\ReqResPipeline\\MiddlewareDemo\\wwwroot\\index.html",
+      "SourceId": "MiddlewareDemo",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\Priyansh_KPD\\GITHUB\\RKIT-dev-sheet\\Dot_Net_Core\\ProcessingPipeLine\\ReqResPipeline\\MiddlewareDemo\\wwwroot\\",
+      "BasePath": "_content/MiddlewareDemo",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ]
+}
