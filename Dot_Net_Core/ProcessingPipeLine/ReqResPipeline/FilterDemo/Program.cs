@@ -1,4 +1,10 @@
 
+using FilterDemo.Filters.ActionFilters;
+using FilterDemo.Filters.AuthorizationFilters;
+using FilterDemo.Filters.ExceptionFilters;
+using FilterDemo.Filters.ResourceFilters;
+using FilterDemo.Filters.ResultFilters;
+
 namespace FilterDemo
 {
     public class Program
@@ -7,6 +13,19 @@ namespace FilterDemo
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            // Add services to the container.
+            builder.Services.AddControllers(
+                opt => {
+                    opt.Filters.Add(new MyGlobalFilter());
+                    opt.Filters.Add(new MyResourceFilter());
+                    opt.Filters.Add(new MyExceptionFilter());
+                    opt.Filters.Add(new MyResultFilter());
+                    opt.Filters.Add(new MyAlwaysRunResourceFilter());
+                    opt.Filters.Add(new MyAuthorizationFilter());
+                    }
+                ); // Registers controllers
+
+            // Add filter into builder
             // Add services to the container.
             builder.Services.AddAuthorization();
 
@@ -24,27 +43,7 @@ namespace FilterDemo
             }
 
             app.UseAuthorization();
-
-            var summaries = new[]
-            {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
-            app.MapGet("/weatherforecast", (HttpContext httpContext) =>
-            {
-                var forecast = Enumerable.Range(1, 5).Select(index =>
-                    new WeatherForecast
-                    {
-                        Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                        TemperatureC = Random.Shared.Next(-20, 55),
-                        Summary = summaries[Random.Shared.Next(summaries.Length)]
-                    })
-                    .ToArray();
-                return forecast;
-            })
-            .WithName("GetWeatherForecast")
-            .WithOpenApi();
-
+            app.MapControllers(); // Maps controller routes
             app.Run();
         }
     }
