@@ -18,7 +18,7 @@ namespace BasicAuth
         /// <returns>bool [true,false]</returns>
         public static bool Login(string username, string password)
         {
-            if (username == "admin" || password == "admin@123") {
+            if (username == "admin" && password == "admin@123") {
                 return true;
             }
             return false;

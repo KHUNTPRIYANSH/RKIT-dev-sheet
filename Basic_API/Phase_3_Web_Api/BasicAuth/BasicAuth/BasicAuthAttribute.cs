@@ -32,17 +32,16 @@ namespace BasicAuth.BasicAuth
             // case 2 : header is not empty
             else
             {
-                try
-                {
+                try {
                     // username:password base64 encoded 
                     string authToken = actionContext.Request.Headers.Authorization.Parameter;
-                    // decodedToken = YWRtaW46cGFzc0AxMjM=
+                    // decodedToken = YWRtaW46YWRtaW5AMTIz
 
                     // step-1 decode authToken from base64 to string using Convert class
                     // Convert.FromBase64String(authToken); this code will decode the authToken but it is still not in the string fromate
                     // Encoding.UTF8.GetString();  this method is used to convert decrypted token into string
                     string decodedToken = Encoding.UTF8.GetString(Convert.FromBase64String(authToken));
-                    // decodedToken = admin:pass@123
+                    // decodedToken = admin:admin@123
 
                     // step-2 now we have username:password we will split it and check them
                     string[] usernamePassword = decodedToken.Split(':');

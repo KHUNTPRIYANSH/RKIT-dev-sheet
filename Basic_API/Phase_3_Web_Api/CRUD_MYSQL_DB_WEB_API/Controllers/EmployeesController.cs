@@ -10,7 +10,7 @@ namespace CRUD_Web_Api.Controllers
 {
     // Option : 2 Add the [EnableCors] attribute to your controller or specific actions
     //[DisableCors]
-    [EnableCors(origins: "http://example.com", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class EmployeesController : ApiController
     {
         #region Connection String
@@ -143,6 +143,7 @@ namespace CRUD_Web_Api.Controllers
         /// <param name="employee">Employee object with updated data</param>
         /// <returns>HTTP response with a success message</returns>
         // PUT: api/Employees/3
+        
         public IHttpActionResult Put(int id, Employee employee)
         {
             if (employee == null)
