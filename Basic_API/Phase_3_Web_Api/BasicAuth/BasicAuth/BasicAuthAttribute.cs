@@ -13,8 +13,15 @@ using System.Web.Http.Filters;
 
 namespace BasicAuth.BasicAuth
 {
+    /// <summary>
+    /// BasicAuthAttribute class authenticates the user while making request
+    /// </summary>
     public class BasicAuthAttribute : AuthorizationFilterAttribute
     {
+        /// <summary>
+        /// Calls when a process requests authorization.
+        /// </summary>
+        /// <param name="actionContext">The action context, which encapsulates information for using <see cref="T:System.Web.Http.Filters.AuthorizationFilterAttribute" />.</param>
         public override void OnAuthorization(HttpActionContext actionContext)
         {
             // case 1 : header is empty

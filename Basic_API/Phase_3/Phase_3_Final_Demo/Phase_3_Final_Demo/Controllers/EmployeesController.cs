@@ -33,7 +33,6 @@ namespace CRUD_Web_Api.Controllers
     {
         #region Connection String
         // Connection string to Employees [MySQL database]
-        //private string connectionString = "Server=localhost;Database=BasicWebApi;User ID=root;Password=PRIYANS0605K;SslMode=None;";
         private string connectionString = ConfigurationManager.ConnectionStrings["MyDbConnection"].ConnectionString;
 
         #endregion
@@ -163,8 +162,9 @@ namespace CRUD_Web_Api.Controllers
                 cmd.Parameters.AddWithValue("@IsActive", employee.IsActive);
                 cmd.ExecuteNonQuery();
             }
-
-            return CreatedAtRoute("DefaultApi", new { id = employee.ID }, employee);
+            // Invalidate the cache after adding a new employee
+            cache.Remove("AllEmployees");
+            return Ok("Added !!!");
         }
         #endregion
 
@@ -194,7 +194,9 @@ namespace CRUD_Web_Api.Controllers
                 cmd.Parameters.AddWithValue("@IsActive", employee.IsActive);
                 if (cmd.ExecuteNonQuery() == 0) return NotFound();
             }
-
+            // Invalidate the cache after updating an employee
+            cache.Remove("AllEmployees");
+            cache.Remove($"Employee_{id}");
             return Ok("Employee updated successfully!");
         }
 
@@ -220,7 +222,9 @@ namespace CRUD_Web_Api.Controllers
                 cmd.Parameters.AddWithValue("@ID", id);
                 if (cmd.ExecuteNonQuery() == 0) return NotFound();
             }
-
+            // Invalidate the cache after deleting an employee
+            cache.Remove("AllEmployees");
+            cache.Remove($"Employee_{id}");
             return Ok("Employee deleted successfully!");
         }
 

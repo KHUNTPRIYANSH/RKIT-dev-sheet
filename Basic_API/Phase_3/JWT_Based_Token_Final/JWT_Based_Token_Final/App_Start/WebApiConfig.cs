@@ -86,7 +86,7 @@ namespace JWT_Based_Token_Final
                     var tokenHandler = new JwtSecurityTokenHandler();
 
                     // Define the secret key (ensure it is a 32-character string for symmetric security)
-                    var key = Encoding.UTF8.GetBytes("Your-32-Character-Secret-Key1234");
+                    var key = Encoding.UTF8.GetBytes("Priyansh Khunt's Secret-Key12345");
 
                     // Set up token validation parameters
                     var validationParameters = new TokenValidationParameters
@@ -94,8 +94,8 @@ namespace JWT_Based_Token_Final
                         ValidateIssuer = true,
                         ValidateAudience = true,
                         ValidateIssuerSigningKey = true,
-                        ValidIssuer = "YourIssuer",  // Replace with your issuer
-                        ValidAudience = "YourAudience",  // Replace with your audience
+                        ValidIssuer = "KPD",  
+                        ValidAudience = "users",  
                         IssuerSigningKey = new SymmetricSecurityKey(key)
                     };
 

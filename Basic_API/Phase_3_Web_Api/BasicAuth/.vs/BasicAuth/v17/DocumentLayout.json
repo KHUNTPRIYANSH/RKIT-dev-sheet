@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3_Web_Api\\BasicAuth\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2AA3932E-B1AA-4331-AFD9-86CB064B7C57}|BasicAuth.csproj|F:\\RKIT-dev-sheet\\Basic_API\\Phase_3_Web_Api\\BasicAuth\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AA3932E-B1AA-4331-AFD9-86CB064B7C57}|BasicAuth.csproj|solutionrelative:models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2AA3932E-B1AA-4331-AFD9-86CB064B7C57}|BasicAuth.csproj|f:\\rkit-dev-sheet\\basic_api\\phase_3_web_api\\basicauth\\basicauth\\basicauthattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2AA3932E-B1AA-4331-AFD9-86CB064B7C57}|BasicAuth.csproj|solutionrelative:basicauth\\basicauthattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2AA3932E-B1AA-4331-AFD9-86CB064B7C57}|BasicAuth.csproj|F:\\RKIT-dev-sheet\\Basic_API\\Phase_3_Web_Api\\BasicAuth\\validateuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AA3932E-B1AA-4331-AFD9-86CB064B7C57}|BasicAuth.csproj|solutionrelative:validateuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2AA3932E-B1AA-4331-AFD9-86CB064B7C57}|BasicAuth.csproj|f:\\rkit-dev-sheet\\basic_api\\phase_3_web_api\\basicauth\\basicauth\\validateuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2AA3932E-B1AA-4331-AFD9-86CB064B7C57}|BasicAuth.csproj|solutionrelative:basicauth\\validateuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2AA3932E-B1AA-4331-AFD9-86CB064B7C57}|BasicAuth.csproj|F:\\RKIT-dev-sheet\\Basic_API\\Phase_3_Web_Api\\BasicAuth\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2AA3932E-B1AA-4331-AFD9-86CB064B7C57}|BasicAuth.csproj|solutionrelative:controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2AA3932E-B1AA-4331-AFD9-86CB064B7C57}|BasicAuth.csproj|F:\\RKIT-dev-sheet\\Basic_API\\Phase_3_Web_Api\\BasicAuth\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2AA3932E-B1AA-4331-AFD9-86CB064B7C57}|BasicAuth.csproj|solutionrelative:models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,52 +38,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "BasicAuthAttribute.cs",
               "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3_Web_Api\\BasicAuth\\BasicAuth\\BasicAuthAttribute.cs",
               "RelativeDocumentMoniker": "BasicAuth\\BasicAuthAttribute.cs",
               "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3_Web_Api\\BasicAuth\\BasicAuth\\BasicAuthAttribute.cs",
               "RelativeToolTip": "BasicAuth\\BasicAuthAttribute.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA8wD8AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAxwDwAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T14:47:42.461Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ValidateUser.cs",
-              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3_Web_Api\\BasicAuth\\ValidateUser.cs",
-              "RelativeDocumentMoniker": "ValidateUser.cs",
-              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3_Web_Api\\BasicAuth\\ValidateUser.cs",
-              "RelativeToolTip": "ValidateUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3_Web_Api\\BasicAuth\\BasicAuth\\ValidateUser.cs",
+              "RelativeDocumentMoniker": "BasicAuth\\ValidateUser.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3_Web_Api\\BasicAuth\\BasicAuth\\ValidateUser.cs",
+              "RelativeToolTip": "BasicAuth\\ValidateUser.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T14:42:15.845Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "EmployeesController.cs",
               "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3_Web_Api\\BasicAuth\\Controllers\\EmployeesController.cs",
               "RelativeDocumentMoniker": "Controllers\\EmployeesController.cs",
               "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3_Web_Api\\BasicAuth\\Controllers\\EmployeesController.cs",
               "RelativeToolTip": "Controllers\\EmployeesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T14:29:36.185Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Employee.cs",
               "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3_Web_Api\\BasicAuth\\Models\\Employee.cs",
               "RelativeDocumentMoniker": "Models\\Employee.cs",
               "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3_Web_Api\\BasicAuth\\Models\\Employee.cs",
               "RelativeToolTip": "Models\\Employee.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAADwvyAAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAmwDsAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T14:18:11.604Z",
               "EditorCaption": ""

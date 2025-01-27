@@ -1,0 +1,49 @@
+[
+  {
+    "ContainingType": "DependencyInjection.Controllers.CompanyController",
+    "Method": "CalculateLoan",
+    "RelativePath": "api/Company/calculate-loan",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "principal",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "tenureInMonths",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DependencyInjection.Controllers.CompanyController",
+    "Method": "PaySalary",
+    "RelativePath": "api/Company/pay-salary",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "employeeName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "amount",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

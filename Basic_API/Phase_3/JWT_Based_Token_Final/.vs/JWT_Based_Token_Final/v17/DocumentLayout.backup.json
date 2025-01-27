@@ -1,0 +1,79 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\JWT_Based_Token_Final\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{744B3842-F7C3-460C-8757-B7754EDCAAD9}|JWT_Based_Token_Final\\JWT_Based_Token_Final.csproj|F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\JWT_Based_Token_Final\\jwt_based_token_final\\app_start\\webapiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{744B3842-F7C3-460C-8757-B7754EDCAAD9}|JWT_Based_Token_Final\\JWT_Based_Token_Final.csproj|solutionrelative:jwt_based_token_final\\app_start\\webapiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{744B3842-F7C3-460C-8757-B7754EDCAAD9}|JWT_Based_Token_Final\\JWT_Based_Token_Final.csproj|F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\JWT_Based_Token_Final\\jwt_based_token_final\\models\\userdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{744B3842-F7C3-460C-8757-B7754EDCAAD9}|JWT_Based_Token_Final\\JWT_Based_Token_Final.csproj|solutionrelative:jwt_based_token_final\\models\\userdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{744B3842-F7C3-460C-8757-B7754EDCAAD9}|JWT_Based_Token_Final\\JWT_Based_Token_Final.csproj|f:\\rkit-dev-sheet\\basic_api\\phase_3\\jwt_based_token_final\\jwt_based_token_final\\controllers\\tokengencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{744B3842-F7C3-460C-8757-B7754EDCAAD9}|JWT_Based_Token_Final\\JWT_Based_Token_Final.csproj|solutionrelative:jwt_based_token_final\\controllers\\tokengencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TokenGenController.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\JWT_Based_Token_Final\\JWT_Based_Token_Final\\Controllers\\TokenGenController.cs",
+              "RelativeDocumentMoniker": "JWT_Based_Token_Final\\Controllers\\TokenGenController.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\JWT_Based_Token_Final\\JWT_Based_Token_Final\\Controllers\\TokenGenController.cs*",
+              "RelativeToolTip": "JWT_Based_Token_Final\\Controllers\\TokenGenController.cs*",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAswDAAAABvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T15:32:54.379Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserDetails.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\JWT_Based_Token_Final\\JWT_Based_Token_Final\\Models\\UserDetails.cs",
+              "RelativeDocumentMoniker": "JWT_Based_Token_Final\\Models\\UserDetails.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\JWT_Based_Token_Final\\JWT_Based_Token_Final\\Models\\UserDetails.cs",
+              "RelativeToolTip": "JWT_Based_Token_Final\\Models\\UserDetails.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T15:32:54.413Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WebApiConfig.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\JWT_Based_Token_Final\\JWT_Based_Token_Final\\App_Start\\WebApiConfig.cs",
+              "RelativeDocumentMoniker": "JWT_Based_Token_Final\\App_Start\\WebApiConfig.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Basic_API\\Phase_3\\JWT_Based_Token_Final\\JWT_Based_Token_Final\\App_Start\\WebApiConfig.cs",
+              "RelativeToolTip": "JWT_Based_Token_Final\\App_Start\\WebApiConfig.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAkwFgAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T15:32:54.415Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

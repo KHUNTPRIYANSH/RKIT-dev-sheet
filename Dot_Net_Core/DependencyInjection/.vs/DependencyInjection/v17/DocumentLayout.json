@@ -1,0 +1,232 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|f:\\rkit-dev-sheet\\dot_net_core\\dependencyinjection\\services\\loanservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|solutionrelative:services\\loanservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|f:\\rkit-dev-sheet\\dot_net_core\\dependencyinjection\\services\\icicibankservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|solutionrelative:services\\icicibankservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|f:\\rkit-dev-sheet\\dot_net_core\\dependencyinjection\\services\\hdfcbankservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|solutionrelative:services\\hdfcbankservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|f:\\rkit-dev-sheet\\dot_net_core\\dependencyinjection\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|f:\\rkit-dev-sheet\\dot_net_core\\dependencyinjection\\extensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|solutionrelative:extensions\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|f:\\rkit-dev-sheet\\dot_net_core\\dependencyinjection\\controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|solutionrelative:controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|f:\\rkit-dev-sheet\\dot_net_core\\dependencyinjection\\models\\compnay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|solutionrelative:models\\compnay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|f:\\rkit-dev-sheet\\dot_net_core\\dependencyinjection\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|solutionrelative:models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|f:\\rkit-dev-sheet\\dot_net_core\\dependencyinjection\\interfaces\\icompnay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|solutionrelative:interfaces\\icompnay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|f:\\rkit-dev-sheet\\dot_net_core\\dependencyinjection\\interfaces\\iloanservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|solutionrelative:interfaces\\iloanservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|f:\\rkit-dev-sheet\\dot_net_core\\dependencyinjection\\interfaces\\ibank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|solutionrelative:interfaces\\ibank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|f:\\rkit-dev-sheet\\dot_net_core\\dependencyinjection\\interfaces\\iemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B33A27C6-16AA-41B9-8F0D-5F4EB9AB5D9A}|DependencyInjection.csproj|solutionrelative:interfaces\\iemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CompanyController.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Controllers\\CompanyController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CompanyController.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Controllers\\CompanyController.cs",
+              "RelativeToolTip": "Controllers\\CompanyController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T13:38:43.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoanService.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Services\\LoanService.cs",
+              "RelativeDocumentMoniker": "Services\\LoanService.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Services\\LoanService.cs",
+              "RelativeToolTip": "Services\\LoanService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAUwBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T13:35:17.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ILoanService.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Interfaces\\ILoanService.cs",
+              "RelativeDocumentMoniker": "Interfaces\\ILoanService.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Interfaces\\ILoanService.cs",
+              "RelativeToolTip": "Interfaces\\ILoanService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T13:33:19.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ServiceCollectionExtensions.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Extensions\\ServiceCollectionExtensions.cs",
+              "RelativeDocumentMoniker": "Extensions\\ServiceCollectionExtensions.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Extensions\\ServiceCollectionExtensions.cs",
+              "RelativeToolTip": "Extensions\\ServiceCollectionExtensions.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAADwvykAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T12:44:06.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HDFCBankService.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Services\\HDFCBankService.cs",
+              "RelativeDocumentMoniker": "Services\\HDFCBankService.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Services\\HDFCBankService.cs",
+              "RelativeToolTip": "Services\\HDFCBankService.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAADwvxUAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T12:41:16.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ICICIBankService.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Services\\ICICIBankService.cs",
+              "RelativeDocumentMoniker": "Services\\ICICIBankService.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Services\\ICICIBankService.cs",
+              "RelativeToolTip": "Services\\ICICIBankService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T12:40:49.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Compnay.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Models\\Compnay.cs",
+              "RelativeDocumentMoniker": "Models\\Compnay.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Models\\Compnay.cs",
+              "RelativeToolTip": "Models\\Compnay.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBQAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T12:40:14.4Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Models\\Employee.cs",
+              "RelativeDocumentMoniker": "Models\\Employee.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Models\\Employee.cs",
+              "RelativeToolTip": "Models\\Employee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T12:39:49.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IBank.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Interfaces\\IBank.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IBank.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Interfaces\\IBank.cs",
+              "RelativeToolTip": "Interfaces\\IBank.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T12:39:12.003Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ICompnay.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Interfaces\\ICompnay.cs",
+              "RelativeDocumentMoniker": "Interfaces\\ICompnay.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Interfaces\\ICompnay.cs",
+              "RelativeToolTip": "Interfaces\\ICompnay.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T12:38:41.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IEmployee.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Interfaces\\IEmployee.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IEmployee.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Interfaces\\IEmployee.cs",
+              "RelativeToolTip": "Interfaces\\IEmployee.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T12:28:23.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "F:\\RKIT-dev-sheet\\Dot_Net_Core\\DependencyInjection\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBIAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-26T12:25:32.614Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

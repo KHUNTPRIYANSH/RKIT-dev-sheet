@@ -221,6 +221,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Healper\JwtAuthenticationHandler.cs" />
+    <Compile Include="Healper\JwtHelper.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

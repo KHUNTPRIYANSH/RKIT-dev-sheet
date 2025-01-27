@@ -26,7 +26,7 @@ namespace JWT_Based_Token_Final.Controllers
         public IHttpActionResult Login([FromBody] UserDetails user)
         {
             // Validate user credentials (hardcoded for demonstration purposes)
-            if (user.UserName != "root" || user.Password != "admin@123")
+            if (user.UserName != "admin" || user.Password != "admin@123")
                 return Unauthorized();
 
             // Generate JWT token
@@ -46,7 +46,7 @@ namespace JWT_Based_Token_Final.Controllers
         private string GenerateJwtToken(string username)
         {
             // Define the secret key and signing credentials
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Your-32-Character-Secret-Key1234"));
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Priyansh Khunt's Secret-Key12345"));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             // Create claims for the token
@@ -57,8 +57,8 @@ namespace JWT_Based_Token_Final.Controllers
 
             // Create the token
             var token = new JwtSecurityToken(
-                issuer: "YourIssuer",
-                audience: "YourAudience",
+                issuer: "KPD",
+                audience: "users",
                 claims: claims,
                 expires: DateTime.Now.AddMinutes(60),
                 signingCredentials: credentials

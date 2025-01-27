@@ -1,2 +1,0 @@
-F:\RKIT-dev-sheet\Basic_API\Phase_3\JWTAuthDemo\obj\Debug\JWTAuthDemo.csproj.AssemblyReference.cache
-F:\RKIT-dev-sheet\Basic_API\Phase_3\JWTAuthDemo\obj\Debug\JWTAuthDemo.csproj.CoreCompileInputs.cache

@@ -9,8 +9,15 @@ using BasicAuth.Models;
 
 namespace BasicAuth.Controllers
 {
+    /// <summary>
+    /// EmployeesController class is used to get the list of employees
+    /// </summary>
     public class EmployeesController : ApiController
     {
+        /// <summary>
+        /// Gets the employees.
+        /// </summary>
+        /// <returns>Return static list of employees</returns>
         //[Authorize]
         [BasicAuthAttribute]
         public List<Employee> GetEmployees()
