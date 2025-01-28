@@ -31,3 +31,7 @@ F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Logging\obj\Debug\net7.0\refi
 F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Logging\obj\Debug\net7.0\Logging.pdb
 F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Logging\obj\Debug\net7.0\Logging.genruntimeconfig.cache
 F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Logging\obj\Debug\net7.0\ref\Logging.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Logging\bin\Debug\net7.0\NLog.config
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Logging\bin\Debug\net7.0\NLog.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Logging\bin\Debug\net7.0\NLog.Extensions.Logging.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Logging\bin\Debug\net7.0\NLog.Web.AspNetCore.dll

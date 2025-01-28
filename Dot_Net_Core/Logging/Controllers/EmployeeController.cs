@@ -1,7 +1,6 @@
-﻿using Logging.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
+using Logging.Services;
+using Logging.Models;
 
 namespace Logging.Controllers
 {
@@ -9,127 +8,117 @@ namespace Logging.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        private readonly ILogger _logger;
-        public EmployeeController()
+        private readonly ILogger<EmployeeController> _logger;
+        private readonly LoggingService _service;
+
+        public EmployeeController(ILogger<EmployeeController> logger, LoggingService service)
         {
+            _logger = logger;
+            _service = service;
+        }
+        [HttpGet("log-test")]
+        public IActionResult LogTest()
+        {
+            _logger.LogInformation("EmployeeController: This is an info log.");
+            _logger.LogWarning("EmployeeController: This is a warning log.");
+            _logger.LogError("EmployeeController: This is an error log.");
+
+            _service.PerformTask(); // Demonstrates logging in a service
+            return Ok("Logs have been written.");
         }
 
         [HttpGet("GetAllEmployees")]
         public IActionResult GetEmployees()
         {
+            _logger.LogInformation("Controller: [GetAllEmployees] executed.");
+
             if (Employee.employees.Count > 0)
             {
+                _logger.LogInformation("Controller: Employee list retrieved successfully.");
                 return Ok(Employee.employees);
             }
             else
             {
-                return BadRequest("Fail : No data in employee list");
+                _logger.LogWarning("Controller: No employees found.");
+                _service.PerformTask();
+                return BadRequest("Fail: No data in employee list.");
             }
         }
 
-        [HttpGet("GetEmployeeById")]
+        [HttpGet("GetEmployeeById/{id}")]
         public IActionResult GetEmployee(int id)
         {
-            if (id > 0)
+            _logger.LogInformation($"Controller: [GetEmployeeById] with id = {id} executed.");
+
+            if (id <= 0)
             {
-                var temp = Employee.employees.SingleOrDefault<Employee>(e => e.id == id);
-                if (temp != null)
-                {
-                    return Ok(temp);
-                }
-                else
-                {
-                    return BadRequest($"Fail : Employee having id = {id} not found");
-                }
+                _logger.LogWarning("Controller: Invalid id provided.");
+                return BadRequest("Fail: id must be at least 1");
             }
-            return BadRequest("Fail : id must be at least 1");
+
+            var employee = Employee.employees.SingleOrDefault(e => e.id == id);
+
+            if (employee == null)
+            {
+                _logger.LogError($"Controller: Employee with id = {id} not found.");
+                return NotFound($"Fail: Employee with id = {id} not found.");
+            }
+
+            _logger.LogInformation($"Controller: Employee with id = {id} retrieved successfully.");
+            return Ok(employee);
         }
 
-        [HttpPost]
-        public IActionResult AddEmployee(Employee employee)
+        [HttpPost("AddEmployee")]
+        public IActionResult AddEmployee([FromBody] Employee employee)
         {
-            if (employee == null) return BadRequest("Fail : employee details not provided");
+            _logger.LogInformation("Controller: [AddEmployee] executed.");
 
-            if (employee.id > 0)
+            if (employee == null)
             {
-                var isExists = Employee.employees.Find(e => e.id == employee.id);
-                if (isExists != null)
-                {
-                    return BadRequest($"Fail : Employee having id = {employee.id} already exists");
-                }
-                else
-                {
-                    Employee.employees.Add(employee);
-                    return Ok("Success : Employee added!!");
-                }
+                _logger.LogWarning("Controller: Invalid employee data provided.");
+                return BadRequest("Fail: Invalid employee data.");
             }
-            else
-            {
-                return BadRequest("Fail : id can't be negative or zero");
-            }
+
+            Employee.employees.Add(employee);
+            _logger.LogInformation($"Controller: Employee with id = {employee.id} added successfully.");
+            return Ok($"Employee with id = {employee.id} added successfully.");
         }
 
-        [HttpPut]
-        public IActionResult UpdateEmployee(Employee employee)
+        [HttpPut("UpdateEmployee/{id}")]
+        public IActionResult UpdateEmployee(int id, [FromBody] Employee updatedEmployee)
         {
-            if (employee == null) return BadRequest("Fail : employee details not provided");
+            _logger.LogInformation($"Controller: [UpdateEmployee] with id = {id} executed.");
 
-            if (employee.id > 0)
+            var employee = Employee.employees.SingleOrDefault(e => e.id == id);
+            if (employee == null)
             {
-                var isExists = Employee.employees.Find(e => e.id == employee.id);
-                if (isExists != null)
-                {
-                    isExists.name = employee.name;
-                    isExists.city = employee.city;
-                    isExists.isActive = employee.isActive;
-                    return Ok("Success : Employee details updated");
-                }
-                else
-                {
-                    return BadRequest($"Fail : Employee having id = {employee.id} does not exist");
-                }
+                _logger.LogError($"Controller: Employee with id = {id} not found.");
+                return NotFound($"Fail: Employee with id = {id} not found.");
             }
-            else
-            {
-                return BadRequest("Fail : id can't be negative or zero");
-            }
+
+            employee.name = updatedEmployee.name;
+            employee.city = updatedEmployee.city;
+            _logger.LogInformation($"Controller: Employee with id = {id} updated successfully.");
+            return Ok($"Employee with id = {id} updated successfully.");
         }
 
-        [HttpPatch]
-        public IActionResult PatchEmployee(int id, string name = null, string city = null, bool? isActive = null)
-        {
-            if (id <= 0) return BadRequest("Fail : id must be greater than zero");
-
-            var employee = Employee.employees.Find(e => e.id == id);
-            if (employee != null)
-            {
-                if (!string.IsNullOrEmpty(name)) employee.name = name;
-                if (!string.IsNullOrEmpty(city)) employee.city = city;
-                if (isActive.HasValue) employee.isActive = isActive.Value;
-
-                return Ok("Success : Employee details patched");
-            }
-            else
-            {
-                return BadRequest($"Fail : Employee having id = {id} does not exist");
-            }
-        }
-
-        [HttpDelete]
+        [HttpDelete("DeleteEmployee/{id}")]
         public IActionResult DeleteEmployee(int id)
         {
-            if (id <= 0) return BadRequest("Fail : id must be greater than zero");
+            _logger.LogInformation($"Controller: [DeleteEmployee] with id = {id} executed.");
 
-            var isExists = Employee.employees.Find(e => e.id == id);
-            if (isExists != null)
+            var employee = Employee.employees.SingleOrDefault(e => e.id == id);
+            if (employee == null)
             {
-                Employee.employees.Remove(isExists);
-                return Ok($"Success : Employee having id = {id} deleted");
+                _logger.LogError($"Controller: Employee with id = {id} not found.");
+                return NotFound($"Fail: Employee with id = {id} not found.");
             }
-            else
-            {
-                return BadRequest($"Fail : Employee having id = {id} does not exist");
-            }
+
+            Employee.employees.Remove(employee);
+            _logger.LogInformation($"Controller: Employee with id = {id} deleted successfully.");
+            return Ok($"Employee with id = {id} deleted successfully.");
         }
     }
+
+    
 }
