@@ -21,7 +21,7 @@ namespace BasicAuth.BasicAuth
         /// <summary>
         /// Calls when a process requests authorization.
         /// </summary>
-        /// <param name="actionContext">The action context, which encapsulates information for using <see cref="T:System.Web.Http.Filters.AuthorizationFilterAttribute" />.</param>
+        /// <param name="actionContext">The action context, which encapsulates information for using 
         public override void OnAuthorization(HttpActionContext actionContext)
         {
             // case 1 : header is empty

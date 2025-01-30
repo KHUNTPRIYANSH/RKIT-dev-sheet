@@ -158,16 +158,53 @@ $(document).ready(function () {
 
   $("#openAccountForm").on("submit", function (e) {
     e.preventDefault();
-    const name = $("#accountHolderName").val();
-    const initialBalance = parseFloat($("#initialBalance").val());
+    const name = $("#accountHolderName").val().trim();
+    const initialBalance = $("#initialBalance").val().trim();
+
+    // Validate account holder name
+    const nameRegex = /^[A-Za-z\s]+$/;
+    const minNameLength = 3;
+    const maxNameLength = 50;
+
+    if (name === "") {
+      alert("Please enter the account holder's name.");
+      return;
+    }
+
+    if (!nameRegex.test(name)) {
+      alert("Account holder name must contain only letters and spaces.");
+      return;
+    }
+
+    if (name.length < minNameLength || name.length > maxNameLength) {
+      alert(
+        `Account holder name must be between ${minNameLength} and ${maxNameLength} characters.`
+      );
+      return;
+    }
+
+    // Validate initial balance
+    if (
+      initialBalance === "" ||
+      isNaN(initialBalance) ||
+      parseFloat(initialBalance) < 0
+    ) {
+      alert("Please enter a valid initial balance (non-negative number).");
+      return;
+    }
 
     try {
-      const newAccount = bank.openAccount(name, initialBalance);
+      const newAccount = bank.openAccount(name, parseFloat(initialBalance));
       alert(
         `Account created successfully! Account Number: ${newAccount.accountNumber}`
       );
       DataStore.saveAccounts(bank.accounts);
       renderAccountsTable(bank.accounts);
+
+      // Clear input fields
+      $("#accountHolderName").val("");
+      $("#initialBalance").val("");
+      $("#email").val("");
     } catch (err) {
       alert(err.message);
     }
@@ -195,6 +232,8 @@ $(document).ready(function () {
       } else {
         alert("Account not found.");
       }
+      $("#depositAccountNumber").val("");
+      $("#depositAmount").val("");
     } catch (err) {
       alert(err.message);
     }
@@ -222,6 +261,8 @@ $(document).ready(function () {
       } else {
         alert("Account not found.");
       }
+      $("#withdrawAccountNumber").val("");
+      $("#withdrawAmount").val("");
     } catch (err) {
       alert(err.message);
     }
@@ -238,6 +279,10 @@ $(document).ready(function () {
     const destinationAccountNumber = parseInt(
       $("#destinationAccountNumber").val()
     );
+    if (sourceAccountNumber === destinationAccountNumber) {
+      alert("Sender and receiver must be different.");
+      return;
+    }
     const amount = parseFloat($("#transferAmount").val());
 
     console.log(
@@ -269,6 +314,9 @@ $(document).ready(function () {
       // Update accounts and render the updated table
       DataStore.saveAccounts(bank.accounts);
       renderAccountsTable(bank.accounts);
+      $("#sourceAccountNumber").val("");
+      $("#destinationAccountNumber").val("");
+      $("#transferAmount").val("");
     } catch (err) {
       alert(err.message);
     }
@@ -404,5 +452,6 @@ $(document).ready(function () {
         `Converted Amount: $${usdAmount.toFixed(2)} USD` // point pachi 2j value apva
       );
     }
+    $("#inrAmount").val("");
   });
 });

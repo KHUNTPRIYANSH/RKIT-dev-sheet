@@ -66,11 +66,12 @@ namespace Phase_3_Final_Demo.Helpers
         /// </summary>
         /// <param name="token">The JWT token to validate.</param>
         /// <returns>
-        /// A <see cref="ClaimsPrincipal"/> containing the claims if the token is valid.
+        /// A ClaimsPrincipal containing the claims if the token is valid.
         /// Throws an exception if the token is invalid or expired.
         /// </returns>
         public static ClaimsPrincipal ValidateJwtToken(string token)
         {
+
             // Create a token handler
             var tokenHandler = new JwtSecurityTokenHandler();
 
@@ -80,12 +81,13 @@ namespace Phase_3_Final_Demo.Helpers
             // Define token validation parameters
             var validationParameters = new TokenValidationParameters
             {
-                ValidateIssuer = true, // Ensure the token's issuer matches the expected issuer
-                ValidateAudience = true, // Ensure the token's audience matches the expected audience
-                ValidateIssuerSigningKey = true, // Ensure the token's signature is valid
-                ValidIssuer = Issuer, // The expected issuer
-                ValidAudience = Audience, // The expected audience
-                IssuerSigningKey = new SymmetricSecurityKey(key) // The security key used to sign the token
+                ValidateIssuer = true, 
+                ValidateAudience = true, 
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = Issuer, 
+                ValidAudience = Audience,
+                IssuerSigningKey = new SymmetricSecurityKey(key) 
+                // The security key used to sign the token
             };
 
             // Validate the token and return the claims principal

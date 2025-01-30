@@ -20,6 +20,7 @@ namespace BasicAuth.Controllers
         /// <returns>Return static list of employees</returns>
         //[Authorize]
         [BasicAuthAttribute]
+        [HttpGet]
         public List<Employee> GetEmployees()
         {
             return Employee.GetEmployees();
