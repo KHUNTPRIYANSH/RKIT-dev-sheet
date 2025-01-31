@@ -91,5 +91,23 @@ namespace TPA_Server.Controllers
 
             return Ok("User deleted successfully.");
         }
+
+
+
+        [HttpGet]
+        [Route("get-user")]
+        public IHttpActionResult GetUser()
+        {
+            string token = Request.Headers.Authorization?.Parameter;
+            if (string.IsNullOrEmpty(token))
+                return Unauthorized();
+
+            var authModel = JWTHelper.ValidateJwtToken(token);
+            if (authModel == null)
+                return Unauthorized();
+
+            return Ok(authModel);
+        }
+
     }
 }

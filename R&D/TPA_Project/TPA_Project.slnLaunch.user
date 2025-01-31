@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "TPA_Server\\TPA_Server.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "TPA_GUI\\TPA_GUI.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

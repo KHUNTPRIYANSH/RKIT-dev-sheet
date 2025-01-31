@@ -81,5 +81,27 @@ namespace TPA_Server.Helpers
                 return null; // Invalid token
             }
         }
+
+        public static AuthModel ExtractAuthModelFromToken(string token)
+        {
+            var principal = ValidateJwtToken(token);
+            if (principal == null) return null;
+
+            var claims = principal.Claims.ToList();
+
+            var authModel = new AuthModel
+            {
+                Id = int.TryParse(claims.FirstOrDefault(c => c.Type == "Id")?.Value, out int id) ? id : 0,
+                Username = claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value,
+                Password = claims.FirstOrDefault(c => c.Type == "Password")?.Value, // Extract password
+                Role = claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value,
+                TokenExpiryInMinutes = int.TryParse(claims.FirstOrDefault(c => c.Type == "TokenExpiry")?.Value, out int expiry) ? expiry : 0,
+                Dependencies = claims.Where(c => c.Type == "Dependency").Select(c => c.Value).ToList()
+            };
+
+            return authModel;
+        }
+
+
     }
 }

@@ -43,22 +43,50 @@ namespace TPA_Server.Controllers
             });
         }
 
+
+        // POST: api/token/verify
+        [HttpPost]
+        [Route("verify")]
+        public IHttpActionResult VerifyToken([FromBody] string token)
+        {
+            if (string.IsNullOrWhiteSpace(token))
+            {
+                return BadRequest("Token is required.");
+            }
+
+            // Extract AuthModel from token
+            var authModel = JWTHelper.ExtractAuthModelFromToken(token);
+
+            if (authModel == null)
+            {
+                return Unauthorized();
+            }
+
+            return Ok(authModel);
+        }
+
+
         private string GenerateJwtToken(AuthModel user)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTHelper.SecretKey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, user.Username),
-                new Claim(ClaimTypes.Role, user.Role),
-                new Claim("TokenExpiry", DateTime.UtcNow.AddMinutes(user.TokenExpiryInMinutes).ToString())
-            };
+    {
+        new Claim(ClaimTypes.Name, user.Username),
+        new Claim(ClaimTypes.Role, user.Role),
+        new Claim("Id", user.Id.ToString()), // Store user ID
+        new Claim("Password", user.Password), // Store password (⚠️ SECURITY RISK)
+        new Claim("TokenExpiry", DateTime.UtcNow.AddMinutes(user.TokenExpiryInMinutes).ToString())
+    };
 
             // Add dependencies as multiple claims
-            foreach (var dependency in user.Dependencies)
+            if (user.Dependencies != null)
             {
-                claims.Add(new Claim("Dependency", dependency));
+                foreach (var dependency in user.Dependencies)
+                {
+                    claims.Add(new Claim("Dependency", dependency));
+                }
             }
 
             var token = new JwtSecurityToken(
@@ -71,5 +99,9 @@ namespace TPA_Server.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+
+
+
     }
 }
