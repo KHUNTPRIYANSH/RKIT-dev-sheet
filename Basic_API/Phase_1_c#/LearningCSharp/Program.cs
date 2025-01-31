@@ -17,12 +17,10 @@
             //InheritanceDemo.RunInheritanceDemo();
             //PolymorphismDemo.RunPolymorphismDemo();
             //AbstractionDemo.RunAbstractionDemo();
-            //EncapsulationDemo.RunEncapsulationDemo();
-            //AssemblyDemo.RunAssemblyDemo();
+            //EncapsulationDemo.RunEncapsulationDemo();         
             //EnumDemo.RunEnumDemo();
             //JsonConversionDemo.RunJsonConversionDemo();
-            //CollectionsDemo.RunCollectionsDemo();
-            
+            //CollectionsDemo.RunCollectionsDemo(); 
             //ExceptionHandlingDemo.RunExceptionHandlingDemo();
             //DataTables.RunDataTablesDemo();
             //FileManagementDemo.RunFileManagementDemo();

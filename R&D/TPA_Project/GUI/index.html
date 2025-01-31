@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body onload="getToken()">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="redirectToDashboard()">Login</button>
+
+    <script>
+
+        function getToken() {
+            console.log("get token method triggerd");
+            $.ajax({
+                url: "https://localhost:44377/api/token-generator/generate/1",
+                type: "POST",
+                contentType: "application/json",
+                success: function (response) {
+                    // let str = '"'+response.Token+'"';
+                    localStorage.setItem("jwtToken", response.Token);
+                    // alert("Token received and stored!");
+                    // console.log(response);
+
+                    // Now verify the token
+                    verifyToken();
+                },
+                error: function () {
+                    alert("Failed to get token!");
+                }
+            });
+        }
+
+        function verifyToken() {
+            let token = localStorage.getItem("jwtToken");
+            let dataModel = JSON.stringify(token); // Convert token to JSON string
+
+            $.ajax({
+                url: "https://localhost:44377/api/token-generator/verify",
+                type: "POST",
+                contentType: "application/json",
+                data: dataModel, // Send token as a JSON string
+                success: function (response) {
+                    // Store user details
+                    localStorage.setItem("username", response.Username);
+                    localStorage.setItem("password", response.Password);
+                    localStorage.setItem("role", response.Role);
+                    localStorage.setItem("dependencies", JSON.stringify(response.Dependencies));
+
+                    // Fill input fields with received credentials
+                    $("#username").val(response.Username);
+                    $("#password").val(response.Password);
+                },
+                error: function (xhr) {
+                    console.error("Verification Error:", xhr.responseText);
+                    alert("Token verification failed: " + xhr.responseText);
+                }
+            });
+        }
+
+
+        function redirectToDashboard() {
+            window.location.href = "dashboard.html";
+        }
+    </script>
+</body>
+
+</html>

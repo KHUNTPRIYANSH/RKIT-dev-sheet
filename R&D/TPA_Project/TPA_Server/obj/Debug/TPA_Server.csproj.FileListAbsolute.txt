@@ -246,3 +246,9 @@ F:\RKIT-dev-sheet\R&D\TPA_Project\TPA_Server\obj\Debug\TPA_Server.csproj.CoreCom
 F:\RKIT-dev-sheet\R&D\TPA_Project\TPA_Server\obj\Debug\TPA_Server.csproj.Up2Date
 F:\RKIT-dev-sheet\R&D\TPA_Project\TPA_Server\obj\Debug\TPA_Server.dll
 F:\RKIT-dev-sheet\R&D\TPA_Project\TPA_Server\obj\Debug\TPA_Server.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\R&D\TPA_Project\TPA_Server\bin\Newtonsoft.Json.Bson.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\R&D\TPA_Project\TPA_Server\bin\System.Web.Cors.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\R&D\TPA_Project\TPA_Server\bin\System.Web.Http.Cors.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\R&D\TPA_Project\TPA_Server\bin\Newtonsoft.Json.Bson.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\R&D\TPA_Project\TPA_Server\bin\Newtonsoft.Json.Bson.xml
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\R&D\TPA_Project\TPA_Server\bin\System.Web.Http.Cors.xml

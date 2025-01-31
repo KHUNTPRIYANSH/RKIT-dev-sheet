@@ -1,5 +1,5 @@
 ﻿
-using MyClassLib;
+//using MyClassLib;
 
 namespace LearningCSharp
 {
@@ -8,15 +8,15 @@ namespace LearningCSharp
         public static void RunAssemblyDemo()
         {
 
-            // Create an instance of the CurrencyConverter class
-            CurrencyConverter converter = new CurrencyConverter();
+            //// Create an instance of the CurrencyConverter class
+            //CurrencyConverter converter = new CurrencyConverter();
 
-            // Ask the user to enter the amount in INR
-            Console.Write("Enter the amount in INR: ");
-            float amountInRupees = float.Parse(Console.ReadLine());
+            //// Ask the user to enter the amount in INR
+            //Console.Write("Enter the amount in INR: ");
+            //float amountInRupees = float.Parse(Console.ReadLine());
 
-            // Convert and print the result
-            converter.ConvertAndPrintAmount(amountInRupees);
+            //// Convert and print the result
+            //converter.ConvertAndPrintAmount(amountInRupees);
 
         }
         

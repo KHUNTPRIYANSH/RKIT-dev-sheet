@@ -1,0 +1,5 @@
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\MyClassLib_.net8\obj\Debug\net7.0\MyClassLib.csproj.AssemblyReference.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\MyClassLib_.net8\obj\Debug\net7.0\MyClassLib.GeneratedMSBuildEditorConfig.editorconfig
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\MyClassLib_.net8\obj\Debug\net7.0\MyClassLib.AssemblyInfoInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\MyClassLib_.net8\obj\Debug\net7.0\MyClassLib.AssemblyInfo.cs
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Basic_API\Phase_1_c#\MyClassLib_.net8\obj\Debug\net7.0\MyClassLib.csproj.CoreCompileInputs.cache

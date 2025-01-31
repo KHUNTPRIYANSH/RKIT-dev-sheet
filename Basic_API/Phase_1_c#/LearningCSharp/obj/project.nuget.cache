@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "YyAGEJEEU27fQ9aDGkWexFzcJHtcw7phwkJ/HCVDa7Byed1Q6ZjoGNEOHOaycta7AIvgOf7eIncgzetR+YtTBg==",
+  "dgSpecHash": "KS7OX4/APLUmDAoGTK5CTSQSFFxKAM3ZNlDkIC84a1+BnQu4TR3T8CCEcrJnz1L5YxMi4BQCUToRQeC22bn/Kg==",
   "success": true,
   "projectFilePath": "F:\\Priyansh_KPD\\GITHUB\\RKIT-dev-sheet\\Basic_API\\Phase_1_c#\\LearningCSharp\\LearningCSharp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\PRIYANSH.K\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512",
+    "C:\\Users\\PRIYANSH.K\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

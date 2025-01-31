@@ -97,6 +97,41 @@ namespace TPA_Server.Helpers
             return user;
         }
 
+        public AuthModel GetUserByLoignDetails(Login data)
+        {
+            AuthModel user = null;
+
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT * FROM auth_table WHERE username = @username and password = @password";
+
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@username", data.UserName);
+                    cmd.Parameters.AddWithValue("@password", data.Password);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            user = new AuthModel
+                            {
+                                Id = reader.GetInt32("id"),
+                                Username = reader.GetString("username"),
+                                Password = reader.GetString("password"), // This should be handled securely
+                                Role = reader.GetString("role"),
+                                Dependencies = reader.GetString("Dependencies").Split(',').ToList(),
+                                TokenExpiryInMinutes = reader.GetInt32("TokenExpiryInMinutes")
+                            };
+                        }
+                    }
+                }
+            }
+            return user;
+        }
+
+
         public bool UpdateUser(int id, string username, string password, string role, List<string> dependencies, int tokenExpiryInMinutes)
         {
             using (var conn = new MySqlConnection(connectionString))

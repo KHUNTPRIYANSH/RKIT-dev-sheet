@@ -43,6 +43,27 @@ namespace TPA_Server.Controllers
             });
         }
 
+        // POST: api/token-generator/generate/{id}
+        [HttpPost]
+        [Route("generate/token")]
+        public IHttpActionResult LoginHandler(Login data)
+        {
+         
+            if (data == null)
+            {
+                return NotFound();
+            }
+            AuthModel user = _dbHelper.GetUserByLoignDetails(data);
+            // Generate JWT token with claims
+            string token = GenerateJwtToken(user);
+
+            return Ok(new
+            {
+                Token = token,
+                ExpiresAt = DateTime.UtcNow.AddMinutes(user.TokenExpiryInMinutes)
+            });
+        }
+
 
         // POST: api/token/verify
         [HttpPost]
@@ -99,9 +120,5 @@ namespace TPA_Server.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-
-
-
-
     }
 }

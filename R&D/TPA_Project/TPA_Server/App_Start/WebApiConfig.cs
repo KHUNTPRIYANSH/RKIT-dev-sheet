@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace TPA_Server
 {
@@ -20,6 +21,12 @@ namespace TPA_Server
                 constraints: null,
                 handler: new RedirectHandler(message => message.RequestUri.ToString(), "swagger")
             );
+
+            // Web API configuration and services
+            var cors = new EnableCorsAttribute("*", "*", "*");
+
+            config.EnableCors(cors);
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 

@@ -5,13 +5,13 @@ function sum(a, b) {
 }
 
 // ! function expression
-
+// ! no hoisting
 const mul = function (a, b) {
   return a + b;
 };
 
 // ! arrow function expression
-
+// no this context
 const sub = (a, b) => {
   return a - b;
 };

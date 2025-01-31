@@ -42,8 +42,9 @@ let child = document.getElementById("box4");
 let container = document.getElementById("container");
 
 //+ concept of bubbling ::false
-//? event will be triggered on top most child in z index
-//? here box has some event and its working and their may be case in which container also may have event and body can also have so event will applied on top most element in z index
+//? event will be triggered on top most child in z index / dom hierarchy
+//? here box has some event and its working and their may be case in 
+//? which container also may have event and body can also have so event will applied on top most element in z index
 
 // child.addEventListener("click", () => {
 //   console.log("Child box clicked");
