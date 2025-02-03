@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "ModalProcessing\\ModalProcessing.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "TPA_Handler\\TPA_Handler.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

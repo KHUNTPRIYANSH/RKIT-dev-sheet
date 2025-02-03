@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\DOT-NET\\learning\\R\u0026D\\GuiProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0DE996F0-E4BA-4F31-B943-282389F3587D}|TPA_Handler\\TPA_Handler.csproj|f:\\dot-net\\learning\\r\u0026d\\guiproject\\tpa_handler\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0DE996F0-E4BA-4F31-B943-282389F3587D}|TPA_Handler\\TPA_Handler.csproj|solutionrelative:tpa_handler\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "F:\\DOT-NET\\learning\\R\u0026D\\GuiProject\\TPA_Handler\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "TPA_Handler\\Services\\AuthService.cs",
+              "ToolTip": "F:\\DOT-NET\\learning\\R\u0026D\\GuiProject\\TPA_Handler\\Services\\AuthService.cs",
+              "RelativeToolTip": "TPA_Handler\\Services\\AuthService.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAwwEQAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-02T05:00:57.602Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
