@@ -1,5 +1,0 @@
-F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\Offline_BasicAPI_Phase1_Final\Offline_BasicAPI_Phase1_Final\obj\Debug\net7.0\Offline_BasicAPI_Phase1_Final.csproj.AssemblyReference.cache
-F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\Offline_BasicAPI_Phase1_Final\Offline_BasicAPI_Phase1_Final\obj\Debug\net7.0\Offline_BasicAPI_Phase1_Final.GeneratedMSBuildEditorConfig.editorconfig
-F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\Offline_BasicAPI_Phase1_Final\Offline_BasicAPI_Phase1_Final\obj\Debug\net7.0\Offline_BasicAPI_Phase1_Final.AssemblyInfoInputs.cache
-F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\Offline_BasicAPI_Phase1_Final\Offline_BasicAPI_Phase1_Final\obj\Debug\net7.0\Offline_BasicAPI_Phase1_Final.AssemblyInfo.cs
-F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\Offline_BasicAPI_Phase1_Final\Offline_BasicAPI_Phase1_Final\obj\Debug\net7.0\Offline_BasicAPI_Phase1_Final.csproj.CoreCompileInputs.cache

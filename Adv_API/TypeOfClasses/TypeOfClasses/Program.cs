@@ -95,6 +95,7 @@ namespace ClassDemo
             Console.WriteLine("Partial Class Method Two");
         }
     }
+    
     #endregion
 
     #region Nested Class
@@ -143,7 +144,7 @@ namespace ClassDemo
         // base class constructor calling constructor of parent class
         public DerivedClass(string name) : base(name) { }
 
-        public override void Display()
+        public override void Display() 
         {
             Console.WriteLine("Derived Class Display: " + Name);
         }

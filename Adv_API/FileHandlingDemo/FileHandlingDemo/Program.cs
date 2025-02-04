@@ -16,6 +16,12 @@ namespace FileHandlingDemo
 
             // Run DriveInfo Demo
             DriveInfoDemo.Run();
+
+            // Run FileInfo Demo
+            FileInfoDemo.Run();
+
+            // Run FileStream Demo
+            FileStreamDemo.Run();
         }
     }
 }

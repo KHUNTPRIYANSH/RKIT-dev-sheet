@@ -1,0 +1,15 @@
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\TypeOfClasses\TypeOfClasses\bin\Debug\net6.0\TypeOfClasses.exe
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\TypeOfClasses\TypeOfClasses\bin\Debug\net6.0\TypeOfClasses.deps.json
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\TypeOfClasses\TypeOfClasses\bin\Debug\net6.0\TypeOfClasses.runtimeconfig.json
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\TypeOfClasses\TypeOfClasses\bin\Debug\net6.0\TypeOfClasses.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\TypeOfClasses\TypeOfClasses\bin\Debug\net6.0\TypeOfClasses.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\TypeOfClasses\TypeOfClasses\obj\Debug\net6.0\TypeOfClasses.csproj.AssemblyReference.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\TypeOfClasses\TypeOfClasses\obj\Debug\net6.0\TypeOfClasses.GeneratedMSBuildEditorConfig.editorconfig
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\TypeOfClasses\TypeOfClasses\obj\Debug\net6.0\TypeOfClasses.AssemblyInfoInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\TypeOfClasses\TypeOfClasses\obj\Debug\net6.0\TypeOfClasses.AssemblyInfo.cs
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\TypeOfClasses\TypeOfClasses\obj\Debug\net6.0\TypeOfClasses.csproj.CoreCompileInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\TypeOfClasses\TypeOfClasses\obj\Debug\net6.0\TypeOfClasses.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\TypeOfClasses\TypeOfClasses\obj\Debug\net6.0\refint\TypeOfClasses.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\TypeOfClasses\TypeOfClasses\obj\Debug\net6.0\TypeOfClasses.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\TypeOfClasses\TypeOfClasses\obj\Debug\net6.0\TypeOfClasses.genruntimeconfig.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\TypeOfClasses\TypeOfClasses\obj\Debug\net6.0\ref\TypeOfClasses.dll

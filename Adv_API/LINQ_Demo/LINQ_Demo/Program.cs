@@ -257,13 +257,11 @@ namespace LINQ_Demo
             var concat = set1.Concat(set2).ToList();
             Console.WriteLine("Concat: " + string.Join(", ", concat));
         }
-
         /// <summary>
         /// Demonstrates join operations like Join and GroupJoin.
         /// </summary>
         public static void JoinMethods(DataSource dataSource)
         {
-
             Console.WriteLine("\n##### Join  Methods ####");
             var personOrders = dataSource.PersonList.Join(dataSource.OrderList,
                 person => person.PersonID,

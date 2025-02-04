@@ -14,6 +14,9 @@ using System.Data;
 
 namespace Basic_ORM.BL.Operations
 {
+    /// <summary>
+    /// BL_Employee is a business logic class of employee
+    /// </summary>
     public class BL_Employee : IDataHandler<DTO_Emp01>
     {
         // following are field which are necessary and used manytime in operations

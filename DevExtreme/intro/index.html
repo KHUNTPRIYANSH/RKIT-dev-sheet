@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevExtreme Intro</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/21.1.11/css/dx.light.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/21.1.11/js/dx.all.js"></script>
+</head>
+
+<body class="dx-viewport">
+    <h2>DevExtreme Intro Demo</h2>
+
+    <!-- Button Container -->
+    <div id="buttonContainer"></div>
+
+    <!-- Control Buttons -->
+    <button id="getTextBtn">Get Button Text</button>
+    <button id="setTextBtn">Set Button Text</button>
+    <button id="callMethodBtn">Call a Button Method</button>
+    <button id="destroyBtn">Destroy the Button</button>
+
+    <script>
+        $(function () {
+            // 1️. Create and Configure a Widget
+            $("#buttonContainer").dxButton({
+                text: "Click me!",
+                type: "success",
+                icon: "todo",
+                stylingMode: "outlined",
+                onClick: function () {
+                    DevExpress.ui.notify("Button was clicked!", "success", 2000);
+                }
+            });
+
+            // 2️. Get a Widget Instance
+            var btnInstance = $("#buttonContainer").dxButton("instance");
+
+            // 3️. Get and Set Options
+            $("#getTextBtn").on("click", function () {
+                var currentText = btnInstance.option("text");
+                alert("Current Button Text: " + currentText);
+            });
+
+            $("#setTextBtn").on("click", function () {
+                btnInstance.option("text", "Updated Text!");
+                DevExpress.ui.notify("Button text updated!", "info", 2000);
+            });
+
+            // 4️. Call Methods
+            $("#callMethodBtn").on("click", function () {
+                DevExpress.ui.notify("This is a manual notification!", "warning", 2000);
+            });
+
+            // 5. Handle Events (already handled in `onClick` property)
+
+            // 6️. Destroy a Widget
+            $("#destroyBtn").on("click", function () {
+                btnInstance.dispose();  // Free resources
+                $("#buttonContainer").empty(); // Remove the element
+                DevExpress.ui.notify("Button destroyed!", "error", 2000);
+            });
+        });
+    </script>
+</body>
+
+</html>

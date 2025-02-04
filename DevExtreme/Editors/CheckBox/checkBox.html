@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevExtreme Checkbox</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="../Content/dx.dark.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+
+    <style>
+        .row {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+    </style>
+</head>
+
+<body class="dx-viewport">
+    <h2>DevExtreme Checkbox Demo</h2>
+    <div>
+        <h3>States of check box</h3>
+        <div class="row">
+            <div id="checkBoxContainer-1"></div>
+            <div id="checkBoxContainer-2"></div>
+            <div id="checkBoxContainer-3"></div>
+            <div id="checkBoxContainer-4"></div>
+            <div id="checkBoxContainer-5"></div>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            $('#checkBoxContainer-1').dxCheckBox({
+                value: true,
+                text: 'Checked',
+                validationErrors: [{ message: "This checkbox must be checked." }],
+                validationMessageMode: "always",
+                elementAttr: {
+                    'aria-label': 'Checked',
+                },
+            });
+
+            $('#checkBoxContainer-2').dxCheckBox({
+                value: undefined,
+                text: 'Indeterminate',
+                validationError: { message: "Invalid selection." },
+                validationMessageMode: "auto",
+                elementAttr: {
+                    'aria-label': 'Indeterminate',
+                },
+            });
+
+            $('#checkBoxContainer-3').dxCheckBox({
+                value: false,
+                text: 'Unchecked',
+                validationErrors: [{ message: "You must check this box." }],
+                validationMessageMode: "always",
+                onValueChanged: function (e) {
+                    console.log("old : " + e.previousValue);
+                    console.log("new : " + e.value);
+                },
+                elementAttr: {
+                    'aria-label': 'Unchecked',
+                },
+            });
+
+            $('#checkBoxContainer-4').dxCheckBox({
+                value: null,
+                disabled: true,
+                text: 'Disabled',
+                height: 50,
+                hint: "you can't see me",
+                validationError: { message: "This checkbox is disabled." },
+                validationMessageMode: "auto",
+                elementAttr: {
+                    'aria-label': 'Disabled',
+                },
+            });
+
+            $('#checkBoxContainer-5').dxCheckBox({
+                accessKey: 'c',
+                text: 'Access Key',
+                activeStateEnabled: false,
+                enableThreeStateBehavior: true,
+                value: undefined,
+                focusStateEnabled: false,
+                hoverStateEnabled: false,
+                isValid: false,
+                validationErrors: [{ message: "You must select a valid state." }],
+                validationMessageMode: "always",
+                tabIndex: 0,
+                rtlEnabled: true,
+                onOptionChanged: () => console.log("option changed"),
+                onValueChanged: () => console.log("value changed"),
+                onInitialized: () => console.log("checkbox initialized"),
+                onContentReady: () => console.log("content ready"),
+                onDisposing: () => console.log("checkbox disposed"),
+                name: "abc",
+                hint: "you can't see me",
+                elementAttr: {
+                    name: "xyz",
+                    'aria-label': 'Three state mode',
+                },
+            });
+        });
+    </script>
+</body>
+
+</html>

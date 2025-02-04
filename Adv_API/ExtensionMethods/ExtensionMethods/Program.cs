@@ -19,7 +19,7 @@ namespace ExtensionMethods
             // then we take each char from char array using lambda expression we find index of it's word from digitWords and
             // return array pf string as a result
         }
-
+      
         /// <summary>
         /// Checks if an integer is even.
         /// </summary>
