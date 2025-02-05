@@ -1,16 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Web;
 
-namespace FinalDemo.BL.Operations
+namespace FinalDemo.Helpers
 {
-    /// <summary>
-    /// Business logic for the encryption.
-    /// </summary>
-    public static class BLencryption
+    public class EncryptionHelper
     {
-        #region Private Fields
+        #region 
 
         /// <summary>
         /// Initialization Vector (IV) used for AES encryption.
@@ -34,7 +34,7 @@ namespace FinalDemo.BL.Operations
         /// <summary>
         /// Static constructor to initialize the static instance of the <see cref="BLEncryption"/>
         /// </summary>
-        static BLencryption()
+        static EncryptionHelper()
         {
             _objAes = Aes.Create();
 
@@ -70,6 +70,6 @@ namespace FinalDemo.BL.Operations
             }
         }
 
-        #endregion Public Methods
+        #endregion
     }
 }

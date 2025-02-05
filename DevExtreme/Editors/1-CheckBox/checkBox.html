@@ -34,6 +34,7 @@
             <div id="checkBoxContainer-3"></div>
             <div id="checkBoxContainer-4"></div>
             <div id="checkBoxContainer-5"></div>
+            <div id="checkBoxContainer-6"></div>
         </div>
     </div>
 
@@ -95,7 +96,7 @@
                 focusStateEnabled: false,
                 hoverStateEnabled: false,
                 isValid: false,
-                validationErrors: [{ message: "You must select a valid state." }],
+                validationErrors: [{ message: "You must select a valid state" }],
                 validationMessageMode: "always",
                 tabIndex: 0,
                 rtlEnabled: true,
@@ -111,6 +112,89 @@
                     'aria-label': 'Three state mode',
                 },
             });
+
+
+            // show all methods and events
+
+            function logEvent(eventName, e) {
+                console.log(`${eventName} triggered`, e);
+            }
+
+            // Initialize CheckBox
+            var checkBox = $('#checkBoxContainer-6').dxCheckBox({
+                activeStateEnabled: false,
+                disabled: false,
+                focusStateEnabled: true,
+                height: 40,
+                width: 200,
+                hint: 'This is a checkbox',
+                hoverStateEnabled: true,
+                enabled: true,
+                isValid: false,
+                name: "agreementCheck",
+                readOnly: false,
+                rtlEnabled:true,
+                tabIndex: 2,
+                text: 'Accept Terms and Conditions',
+                validationError: { message: "You must check this box." },
+                validationErrors: [{ message: "Validation error 1" }, { message: "Validation error 2" }],
+                validationMessageMode: "always",
+                validationStatus: "valid",
+                value: false,
+                visible: true,
+
+                onContentReady: (e) => logEvent("Content Ready", e),
+                onDisposing: (e) => logEvent("Disposing", e),
+                onInitialized: (e) => logEvent("Initialized", e),
+                onOptionChanged: (e) => logEvent("Option Changed", e),
+                onValueChanged: (e) => logEvent("Value Changed", e)
+            }).dxCheckBox("instance");
+
+            // Methods Demonstration
+            console.log("Element:", checkBox.element());
+            console.log("Instance:", checkBox.instance());
+            //console.log("Get Instance:", DevExpress.ui.dxCheckBox.getInstance(document.getElementById("checkBoxContainer")));
+
+            checkBox.beginUpdate();
+            checkBox.option("text", "Updated: Accept Terms");
+            checkBox.endUpdate();
+
+            DevExpress.ui.dxCheckBox.defaultOptions({
+                options: {
+                    stylingMode: "outlined",
+                    width: 220
+                }
+            });
+
+            checkBox.repaint();
+
+            setTimeout(() => {
+                checkBox.focus();
+            }, 2000);
+
+            checkBox.registerKeyHandler("enter", function () {
+                console.log("Enter key pressed on CheckBox");
+            });
+
+            setTimeout(() => {
+                checkBox.reset();
+                console.log("CheckBox Reset");
+            }, 5000);
+
+            checkBox.option("value", true);
+            checkBox.option({ readOnly: true });
+
+            checkBox.on("valueChanged", function (e) {
+                console.log("Value Changed:", e.value);
+            });
+
+            checkBox.off("valueChanged");
+            checkBox.resetOption("enabled");
+
+            setTimeout(() => {
+                checkBox.dispose();
+                console.log("CheckBox Disposed");
+            }, 15000);
         });
     </script>
 </body>

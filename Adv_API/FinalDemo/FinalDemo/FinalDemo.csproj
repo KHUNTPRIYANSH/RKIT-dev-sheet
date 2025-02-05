@@ -213,7 +213,6 @@
     <Compile Include="BL\Interface\IDataHandler.cs" />
     <Compile Include="BL\Operations\BLDEPT01.cs" />
     <Compile Include="BL\Operations\BLEMP01.cs" />
-    <Compile Include="BL\Operations\BLencryption.cs" />
     <Compile Include="BL\Operations\BLUSR01.cs" />
     <Compile Include="Controllers\LoginPanel.cs" />
     <Compile Include="Controllers\DEPT01Controller.cs" />
@@ -224,6 +223,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\EncryptionHelper.cs" />
     <Compile Include="Helpers\JWTHelper.cs" />
     <Compile Include="Models\DTO\DTODEPT01.cs" />
     <Compile Include="Models\DTO\DTOEMP01.cs" />

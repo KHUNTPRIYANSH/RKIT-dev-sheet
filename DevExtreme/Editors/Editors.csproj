@@ -67,7 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CheckBox\checkBox.html" />
+    <Content Include="1-CheckBox\checkBox.html" />
+    <Content Include="2-DateBox\dateBox.html" />
     <Content Include="Content\dx-diagram.css" />
     <Content Include="Content\dx-diagram.min.css" />
     <Content Include="Content\dx-gantt.css" />

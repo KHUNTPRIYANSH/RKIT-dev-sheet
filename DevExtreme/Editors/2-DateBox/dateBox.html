@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>DevExtreme Checkbox</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="../Content/dx.dark.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+
+    <style>
+        .row {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+    </style>
+</head>
+
+<body class="dx-viewport">
+    <h2>DevExtreme Datebox Demo</h2>
+    <div>
+        <h3>DateBox</h3>
+        <div class="row">
+            <div id="dateBox-container"></div>
+            <div id="datetimeBox-container"></div>
+            <div id="timeBox-container"></div>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+
+
+           
+
+            $('#dateBox-container').dxDateBox({
+                acceptCustomValue: false, // prevents putting value mannualy
+                accessKey: 'c' ,// alt + 'c' to focus
+                focusStateEnabled: true,
+                //readOnly: true,
+                activeStateEnabled: false,
+                adaptivityEnabled: true, //the date box is displayed without the digital clock face.
+                applyButtonText: "Ok 👌", // The text displayed on the Apply button.
+                applyValueMode: "useButtons", //instantly Applies the selected value immediately after a user clicks the required value in the drop-down menu. This mode cannot be used if the pickerType is "rollers" or the type is "datetime"
+                max: new Date("31/12/2025"),
+                min: new Date("1/1/2000"),
+                //disabledDates: function (args) {
+                //    const dayOfWeek = args.date.getDay();
+                //    const isWeekend = args.view === 'month' && (dayOfWeek%2 === 0);
+                //    return isWeekend;
+                //},
+                dateOutOfRangeMessage: 'date is out of range',
+                cancelButtonText: "Cancle 🗑",
+                displayFormat: "yyyy-MM-dd",
+                deferRendering: false, // Specifies whether to render the drop- down field's content when it is displayed. If false, the content is rendered immediately.
+                height: '50px',
+                width: '750px',
+                hint: 'Date Box Here!!!',
+                openOnFieldClick: true,
+                inputAttr: {
+                    id: "dbId"
+                },
+                placeholder: 'This is place holder text',
+                rtlEnabled: true,
+                showClearButton: true,
+                stylingMode: 'filled',  // Others:  outlined underlined filled
+                useMaskBehavior: true 
+            });
+
+            $('#datetimeBox-container').dxDateBox({
+                type: 'time',
+                stylingMode: 'filled',
+                interval: 10, // default 30
+                pickerType: 'calendar', // native calendar rollers list
+                value: new Date(),
+            });
+
+            $('#timeBox-container').dxDateBox({
+                type: 'datetime',
+                adaptivityEnabled: true,
+                applyButtonText: 'Apply Value',
+                displayFormat: 'EEEE, d of MMM, yyyy HH:mm',
+                invalidDateMessage: 'Date or time is invalid',
+                maxLength: 6,
+                opened: false,
+            });
+
+            $('#timeBox-container').dxDateBox({
+                onkeydown: (e) => {
+                    console.log(`${e.event.key}`)
+                }
+            });
+
+
+
+            // instance method
+            var dateBoxInstance = $("#dateBox-container").dxDateBox("instance");
+            var timeBoxInstance = $("#datetimeBox-container").dxDateBox("instance");
+            var datetimeBoxInstance = $("#timeBox-container").dxDateBox("instance");
+
+            dateBoxInstance.focus(); // focus method
+            setTimeout(function () {
+                datetimeBoxInstance.close(); // close method
+                dateBoxInstance.blur(); 
+
+                dateBoxInstance.beginUpdate(); // beginUpdate method
+                dateBoxInstance.option("value", new Date()); // options method to set value
+                dateBoxInstance.option("disabled", false);
+                dateBoxInstance.endUpdate(); // endUpdate method
+            }, 14000)
+
+            //const clearButton = dateBoxInstance.getButton("clear");
+            //console.log(clearButton);
+
+            //dateBoxInstance.on("valueChanged", function (e) {
+            //    console.log("New value:", e.value);
+            //});
+
+
+        })
+    </script>
+</body>
+</html>

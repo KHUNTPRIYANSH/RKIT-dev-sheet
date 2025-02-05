@@ -16,8 +16,8 @@ namespace LambdaDemo
             // Syntax:
             //          input => expression;
             List<int> nums = new List<int>() { 1,2,3,4,5,6,7,8};
-            var square = nums.Select(n => n*n);
-            foreach(var n in nums) 
+            List<int> square = nums.Select(n => n*n).ToList();
+            foreach(int n in nums) 
             {
                 Console.Write(n + " ");
             }

@@ -25,7 +25,7 @@ namespace FinalDemo.Controllers
 
         [HttpGet]
         [Route("get_all_users")]
-        [JWTAuthorizationFilter(EnmRoleType.Admin, EnmRoleType.Editor, EnmRoleType.User)]
+        [JWTAuthorizationFilter]
         public IHttpActionResult GetAllUsers()
         {
             Response users = _objBLUser.GetAll();
@@ -34,7 +34,7 @@ namespace FinalDemo.Controllers
 
         [HttpGet]
         [Route("get_user_by_id")]
-        [JWTAuthorizationFilter(EnmRoleType.Admin , EnmRoleType.Editor , EnmRoleType.User)]
+        [JWTAuthorizationFilter]
         public IHttpActionResult GetUserByID(int id)
         {
             Response _objRes = _objBLUser.Get(id);
@@ -56,6 +56,7 @@ namespace FinalDemo.Controllers
 
         [HttpPost]
         [Route("add_user")]
+        [JWTAuthorizationFilter(EnmRoleType.Admin, EnmRoleType.Editor)]
         public IHttpActionResult AddUser(DTOUSR01 objDTOUser)
         {
             _objBLUser.Type = EnumType.A;
@@ -75,6 +76,7 @@ namespace FinalDemo.Controllers
 
         [HttpPut]
         [Route("update_user")]
+        [JWTAuthorizationFilter(EnmRoleType.Admin, EnmRoleType.Editor)]
         public IHttpActionResult UpdateUser(DTOUSR01 objDTOUser)
         {
             _objBLUser.Type = EnumType.E;
@@ -89,6 +91,7 @@ namespace FinalDemo.Controllers
 
         [HttpDelete]
         [Route("delete_user")]
+        [JWTAuthorizationFilter(EnmRoleType.Admin)]
         public IHttpActionResult DeleteUser(int id)
         {
             _objResponse = _objBLUser.Delete(id);

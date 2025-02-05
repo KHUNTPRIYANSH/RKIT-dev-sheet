@@ -12,8 +12,8 @@ using ServiceStack.OrmLite;
 
 namespace FinalDemo.Controllers
 {
-    [RoutePrefix("api/CLAuthentication")]
-    public class CLauthenticationController : ApiController
+    [RoutePrefix("api/LoginPanel")]
+    public class LoginPanelController : ApiController
     {
         private BLUSR01 _objBLuser;
         private readonly IDbConnectionFactory _dbFactory;
@@ -21,7 +21,7 @@ namespace FinalDemo.Controllers
 
         public Response _objResponce;
 
-        public CLauthenticationController()
+        public LoginPanelController()
         {
             _objBLuser = new BLUSR01();
             _dbFactory = HttpContext.Current.Application["DbFactory"] as IDbConnectionFactory;
@@ -36,8 +36,9 @@ namespace FinalDemo.Controllers
         {
             using (var db = _dbFactory.OpenDbConnection())
             {
+                var ecrypted = EncryptionHelper.GetEncryptPassword(userInfo.Password);
                 // Fetch user from the database based on username
-                var user = db.Single<USR01>(u => u.R01F02 == userInfo.UserName);
+                var user = db.Single<USR01>(u => u.R01F02 == userInfo.UserName && u.R01F03.Equals(ecrypted));
 
                 // Validate user existence and password (you can implement your own validation here)
                 if (user == null)

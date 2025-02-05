@@ -1,5 +1,6 @@
 ﻿using FinalDemo.BL.Interface;
 using FinalDemo.Extension;
+using FinalDemo.Helpers;
 using FinalDemo.Models;
 using FinalDemo.Models.DTO;
 using FinalDemo.Models.ENUM;
@@ -151,9 +152,10 @@ namespace FinalDemo.BL.Operations
         public void PreSave(DTOUSR01 objDTO)
         {
             // Encrypt the password from DTO before converting to POCO
-            //objDTO.R01F03 = Sha256Hashing.Hash(objDTO.R01F03);
+
             objDTO.R01F02 = objDTO.R01F02.Trim().ToLower();
             _objUsr01 = objDTO.Convert<USR01>();
+            _objUsr01.R01F03 = EncryptionHelper.GetEncryptPassword(_objUsr01.R01F03);
 
             if (Type == EnumType.E)
             {

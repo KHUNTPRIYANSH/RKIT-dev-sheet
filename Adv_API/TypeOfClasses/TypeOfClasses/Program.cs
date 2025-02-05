@@ -35,6 +35,7 @@ namespace ClassDemo
             Console.WriteLine("Static Class: This is a static method.");
             Console.WriteLine("Static Class Member: " + someStaticMember);
         }
+        // public static
     }
     #endregion
 
