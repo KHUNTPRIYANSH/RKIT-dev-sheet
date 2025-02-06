@@ -37,16 +37,21 @@ namespace FileHandlingDemo
 
             #region SetCurrentDirectory
             Console.WriteLine("\n-- SetCurrentDirectory --");
+            
             string originalDir = Directory.GetCurrentDirectory();
             Directory.SetCurrentDirectory("DemoDirectory");
+            
             Console.WriteLine("Changed Current Directory: " + Directory.GetCurrentDirectory());
+            
             Directory.SetCurrentDirectory(originalDir); // Reset to original
             Console.WriteLine("Restored Current Directory: " + Directory.GetCurrentDirectory());
             #endregion
 
             #region GetFiles
             Console.WriteLine("\n-- GetFiles --");
+            
             string[] files = Directory.GetFiles("DemoDirectory");
+            
             Console.WriteLine("Files in 'DemoDirectory':");
             foreach (string file in files)
             {
@@ -56,6 +61,7 @@ namespace FileHandlingDemo
 
             #region GetDirectories
             Console.WriteLine("\n-- GetDirectories --");
+            
             string[] directories = Directory.GetDirectories("DemoDirectory");
             Console.WriteLine("Subdirectories in 'DemoDirectory':");
             foreach (string dir in directories)
@@ -63,16 +69,7 @@ namespace FileHandlingDemo
                 Console.WriteLine(dir);
             }
             #endregion
-
-            #region GetFileSystemEntries
-            Console.WriteLine("\n-- GetFileSystemEntries --");
-            string[] entries = Directory.GetFileSystemEntries("DemoDirectory");
-            Console.WriteLine("File System Entries in 'DemoDirectory':");
-            foreach (string entry in entries)
-            {
-                Console.WriteLine(entry);
-            }
-            #endregion
+           
 
             #region GetParent
             Console.WriteLine("\n-- GetParent --");

@@ -137,7 +137,7 @@ namespace BaseClassLib
             customList.Add(3);
             customList.Add(3);  // Duplicate test
             customList.Add(4);
-            customList.Add(5);  // Capacity test
+            customList.Add(5);  // Capacity test [90%]
 
             customList.Remove(2);
 

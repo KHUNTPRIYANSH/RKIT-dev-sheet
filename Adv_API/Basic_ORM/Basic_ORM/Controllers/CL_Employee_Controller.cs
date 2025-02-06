@@ -42,7 +42,7 @@ namespace Basic_ORM.Controllers
         [Route("get_employee_by_id")]
         public IHttpActionResult GetEmployeeByID(int id)
         {
-            var _objRes = _objBLEmployee.Get(id);
+            Emp01 _objRes = _objBLEmployee.Get(id);
             if (_objRes == null)
             {
                 _objResponse.IsError = true;

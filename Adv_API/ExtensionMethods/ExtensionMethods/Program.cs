@@ -13,13 +13,28 @@ namespace ExtensionMethods
         /// </summary>
         public static string DescribeNumber(this string numberString)
         {
+            // Array to map digits to words
             string[] digitWords = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
-            return string.Join(" ", numberString.ToCharArray().Select(c => digitWords[c - '0'].ToUpper()));
-            // in above line we converting string number into char array so "1234" become '1' , '2' , '3' , '4'.
-            // then we take each char from char array using lambda expression we find index of it's word from digitWords and
-            // return array pf string as a result
+
+            // Initialize an empty list to store word representations of each digit
+            List<string> wordList = new List<string>();
+
+            // Loop through each character in the input string (which represents a number)
+            foreach (char digit in numberString)
+            {
+                // Convert the character to its integer value and use that as an index to fetch the word
+                int index = digit - '0'; // Convert char digit to an integer
+                string word = digitWords[index].ToUpper(); // Get the word corresponding to the digit and make it uppercase
+
+                // Add the word to the list
+                wordList.Add(word);
+            }
+
+            // Join the list of words with spaces in between and return the result
+            return string.Join(" ", wordList);
         }
-      
+
+
         /// <summary>
         /// Checks if an integer is even.
         /// </summary>
@@ -36,16 +51,7 @@ namespace ExtensionMethods
         /// </summary>
         public static string ToShortDate(this DateTime dateTime) => dateTime.ToString("d");
 
-        /// <summary>
-        /// Returns the first item in a list, or default if empty.
-        /// </summary>
-        public static T FirstOrDefault<T>(this List<T> list) => list.Count > 0 ? list[0] : default;
-
-        /// <summary>
-        /// Returns the top item in a stack, or default if empty.
-        /// </summary>
-        public static T PeekOrDefault<T>(this Stack<T> stack) => stack.Count > 0 ? stack.Peek() : default;
-    }
+        }
 
     /// <summary>
     /// A demo program to showcase simplified extension methods.
@@ -58,7 +64,7 @@ namespace ExtensionMethods
         private static void Main()
         {
             // String: DescribeNumber
-            string number = "1234";
+            string number = "123456";
             Console.WriteLine($"DescribeNumber: {number.DescribeNumber()}");
 
             // Integer: IsEven
@@ -73,22 +79,7 @@ namespace ExtensionMethods
             DateTime today = DateTime.Now;
             Console.WriteLine($"Short date: {today.ToShortDate()}");
 
-            // List: FirstOrDefault
-            List<int> numbers = new List<int> { 1, 2, 3 };
-            Console.WriteLine($"First in list: {numbers.FirstOrDefault()}");
-
-            // Empty list example
-            List<int> emptyList = new List<int>();
-            Console.WriteLine($"First in empty list: {emptyList.FirstOrDefault()}");
-
-            // Stack: PeekOrDefault
-            Stack<string> stack = new Stack<string>();
-            stack.Push("Hello");
-            Console.WriteLine($"Top of stack: {stack.PeekOrDefault()}");
-
-            // Empty stack example
-            Stack<string> emptyStack = new Stack<string>();
-            Console.WriteLine($"Top of empty stack: {emptyStack.PeekOrDefault()}");
+           
 
             Console.WriteLine("\nPress any key to exit...");
             Console.ReadKey();

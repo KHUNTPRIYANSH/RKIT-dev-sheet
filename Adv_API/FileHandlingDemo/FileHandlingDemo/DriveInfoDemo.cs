@@ -20,11 +20,11 @@ namespace FileHandlingDemo
                 Console.WriteLine($"Drive Format: {drive.DriveFormat}");
                 Console.WriteLine($"Volume Label: {drive.VolumeLabel}");
                 Console.WriteLine($"Root Directory: {drive.RootDirectory}");
-                Console.WriteLine($"Total Size: {drive.TotalSize / (1024 * 1024 * 1024)} GB");
+                Console.WriteLine($"Total Size: {drive.TotalSize / (1024 * 1024 * 1024)} GB");// default bytes
                 Console.WriteLine($"Available Free Space: {drive.AvailableFreeSpace / (1024 * 1024 * 1024)} GB");
                 Console.WriteLine($"Total Free Space: {drive.TotalFreeSpace / (1024 * 1024 * 1024)} GB");
                 Console.WriteLine($"Is Ready: {drive.IsReady}");
-                Console.WriteLine(new string('-', 50));
+               
                 #endregion
 
                 #region Additional Drive Operations

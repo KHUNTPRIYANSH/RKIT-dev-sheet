@@ -86,7 +86,7 @@ namespace LINQ_Demo
             Console.WriteLine("Adults: " + string.Join(", ", adults.Select(p => p.Name)));
 
             // First() - Gets the first person aged 30 or above
-            Person firstAdult = dataSource.PersonList.First(p => p.Age >= 30);
+            Person firstAdult = dataSource.PersonList.First(p => p.Age >= 35);
             Console.WriteLine("First adult: " + firstAdult.Name);
 
             // FirstOrDefault() - Gets the first person aged above 40, or null if none exist
@@ -104,7 +104,7 @@ namespace LINQ_Demo
                 Console.WriteLine("Single person exception: No match or  Multiple matches");
             }
 
-            // SingleOrDefault() - Returns null if no person with PersonID = 5
+            // SingleOrDefault() - Returns null / default if no person with PersonID = 5
             try
             {
 
@@ -132,7 +132,7 @@ namespace LINQ_Demo
 
             Console.WriteLine("\n##### Projection  Methods ####");
             // Select - Projects only the names of people
-            var names = dataSource.PersonList.Select(p => p.Name);
+            List<string> names = dataSource.PersonList.Select(p => p.Name).ToList();
             Console.WriteLine("Names: " + string.Join(", ", names));
 
             // SelectMany - merge nested collections
@@ -149,7 +149,7 @@ namespace LINQ_Demo
             // To: [1,2,3,4]
 
             // Merging the nested lists into a single collection
-            var oneDNumbers = numberGroups.SelectMany(group => group);
+            List<int> oneDNumbers = numberGroups.SelectMany(group => group).ToList();
             Console.WriteLine("Flattened Numbers: " + string.Join(", ", oneDNumbers));
         }
 
@@ -161,27 +161,27 @@ namespace LINQ_Demo
 
             Console.WriteLine("\n##### Partition  Methods ####");
             // TakeWhile() - Takes elements while the condition is true
-            IEnumerable<Person> PersonListStartingWithA = dataSource.PersonList.TakeWhile(p => p.Name.StartsWith("A"));
+            List<Person> PersonListStartingWithA = dataSource.PersonList.TakeWhile(p => p.Name.StartsWith("A")).ToList();
             Console.WriteLine("TakeWhile: " + string.Join(", ", PersonListStartingWithA.Select(p => p.Name)));
 
             // SkipWhile() - Skips elements while the condition is true
-            IEnumerable<Person> PersonListNotStartingWithA = dataSource.PersonList.SkipWhile(p => p.Name.StartsWith("A"));
+            List<Person> PersonListNotStartingWithA = dataSource.PersonList.SkipWhile(p => p.Name.StartsWith("A")).ToList();
             Console.WriteLine("SkipWhile: " + string.Join(", ", PersonListNotStartingWithA.Select(p => p.Name)));
 
             // Take() - Takes the first 3 elements
-            IEnumerable<Person> first3People = dataSource.PersonList.Take(3);
+            List<Person> first3People = dataSource.PersonList.Take(3).ToList();
             Console.WriteLine("First 3 people: " + string.Join(", ", first3People.Select(p => p.Name)));
 
             // Skip() - Skips the first 3 elements
-            IEnumerable<Person> skipFirst3People = dataSource.PersonList.Skip(3);
+            List<Person> skipFirst3People = dataSource.PersonList.Skip(3).ToList()  ;
             Console.WriteLine("Skip first 3 people: " + string.Join(", ", skipFirst3People.Select(p => p.Name)));
 
             // TakeLast() - Takes the last 2 elements
-            IEnumerable<Person> last2People = dataSource.PersonList.TakeLast(2);
+            List<Person> last2People = dataSource.PersonList.TakeLast(2).ToList()   ;
             Console.WriteLine("Last 2 people: " + string.Join(", ", last2People.Select(p => p.Name)));
 
             // SkipLast() - Skips the last 2 elements
-            IEnumerable<Person> skipLast2People = dataSource.PersonList.SkipLast(2);
+            List<Person> skipLast2People = dataSource.PersonList.SkipLast(2).ToList()   ;
             Console.WriteLine("Skip last 2 people: " + string.Join(", ", skipLast2People.Select(p => p.Name)));
         }
 
@@ -242,19 +242,19 @@ namespace LINQ_Demo
             List<int> set1 = new List<int> { 1, 2, 3 };
             List<int> set2 = new List<int> { 3, 4, 5 };
 
-            var distinctSet1 = set1.Distinct().ToList();
+            List<int> distinctSet1 = set1.Distinct().ToList();
             Console.WriteLine("Distinct Set1: " + string.Join(", ", distinctSet1));
 
-            var union = set1.Union(set2).ToList();
+            List<int> union = set1.Union(set2).ToList();
             Console.WriteLine("Union: " + string.Join(", ", union));
 
-            var intersect = set1.Intersect(set2).ToList();
+            List<int> intersect = set1.Intersect(set2).ToList();
             Console.WriteLine("Intersect: " + string.Join(", ", intersect));
 
-            var except = set1.Except(set2).ToList();
+            List<int> except = set1.Except(set2).ToList();
             Console.WriteLine("Except: " + string.Join(", ", except));
 
-            var concat = set1.Concat(set2).ToList();
+            List<int> concat = set1.Concat(set2).ToList();
             Console.WriteLine("Concat: " + string.Join(", ", concat));
         }
         /// <summary>
@@ -263,6 +263,9 @@ namespace LINQ_Demo
         public static void JoinMethods(DataSource dataSource)
         {
             Console.WriteLine("\n##### Join  Methods ####");
+            
+            //// what can we write than var???
+            
             var personOrders = dataSource.PersonList.Join(dataSource.OrderList,
                 person => person.PersonID,
                 order => order.PersonId,
@@ -329,13 +332,13 @@ namespace LINQ_Demo
         {
 
             Console.WriteLine("\n##### Conversion  Methods ####");
-            var namesList = dataSource.PersonList.Select(p => p.Name).ToList();
+            List<string> namesList = dataSource.PersonList.Select(p => p.Name).ToList();
             Console.WriteLine("Names List: " + string.Join(", ", namesList));
 
-            var namesArray = dataSource.PersonList.Select(p => p.Name).ToArray();
+            string[] namesArray = dataSource.PersonList.Select(p => p.Name).ToArray();
             Console.WriteLine("Names Array: " + string.Join(", ", namesArray));
 
-            var personDictionary = dataSource.PersonList.ToDictionary(p => p.PersonID, p => p.Name);
+            Dictionary<int,string> personDictionary = dataSource.PersonList.ToDictionary(p => p.PersonID, p => p.Name);
             foreach (var kvp in personDictionary)
             {
                 Console.WriteLine($"PersonID: {kvp.Key}, Name: {kvp.Value}");

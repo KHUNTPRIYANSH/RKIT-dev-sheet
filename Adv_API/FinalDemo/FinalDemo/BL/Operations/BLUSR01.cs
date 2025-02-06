@@ -104,7 +104,7 @@ namespace FinalDemo.BL.Operations
                 int count = (int)db.Count<USR01>(u => u.R01F04 == EnmRoleType.Admin);
                 if (!IsUserExist(id).IsError)
                 {
-                    var temp = Get(id);
+                    Response temp = Get(id);
 
                     if (temp.Data.R01F04 == EnmRoleType.Admin && count > 1)
                     {

@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>DevExtreme Numberbox</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="../Content/dx.dark.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+
+    <style>
+        .row {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+    </style>
+</head>
+
+<body class="dx-viewport">
+    <h2>DevExtreme Numberbox Demo</h2>
+    <div class="row">
+
+        <div id="numberBox-zipcode-container"></div>
+        <div id="numberBox-container"></div>
+    </div>
+
+    <script>
+        $(() => {
+
+            $("#numberBox-zipcode-container").dxTextBox({
+                //mode: 'tel', // Effect keyboard of mobile device
+                value: '',
+                placeholder: '360002',
+                format:"000-000",
+                width: 500,
+                height: 75,
+                min: 0,
+                max:999999,
+                validationRules: [
+                    {
+                        type: "custom",
+                        validationCallback: function (e) {
+                            const zipRegex = /^[0-9]{6}$/;
+                            if (!zipRegex.test(e.value)) {
+                                return false;
+                            }
+                            return true;
+                        },
+                        message: "Please enter a proper zipcode."
+                    }
+                ],
+                onKeyDown: (e) => {
+                    console.log("KeyDown :", e.event.type, e.event.key);
+                },
+                onKeyUp: (e) => {
+                    console.log("KeyUp :", e.event.type, e.event.key);
+                },
+                onInput: (e) => {
+                    console.log("Input :", e.event.currentTarget.value);
+                },
+            });
+
+            $("#numberBox-container").dxNumberBox({
+                format: "##.00",
+                width: 500,
+                height: 70,
+                rtlEnabled: false,
+                //value: 12355.911,
+                min: 00,
+                max: 99,
+                showSpinButtons: true,
+                useLargeSpinButtons: false, // for desktop
+                step: 0.25,
+                showClearButton: true,
+                placeholder: '00.00',
+                onInitialized: () => {
+                    console.log("numberBox Initialized");
+                },
+                onContentReady: () => {
+                    console.log("numberBox ContentReady");
+                },
+                onFocusIn: () => {
+                    console.log("numberBox Focused In");
+                },
+
+            });
+        })
+    </script>
+</body>
+</html>

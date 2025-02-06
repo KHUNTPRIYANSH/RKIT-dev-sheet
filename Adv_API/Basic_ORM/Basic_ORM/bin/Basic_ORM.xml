@@ -33,6 +33,11 @@
             </summary>
             <returns>A response indicating the result of the save operation.</returns>
         </member>
+        <member name="T:Basic_ORM.BL.Operations.BL_Employee">
+            <summary>
+            BL_Employee is a business logic class of employee
+            </summary>
+        </member>
         <member name="M:Basic_ORM.BL.Operations.BL_Employee.GetAll">
             <summary>
             GetAll method fetches all the employeees from the db

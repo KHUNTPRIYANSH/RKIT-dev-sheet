@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevExtreme DropDown</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="../Content/dx.dark.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+</head>
+<body class="dx-viewport">
+    <h2>DevExtreme DropDown Demo</h2>
+    <div id="dropDownContainer"></div>
+
+    <script>
+        // === Different Data Sources ===
+
+        // 1. Simple JSON Array
+        //var dataSource = [
+        //    { id: 1, name: "Laptop" },
+        //    { id: 2, name: "Phone" },
+        //    { id: 3, name: "Light" },
+        //    { id: 4, name: "Radio" },
+        //    { id: 5, name: "Camera" }
+        //];
+
+       
+      
+        
+
+        // 2. Dictionary as Data Source (Uncomment to use)
+       
+        //var productsDict = {
+        //    1: "Laptop",
+        //    2: "Phone",
+        //    3: "Light",
+        //    4: "Radio",
+        //    5: "Camera"
+        //};
+        //dataSource = Object.keys(productsDict).map(key => ({
+        //    id: key,
+        //    name: productsDict[key]
+        //}));
+       
+
+        // 3. DevExtreme DataSource (Uncomment to use)
+        
+        var dataSource = new DevExpress.data.DataSource({
+            load: function () {
+                return $.getJSON("https://jsonplaceholder.typicode.com/users");
+            }
+        });
+        
+
+        // 4. XML Data (Uncomment to use)
+       
+        //var xmlData = `<products>
+        //    <product id="1" name="Laptop"/>
+        //    <product id="2" name="Phone"/>
+        //    <product id="3" name="Light"/>
+        //    <product id="4" name="Radio"/>
+        //    <product id="5" name="Camera"/>
+        //</products>`;
+
+        //var xmlDoc = $.parseXML(xmlData);
+        //var $xml = $(xmlDoc);
+        //var dataSource = [];
+
+        //$xml.find("product").each(function () {
+        //    var $product = $(this);
+        //    dataSource.push({
+        //        id: $product.attr("id"),
+        //        name: $product.attr("name")
+        //    });
+        //});
+        
+
+        // Function to Initialize DropDown
+        function initializeDropDown(dataSource, displayExpr = "name", valueExpr = "id") {
+            $('#dropDownContainer').dxDropDownBox({
+                deferRandering: false,
+                contentTemplate: function (e) {
+                    var $list = $("<div>").dxList({
+                        dataSource: dataSource,
+                        displayExpr: displayExpr,
+                        valueExpr: valueExpr,
+                        selectionMode: "multiple", 
+                        showSelectionControls: true,
+                       
+                    });
+                    return $list;
+                },
+                placeholder: 'Select a value...',
+                showDropDownButton: true, // default : true
+                acceptCustomValue: true, // default : false
+               
+            });
+        }
+
+        // Call function with default JSON data
+        initializeDropDown(dataSource);
+
+    </script>
+</body>
+</html>

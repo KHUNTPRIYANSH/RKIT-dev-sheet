@@ -19,11 +19,13 @@ namespace FileHandlingDemo
                 File.Delete(filePath);
 
             #region Create File
+           
             FileInfo fileInfo = new FileInfo(filePath);
             using (StreamWriter writer = fileInfo.CreateText())
             {
                 writer.WriteLine("This is a demo file.");
             }
+            
             Console.WriteLine("File 'DemoFile.txt' created.");
             #endregion
 

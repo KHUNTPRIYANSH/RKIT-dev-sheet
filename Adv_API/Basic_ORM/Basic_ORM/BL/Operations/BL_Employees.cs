@@ -118,8 +118,8 @@ namespace Basic_ORM.BL.Operations
         /// <returns>[null , isError , message]</returns>
         public Response Delete(int id)
         {
-            var employee = PreDelete(id);
-            var validationResponse = ValidateOnDelete(employee);
+            Emp01 employee = PreDelete(id);
+            Response validationResponse = ValidateOnDelete(employee);
             if (validationResponse.IsError)
                 return validationResponse;
 
@@ -193,8 +193,8 @@ namespace Basic_ORM.BL.Operations
                 {
                     if (Type == EnmType.A)
                     {
-                        db.Insert(_objEmp01);
-                        _objResponse.Message = "Data Added";
+                        int id = (int)db.Insert(_objEmp01, selectIdentity : true);
+                        _objResponse.Message = $"Data Added {id}";
                     }
                     if (Type == EnmType.E)
                     {
@@ -218,7 +218,7 @@ namespace Basic_ORM.BL.Operations
         {
             using (var db = _dbFactory.OpenDbConnection())
             {
-                var emp = db.Select<Emp01>().FirstOrDefault();
+                Emp01 emp = db.Select<Emp01>().FirstOrDefault();
                 if (emp != null)
                 {
                     _objResponse.Data = emp;
@@ -240,7 +240,7 @@ namespace Basic_ORM.BL.Operations
         {
             using (var db = _dbFactory.OpenDbConnection())
             {
-                var emp = db.Select<Emp01>().LastOrDefault();
+                Emp01 emp = db.Select<Emp01>().LastOrDefault();
                 if (emp != null)
                 {
                     _objResponse.Data = emp;
@@ -263,7 +263,7 @@ namespace Basic_ORM.BL.Operations
         {
             using (var db = _dbFactory.OpenDbConnection())
             {
-                var emp = db.Single(db.From<Emp01>().OrderByDescending(e => e.Salary));
+                Emp01 emp = db.Single(db.From<Emp01>().OrderByDescending(e => e.Salary));
                 if (emp != null)
                 {
 
@@ -286,7 +286,7 @@ namespace Basic_ORM.BL.Operations
         {
             using (var db = _dbFactory.OpenDbConnection())
             {
-                var emp = db.Select(db.From<Emp01>().Where(e => e.Name.StartsWith(ch.ToString())));
+                List<Emp01> emp = db.Select(db.From<Emp01>().Where(e => e.Name.StartsWith(ch.ToString())));
                 if (emp.Count > 0)
                 {
 
@@ -314,7 +314,7 @@ namespace Basic_ORM.BL.Operations
                 int maxPay = db.Scalar<int>(db.From<Emp01>().Where(e => e.Department == dpt).Select(e => Sql.Max(e.Salary)));
                 int avgPay = db.Scalar<int>($"SELECT AVG(Salary) FROM Emp01 WHERE Department = \"{dpt}\"");
                 int minPay = db.Scalar<int>($"SELECT MIN(Salary) FROM  Emp01 WHERE Department = \"{dpt}\"");
-                var res = $"Count : {count}, Max Pay : {maxPay}, Min Pay : {minPay}, Avg Pay : {avgPay}";
+                string res = $"Count : {count}, Max Pay : {maxPay}, Min Pay : {minPay}, Avg Pay : {avgPay}";
                 if (count > 0 && maxPay >0 && avgPay > 0 && minPay > 0)
                 {
                     _objResponse.Data = res; _objResponse.IsError = false;

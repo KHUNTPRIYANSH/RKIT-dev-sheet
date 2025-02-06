@@ -1,0 +1,5 @@
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\EncryptionDemo\obj\Debug\net6.0\EncryptionDemo.csproj.AssemblyReference.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\EncryptionDemo\obj\Debug\net6.0\EncryptionDemo.GeneratedMSBuildEditorConfig.editorconfig
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\EncryptionDemo\obj\Debug\net6.0\EncryptionDemo.AssemblyInfoInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\EncryptionDemo\obj\Debug\net6.0\EncryptionDemo.AssemblyInfo.cs
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Adv_API\EncryptionDemo\obj\Debug\net6.0\EncryptionDemo.csproj.CoreCompileInputs.cache

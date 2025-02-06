@@ -160,7 +160,7 @@ namespace FinalDemo.BL.Operation
                 decimal maxPay = db.Scalar<decimal>(db.From<EMP01>().Where(e => e.P01F05 == id).Select(e => Sql.Max(e.P01F08)));
                 decimal avgPay = db.Scalar<decimal>($"SELECT AVG(P01F08) FROM EMP01 WHERE P01F05 = \"{id}\"");
                 decimal minPay = db.Scalar<decimal>($"SELECT MIN(P01F08) FROM EMP01 WHERE P01F05 = \"{id}\"");
-                var res = $"Count : {count}, Max Pay : {maxPay}, Min Pay : {minPay}, Avg Pay : {avgPay}";
+                string res = $"Count : {count}, Max Pay : {maxPay}, Min Pay : {minPay}, Avg Pay : {avgPay}";
                 if (count > 0 && maxPay >= 0 && avgPay >= 0 && minPay >= 0)
                 {
                     _objResponse.Data = res; 

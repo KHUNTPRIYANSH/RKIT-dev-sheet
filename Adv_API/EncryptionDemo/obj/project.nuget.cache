@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "YgC1XtNJvbMNBtGGxY9YKczxCMVvNWA8s1YY9tAx7WpqEFEfwA08jRjk+Zv2wZxNN+dYPbkEWCoYtPO4Fq38sA==",
+  "dgSpecHash": "G2UkBTe/HBEB8PPTbv344b9IhrK9N16zaMjkN6GJDJifnZZ1ZWbOycmL8KkLnkeaWwhtMrDP0OXQElLfZPOfgQ==",
   "success": true,
   "projectFilePath": "F:\\Priyansh_KPD\\GITHUB\\RKIT-dev-sheet\\Adv_API\\EncryptionDemo\\EncryptionDemo.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\PRIYANSH.K\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512"
+  ],
   "logs": []
 }
