@@ -22,11 +22,11 @@
         public async Task Invoke(HttpContext httpContext)
         {
             // Log the request processing.
-            Console.WriteLine("Request - MB's Custom Middleware using Request Delegate.");
+            await httpContext.Response.WriteAsync("[Req] - MB's Custom Middleware using Request Delegate.\n");
             // Call the next middleware in the pipeline.
             await _next(httpContext);
             // Log the response processing.
-            Console.WriteLine("Response - MB's Custom Middleware using Request Delegate.");
+            await httpContext.Response.WriteAsync("[Res] - MB's Custom Middleware using Request Delegate.\n");
         }
     }
 

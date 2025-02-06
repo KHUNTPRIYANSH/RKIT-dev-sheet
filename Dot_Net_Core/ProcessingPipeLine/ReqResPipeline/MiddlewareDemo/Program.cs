@@ -10,30 +10,17 @@ namespace MiddlewareDemo
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            // Register middleware as a service
+            builder.Services.AddTransient<ClassMiddleware>();
+            builder.Services.AddClassMiddleware();
+
+
             // Add services to the container.
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            // Use of Authentication Middleware
-            /*
-            builder.Services.AddAuthentication("Bearer")
-                            .AddJwtBearer("Bearer", options =>
-                            {
-                                options.Authority = "https://example.com";
-                                options.Audience = "api";
-                            });
-            */
-
-            // Use of Authorization Middleware
-            /*
-            builder.Services.AddAuthorization(options =>
-            {
-                options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
-            });
-            builder.Services.AddControllers();
-            */
 
             var app = builder.Build();
 
@@ -54,6 +41,7 @@ namespace MiddlewareDemo
                     return;
                 }
                 await next(context);
+
                 Console.WriteLine($"Status Code : {context.Response.StatusCode}");
             });
         
@@ -64,9 +52,9 @@ namespace MiddlewareDemo
             //{
             //    adminApp.Use(async (context, next) =>
             //    {
-            //        Console.WriteLine("Admin Middleware: Before Request");
+            //        Console.WriteLine("Admin Middleware: [Req] Request");
             //        await next();
-            //        Console.WriteLine("Admin Middleware: After Request");
+            //        Console.WriteLine("Admin Middleware: [Res] Request");
             //    });
             //});
           
@@ -75,33 +63,42 @@ namespace MiddlewareDemo
          
             app.Use(async (context, next) =>
             {
-                await context.Response.WriteAsync("Before Middleware 1 using Use().\n");
+                await context.Response.WriteAsync("[Req] Middleware 1 using Use().\n");
                 await next(context);
-                await context.Response.WriteAsync("After Middleware 1 using Use().\n");
+                await context.Response.WriteAsync("[Res] Middleware 1 using Use().\n");
             });
-           
 
+            app.UseMiddleware<ClassMiddleware>();
             // Another example of custom middleware using app.Use
-         
+
             app.Use(async (context, next) =>
             {
-                context.Response.WriteAsync("Before Middleware 2 using Use().\n");
+                context.Response.WriteAsync("[Req] Middleware 2 using Use().\n");
                 await next(context);
-                context.Response.WriteAsync("After Middleware 2 using Use().\n");
+                context.Response.WriteAsync("[Res] Middleware 2 using Use().\n");
             });
-        
 
+            app.UseClassMiddleware();
             // Example of custom middleware using app.Run
-         
+
+            app.Use(async (context, next) =>
+            {
+                context.Response.WriteAsync("[Req] Middleware 3 using Use().\n");
+                await next(context);
+                context.Response.WriteAsync("[Res] Middleware 3 using Use().\n");
+            });
+
+            app.UseCustomMiddlewareDemo();
+
             app.Run(async context =>
             {
-                await context.Response.WriteAsync("This is Middleware 3 Using Run()\n");
-                context.Response.WriteAsync("Middleware 3 - Request Handled.\n");
+                await context.Response.WriteAsync("\nThis is Middleware 3 Using Run()\n");
+                context.Response.WriteAsync("Middleware 3 - Request Handled.\n\n");
             });
          
 
             // Use Routing Middleware
-            // app.UseRouting();
+             app.UseRouting();
 
             // Configure endpoints
             /*
@@ -116,24 +113,14 @@ namespace MiddlewareDemo
             */
 
             // Use Exception Handler Middleware
-            //app.UseExceptionHandler("/error");
-            //app.Map("/error", (HttpContext context) =>
-            //{
-            //    var exception = context.Features.Get<IExceptionHandlerFeature>()?.Error;
-            //    return Results.Problem(title: "An error occurred", detail: exception?.Message);
-            //});
-
-            // Another example of Exception Handler Middleware
-            /*
-            app.UseExceptionHandler(errorApp =>
+            app.UseExceptionHandler("/error");
+            app.Map("/error", (HttpContext context) =>
             {
-                errorApp.Run(async context =>
-                {
-                    context.Response.StatusCode = 500;
-                    await context.Response.WriteAsync("An error occurred!");
-                });
+                var exception = context.Features.Get<IExceptionHandlerFeature>()?.Error;
+                return Results.Problem(title: "An error occurred", detail: exception?.Message);
             });
-            */
+
+         
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

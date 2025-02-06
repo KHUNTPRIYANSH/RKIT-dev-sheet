@@ -21,77 +21,94 @@ namespace Routes
                 app.UseSwaggerUI();
             }
 
-            app.UseRouting(); // Ensure this is called before MapControllers()
+            app.UseRouting(); // Ensure this is called before mapping routes
 
+            // Middleware to log endpoint details
             app.Use(async (context, next) =>
             {
-                Endpoint endpoint = context.GetEndpoint();
+                var endpoint = context.GetEndpoint();
                 if (endpoint != null)
                 {
-                    await context.Response.WriteAsync("DisplayName : " + endpoint.DisplayName + "\n");
-                    await context.Response.WriteAsync("MetaData :  " + endpoint.Metadata + "\n");
-                    await context.Response.WriteAsync("Req Delegate :  " + endpoint.RequestDelegate + "\n");
-                    await context.Response.WriteAsync("Type :  " + endpoint.GetType().Name + "\n");
+                    await context.Response.WriteAsync($"DisplayName: {endpoint.DisplayName}\n");
+                    await context.Response.WriteAsync($"MetaData: {endpoint.Metadata}\n");
+                    await context.Response.WriteAsync($"Req Delegate: {endpoint.RequestDelegate}\n");
+                    await context.Response.WriteAsync($"Type: {endpoint.GetType().Name}\n");
                 }
-                await next(context);
+                await next(); // Corrected: No need to pass `context` to `next()`
             });
 
             app.UseAuthorization();
 
-            app.MapControllers(); // Map controller routes
+            app.MapControllers(); // Maps attribute-routed controllers
 
             // Use Conventional Routing
-            app.UseEndpoints(endpoints =>
+            app.Map("Home", async (context) =>
             {
-                endpoints.Map("Home", async (context) =>
-                {
-                    await context.Response.WriteAsync("Hi from Map()");
-                });
-                endpoints.MapGet("Product/{id}", async (context) =>
-                {
-                    var id = Convert.ToInt32(context.Request.RouteValues["id"]);
-                    await context.Response.WriteAsync("Hi from MapGet() , ID:" + id);
-                });
-                endpoints.MapGet("library/{author}/{bookid = 0}", async (context) =>
-                {
-                    var author = context.Request.RouteValues["Author"].ToString();
-                    var bookId = Convert.ToInt32(context.Request.RouteValues["BookId"]);
-                    await context.Response.WriteAsync("Hi from MapGet() , \nAuthor: " + author + "\nBookID: " + bookId);
-                });
-                endpoints.MapGet("Employee/{id?}", async (context) =>
-                {
-                    var id = Convert.ToInt32(context.Request.RouteValues["id"]);
-                    if (id == null)
-                    {
-                        await context.Response.WriteAsync("Employee : id not given ");
-
-                    }
-                    else
-                    {
-                        await context.Response.WriteAsync("Employee [ID]: " + id);
-                    }
-                });
-                endpoints.MapPost("Product", async (context) =>
-                {
-                    await context.Response.WriteAsync("Hi from MapPost()");
-                });
-                endpoints.MapPut("Product", async (context) =>
-                {
-                    await context.Response.WriteAsync("Hi from MapPut()");
-                });
-                endpoints.MapDelete("Product", async (context) =>
-                {
-                    await context.Response.WriteAsync("Hi from MapDelete()");
-                });
-                endpoints.MapPatch("Product", async (context) =>
-                {
-                    await context.Response.WriteAsync("Hi from MapPatch()");
-                });
-
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}"); // Route template
+                await context.Response.WriteAsync("Hi from Map()");
             });
+
+            app.MapGet("Product/{id}", async (context) =>
+            {
+                if (context.Request.RouteValues.TryGetValue("id", out var idObj) && int.TryParse(idObj?.ToString(), out int id))
+                {
+                    await context.Response.WriteAsync($"Hi from MapGet(), ID: {id}");
+                }
+                else
+                {
+                    await context.Response.WriteAsync("Invalid ID format.");
+                }
+            });
+
+            app.MapGet("library/{author}/{bookid?}", async (context) =>
+            {
+                if (context.Request.RouteValues.TryGetValue("author", out var author) &&
+                    context.Request.RouteValues.TryGetValue("bookid", out var bookIdObj) &&
+                    int.TryParse(bookIdObj?.ToString(), out int bookId))
+                {
+                    await context.Response.WriteAsync($"Hi from MapGet(),\nAuthor: {author}\nBookID: {bookId}");
+                }
+                else
+                {
+                    await context.Response.WriteAsync("Invalid Author or BookID.");
+                }
+            });
+
+            app.MapGet("Employee/{id?}", async (context) =>
+            {
+                if (context.Request.RouteValues.TryGetValue("id", out var idObj) && int.TryParse(idObj?.ToString(), out int id))
+                {
+                    await context.Response.WriteAsync($"Employee [ID]: {id}");
+                }
+                else
+                {
+                    await context.Response.WriteAsync("Employee: ID not given.");
+                }
+            });
+
+            app.MapPost("Product", async (context) =>
+            {
+                await context.Response.WriteAsync("Hi from MapPost()");
+            });
+
+            app.MapPut("Product", async (context) =>
+            {
+                await context.Response.WriteAsync("Hi from MapPut()");
+            });
+
+            app.MapDelete("Product", async (context) =>
+            {
+                await context.Response.WriteAsync("Hi from MapDelete()");
+            });
+
+            app.MapPatch("Product", async (context) =>
+            {
+                await context.Response.WriteAsync("Hi from MapPatch()");
+            });
+
+            // Default controller route mapping
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
         }
