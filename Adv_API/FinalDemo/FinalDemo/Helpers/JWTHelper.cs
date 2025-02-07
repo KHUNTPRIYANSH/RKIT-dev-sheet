@@ -19,7 +19,7 @@ namespace FinalDemo.Helpers
     /// </summary>
     public class JWTHelper
     {
-        private const string SecretKey = "parthsheladiya123456789sheladiyaparth"; // The secret key used for token validation.
+        private const string SecretKey = "Priyansh Khunt's Secret-Key12345"; // The secret key used for token validation.
 
         /// <summary>
         /// Validates the JWT token and returns the ClaimsPrincipal if valid.

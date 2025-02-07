@@ -1,0 +1,37 @@
+﻿<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>DevExtreme textArea</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="../Content/dx.dark.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+</head>
+
+<body class="dx-viewport">
+    <h2>DevExtreme textArea Demo</h2>
+    <div id="textArea2"></div>
+
+    <script>
+        $(document).ready(function () {
+            console.log("jq chal ra")
+            $("#textArea2").dxTextArea({
+                autoResizeEnabled: true, // default : false
+                maxHeight: "200px",
+                minHeight: "10px",
+                maxLength: "100px",
+                // stylingMode: 'underlined',
+                placeholder: 'underlined Text Area',
+            });
+        });
+    </script>
+</body>
+
+</html>

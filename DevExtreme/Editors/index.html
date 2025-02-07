@@ -1,22 +1,156 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevExtreme Demo Components</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, var(--color1), var(--color2));
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .card:hover {
+                transform: scale(1.05);
+            }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .dx-name {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 2px solid white;
+            margin-top: 10px;
+            transition: all 0.3s ease-in-out;
+            font-weight: bold;
+        }
+
+            .btn:hover {
+                background: white;
+                color: black;
+            }
+    </style>
 </head>
 <body>
-    <div>
-        <a href="./1-CheckBox/checkBox.html">
-            checkbox
-        </a> <a href="./2-DateBox/dateBox.html">
-            dateBox
-        </a>
-             <a href="./3-DropDown/dropDown.html">
-                 dropDown
-             </a>
-        <a href="./4-NumberBox/numberBox.html">
-           numberBox
-        </a>
+
+    <h1>DevExtreme Demo Components</h1>
+    <div class="container">
+        <div class="card" style="--color1: #1e88e5; --color2: #42a5f5;">
+            <i class="fas fa-check-square icon"></i>
+            <h3>Check Box</h3>
+            <div class="dx-name">DevExtreme: dxCheckBox</div>
+            <a href="./1-CheckBox/checkBox.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #43a047; --color2: #66bb6a;">
+            <i class="fas fa-calendar-alt icon"></i>
+            <h3>Date Box</h3>
+            <div class="dx-name">DevExtreme: dxDateBox</div>
+            <a href="./2-DateBox/dateBox.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #ffb300; --color2: #ffca28;">
+            <i class="fas fa-caret-down icon"></i>
+            <h3>Drop Down Box</h3>
+            <div class="dx-name">DevExtreme: dxDropDownBox</div>
+            <a href="./3-DropDown/dropDown.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #d32f2f; --color2: #e53935;">
+            <i class="fas fa-sort-numeric-up icon"></i>
+            <h3>Number Box</h3>
+            <div class="dx-name">DevExtreme: dxNumberBox</div>
+            <a href="./4-NumberBox/numberBox.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #6a1b9a; --color2: #8e24aa;">
+            <i class="fas fa-list icon"></i>
+            <h3>Select Box</h3>
+            <div class="dx-name">DevExtreme: dxSelectBox</div>
+            <a href="./5-SelectBox/selectBox.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #f57c00; --color2: #fb8c00;">
+            <i class="fas fa-align-left icon"></i>
+            <h3>Text Area</h3>
+            <div class="dx-name">DevExtreme: dxTextArea</div>
+            <a href="./6-TextArea/textArea.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #c2185b; --color2: #d81b60;">
+            <i class="fas fa-search icon"></i>
+            <h3>Search & Editing</h3>
+            <div class="dx-name">DevExtreme: dxDataGrid</div>
+            <a href="./7-SearchEditing/searchEditing.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #00796b; --color2: #009688;">
+            <i class="fas fa-layer-group icon"></i>
+            <h3>Grouped Items</h3>
+            <div class="dx-name">DevExtreme: dxList</div>
+            <a href="./8-GroupedItems/groupedItems.html" class="btn">Open</a>
+        </div>
+
+
+
+        <div class="card" style="--color1: #5e35b1; --color2: #7e57c2;">
+            <i class="fas fa-keyboard icon"></i>
+            <h3>Text Box</h3>
+            <div class="dx-name">DevExtreme: dxTextBox</div>
+            <a href="./10-TextBox/textBox.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #388e3c; --color2: #4caf50;">
+            <i class="fas fa-hand-pointer icon"></i>
+            <h3>Button</h3>
+            <div class="dx-name">DevExtreme: dxButton</div>
+            <a href="./11-Button/button.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #e64a19; --color2: #ff5722;">
+            <i class="fas fa-file-upload icon"></i>
+            <h3>File Uploader</h3>
+            <div class="dx-name">DevExtreme: dxFileUploader</div>
+            <a href="./12-FileUploader/fileUploader.html" class="btn">Open</a>
+        </div>
     </div>
+
 </body>
 </html>

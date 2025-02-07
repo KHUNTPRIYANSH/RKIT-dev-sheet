@@ -14,6 +14,10 @@ using Google.Protobuf.WellKnownTypes;
 
 namespace FinalDemo.BL.Operation
 {
+    /// <summary>
+    /// Business logic class for handling department operations.
+    /// Implements IDataHandler interface for DTODEPT01.
+    /// </summary>
     public class BLDEPT01 : IDataHandler<DTODEPT01>
     {
         private DEPT01 _objDept01;
@@ -21,8 +25,14 @@ namespace FinalDemo.BL.Operation
         private Response _objResponse;
         private readonly IDbConnectionFactory _dbFactory;
 
+        /// <summary>
+        /// Enum type (Add or Edit).
+        /// </summary>
         public EnumType Type { get; set; }
 
+        /// <summary>
+        /// Constructor initializes the response object and database connection factory.
+        /// </summary>
         public BLDEPT01()
         {
             _objResponse = new Response();
@@ -34,6 +44,10 @@ namespace FinalDemo.BL.Operation
             }
         }
 
+        /// <summary>
+        /// Retrieves all department records.
+        /// </summary>
+        /// <returns>Response with department data and message.</returns>
         public Response GetAll()
         {
             using (var db = _dbFactory.OpenDbConnection())
@@ -45,6 +59,11 @@ namespace FinalDemo.BL.Operation
             }
         }
 
+        /// <summary>
+        /// Retrieves a specific department by ID.
+        /// </summary>
+        /// <param name="id">Department ID.</param>
+        /// <returns>Response with department data and message.</returns>
         public Response Get(int id)
         {
             using (var db = _dbFactory.OpenDbConnection())
@@ -56,6 +75,11 @@ namespace FinalDemo.BL.Operation
             }
         }
 
+        /// <summary>
+        /// Checks if a department exists based on its ID.
+        /// </summary>
+        /// <param name="id">Department ID.</param>
+        /// <returns>Response indicating whether the department exists or not.</returns>
         public Response IsDepartmentExist(int id)
         {
             using (var db = _dbFactory.OpenDbConnection())
@@ -68,6 +92,11 @@ namespace FinalDemo.BL.Operation
             }
         }
 
+        /// <summary>
+        /// Prepares for department deletion.
+        /// </summary>
+        /// <param name="id">Department ID.</param>
+        /// <returns>Response with department data if it exists, else null.</returns>
         private Response PreDelete(int id)
         {
             if (!IsDepartmentExist(id).IsError)
@@ -78,6 +107,11 @@ namespace FinalDemo.BL.Operation
             return _objResponse;
         }
 
+        /// <summary>
+        /// Validates if the department exists before deleting.
+        /// </summary>
+        /// <param name="objDept01">Department object.</param>
+        /// <returns>Response with validation message.</returns>
         private Response ValidateOnDelete(DEPT01 objDept01)
         {
             _objResponse.IsError = objDept01 == null;
@@ -85,6 +119,11 @@ namespace FinalDemo.BL.Operation
             return _objResponse;
         }
 
+        /// <summary>
+        /// Deletes a department by ID after validation.
+        /// </summary>
+        /// <param name="id">Department ID.</param>
+        /// <returns>Response with the result of the delete operation.</returns>
         public Response Delete(int id)
         {
             Response department = PreDelete(id);
@@ -102,13 +141,21 @@ namespace FinalDemo.BL.Operation
             return _objResponse;
         }
 
+        /// <summary>
+        /// Prepares a department DTO for saving (lowercases fields as needed).
+        /// </summary>
+        /// <param name="objDTO">Department DTO.</param>
         public void PreSave(DTODEPT01 objDTO)
-        {
+        {      
             objDTO.T01F02 = objDTO.T01F02.ToLower();
             _objDept01 = objDTO.Convert<DEPT01>();
             _id = Type == EnumType.E ? objDTO.T01F01 : 0;
         }
 
+        /// <summary>
+        /// Validates the department data before saving.
+        /// </summary>
+        /// <returns>Response with validation results.</returns>
         public Response Validation()
         {
             if (Type == EnumType.E)
@@ -127,6 +174,10 @@ namespace FinalDemo.BL.Operation
             return _objResponse;
         }
 
+        /// <summary>
+        /// Saves a new or existing department to the database.
+        /// </summary>
+        /// <returns>Response with success or failure message.</returns>
         public Response Save()
         {
             try
@@ -135,8 +186,8 @@ namespace FinalDemo.BL.Operation
                 {
                     if (Type == EnumType.A)
                     {
-                        db.Insert(_objDept01);
-                        _objResponse.Message = "Data Added";
+                        int id = (int)db.Insert(_objDept01, selectIdentity: true);
+                        _objResponse.Message = $"Data Added [ID]:{id}";
                     }
                     else if (Type == EnumType.E)
                     {
@@ -152,30 +203,7 @@ namespace FinalDemo.BL.Operation
             }
             return _objResponse;
         }
-        public Response GetDepartmentInsights(int id)
-        {
-            using (var db = _dbFactory.OpenDbConnection())
-            {
-                long count = db.Count<EMP01>(e => e.P01F05 == id);
-                decimal maxPay = db.Scalar<decimal>(db.From<EMP01>().Where(e => e.P01F05 == id).Select(e => Sql.Max(e.P01F08)));
-                decimal avgPay = db.Scalar<decimal>($"SELECT AVG(P01F08) FROM EMP01 WHERE P01F05 = \"{id}\"");
-                decimal minPay = db.Scalar<decimal>($"SELECT MIN(P01F08) FROM EMP01 WHERE P01F05 = \"{id}\"");
-                string res = $"Count : {count}, Max Pay : {maxPay}, Min Pay : {minPay}, Avg Pay : {avgPay}";
-                if (count > 0 && maxPay >= 0 && avgPay >= 0 && minPay >= 0)
-                {
-                    _objResponse.Data = res; 
-                    _objResponse.IsError = false;
-                    _objResponse.Message = "Success : Got insights";
-                }
-                else
-                {
 
-                    _objResponse.IsError = true;
-                    _objResponse.Message = "Error : Can't get insights";
-                }
-
-            }
-            return _objResponse;
-        }
+        
     }
 }

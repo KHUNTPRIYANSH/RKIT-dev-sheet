@@ -13,7 +13,7 @@ namespace FinalDemo.Models.DTO
         /// T01F01 = DeptId
         /// </summary>
 
-        public int T01F01 { get; set; } // DepartmentId
+        public int T01F01 { get; set; } = 0;// DepartmentId
 
         /// <summary>
         /// T01F02 = DeptName

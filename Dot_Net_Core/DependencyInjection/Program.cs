@@ -16,8 +16,8 @@ namespace DependencyInjection
             #region Without Extension method
 
             // Register Bank Services
-            builder.Services.AddTransient<IBank, HDFCBankService>(); // Using ICICI as the default implementation
-            //builder.Services.AddTransient<IBank, ICICIBankService>(); // Using ICICI as the default implementation
+           // builder.Services.AddTransient<IBank, HDFCBankService>(); // Using ICICI as the default implementation
+            builder.Services.AddTransient<IBank, ICICIBankService>(); // Using ICICI as the default implementation
 
             // Register Services
             builder.Services.AddScoped<ICompany, Company>(); // Scoped

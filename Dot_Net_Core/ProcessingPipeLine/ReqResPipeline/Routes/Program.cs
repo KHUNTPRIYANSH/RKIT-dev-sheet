@@ -42,7 +42,7 @@ namespace Routes
             app.MapControllers(); // Maps attribute-routed controllers
 
             // Use Conventional Routing
-            app.Map("Home", async (context) =>
+            app.Map("/Home", async (context) =>
             {
                 await context.Response.WriteAsync("Hi from Map()");
             });

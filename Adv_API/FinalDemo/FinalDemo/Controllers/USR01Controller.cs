@@ -1,4 +1,5 @@
 ﻿using FinalDemo.BL.Operations;
+using FinalDemo.Filters;
 using FinalDemo.Models;
 using FinalDemo.Models.DTO;
 using FinalDemo.Models.ENUM;
@@ -12,6 +13,9 @@ using System.Web.Http;
 
 namespace FinalDemo.Controllers
 {
+    /// <summary>
+    /// Controller for managing user-related operations.
+    /// </summary>
     public class USR01Controller : ApiController
     {
         #region Fields
@@ -23,6 +27,10 @@ namespace FinalDemo.Controllers
 
         #region API Methods
 
+        /// <summary>
+        /// Retrieves a list of all users.
+        /// </summary>
+        /// <returns>Returns a response with a list of users.</returns>
         [HttpGet]
         [Route("get_all_users")]
         [JWTAuthorizationFilter]
@@ -32,6 +40,11 @@ namespace FinalDemo.Controllers
             return Ok(users);
         }
 
+        /// <summary>
+        /// Retrieves a user by their ID.
+        /// </summary>
+        /// <param name="id">The ID of the user to retrieve.</param>
+        /// <returns>Returns a response containing the user data or an error message.</returns>
         [HttpGet]
         [Route("get_user_by_id")]
         [JWTAuthorizationFilter]
@@ -42,8 +55,7 @@ namespace FinalDemo.Controllers
             {
                 _objResponse.IsError = true;
                 _objResponse.Message = "Error: Unable to retrieve user by ID.";
-                string strResponse = $"Data: [no data], IsError: {_objResponse.IsError}, Message: {_objResponse.Message}";
-                return BadRequest(strResponse);
+                return Ok(_objResponse);
             }
             else
             {
@@ -54,6 +66,11 @@ namespace FinalDemo.Controllers
             }
         }
 
+        /// <summary>
+        /// Adds a new user to the system.
+        /// </summary>
+        /// <param name="objDTOUser">The user data to add.</param>
+        /// <returns>Returns a response indicating the success or failure of the operation.</returns>
         [HttpPost]
         [Route("add_user")]
         [JWTAuthorizationFilter(EnmRoleType.Admin, EnmRoleType.Editor)]
@@ -66,14 +83,14 @@ namespace FinalDemo.Controllers
             {
                 _objResponse = _objBLUser.Save();
             }
-            else
-            {
-                string strResponse = $"Data: [no data], IsError: {_objResponse.IsError}, Message: {_objResponse.Message}";
-                return BadRequest(strResponse);
-            }
             return Ok(_objResponse);
         }
 
+        /// <summary>
+        /// Updates an existing user's information.
+        /// </summary>
+        /// <param name="objDTOUser">The updated user data.</param>
+        /// <returns>Returns a response indicating the success or failure of the operation.</returns>
         [HttpPut]
         [Route("update_user")]
         [JWTAuthorizationFilter(EnmRoleType.Admin, EnmRoleType.Editor)]
@@ -89,17 +106,25 @@ namespace FinalDemo.Controllers
             return Ok(_objResponse);
         }
 
+        /// <summary>
+        /// Deletes a user by their ID.
+        /// </summary>
+        /// <param name="id">The ID of the user to delete.</param>
+        /// <returns>Returns a response indicating the success or failure of the deletion.</returns>
         [HttpDelete]
         [Route("delete_user")]
         [JWTAuthorizationFilter(EnmRoleType.Admin)]
         public IHttpActionResult DeleteUser(int id)
         {
             _objResponse = _objBLUser.Delete(id);
-            if (_objResponse.IsError)
-                return BadRequest(_objResponse.Message);
             return Ok(_objResponse);
         }
 
+        /// <summary>
+        /// Checks if a user exists by their ID.
+        /// </summary>
+        /// <param name="id">The ID of the user to check.</param>
+        /// <returns>Returns a response indicating whether the user exists or not.</returns>
         [HttpGet]
         [Route("check_user_exists")]
         public IHttpActionResult IsUserExists(int id)
@@ -109,12 +134,8 @@ namespace FinalDemo.Controllers
             {
                 _objResponse.IsError = false;
                 _objResponse.Message = "Success: User exists.";
-                return Ok(_objResponse);
             }
-            else
-            {
-                return BadRequest("User not found.");
-            }
+            return Ok(_objResponse);
         }
 
         #endregion

@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>DevExtreme SelectBox</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="../Content/dx.dark.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+
+    <style>
+        .row {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 350px;
+        }
+
+        .custom-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: inherit;
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        .emoji {
+            width: 20px;
+        }
+
+        a {
+            color: #fff !important;
+        }
+    </style>
+</head>
+
+<body class="dx-viewport">
+    <h2>DevExtreme SelectBox with Toggle Buttons</h2>
+
+    <div class="row">
+        <div id="selectBox-container"></div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast"></div>
+
+    <script>
+        $(() => {
+            const data = [
+                { ID: 1, Emoji: "💻", Name: "Laptop", Category: "Electronics", Link: "#" },
+                { ID: 2, Emoji: "📱", Name: "Smartphone", Category: "Electronics", Link: "#" },
+                { ID: 3, Emoji: "🎧", Name: "Bluetooth Headphones", Category: "Electronics", Link: "#" },
+                { ID: 4, Emoji: "👟", Name: "Sneakers", Category: "Fashion", Link: "#" },
+                { ID: 5, Emoji: "👖", Name: "Jeans", Category: "Fashion", Link: "#" },
+                { ID: 6, Emoji: "👕", Name: "T-Shirt", Category: "Fashion", Link: "#" },
+                { ID: 7, Emoji: "🔥", Name: "Microwave Oven", Category: "Home Appliances", Link: "#" },
+                { ID: 8, Emoji: "🧹", Name: "Vacuum Cleaner", Category: "Home Appliances", Link: "#" },
+                { ID: 9, Emoji: "❄️", Name: "Air Conditioner", Category: "Home Appliances", Link: "#" }
+            ];
+
+            let isGrouped = true;
+            let searchMode = "startswith";
+
+            function getDataSource(grouping) {
+                return new DevExpress.data.DataSource({
+                    store: data,
+                    key: "ID",
+                    group: grouping ? "Category" : null,
+                });
+            }
+
+            const selectBox = $("#selectBox-container").dxSelectBox({
+                dataSource: getDataSource(isGrouped),
+                valueExpr: "ID",
+                width: "500px",
+                displayExpr: (item) => item ? `${item.Name} (${item.Category})` : "",
+                searchEnabled: true,
+                grouped: isGrouped,
+                placeholder: "Select a product...",
+                noDataText: "[No data]",
+                opened: true,
+                //searchTimeout: 5000,
+                searchMode: searchMode,
+                showDataBeforeSearch: false,
+                showDropDownButton: true,
+                //showSelectionControls: true,
+                selectionMode: "multiple", // not working in selectbox
+                spellcheck: true,
+                useItemTextAsTitle:false,
+                showClearButton: true,
+                groupTemplate(data) {
+                    return $(`<div class='custom-icon'><span class='dx-icon-box icon'></span> ${data.key}</div>`);
+                },
+                itemTemplate: (data) => {
+                    return $("<a>")
+                        .attr("href", data.Link)
+                        .addClass("custom-item")
+                        .append($("<span>").addClass("emoji").text(data.Emoji))
+                        .append($("<span>").text(" " + data.Name));
+                },
+                buttons: [
+                    {
+                        name: "grouping",
+                        location: "before",
+                        options: {
+                            icon: "hierarchy",
+                            stylingMode: "text", // Change to 'contained'
+                            onClick: function () {
+                                isGrouped = !isGrouped;
+                                selectBox.option("dataSource", getDataSource(isGrouped));
+                                selectBox.option("grouped", isGrouped);
+                                showToast(`Grouping: ${isGrouped ? "Enabled" : "Disabled"}`);
+                            }
+                        }
+                    },
+                    {
+                        name: "searchMode",
+                        location: "after",
+                        options: {
+                            icon: "search",
+                            stylingMode: "text", // Change to 'contained'
+                            onClick: function () {
+                                searchMode = searchMode === "startswith" ? "contains" : "startswith";
+                                selectBox.option("searchMode", searchMode);
+                                showToast(`Search Mode: ${searchMode}`);
+                            }
+                        }
+                    }
+                   
+                ],
+                onValueChanged: (e) => {
+                    const selectedItem = data.find(item => item.ID === e.value);
+                    if (selectedItem) {
+                        showToast(`Selected: ${selectedItem.Name} (${selectedItem.Category})`);
+                    }
+                }
+            }).dxSelectBox("instance");
+
+            // ✅ Toast Notification
+            function showToast(message) {
+                $("#toast").dxToast({
+                    message: message,
+                    type: "success",
+                    displayTime: 2000,
+                    position: "bottom center"
+                }).dxToast("show");
+            }
+        });
+    </script>
+</body>
+</html>

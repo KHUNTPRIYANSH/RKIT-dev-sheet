@@ -8,62 +8,79 @@ using System;
 using System.Net.Http;
 using System.Security.Claims;
 
-public class JWTAuthorizationFilter : AuthorizationFilterAttribute
+namespace FinalDemo.Filters
 {
-    private readonly EnmRoleType[] _allowedRoles;
-
-    public JWTAuthorizationFilter(params EnmRoleType[] roles)
+    /// <summary>
+    /// Custom Authorization Filter to handle JWT token validation and role-based access control.
+    /// </summary>
+    public class JWTAuthorizationFilter : AuthorizationFilterAttribute
     {
-        _allowedRoles = roles;
-    }
+        private readonly EnmRoleType[] _allowedRoles;
 
-    public override void OnAuthorization(HttpActionContext actionContext)
-    {
-        if (actionContext.Request.Headers.Authorization == null ||
-            string.IsNullOrWhiteSpace(actionContext.Request.Headers.Authorization.Parameter))
+        /// <summary>
+        /// Initializes a new instance of the <see cref="JWTAuthorizationFilter"/> class with allowed roles.
+        /// </summary>
+        /// <param name="roles">Array of roles allowed to access the API endpoint.</param>
+        public JWTAuthorizationFilter(params EnmRoleType[] roles)
         {
-            actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Missing or invalid token.");
-            return;
+            _allowedRoles = roles;
         }
 
-        string token = actionContext.Request.Headers.Authorization.Parameter;
-
-        try
+        /// <summary>
+        /// Called when authorization is performed to validate the JWT token and role.
+        /// </summary>
+        /// <param name="actionContext">The context of the HTTP action.</param>
+        public override void OnAuthorization(HttpActionContext actionContext)
         {
-            var principal = JWTHelper.ValidateJwtToken(token);
-
-            if (principal == null)
+            // Check if the Authorization header is missing or invalid
+            if (actionContext.Request.Headers.Authorization == null ||
+                string.IsNullOrWhiteSpace(actionContext.Request.Headers.Authorization.Parameter))
             {
-                actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Invalid or expired token.");
+                actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Missing or invalid token.");
                 return;
             }
 
-            var userRole = principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+            string token = actionContext.Request.Headers.Authorization.Parameter;
 
-            if (string.IsNullOrEmpty(userRole))
+            try
             {
-                actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Role information missing in token.");
-                return;
-            }
+                // Validate the JWT token and retrieve the principal
+                var principal = JWTHelper.ValidateJwtToken(token);
 
-            // Convert role string to Enum
-            if (!Enum.TryParse(userRole, out EnmRoleType roleEnum))
+                if (principal == null)
+                {
+                    actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Invalid or expired token.");
+                    return;
+                }
+
+                // Get the user's role from the claims
+                var userRole = principal.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+
+                if (string.IsNullOrEmpty(userRole))
+                {
+                    actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Role information missing in token.");
+                    return;
+                }
+
+                // Convert the role string to the Enum type
+                if (!Enum.TryParse(userRole, out EnmRoleType roleEnum))
+                {
+                    actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Invalid role in token.");
+                    return;
+                }
+
+                // Check if the user's role is allowed
+                if (_allowedRoles != null && _allowedRoles.Length > 0 && !_allowedRoles.Contains(roleEnum))
+                {
+                    actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Forbidden, "Access denied.");
+                    return;
+                }
+
+            }
+            catch (Exception ex)
             {
-                actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "Invalid role in token.");
-                return;
+                actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, $"Invalid token. Error: {ex.Message}");
             }
-
-            // Check if the user's role is allowed
-            if (_allowedRoles != null && _allowedRoles.Length > 0 && !_allowedRoles.Contains(roleEnum))
-            {
-                actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Forbidden, "Access denied.");
-                return;
-            }
-
-        }
-        catch (Exception ex)
-        {
-            actionContext.Response = actionContext.Request.CreateErrorResponse(HttpStatusCode.Unauthorized, $"Invalid token. Error: {ex.Message}");
         }
     }
 }

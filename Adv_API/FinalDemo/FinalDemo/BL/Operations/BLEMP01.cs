@@ -14,30 +14,43 @@ using FinalDemo.Extension;
 
 namespace FinalDemo.BL.Operation
 {
+    /// <summary>
+    /// Business logic operations for managing EMP01 entities.
+    /// </summary>
     public class BLEMP01 : IDataHandler<DTOEMP01>
     {
-        // following are field which are necessary and used manytime in operations
+        // following are fields which are necessary and used many times in operations
         private EMP01 _objEmp01;
         private int _id;
         private Response _objResponse;
         private readonly IDbConnectionFactory _dbFactory;
 
+        /// <summary>
+        /// Type of operation (Add/Edit).
+        /// </summary>
         public EnumType Type { get; set; }
 
+        /// <summary>
+        /// Constructor for BLEMP01. Initializes response object and database connection factory.
+        /// </summary>
         public BLEMP01()
         {
-            // creating obj of response [data , isError , msg]
+            // Creating object of response [data, isError, msg]
             _objResponse = new Response();
-            // strong ref of connection to _dbFactory
+            // Strong reference of connection to _dbFactory
             _dbFactory = HttpContext.Current.Application["DbFactory"] as IDbConnectionFactory;
 
-            // checking if connection is their or not
+            // Checking if connection is available or not
             if (_dbFactory == null)
             {
                 throw new Exception("IDbConnectionFactory not found");
             }
         }
 
+        /// <summary>
+        /// Retrieves all EMP01 entities from the database.
+        /// </summary>
+        /// <returns>Response containing the result of the operation.</returns>
         public Response GetAll()
         {
             using (var db = _dbFactory.OpenDbConnection())
@@ -56,6 +69,12 @@ namespace FinalDemo.BL.Operation
                 return _objResponse;
             }
         }
+
+        /// <summary>
+        /// Retrieves a specific EMP01 entity by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the EMP01 entity to retrieve.</param>
+        /// <returns>Response containing the result of the operation.</returns>
         public Response Get(int id)
         {
             using (var db = _dbFactory.OpenDbConnection())
@@ -74,6 +93,12 @@ namespace FinalDemo.BL.Operation
                 return _objResponse;
             }
         }
+
+        /// <summary>
+        /// Checks if an employee exists by their ID.
+        /// </summary>
+        /// <param name="id">The ID of the employee to check.</param>
+        /// <returns>Response indicating whether the employee exists.</returns>
         public Response IsEmployeeExist(int id)
         {
             using (var db = _dbFactory.OpenDbConnection())
@@ -94,6 +119,12 @@ namespace FinalDemo.BL.Operation
                 return _objResponse;
             }
         }
+
+        /// <summary>
+        /// Pre-deletion checks to validate if an employee can be deleted.
+        /// </summary>
+        /// <param name="id">The ID of the employee to check.</param>
+        /// <returns>Response with employee data or null.</returns>
         private Response PreDelete(int id)
         {
             if (IsEmployeeExist(id).IsError == false)
@@ -103,6 +134,12 @@ namespace FinalDemo.BL.Operation
             _objResponse.Data = null;
             return _objResponse;
         }
+
+        /// <summary>
+        /// Validates whether the employee exists before deletion.
+        /// </summary>
+        /// <param name="objEmp01">The EMP01 object to validate.</param>
+        /// <returns>Response indicating whether the employee was found.</returns>
         private Response ValidateOnDelete(EMP01 objEmp01)
         {
             if (objEmp01 == null)
@@ -112,16 +149,21 @@ namespace FinalDemo.BL.Operation
             }
             else
             {
-            _objResponse.IsError = false;
-            _objResponse.Message = "Employee  found.";
-
+                _objResponse.IsError = false;
+                _objResponse.Message = "Employee found.";
             }
             return _objResponse;
         }
+
+        /// <summary>
+        /// Deletes an employee based on the ID.
+        /// </summary>
+        /// <param name="id">The ID of the employee to delete.</param>
+        /// <returns>Response with the result of the delete operation.</returns>
         public Response Delete(int id)
         {
             Response employee = PreDelete(id);
-            Response validationResponse = ValidateOnDelete(employee.Data);
+            Response validationResponse = ValidateOnDelete(employee.Data as EMP01);
             if (validationResponse.IsError)
                 return validationResponse;
 
@@ -134,6 +176,11 @@ namespace FinalDemo.BL.Operation
             _objResponse.Message = "Data Deleted";
             return _objResponse;
         }
+
+        /// <summary>
+        /// Prepares an EMP01 object for saving by converting the DTO to POCO.
+        /// </summary>
+        /// <param name="objDTO">The DTO object to convert and prepare.</param>
         public void PreSave(DTOEMP01 objDTO)
         {
             objDTO.P01F02 = objDTO.P01F02.ToLower();
@@ -146,10 +193,15 @@ namespace FinalDemo.BL.Operation
             }
             else
             {
-                // as we using auto increment we set id = 0 for all other operations
+                // As we are using auto-increment, we set ID = 0 for all other operations
                 _id = 0;
             }
         }
+
+        /// <summary>
+        /// Validates the data before saving or updating.
+        /// </summary>
+        /// <returns>Response indicating validation results.</returns>
         public Response Validation()
         {
             if (Type == EnumType.E)
@@ -168,6 +220,10 @@ namespace FinalDemo.BL.Operation
             return _objResponse;
         }
 
+        /// <summary>
+        /// Saves or updates the EMP01 entity depending on the operation type.
+        /// </summary>
+        /// <returns>Response with the result of the save operation.</returns>
         public Response Save()
         {
             try
@@ -176,8 +232,8 @@ namespace FinalDemo.BL.Operation
                 {
                     if (Type == EnumType.A)
                     {
-                        db.Insert(_objEmp01);
-                        _objResponse.Message = "Data Added";
+                        int id = (int)db.Insert(_objEmp01, selectIdentity: true);
+                        _objResponse.Message = $"Data Added [ID]:{id}";
                     }
                     if (Type == EnumType.E)
                     {

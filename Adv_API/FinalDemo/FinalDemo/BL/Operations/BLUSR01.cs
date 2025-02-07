@@ -19,6 +19,10 @@ using System.Web;
 
 namespace FinalDemo.BL.Operations
 {
+    /// <summary>
+    /// Business logic handler for the user (USR01) entity.
+    /// Implements IDataHandler interface for operations related to users.
+    /// </summary>
     public class BLUSR01 : IDataHandler<DTOUSR01>
     {
         // Fields
@@ -27,8 +31,15 @@ namespace FinalDemo.BL.Operations
         private Response _objResponse;
         private readonly IDbConnectionFactory _dbFactory;
 
+        /// <summary>
+        /// Property to set the operation type (Add, Edit, etc.)
+        /// </summary>
         public EnumType Type { get; set; }
 
+        /// <summary>
+        /// Constructor initializes the response and database connection factory.
+        /// </summary>
+        /// <exception cref="Exception">Thrown if IDbConnectionFactory is not found in the application context.</exception>
         public BLUSR01()
         {
             _objResponse = new Response();
@@ -40,6 +51,10 @@ namespace FinalDemo.BL.Operations
             }
         }
 
+        /// <summary>
+        /// Retrieves all users from the database.
+        /// </summary>
+        /// <returns>A Response object containing the list of users.</returns>
         public Response GetAll()
         {
             using (var db = _dbFactory.OpenDbConnection())
@@ -59,6 +74,11 @@ namespace FinalDemo.BL.Operations
             }
         }
 
+        /// <summary>
+        /// Retrieves a user by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the user to retrieve.</param>
+        /// <returns>A Response object containing the user details.</returns>
         public Response Get(int id)
         {
             using (var db = _dbFactory.OpenDbConnection())
@@ -78,6 +98,11 @@ namespace FinalDemo.BL.Operations
             }
         }
 
+        /// <summary>
+        /// Checks if a user exists based on their ID.
+        /// </summary>
+        /// <param name="id">The ID of the user to check for existence.</param>
+        /// <returns>A Response object indicating if the user exists.</returns>
         public Response IsUserExist(int id)
         {
             using (var db = _dbFactory.OpenDbConnection())
@@ -97,6 +122,11 @@ namespace FinalDemo.BL.Operations
             }
         }
 
+        /// <summary>
+        /// Pre-delete checks for user based on ID.
+        /// </summary>
+        /// <param name="id">The ID of the user to check for deletion constraints.</param>
+        /// <returns>A Response object with deletion eligibility check.</returns>
         private Response PreDelete(int id)
         {
             using (var db = _dbFactory.OpenDbConnection())
@@ -116,6 +146,11 @@ namespace FinalDemo.BL.Operations
             return _objResponse;
         }
 
+        /// <summary>
+        /// Validates user before deletion.
+        /// </summary>
+        /// <param name="objUsr01">The user object to validate.</param>
+        /// <returns>A Response object indicating if the user is valid for deletion.</returns>
         private Response ValidateOnDelete(USR01 objUsr01)
         {
             if (objUsr01 == null)
@@ -131,6 +166,11 @@ namespace FinalDemo.BL.Operations
             return _objResponse;
         }
 
+        /// <summary>
+        /// Deletes a user by ID.
+        /// </summary>
+        /// <param name="id">The ID of the user to delete.</param>
+        /// <returns>A Response object with the result of the deletion.</returns>
         public Response Delete(int id)
         {
             Response user = PreDelete(id);
@@ -148,11 +188,14 @@ namespace FinalDemo.BL.Operations
             return _objResponse;
         }
 
-
+        /// <summary>
+        /// Prepares the DTO object before saving.
+        /// Encrypts the password and converts it to a POCO object.
+        /// </summary>
+        /// <param name="objDTO">The DTO object to prepare.</param>
         public void PreSave(DTOUSR01 objDTO)
         {
             // Encrypt the password from DTO before converting to POCO
-
             objDTO.R01F02 = objDTO.R01F02.Trim().ToLower();
             _objUsr01 = objDTO.Convert<USR01>();
             _objUsr01.R01F03 = EncryptionHelper.GetEncryptPassword(_objUsr01.R01F03);
@@ -170,10 +213,12 @@ namespace FinalDemo.BL.Operations
             }
         }
 
-
+        /// <summary>
+        /// Validates the user before saving or updating.
+        /// </summary>
+        /// <returns>A Response object indicating the result of validation.</returns>
         public Response Validation()
         {
-
             if (Type == EnumType.E)
             {
                 if (!(_id > 0))
@@ -190,6 +235,11 @@ namespace FinalDemo.BL.Operations
             return _objResponse;
         }
 
+        /// <summary>
+        /// Saves the user data to the database.
+        /// Inserts new users or updates existing users based on the operation type.
+        /// </summary>
+        /// <returns>A Response object with the result of the save operation.</returns>
         public Response Save()
         {
             try
@@ -198,8 +248,8 @@ namespace FinalDemo.BL.Operations
                 {
                     if (Type == EnumType.A)
                     {
-                        db.Insert(_objUsr01);
-                        _objResponse.Message = "User added successfully.";
+                        int id = (int)db.Insert(_objUsr01, selectIdentity: true);
+                        _objResponse.Message = $"Data Added [ID]:{id}";
                     }
                     else if (Type == EnumType.E)
                     {

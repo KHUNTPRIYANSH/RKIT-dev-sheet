@@ -1,12 +1,11 @@
 {
   "Version": 1,
-  "Hash": "5BUDhk/9M2fIiGw4zlIKVwRWFZK8CLIG04jVgNRJhe0=",
+  "Hash": "zQYGUy8rUywzUkiGCBuplMqMK9gBHp3wgybuMkDkqzk=",
   "Source": "DependencyInjection",
   "BasePath": "_content/DependencyInjection",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "Assets": []
 }
