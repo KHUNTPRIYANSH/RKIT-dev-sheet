@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>DevExtreme Button Demo</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme theme -->
+    <link rel="stylesheet" href="../Content/dx.dark.css">
+
+    <!-- DevExtreme library -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .button-section {
+            margin-bottom: 20px;
+        }
+
+        .button-section h2 {
+            margin-bottom: 10px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .custom-button-template {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .custom-button-template img {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body class="dx-viewport">
+    <h1>DevExtreme Button Demo</h1>
+
+    <form id="myForm">
+        <div class="button-section">
+            <h2>Normal Buttons</h2>
+            <div class="button-group">
+                <div id="normal-contained"></div>
+                <div id="normal-outlined"></div>
+                <div id="normal-text"></div>
+            </div>
+        </div>
+
+        <div class="button-section">
+            <h2>Success Buttons (With Icons & Validation)</h2>
+            <div class="button-group">
+                <div id="success-contained"></div>
+                <div id="success-outlined"></div>
+                <div id="success-text"></div>
+            </div>
+        </div>
+
+        <div class="button-section">
+            <h2>Default Buttons (With Custom Template)</h2>
+            <div class="button-group">
+                <div id="default-contained"></div>
+                <div id="default-outlined"></div>
+                <div id="default-text"></div>
+            </div>
+        </div>
+
+        <div class="button-section">
+            <h2>Danger Buttons (With Submit Behavior)</h2>
+            <div class="button-group">
+                <div id="danger-contained"></div>
+                <div id="danger-outlined"></div>
+                <div id="danger-text"></div>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        $(() => {
+            function createButton(id, options) {
+                $(id).dxButton(options);
+            }
+
+            // Normal Buttons
+            createButton("#normal-contained", {
+                stylingMode: "contained",
+                text: "Contained", type:
+                    "normal", width: 120
+            });
+
+            createButton("#normal-outlined", {
+                stylingMode: "outlined",
+                text: "Outlined",
+                type: "normal",
+                width: 120
+            });
+
+            createButton("#normal-text", {
+                stylingMode: "text",
+                text: "Text",
+                type: "normal",
+                width: 120
+            });
+
+            createButton("#success-contained", {
+                stylingMode: "contained",
+                text: "Save",
+                icon: "save",
+                type: "success",
+                width: 140,
+                onClick: () => DevExpress.ui.notify("Saved successfully", "success", 1500)
+            });
+
+            createButton("#success-outlined", {
+                stylingMode: "outlined",
+                text: "Upload",
+                icon: "upload",
+                type: "success",
+                width: 140,
+                onClick: () => DevExpress.ui.notify("Upload completed", "success", 1500)
+            });
+
+            createButton("#success-text", {
+                stylingMode: "text",
+                text: "Help",
+                icon: "help",
+                type: "success",
+                width: 120,
+                onClick: () => DevExpress.ui.notify("Help section opened", "info", 1500)
+            });
+
+            // Default Buttons With Custom Template
+            createButton("#default-contained", {
+                stylingMode: "contained",
+                type: "default",
+                width: 180,
+                template(data, container) {
+                    $("<div>")
+                        .addClass("custom-button-template")
+                        .append($("<img>").attr("src", "https://cdn-icons-png.flaticon.com/512/25/25231.png"))
+                        .append($("<span>").text("GitHub"))
+                        .appendTo(container);
+                },
+                onClick: () => window.open("https://github.com", "_blank")
+            });
+
+            createButton("#default-outlined", {
+                stylingMode: "outlined",
+                text: "Custom Icon",
+                type: "default",
+                icon: "preferences",
+                width: 160
+            });
+
+            createButton("#default-text", {
+                stylingMode: "text",
+                text: "Info",
+                type: "default",
+                width: 120,
+                icon: "info",
+                onClick: () => DevExpress.ui.notify("More info displayed", "info", 1500)
+            });
+
+            // Danger Buttons (With Submit Behavior)
+            createButton("#danger-contained", {
+                stylingMode: "contained",
+                text: "Submit",
+                type: "danger",
+                width: 140,
+                useSubmitBehavior: true,
+                onClick: () => DevExpress.ui.notify("Form submitted", "error", 1500)
+            });
+
+            createButton("#danger-outlined", {
+                stylingMode: "outlined",
+                text: "Delete",
+                type: "danger",
+                width: 140,
+                icon: "trash",
+                onClick: () => DevExpress.ui.notify("Deleted successfully", "error", 1500)
+            });
+
+            createButton("#danger-text", {
+                stylingMode: "text",
+                text: "Reset",
+                type: "danger",
+                width: 120,
+                icon: "refresh",
+                onClick: () => DevExpress.ui.notify("Reset completed", "error", 1500)
+            });
+        });
+    </script>
+</body>
+
+</html>

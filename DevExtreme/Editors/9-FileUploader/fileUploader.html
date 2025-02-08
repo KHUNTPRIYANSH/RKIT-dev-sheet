@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>DevExtreme File Uploader Demo</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme theme -->
+    <link rel="stylesheet" href="../Content/dx.dark.css">
+
+    <!-- DevExtreme library -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #222;
+            color: #fff;
+        }
+
+        #file-uploader {
+            background: #232323 !important;
+            border: 3px dashed lime;
+            padding: 15px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+
+        .settings {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #444;
+            border-radius: 6px;
+        }
+
+        .settings h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #ff9800;
+        }
+
+        .file-details {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #444;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .selected-item {
+            margin-bottom: 10px;
+            padding: 8px;
+            background-color: #555;
+            border-radius: 4px;
+        }
+
+        .dx-field {
+            margin-bottom: 15px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #chunk-panel {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #232323;
+            border-radius: 6px;
+            display: none;
+            max-height: 200px;
+            overflow: auto;
+        }
+
+        .drop-parent {
+            width: 94%;
+            display: flex;
+            border: 3px solid rgba(255, 255, 255, 0.35);
+            gap: 15px;
+            align-items: flex-start;
+            padding: 15px;
+        }
+
+        #drop-zone {
+            background: rgb(34, 34, 34);
+            height: max-content;
+            flex: 1;
+            min-height: 100px;
+            width: 110px;
+            display: grid;
+            place-items: center;
+            border: 3px solid white;
+        }
+    </style>
+</head>
+
+<body class="dx-viewport">
+    <div class="container">
+        <h1>DevExtreme File Uploader</h1>
+
+        <!-- File Uploader -->
+        <div class="drop-parent">
+
+            <div id="file-uploader"></div>
+            <div id="drop-zone">
+                <p>Drop <br> Here</p>
+            </div>
+        </div>
+        <!-- Upload Settings -->
+        <div class="settings">
+            <h2>Upload Settings</h2>
+            <div class="dx-field">
+                <label>File Type:</label>
+                <div id="accept-option"></div>
+            </div>
+            <div class="dx-field">
+                <label>Upload Mode:</label>
+                <div id="upload-option"></div>
+            </div>
+            <div class="dx-field">
+                <label>Allow Multiple Files:</label>
+                <div id="multiple-option"></div>
+            </div>
+            <div class="dx-field">
+                <label>Enable Max File Size Limit:</label>
+                <div id="enable-max-size"></div>
+            </div>
+            <div class="dx-field hidden" id="max-file-size">
+                <label>Max File Size (MB):</label>
+                <input type="number" id="max-size-input" min="1" />
+            </div>
+            <div class="dx-field">
+                <label>Allowed File Extensions:</label>
+                <div id="allowed-extensions"></div>
+            </div>
+        </div>
+
+        <!-- Selected File Details -->
+        <div id="selected-files" class="file-details">
+            <h2>Selected Files</h2>
+        </div>
+
+        <!-- Chunk Upload Panel -->
+        <div id="chunk-panel">
+
+        </div>
+    </div>
+
+    <script>
+        // Initialize the File Uploader
+        $(() => {
+            const fileUploader = $('#file-uploader').dxFileUploader({
+                multiple: false,
+                accept: '*',
+                width: "80%",
+                value: [],
+                allowCanceling: true,
+                uploadMode: 'instantly',
+                uploadUrl: 'https://js.devexpress.com/Demos/WidgetsGalleryDataService/api/ChunkUpload',
+                chunkSize: 1000000,  // 1mb
+                name: 'file',
+                dialogTrigger: "#file-uploader",
+                dropZone: "#drop-zone",
+                invalidFileExtensionMessage: "[Error]: File extension is not proper",
+                invalidMaxFileSizeMessage: "[Error]: File size is too large",
+                invalidMinFileSizeMessage: "[Error]: File size is too small",
+                labelText: "This is label text",
+                maxFileSize: 10000000, // 10mb
+                minFileSize: 10000, // 10kb
+                onBeforeSend: (e) => {
+                    console.log(`onBeforeSend`);
+                    console.log(e);
+                },
+                onUploadStarted: onUploadStarted,
+                onProgress: onUploadProgress,
+                onDropZoneEnter: () => {
+                    $("#drop-zone").css("background", "linear-gradient(to right, #76b852, #8dc26f)")
+                },
+                onDropZoneLeave: () => {
+                    $("#drop-zone").css("background", "linear-gradient(to right, #ff416c, #ff4b2b)")
+                    setTimeout(() => {
+                        $("#drop-zone").css("background", "rgb(34, 34, 34)")
+                    }, 1000)
+                },
+                onValueChanged(e) {
+                    const files = e.value;
+                    if (files.length > 0) {
+                        $('#selected-files').empty().show();
+                        $.each(files, (i, file) => {
+                            const $selectedItem = $('<div />').addClass('selected-item');
+                            $selectedItem.append(
+                                $('<span />').html(`<strong>Name:</strong> ${file.name}<br/>`),
+                                $('<span />').html(`<strong>Size:</strong> ${file.size} bytes<br/>`),
+                                $('<span />').html(`<strong>Type:</strong> ${file.type}<br/>`),
+                                $('<span />').html(`<strong>Last Modified:</strong> ${file.lastModifiedDate}`)
+                            );
+                            $selectedItem.appendTo($('#selected-files'));
+                        });
+                    } else {
+                        $('#selected-files').hide();
+                    }
+                },
+                onUploadError: (e) => {
+                    console.log(`onUploadError`);
+                    $('#file-uploader').css('border', '3px dashed orange'); // Orange border for error
+                    console.log(e);
+                },
+                onFilesUploaded: (e) => {
+                    console.log(`onFilesUploaded`);
+                    console.log(e);
+                },
+                onUploadAborted: (e) => {
+                    console.log(`onUploadAborted`);
+                    $('#file-uploader').css('border', '3px dashed red'); // Red border for abort
+                    console.log(e);
+                },
+                abortUpload: function (file, uploadInfo) {
+                    alert("stopped");
+                },
+            }).dxFileUploader('instance');
+
+            // Enable/Disable Max File Size input
+            $('#enable-max-size').dxCheckBox({
+                value: false,
+                text: 'Enable Max File Size',
+                onValueChanged(e) {
+                    if (e.value) {
+                        $('#max-file-size').removeClass('hidden');
+                        const maxSizeInMb = parseInt($('#max-size-input').val());
+                        if (maxSizeInMb > 0) {
+                            fileUploader.option('maxFileSize', maxSizeInMb * 1024 * 1024); // Convert MB to Bytes
+                        }
+                    } else {
+                        $('#max-file-size').addClass('hidden');
+                        fileUploader.option('maxFileSize', 4000000); // Reset to default value (4MB)
+                    }
+                },
+            });
+
+            // File Type Selection
+            $('#accept-option').dxSelectBox({
+                inputAttr: { 'aria-label': 'Accept Option' },
+                dataSource: [
+                    { name: 'All types', value: '*' },
+                    { name: 'Images', value: 'image/*' },
+                    { name: 'Videos', value: 'video/*' },
+                ],
+                valueExpr: 'value',
+                displayExpr: 'name',
+                value: '*',
+                onValueChanged(e) {
+                    fileUploader.option('accept', e.value);
+                },
+            });
+
+            // Upload Mode Selection
+            $('#upload-option').dxSelectBox({
+                items: ['instantly', 'useButtons'],
+                value: 'instantly',
+                inputAttr: { 'aria-label': 'Upload Option' },
+                onValueChanged(e) {
+                    fileUploader.option('uploadMode', e.value);
+                },
+            });
+
+            // Allow Multiple Files
+            $('#multiple-option').dxCheckBox({
+                value: false,
+                text: 'Allow multiple files selection',
+                onValueChanged(e) {
+                    fileUploader.option('multiple', e.value);
+                },
+            });
+
+            // Allowed File Extensions Selection
+            $('#allowed-extensions').dxSelectBox({
+                dataSource: ['.jpg', '.jpeg', '.gif', '.png'],
+                value: ['.jpg', '.jpeg'],
+                multiSelect: true,
+                inputAttr: { 'aria-label': 'Allowed Extensions' },
+                onValueChanged(e) {
+                    fileUploader.option('allowedFileExtensions', e.value);
+                },
+            });
+        });
+
+        function onUploadStarted() {
+            // Show the chunk panel when the upload starts
+            const chunkPanel = getChunkPanel();
+            chunkPanel.style.display = 'block'; // Make sure it's visible
+            chunkPanel.innerHTML = ''; // Clear the chunk panel
+        }
+
+        function onUploadProgress(e) {
+            // Append chunk upload information to the panel
+            const chunkPanel = getChunkPanel();
+            chunkPanel.appendChild(addChunkInfo(e.segmentSize, e.bytesLoaded, e.bytesTotal));
+        }
+
+        function getChunkPanel() {
+            return document.getElementById('chunk-panel');
+        }
+
+        function addChunkInfo(segmentSize, loaded, total) {
+            const result = document.createElement('DIV');
+            result.innerHTML = ` 
+                <strong>Segment Size:</strong> ${segmentSize} bytes<br/>
+                <strong>Loaded:</strong> ${loaded} bytes<br/>
+                <strong>Total:</strong> ${total} bytes<br/><br/>
+            `;
+            return result;
+        }
+    </script>
+</body>
+
+</html>

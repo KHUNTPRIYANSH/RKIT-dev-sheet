@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>DevExtreme TextBox Mask Demo</title>
+
+    <!-- Jquery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme theme -->
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/21.1.5/css/dx.dark.css">
+
+    <!-- DevExtreme library -->
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/21.1.5/js/dx.all.js"></script>
+    <style>
+        .row {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .field-container {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+    </style>
+</head>
+
+<body class="dx-viewport">
+    <h1>DevExtreme TextBox Mask Demo</h1>
+    <div class="row">
+
+        <div class="field-container">
+            <label for="TextBox-container1">Phone Number (India):</label>
+            <div id="TextBox-container1"></div>
+        </div>
+
+        <div class="field-container">
+            <label for="TextBox-container2">Date (MM/DD/YYYY):</label>
+            <div id="TextBox-container2"></div>
+        </div>
+
+        <div class="field-container">
+            <label for="TextBox-container3">Code (ABC-1234):</label>
+            <div id="TextBox-container3"></div>
+        </div>
+
+        <div class="field-container">
+            <label for="TextBox-container4">Time (HH:MM):</label>
+            <div id="TextBox-container4"></div>
+        </div>
+
+        <div class="field-container">
+            <label for="TextBox-container5">Alphanumeric Code (AB1-1234):</label>
+            <div id="TextBox-container5"></div>
+        </div>
+
+        <div class="field-container">
+            <label for="TextBox-container6">Phone Number with Custom Placeholder:</label>
+            <div id="TextBox-container6"></div>
+        </div>
+
+    </div>
+    <script>
+        $(document).ready(function () {
+            // Basic mask for phone number
+            $("#TextBox-container1").dxTextBox({
+                mask: "+\\91 00000-00000",
+                placeholder: "Enter phone number...",
+                showMaskMode: "onFocus",
+                useMaskedValue: true,
+                onValueChanged: (e) => console.log(e),
+                showClearButton: true
+            });
+
+            // Mask for date
+            $("#TextBox-container2").dxTextBox({
+                mask: "00/00/0000",
+                placeholder: "Enter date (MM/DD/YYYY)...",
+                showMaskMode: "always",// default
+                useMaskedValue: false,
+                onValueChanged: (e) => console.log(e),
+                showClearButton: true
+            });
+
+            // Mask with custom characters
+            $("#TextBox-container3").dxTextBox({
+                mask: "LLL-0000",
+                placeholder: "Enter code (ABC-1234)...",
+                showClearButton: true
+            });
+
+            // Mask with custom rules for time input
+            $("#TextBox-container4").dxTextBox({
+                mask: "Hh:Mm",
+                showClearButton: true,
+                maskRules: {
+                    H: char => char >= 0 && char <= 2,
+                    h: (char, index, fullStr) => {
+                        if (fullStr[0] == '2')
+                            return [0, 1, 2, 3].includes(parseInt(char));
+                        else
+                            return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].includes(parseInt(char));
+                    },
+                    M: char => char >= 0 && char <= 5,
+                    m: char => char >= 0 && char <= 9
+                },
+                placeholder: "Enter time (HH:MM)..."
+            });
+
+            // Mask for alphanumeric input
+            $("#TextBox-container5").dxTextBox({
+                mask: "AAA-0000",
+                showClearButton: true,
+                placeholder: "Enter alphanumeric code (ABC-1234)..."
+            });
+
+            // Mask with custom maskChar
+            $("#TextBox-container6").dxTextBox({
+                mask: "000-000-0000",
+                maskChar: "X",
+                showClearButton: true,
+                placeholder: "Enter phone number with custom placeholder..."
+            });
+        });
+    </script>
+
+</body>
+
+</html>
