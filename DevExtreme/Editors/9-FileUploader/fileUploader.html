@@ -180,9 +180,27 @@
                 invalidFileExtensionMessage: "[Error]: File extension is not proper",
                 invalidMaxFileSizeMessage: "[Error]: File size is too large",
                 invalidMinFileSizeMessage: "[Error]: File size is too small",
+                uploadAbortedMessage: "[Error]: Upload stopped",
+                readyToUploadMessage: "Now you can upload the files",// work with button upload
                 labelText: "This is label text",
+                uploadedMessage: "Data reached successfully",
+                uploadFailedMessage: "Data not reached",
+                uploadButtonText: "Send to server",
+                selectButtonText: "Choose file by clicking this button",
                 maxFileSize: 10000000, // 10mb
                 minFileSize: 10000, // 10kb
+                showFileList: true,
+                //uploadFile: function(){ called when we hit upload button}
+                //uploadMethod: "POST"[default] / "PUT"
+                //uploadMode
+                //  "instantly" (default)
+                //      Ajax upload. Files are uploaded after they are selected.
+                //  "useButtons"
+                //      Ajax upload. Files are uploaded after a user clicks the Upload button.
+                //  "useForm"
+                //      HTML form upload. Files are uploaded when the HTML form is submitted.
+
+                //uploadHeaders : Specifies headers for the upload request.
                 onBeforeSend: (e) => {
                     console.log(`onBeforeSend`);
                     console.log(e);
@@ -310,6 +328,7 @@
         function onUploadProgress(e) {
             // Append chunk upload information to the panel
             const chunkPanel = getChunkPanel();
+
             chunkPanel.appendChild(addChunkInfo(e.segmentSize, e.bytesLoaded, e.bytesTotal));
         }
 
