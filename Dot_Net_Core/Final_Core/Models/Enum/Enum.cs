@@ -1,5 +1,8 @@
 ﻿namespace Final_Core.Models.Enum
 {
+    /// <summary>
+    /// Enum that defines type of operation
+    /// </summary>
     public enum EnmType
     {
         /// <summary>

@@ -16,8 +16,15 @@ using Final_Core.BL.Interfaces;
 
 namespace Final_Core
 {
+    /// <summary>
+    /// Entry point for the Final_Core application.
+    /// </summary>
     public class Program
     {
+        /// <summary>
+        /// Main method that initializes and starts the web application.
+        /// </summary>
+        /// <param name="args">Command-line arguments.</param>
         public static void Main(string[] args)
         {
             var logger = LogManager.Setup().LoadConfigurationFromFile("nlog.config").GetCurrentClassLogger();
@@ -25,14 +32,15 @@ namespace Final_Core
             {
                 var builder = WebApplication.CreateBuilder(args);
 
-                // Configure NLog
+                #region Configure Logging
+                // Configure NLog for logging
                 builder.Logging.ClearProviders();
                 builder.Logging.SetMinimumLevel(LogLevel.Information);
                 builder.Host.UseNLog();
+                #endregion
 
-              
-
-                // Register services to the container
+                #region Configure Services
+                // Register services in the dependency injection container
                 builder.Services.AddControllers(options =>
                 {
                     options.Filters.Add<GlobalExceptionFilter>(); // Register global exception filter
@@ -44,30 +52,36 @@ namespace Final_Core
                 // Register the database connection factory
                 builder.Services.AddSingleton<IDbConnectionFactory>(new OrmLiteConnectionFactory(
                     builder.Configuration.GetConnectionString("MyDbConnection"), MySqlDialect.Provider));
+
                 // Register the email service
                 builder.Services.AddHttpClient();
-                // Register other services
+
+                // Register transient services
                 builder.Services.AddTransient<EmailService>();
                 builder.Services.AddTransient<SendEmailActionFilter>();
+
                 // Register scoped services
-                builder.Services.AddScoped<OrmLiteDbContext>(); // Register OrmLiteDbContext
-                builder.Services.AddScoped<LoggingService>(); // Register LoggingService
-                                                              // Register the BLEmp01 service
-                builder.Services.AddScoped<BLEmp01>(); // Register BLEmp01
-                                                       // Register company and bank services
-                builder.Services.AddScoped<ICompany, Company>();
-                //builder.Services.AddScoped<IBank, ICICIBankService>(); 
-                builder.Services.AddScoped<IBank, HDFCBankService>();
+                builder.Services.AddScoped<OrmLiteDbContext>(); // Database context for OrmLite
+                builder.Services.AddScoped<LoggingService>(); // Logging service
+                builder.Services.AddScoped<BLEmp01>(); // Employee service
+                builder.Services.AddScoped<ICompany, Company>(); // Company service
+
+                // Bank service - currently using ICICIBankService
+                builder.Services.AddScoped<IBank, ICICIBankService>();
+                //builder.Services.AddScoped<IBank, HDFCBankService>(); // Alternative bank service
+                #endregion
 
                 var app = builder.Build();
 
+                #region Configure Middleware
                 // Register custom logging middleware
                 app.UseMiddleware<RequestResponseLoggingMiddleware>();
 
-                // Register the IP logging middleware
+                // Register the rate limiting middleware
                 app.UseMiddleware<RateLimitingMiddleware>();
+                #endregion
 
-                // Configure HTTP request pipeline
+                #region Configure HTTP Request Pipeline
                 if (app.Environment.IsDevelopment())
                 {
                     app.UseDeveloperExceptionPage();
@@ -75,13 +89,17 @@ namespace Final_Core
                     app.UseSwaggerUI();
                 }
 
-
                 app.UseRouting();
                 app.UseAuthentication();
                 app.UseAuthorization();
-                app.UseCors();
+                app.UseCors(); // Ensure CORS policies are applied
+
+                // Map controller endpoints
                 app.MapControllers();
+
+                // Run the application
                 app.Run();
+                #endregion
             }
             catch (Exception ex)
             {

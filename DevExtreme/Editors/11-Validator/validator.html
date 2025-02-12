@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validator</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="../Content/dx.dark.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+
+</head>
+
+<body class="dx-viewport">
+
+    <div id="formContainer"></div>
+    <div id="validationSummary"></div>
+
+    <script>
+        $(function () {
+            const genders = ['Male', 'Female', 'Other'];
+            const streams = [
+                { ID: 1, Field: "Engineering" },
+                { ID: 2, Field: "Medical" },
+                { ID: 3, Field: "Agriculture" },
+                { ID: 4, Field: "Arts" },
+                { ID: 5, Field: "Business" },
+                { ID: 6, Field: "Management" },
+            ];
+
+            // Initialize dxForm without fieldset or field tags
+            $("#formContainer").dxForm({
+                formData: {},
+                colCount: 2, // Two-column layout for better UI
+                items: [
+                    {
+                        dataField: "firstName",
+                        label: { text: "First Name" },
+                        editorType: "dxTextBox",
+                        editorOptions: { placeholder: "Enter your first name" },
+                        validationRules: [
+                            { type: "required", message: "First Name is required" },
+                            { type: "pattern", pattern: "^[A-Za-z]+$", message: "Only alphabets allowed" }
+                        ]
+                    },
+                    {
+                        dataField: "lastName",
+                        label: { text: "Last Name" },
+                        editorType: "dxTextBox",
+                        editorOptions: { placeholder: "Enter your last name" },
+                        validationRules: [
+                            { type: "required", message: "Last Name is required" },
+                            { type: "pattern", pattern: "^[A-Za-z]+$", message: "Only alphabets allowed" }
+                        ]
+                    },
+                    {
+                        dataField: "email",
+                        label: { text: "Email" },
+                        editorType: "dxTextBox",
+                        editorOptions: { placeholder: "Enter email" },
+                        validationRules: [
+                            { type: "required", message: "Email is required" },
+                            { type: "email", message: "Enter a valid email" }
+                        ]
+                    },
+                    {
+                        dataField: "mobile",
+                        label: { text: "Mobile Number" },
+                        editorType: "dxTextBox",
+                        editorOptions: {
+                            placeholder: "Enter mobile number",
+                            mask: "+91 00000-00000"
+                        },
+                        validationRules: [
+                            { type: "required", message: "Mobile Number is required" },
+                            {
+                                type: "pattern",
+                                pattern: "^[6-9]\\d{9}$",
+                                message: "Enter a valid 10-digit mobile number"
+                            }
+                        ]
+                    },
+                    {
+                        dataField: "dob",
+                        label: { text: "Date of Birth" },
+                        editorType: "dxDateBox",
+                        editorOptions: { placeholder: "Select your DOB" },
+                        validationRules: [{ type: "required", message: "Date of Birth is required" }]
+                    },
+                    {
+                        dataField: "gender",
+                        label: { text: "Gender" },
+                        editorType: "dxRadioGroup",
+                        editorOptions: {
+                            items: genders,
+                            value: genders[0]
+                        },
+                        validationRules: [{ type: "required", message: "Gender selection is required" }]
+                    },
+                    {
+                        dataField: "stream",
+                        label: { text: "Stream" },
+                        editorType: "dxSelectBox",
+                        editorOptions: {
+                            dataSource: streams,
+                            valueExpr: "ID",
+                            displayExpr: "Field",
+                        },
+                        validationRules: [{ type: "required", message: "Please select a stream" }]
+                    },
+                    {
+                        dataField: "address",
+                        label: { text: "Address" },
+                        editorType: "dxTextArea",
+                        editorOptions: { placeholder: "Enter your address" },
+                        validationRules: [{ type: "required", message: "Address is required" }]
+                    },
+                    {
+                        itemType: "button",
+                        horizontalAlignment: "left",
+                        buttonOptions: {
+                            text: "Reset",
+                            type: "default",
+                            onClick: function () {
+                                $("#formContainer").dxForm("instance").reset();
+                            }
+                        }
+                    },
+                    {
+                        itemType: "button",
+                        horizontalAlignment: "left",
+                        buttonOptions: {
+                            text: "Submit",
+                            type: "success",
+                            useSubmitBehavior: true,
+                            onClick: function () {
+                                const formInstance = $("#formContainer").dxForm("instance");
+                                const validationResult = formInstance.validate();
+
+                                if (validationResult.isValid) {
+                                    DevExpress.ui.notify("Form Submitted Successfully!", "success", 2000);
+                                } else {
+                                    DevExpress.ui.notify("Please fix errors before submitting", "error", 2000);
+                                }
+                            }
+                        }
+                    }
+                ]
+            });
+
+            // Validation Summary
+            $("#validationSummary").dxValidationSummary();
+        });
+    </script>
+
+</body>
+
+</html>

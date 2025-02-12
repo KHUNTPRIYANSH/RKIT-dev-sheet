@@ -9,6 +9,7 @@ namespace Final_Core.Controllers
 {
     /// <summary>
     /// Controller to manage employee-related API operations.
+    /// Provides CRUD and utility operations for employees.
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
@@ -19,6 +20,14 @@ namespace Final_Core.Controllers
         private readonly BLEmp01 _objBLEmployee;
         private Response _objResponse;
 
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// Initializes the controller with the employee business logic service.
+        /// </summary>
+        /// <param name="objBLEmployee">Business logic layer for employee operations.</param>
         public CLEmp01(BLEmp01 objBLEmployee)
         {
             _objBLEmployee = objBLEmployee ?? throw new ArgumentNullException(nameof(objBLEmployee));
@@ -30,8 +39,9 @@ namespace Final_Core.Controllers
         #region API Methods
 
         /// <summary>
-        /// Retrieves all employees.
+        /// Retrieves all employees from the database.
         /// </summary>
+        /// <returns>A response containing a list of all employees.</returns>
         [HttpGet("get_all_employees")]
         public IActionResult GetAllEmployees()
         {
@@ -48,8 +58,10 @@ namespace Final_Core.Controllers
         }
 
         /// <summary>
-        /// Retrieves an employee by ID.
+        /// Retrieves an employee by their ID.
         /// </summary>
+        /// <param name="id">The ID of the employee.</param>
+        /// <returns>A response containing the employee data.</returns>
         [HttpGet("get_employee_by_id/{id}")]
         public IActionResult GetEmployeeByID(int id)
         {
@@ -66,11 +78,21 @@ namespace Final_Core.Controllers
         }
 
         /// <summary>
-        /// Adds a new employee.
+        /// Adds a new employee to the system.
         /// </summary>
+        /// <param name="objDTOEmp01">Employee data transfer object containing employee details.</param>
+        /// <returns>A response indicating the result of the operation.</returns>
         [HttpPost("add_employee")]
         public IActionResult AddEmployee([FromBody] DTOEmp01 objDTOEmp01)
         {
+            // Automatically validate the model state based on data annotations in DTOEmp01
+            if (!ModelState.IsValid)
+            {
+                _objResponse.IsError = true;
+                _objResponse.Data = ModelState;
+                _objResponse.Message = "Formate Error";
+                return Ok(_objResponse);  // Return validation errors
+            }
             _objBLEmployee.Type = EnmType.A;
             _objBLEmployee.PreSave(objDTOEmp01);
             _objResponse = _objBLEmployee.Validation();
@@ -83,11 +105,21 @@ namespace Final_Core.Controllers
         }
 
         /// <summary>
-        /// Updates an existing employee.
+        /// Updates an existing employee's details.
         /// </summary>
+        /// <param name="objDTOEmp01">Employee data transfer object containing updated employee details.</param>
+        /// <returns>A response indicating the result of the update operation.</returns>
         [HttpPut("update_employee")]
         public IActionResult UpdateEmployee([FromBody] DTOEmp01 objDTOEmp01)
         {
+            // Automatically validate the model state based on data annotations in DTOEmp01
+            if (!ModelState.IsValid)
+            {
+                _objResponse.IsError = true;
+                _objResponse.Data = ModelState;
+                _objResponse.Message = "Formate Error";
+                return Ok(_objResponse);  // Return validation errors
+            }
             _objBLEmployee.Type = EnmType.E;
             _objBLEmployee.PreSave(objDTOEmp01);
             _objResponse = _objBLEmployee.Validation();
@@ -100,8 +132,10 @@ namespace Final_Core.Controllers
         }
 
         /// <summary>
-        /// Deletes an employee by ID.
+        /// Deletes an employee by their ID.
         /// </summary>
+        /// <param name="id">The ID of the employee to be deleted.</param>
+        /// <returns>A response indicating the result of the delete operation.</returns>
         [HttpDelete("delete_employee/{id}")]
         public IActionResult DeleteEmployee(int id)
         {
@@ -110,8 +144,10 @@ namespace Final_Core.Controllers
         }
 
         /// <summary>
-        /// Validates if an employee exists by their ID.
+        /// Validates if an employee exists based on their ID.
         /// </summary>
+        /// <param name="id">The ID of the employee to check.</param>
+        /// <returns>A response indicating whether the employee exists.</returns>
         [HttpGet("check_employee_exists/{id}")]
         public IActionResult IsEmployeeExists(int id)
         {
@@ -128,8 +164,9 @@ namespace Final_Core.Controllers
         }
 
         /// <summary>
-        /// Retrieves the first employee in the list.
+        /// Retrieves the first employee from the employee list.
         /// </summary>
+        /// <returns>A response containing the first employee.</returns>
         [HttpGet("get-first-employee")]
         public IActionResult GetFirstEmployee()
         {
@@ -138,8 +175,9 @@ namespace Final_Core.Controllers
         }
 
         /// <summary>
-        /// Retrieves the last employee in the list.
+        /// Retrieves the last employee from the employee list.
         /// </summary>
+        /// <returns>A response containing the last employee.</returns>
         [HttpGet("get_last_employee")]
         public IActionResult GetLastEmployee()
         {
@@ -148,8 +186,9 @@ namespace Final_Core.Controllers
         }
 
         /// <summary>
-        /// Retrieves the highest-paid employee.
+        /// Retrieves the highest-paid employee from the database.
         /// </summary>
+        /// <returns>A response containing the highest-paid employee.</returns>
         [HttpGet("get_highest_paid_employee")]
         public IActionResult GetRichEmployee()
         {

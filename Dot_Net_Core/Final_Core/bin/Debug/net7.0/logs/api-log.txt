@@ -1457,3 +1457,636 @@
 2025-02-11 18:00:55.9065 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLCompnay.SendEmail (Final_Core) in 1541.8782ms 
 2025-02-11 18:00:55.9065 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLCompnay.SendEmail (Final_Core)' 
 2025-02-11 18:01:08.0762 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/send?email=khuntpriyansh%40gmail.com&userName=Default%20User%20abc&message=This%20is%20a%20default%20message.%20ersyrdstut - 0 - 200 - application/json;+charset=utf-8 25100.7977ms 
+2025-02-12 09:01:17.7166 | Info | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5069 
+2025-02-12 09:01:17.7427 | Info | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down. 
+2025-02-12 09:01:17.7427 | Info | Microsoft.Hosting.Lifetime | Hosting environment: Development 
+2025-02-12 09:01:17.7427 | Info | Microsoft.Hosting.Lifetime | Content root path: F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Final_Core 
+2025-02-12 09:01:18.7945 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/index.html - - 
+2025-02-12 09:01:22.0856 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/index.html - - - 200 - text/html;charset=utf-8 3292.9101ms 
+2025-02-12 09:01:22.1025 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - 
+2025-02-12 09:01:22.1025 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 3.5687ms 
+2025-02-12 09:01:22.1115 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - 
+2025-02-12 09:01:22.1702 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 58.6330ms 
+2025-02-12 09:01:22.3572 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - 
+2025-02-12 09:01:51.3431 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 28985.6093ms 
+2025-02-12 09:02:08.7325 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - 
+2025-02-12 09:02:17.4181 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:02:17. Request time updated. 
+2025-02-12 09:02:17.4519 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core)' 
+2025-02-12 09:02:17.4643 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "GetAllEmployees", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllEmployees() on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 09:02:17.5008 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 09:02:17.5304 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core) in 62.7847ms 
+2025-02-12 09:02:17.5308 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core)' 
+2025-02-12 09:02:17.5308 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - - 200 - application/json;+charset=utf-8 8807.1667ms 
+2025-02-12 09:04:53.8551 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - 
+2025-02-12 09:04:53.8551 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 156.4986529 seconds. 
+2025-02-12 09:04:53.8620 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:04:53. Request time updated. 
+2025-02-12 09:04:53.8620 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core)' 
+2025-02-12 09:04:53.8620 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "GetAllEmployees", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllEmployees() on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 09:04:53.8620 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 09:04:53.8620 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core) in 3.3454ms 
+2025-02-12 09:04:53.8620 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core)' 
+2025-02-12 09:04:53.8789 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - - 200 - application/json;+charset=utf-8 23.7687ms 
+2025-02-12 09:04:54.9354 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - 
+2025-02-12 09:04:54.9354 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 1.0755269 seconds. 
+2025-02-12 09:04:54.9354 | Warn | Final_Core.Middlewares.RateLimitingMiddleware | Rate limit exceeded for IP ::1. Next allowed request in 9 seconds. 
+2025-02-12 09:04:54.9434 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - - 429 - - 7.9469ms 
+2025-02-12 09:05:02.4025 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - 
+2025-02-12 09:05:02.4025 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 8.5426901 seconds. 
+2025-02-12 09:05:02.4025 | Warn | Final_Core.Middlewares.RateLimitingMiddleware | Rate limit exceeded for IP ::1. Next allowed request in 2 seconds. 
+2025-02-12 09:05:02.4132 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - - 429 - - 10.6088ms 
+2025-02-12 09:05:06.6836 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - 
+2025-02-12 09:05:06.6836 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 12.8237105 seconds. 
+2025-02-12 09:05:06.6836 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:05:06. Request time updated. 
+2025-02-12 09:05:06.6836 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core)' 
+2025-02-12 09:05:06.6836 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "GetAllEmployees", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllEmployees() on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 09:05:06.6903 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 09:05:06.6903 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core) in 2.9606ms 
+2025-02-12 09:05:06.6903 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core)' 
+2025-02-12 09:05:06.6903 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - - 200 - application/json;+charset=utf-8 13.3438ms 
+2025-02-12 09:06:17.9308 | Info | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5069 
+2025-02-12 09:06:17.9588 | Info | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down. 
+2025-02-12 09:06:17.9588 | Info | Microsoft.Hosting.Lifetime | Hosting environment: Development 
+2025-02-12 09:06:17.9588 | Info | Microsoft.Hosting.Lifetime | Content root path: F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Final_Core 
+2025-02-12 09:06:18.9582 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/index.html - - 
+2025-02-12 09:06:19.7301 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/index.html - - - 200 - text/html;charset=utf-8 774.0490ms 
+2025-02-12 09:06:19.7467 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - 
+2025-02-12 09:06:19.7467 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - 
+2025-02-12 09:06:19.7571 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 8.6058ms 
+2025-02-12 09:06:19.7843 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 37.5345ms 
+2025-02-12 09:06:19.9740 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - 
+2025-02-12 09:06:20.1353 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 161.2352ms 
+2025-02-12 09:06:26.8020 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 
+2025-02-12 09:06:26.8316 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:06:26. Request time updated. 
+2025-02-12 09:06:26.8639 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 09:06:26.8639 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:06:26.8947 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "PaySalary", controller = "CLCompnay"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaySalary(Int32) on controller Final_Core.Controllers.CLCompnay (Final_Core). 
+2025-02-12 09:06:26.8947 | Error | Final_Core.Filters.GlobalExceptionFilter | Unhandled exception occurred. System.InvalidOperationException: Unable to resolve service for type 'Final_Core.Services.EmailService' while attempting to activate 'Final_Core.Controllers.CLCompnay'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method5(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-02-12 09:06:26.9394 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing ObjectResult, writing value of type 'Final_Core.Filters.ErrorResponse'. 
+2025-02-12 09:06:26.9520 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLCompnay.PaySalary (Final_Core) in 53.5502ms 
+2025-02-12 09:06:26.9520 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:06:26.9628 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 - 500 - application/json;+charset=utf-8 160.7097ms 
+2025-02-12 09:07:13.7312 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 
+2025-02-12 09:07:13.7312 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 46.9300871 seconds. 
+2025-02-12 09:07:13.7594 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:07:13. Request time updated. 
+2025-02-12 09:07:13.7594 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 09:07:13.7594 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:07:13.7715 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "PaySalary", controller = "CLCompnay"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaySalary(Int32) on controller Final_Core.Controllers.CLCompnay (Final_Core). 
+2025-02-12 09:07:13.7715 | Error | Final_Core.Filters.GlobalExceptionFilter | Unhandled exception occurred. System.InvalidOperationException: Unable to resolve service for type 'Final_Core.Services.EmailService' while attempting to activate 'Final_Core.Controllers.CLCompnay'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method5(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-02-12 09:07:13.7715 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing ObjectResult, writing value of type 'Final_Core.Filters.ErrorResponse'. 
+2025-02-12 09:07:13.7715 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLCompnay.PaySalary (Final_Core) in 10.6816ms 
+2025-02-12 09:07:13.7715 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:07:13.7906 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 - 500 - application/json;+charset=utf-8 59.3017ms 
+2025-02-12 09:07:14.6730 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 
+2025-02-12 09:07:14.6730 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 0.9151073 seconds. 
+2025-02-12 09:07:14.6730 | Warn | Final_Core.Middlewares.RateLimitingMiddleware | Rate limit exceeded for IP ::1. Next allowed request in 10 seconds. 
+2025-02-12 09:07:14.6807 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 - 429 - - 7.7116ms 
+2025-02-12 09:07:27.7938 | Info | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5069 
+2025-02-12 09:07:27.8227 | Info | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down. 
+2025-02-12 09:07:27.8227 | Info | Microsoft.Hosting.Lifetime | Hosting environment: Development 
+2025-02-12 09:07:27.8227 | Info | Microsoft.Hosting.Lifetime | Content root path: F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Final_Core 
+2025-02-12 09:07:28.5535 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/index.html - - 
+2025-02-12 09:07:29.3195 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/index.html - - - 200 - text/html;charset=utf-8 767.6819ms 
+2025-02-12 09:07:29.3390 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - 
+2025-02-12 09:07:29.3390 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - 
+2025-02-12 09:07:29.3539 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 11.1620ms 
+2025-02-12 09:07:29.3762 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 37.1610ms 
+2025-02-12 09:07:29.4500 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - 
+2025-02-12 09:07:29.6127 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 162.6429ms 
+2025-02-12 09:07:35.0073 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 
+2025-02-12 09:07:35.0330 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:07:35. Request time updated. 
+2025-02-12 09:07:35.0680 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 09:07:35.0680 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:07:35.1056 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "PaySalary", controller = "CLCompnay"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaySalary(Int32) on controller Final_Core.Controllers.CLCompnay (Final_Core). 
+2025-02-12 09:07:35.1056 | Error | Final_Core.Filters.GlobalExceptionFilter | Unhandled exception occurred. System.InvalidOperationException: Unable to resolve service for type 'Final_Core.Services.EmailService' while attempting to activate 'Final_Core.Controllers.CLCompnay'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method5(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-02-12 09:07:35.1559 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing ObjectResult, writing value of type 'Final_Core.Filters.ErrorResponse'. 
+2025-02-12 09:07:35.1703 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLCompnay.PaySalary (Final_Core) in 60.6269ms 
+2025-02-12 09:07:35.1703 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:07:35.1789 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 - 500 - application/json;+charset=utf-8 171.6086ms 
+2025-02-12 09:08:05.2968 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/index.html - - 
+2025-02-12 09:08:05.3282 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/index.html - - - 200 - text/html;charset=utf-8 31.3907ms 
+2025-02-12 09:08:05.3507 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - 
+2025-02-12 09:08:05.3507 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - 
+2025-02-12 09:08:05.3507 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 0.7975ms 
+2025-02-12 09:08:05.3846 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 33.8586ms 
+2025-02-12 09:08:05.4414 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - 
+2025-02-12 09:08:05.4467 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Ambiguous HTTP method for action - Final_Core.Controllers.CLCompnay.PaySalary (Final_Core). Actions require an explicit HttpMethod binding for Swagger/OpenAPI 3.0
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-02-12 09:08:05.4583 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - - 500 - text/plain;+charset=utf-8 16.7550ms 
+2025-02-12 09:08:31.5463 | Info | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5069 
+2025-02-12 09:08:31.5741 | Info | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down. 
+2025-02-12 09:08:31.5741 | Info | Microsoft.Hosting.Lifetime | Hosting environment: Development 
+2025-02-12 09:08:31.5741 | Info | Microsoft.Hosting.Lifetime | Content root path: F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Final_Core 
+2025-02-12 09:08:32.3604 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/index.html - - 
+2025-02-12 09:08:33.1334 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/index.html - - - 200 - text/html;charset=utf-8 774.7640ms 
+2025-02-12 09:08:33.1555 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - 
+2025-02-12 09:08:33.1555 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - 
+2025-02-12 09:08:33.1555 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 4.2227ms 
+2025-02-12 09:08:33.1910 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 35.1251ms 
+2025-02-12 09:08:33.2653 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - 
+2025-02-12 09:08:33.4090 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 143.7080ms 
+2025-02-12 09:08:41.1577 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 
+2025-02-12 09:08:41.1836 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:08:41. Request time updated. 
+2025-02-12 09:08:41.2150 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 09:08:41.2150 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:08:41.2512 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "PaySalary", controller = "CLCompnay"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaySalary(Int32) on controller Final_Core.Controllers.CLCompnay (Final_Core). 
+2025-02-12 09:08:41.2566 | Error | Final_Core.Filters.GlobalExceptionFilter | Unhandled exception occurred. System.InvalidOperationException: Unable to resolve service for type 'Final_Core.Services.EmailService' while attempting to activate 'Final_Core.Controllers.CLCompnay'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method5(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|26_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+2025-02-12 09:08:41.2987 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing ObjectResult, writing value of type 'Final_Core.Filters.ErrorResponse'. 
+2025-02-12 09:08:41.3152 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLCompnay.PaySalary (Final_Core) in 60.0046ms 
+2025-02-12 09:08:41.3152 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:08:41.3272 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 - 500 - application/json;+charset=utf-8 169.5206ms 
+2025-02-12 09:10:45.0155 | Info | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5069 
+2025-02-12 09:10:45.0437 | Info | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down. 
+2025-02-12 09:10:45.0437 | Info | Microsoft.Hosting.Lifetime | Hosting environment: Development 
+2025-02-12 09:10:45.0437 | Info | Microsoft.Hosting.Lifetime | Content root path: F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Final_Core 
+2025-02-12 09:10:45.5924 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/index.html - - 
+2025-02-12 09:10:46.3732 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/index.html - - - 200 - text/html;charset=utf-8 782.5587ms 
+2025-02-12 09:10:46.3886 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - 
+2025-02-12 09:10:46.3886 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - 
+2025-02-12 09:10:46.3886 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 4.4745ms 
+2025-02-12 09:10:46.4167 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 28.1439ms 
+2025-02-12 09:10:46.4972 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - 
+2025-02-12 09:10:46.6410 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 143.7589ms 
+2025-02-12 09:10:54.5629 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 
+2025-02-12 09:10:54.5899 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:10:54. Request time updated. 
+2025-02-12 09:10:54.6191 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 09:10:54.6191 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:10:54.6503 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "PaySalary", controller = "CLCompnay"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaySalary(Int32) on controller Final_Core.Controllers.CLCompnay (Final_Core). 
+2025-02-12 09:11:01.2509 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Boolean, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-12 09:11:01.2697 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLCompnay.PaySalary (Final_Core) in 6615.659ms 
+2025-02-12 09:11:01.2697 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:11:01.2794 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 - 200 - application/json;+charset=utf-8 6716.4674ms 
+2025-02-12 09:12:09.6748 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 
+2025-02-12 09:12:09.6748 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 75.110981 seconds. 
+2025-02-12 09:12:09.6748 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:12:09. Request time updated. 
+2025-02-12 09:12:09.6825 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 09:12:09.6825 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:12:09.6825 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "PaySalary", controller = "CLCompnay"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaySalary(Int32) on controller Final_Core.Controllers.CLCompnay (Final_Core). 
+2025-02-12 09:12:41.1714 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Boolean, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-12 09:12:41.1714 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLCompnay.PaySalary (Final_Core) in 31482.303ms 
+2025-02-12 09:12:41.1714 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:12:41.1873 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 - 200 - application/json;+charset=utf-8 31512.0272ms 
+2025-02-12 09:12:42.1419 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/index.html - - 
+2025-02-12 09:12:42.1788 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/index.html - - - 200 - text/html;charset=utf-8 36.8580ms 
+2025-02-12 09:12:42.1988 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - 
+2025-02-12 09:12:42.1988 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - 
+2025-02-12 09:12:42.1988 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 0.7716ms 
+2025-02-12 09:12:42.2217 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 22.8592ms 
+2025-02-12 09:12:42.2810 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - 
+2025-02-12 09:12:42.2942 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 13.1990ms 
+2025-02-12 09:12:48.6368 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 
+2025-02-12 09:12:48.6368 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 38.9601475 seconds. 
+2025-02-12 09:12:48.6368 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:12:48. Request time updated. 
+2025-02-12 09:12:48.6368 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 09:12:48.6368 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:12:48.6368 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "PaySalary", controller = "CLCompnay"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaySalary(Int32) on controller Final_Core.Controllers.CLCompnay (Final_Core). 
+2025-02-12 09:12:50.3304 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Boolean, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-12 09:12:50.3304 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLCompnay.PaySalary (Final_Core) in 1685.7252ms 
+2025-02-12 09:12:50.3304 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:12:50.3389 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 - 200 - application/json;+charset=utf-8 1702.0180ms 
+2025-02-12 09:13:00.3433 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=2 - 0 
+2025-02-12 09:13:00.3433 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 11.7060744 seconds. 
+2025-02-12 09:13:00.3433 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:13:00. Request time updated. 
+2025-02-12 09:13:00.3433 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 09:13:00.3433 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:13:00.3433 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "PaySalary", controller = "CLCompnay"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaySalary(Int32) on controller Final_Core.Controllers.CLCompnay (Final_Core). 
+2025-02-12 09:13:02.2729 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Boolean, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-12 09:13:02.2729 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLCompnay.PaySalary (Final_Core) in 1925.3832ms 
+2025-02-12 09:13:02.2750 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:13:02.2750 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=2 - 0 - 200 - application/json;+charset=utf-8 1939.2305ms 
+2025-02-12 09:13:58.0540 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/index.html - - 
+2025-02-12 09:13:58.0778 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/index.html - - - 200 - text/html;charset=utf-8 23.7946ms 
+2025-02-12 09:13:58.0946 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - 
+2025-02-12 09:13:58.0946 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - 
+2025-02-12 09:13:58.0946 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 0.9062ms 
+2025-02-12 09:13:58.1235 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 28.8775ms 
+2025-02-12 09:13:58.1809 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - 
+2025-02-12 09:13:58.1935 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 12.5188ms 
+2025-02-12 09:14:05.7112 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=021 - 0 
+2025-02-12 09:14:05.7112 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 65.3664786 seconds. 
+2025-02-12 09:14:05.7112 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:14:05. Request time updated. 
+2025-02-12 09:14:05.7112 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 09:14:05.7112 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:14:05.7173 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "PaySalary", controller = "CLCompnay"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaySalary(Int32) on controller Final_Core.Controllers.CLCompnay (Final_Core). 
+2025-02-12 09:14:07.5276 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Boolean, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-12 09:14:07.5276 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLCompnay.PaySalary (Final_Core) in 1812.6276ms 
+2025-02-12 09:14:07.5276 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:14:07.5276 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=021 - 0 - 200 - application/json;+charset=utf-8 1827.7379ms 
+2025-02-12 09:14:14.0236 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=2 - 0 
+2025-02-12 09:14:14.0236 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 8.3124133 seconds. 
+2025-02-12 09:14:14.0236 | Warn | Final_Core.Middlewares.RateLimitingMiddleware | Rate limit exceeded for IP ::1. Next allowed request in 2 seconds. 
+2025-02-12 09:14:14.0316 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=2 - 0 - 429 - - 7.9447ms 
+2025-02-12 09:14:29.4743 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=2 - 0 
+2025-02-12 09:14:29.4743 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 23.7630153 seconds. 
+2025-02-12 09:14:29.4743 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:14:29. Request time updated. 
+2025-02-12 09:14:29.4743 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 09:14:29.4743 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:14:29.4743 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "PaySalary", controller = "CLCompnay"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaySalary(Int32) on controller Final_Core.Controllers.CLCompnay (Final_Core). 
+2025-02-12 09:14:31.3523 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Boolean, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-12 09:14:31.3523 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLCompnay.PaySalary (Final_Core) in 1875.2481ms 
+2025-02-12 09:14:31.3544 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:14:31.3544 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=2 - 0 - 200 - application/json;+charset=utf-8 1887.9158ms 
+2025-02-12 09:15:49.5711 | Info | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5069 
+2025-02-12 09:15:49.6007 | Info | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down. 
+2025-02-12 09:15:49.6007 | Info | Microsoft.Hosting.Lifetime | Hosting environment: Development 
+2025-02-12 09:15:49.6007 | Info | Microsoft.Hosting.Lifetime | Content root path: F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Final_Core 
+2025-02-12 09:15:50.2907 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/index.html - - 
+2025-02-12 09:15:51.0451 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/index.html - - - 200 - text/html;charset=utf-8 756.2576ms 
+2025-02-12 09:15:51.0613 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - 
+2025-02-12 09:15:51.0613 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - 
+2025-02-12 09:15:51.0800 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 12.9731ms 
+2025-02-12 09:15:51.1042 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 42.8871ms 
+2025-02-12 09:15:51.1810 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - 
+2025-02-12 09:15:51.3325 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 151.4588ms 
+2025-02-12 09:15:56.8083 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 
+2025-02-12 09:15:56.8314 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:15:56. Request time updated. 
+2025-02-12 09:15:56.8599 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 09:15:56.8599 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:15:56.8898 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "PaySalary", controller = "CLCompnay"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaySalary(Int32) on controller Final_Core.Controllers.CLCompnay (Final_Core). 
+2025-02-12 09:15:56.9517 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Boolean, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-12 09:15:56.9715 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLCompnay.PaySalary (Final_Core) in 77.71ms 
+2025-02-12 09:15:56.9715 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:15:56.9807 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 - 200 - application/json;+charset=utf-8 172.3593ms 
+2025-02-12 09:36:04.0711 | Info | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5069 
+2025-02-12 09:36:04.0980 | Info | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down. 
+2025-02-12 09:36:04.0980 | Info | Microsoft.Hosting.Lifetime | Hosting environment: Development 
+2025-02-12 09:36:04.0980 | Info | Microsoft.Hosting.Lifetime | Content root path: F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Final_Core 
+2025-02-12 09:36:04.7140 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/index.html - - 
+2025-02-12 09:36:05.5091 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/index.html - - - 200 - text/html;charset=utf-8 796.6662ms 
+2025-02-12 09:36:05.5091 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - 
+2025-02-12 09:36:05.5255 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - 
+2025-02-12 09:36:05.5255 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 5.6333ms 
+2025-02-12 09:36:05.5557 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 32.5981ms 
+2025-02-12 09:36:05.6371 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - 
+2025-02-12 09:36:05.7821 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 144.8909ms 
+2025-02-12 09:36:29.3023 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 
+2025-02-12 09:36:29.3252 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:36:29. Request time updated. 
+2025-02-12 09:36:29.3570 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 09:36:29.3570 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:36:29.3897 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "PaySalary", controller = "CLCompnay"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaySalary(Int32) on controller Final_Core.Controllers.CLCompnay (Final_Core). 
+2025-02-12 09:36:29.4569 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Boolean, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-12 09:36:29.4759 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLCompnay.PaySalary (Final_Core) in 82.4476ms 
+2025-02-12 09:36:29.4759 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:36:29.4889 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 - 200 - application/json;+charset=utf-8 183.2098ms 
+2025-02-12 09:37:52.2090 | Info | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5069 
+2025-02-12 09:37:52.2495 | Info | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down. 
+2025-02-12 09:37:52.2495 | Info | Microsoft.Hosting.Lifetime | Hosting environment: Development 
+2025-02-12 09:37:52.2495 | Info | Microsoft.Hosting.Lifetime | Content root path: F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Final_Core 
+2025-02-12 09:37:52.9593 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/index.html - - 
+2025-02-12 09:37:55.2965 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/index.html - - - 200 - text/html;charset=utf-8 2339.3531ms 
+2025-02-12 09:37:55.3140 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - 
+2025-02-12 09:37:55.3236 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 9.2811ms 
+2025-02-12 09:37:55.3236 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - 
+2025-02-12 09:37:55.3904 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 60.6190ms 
+2025-02-12 09:37:55.4641 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - 
+2025-02-12 09:37:55.7083 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 244.1876ms 
+2025-02-12 09:38:54.9852 | Info | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5069 
+2025-02-12 09:38:55.0238 | Info | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down. 
+2025-02-12 09:38:55.0238 | Info | Microsoft.Hosting.Lifetime | Hosting environment: Development 
+2025-02-12 09:38:55.0238 | Info | Microsoft.Hosting.Lifetime | Content root path: F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Final_Core 
+2025-02-12 09:38:55.3983 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/index.html - - 
+2025-02-12 09:38:56.2508 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/index.html - - - 200 - text/html;charset=utf-8 855.0644ms 
+2025-02-12 09:38:56.2650 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - 
+2025-02-12 09:38:56.2650 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 5.0094ms 
+2025-02-12 09:38:56.2650 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - 
+2025-02-12 09:38:56.4555 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 182.5750ms 
+2025-02-12 09:38:56.5152 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - 
+2025-02-12 09:38:56.6694 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 154.1668ms 
+2025-02-12 09:39:12.1515 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=11 - 0 
+2025-02-12 09:39:12.1746 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:39:12. Request time updated. 
+2025-02-12 09:39:12.2019 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 09:39:12.2019 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:39:12.2313 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "PaySalary", controller = "CLCompnay"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaySalary(Int32) on controller Final_Core.Controllers.CLCompnay (Final_Core). 
+2025-02-12 09:39:12.2689 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Boolean, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-12 09:39:12.2866 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLCompnay.PaySalary (Final_Core) in 51.4391ms 
+2025-02-12 09:39:12.2866 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 09:39:12.2965 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=11 - 0 - 200 - application/json;+charset=utf-8 145.0376ms 
+2025-02-12 09:39:20.2648 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 
+2025-02-12 09:39:20.2648 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 8.1118219 seconds. 
+2025-02-12 09:39:20.2648 | Warn | Final_Core.Middlewares.RateLimitingMiddleware | Rate limit exceeded for IP ::1. Next allowed request in 2 seconds. 
+2025-02-12 09:39:20.2648 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 - 429 - - 9.1139ms 
+2025-02-12 09:41:02.1164 | Info | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5069 
+2025-02-12 09:41:02.1434 | Info | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down. 
+2025-02-12 09:41:02.1434 | Info | Microsoft.Hosting.Lifetime | Hosting environment: Development 
+2025-02-12 09:41:02.1434 | Info | Microsoft.Hosting.Lifetime | Content root path: F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Final_Core 
+2025-02-12 09:41:02.7809 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/index.html - - 
+2025-02-12 09:41:04.0231 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - 
+2025-02-12 09:41:04.0293 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/index.html - - - 200 - text/html;charset=utf-8 1248.4992ms 
+2025-02-12 09:41:04.0293 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - 
+2025-02-12 09:41:04.0293 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 13.7618ms 
+2025-02-12 09:41:04.1419 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 107.2974ms 
+2025-02-12 09:41:04.2219 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - 
+2025-02-12 09:41:04.4041 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 182.2280ms 
+2025-02-12 09:44:03.0392 | Info | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5069 
+2025-02-12 09:44:03.0662 | Info | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down. 
+2025-02-12 09:44:03.0662 | Info | Microsoft.Hosting.Lifetime | Hosting environment: Development 
+2025-02-12 09:44:03.0662 | Info | Microsoft.Hosting.Lifetime | Content root path: F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Final_Core 
+2025-02-12 09:44:03.4805 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/index.html - - 
+2025-02-12 09:44:04.2788 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/index.html - - - 200 - text/html;charset=utf-8 799.6059ms 
+2025-02-12 09:44:04.2895 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - 
+2025-02-12 09:44:04.2895 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - 
+2025-02-12 09:44:04.2895 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 4.6798ms 
+2025-02-12 09:44:04.3253 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 35.7193ms 
+2025-02-12 09:44:04.4079 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - 
+2025-02-12 09:44:04.5554 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 147.4414ms 
+2025-02-12 09:44:09.0780 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - 
+2025-02-12 09:44:09.0994 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:44:09. Request time updated. 
+2025-02-12 09:44:09.1258 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core)' 
+2025-02-12 09:44:09.1402 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "GetAllEmployees", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllEmployees() on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 09:44:09.1793 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 09:44:09.2151 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core) in 70.5819ms 
+2025-02-12 09:44:09.2151 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core)' 
+2025-02-12 09:44:09.2246 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - - 200 - application/json;+charset=utf-8 146.5531ms 
+2025-02-12 09:45:15.4774 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 PUT http://localhost:5069/api/CLEmp01/update_employee application/json 252 
+2025-02-12 09:45:15.4774 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 66.4016277 seconds. 
+2025-02-12 09:45:15.4774 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:45:15. Request time updated. 
+2025-02-12 09:45:15.4990 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 09:45:15.4990 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.UpdateEmployee (Final_Core)' 
+2025-02-12 09:45:15.5109 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "UpdateEmployee", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateEmployee(Final_Core.Models.DTO.DTOEmp01) on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 09:45:15.6194 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 09:45:15.6194 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.UpdateEmployee (Final_Core) in 108.5223ms 
+2025-02-12 09:45:15.6194 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.UpdateEmployee (Final_Core)' 
+2025-02-12 09:45:15.6272 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 PUT http://localhost:5069/api/CLEmp01/update_employee application/json 252 - 200 - application/json;+charset=utf-8 149.8476ms 
+2025-02-12 09:46:11.2378 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 PUT http://localhost:5069/api/CLEmp01/update_employee application/json 251 
+2025-02-12 09:46:11.2378 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 55.7603354 seconds. 
+2025-02-12 09:46:11.2378 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:46:11. Request time updated. 
+2025-02-12 09:46:11.2378 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 09:46:11.2378 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.UpdateEmployee (Final_Core)' 
+2025-02-12 09:46:11.2378 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "UpdateEmployee", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateEmployee(Final_Core.Models.DTO.DTOEmp01) on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 09:46:11.2612 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'. 
+2025-02-12 09:46:11.2698 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.UpdateEmployee (Final_Core) in 20.5244ms 
+2025-02-12 09:46:11.2698 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.UpdateEmployee (Final_Core)' 
+2025-02-12 09:46:11.2698 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 PUT http://localhost:5069/api/CLEmp01/update_employee application/json 251 - 400 - application/problem+json;+charset=utf-8 40.4798ms 
+2025-02-12 09:46:18.0938 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - 
+2025-02-12 09:46:18.0938 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 6.8495218 seconds. 
+2025-02-12 09:46:18.0952 | Warn | Final_Core.Middlewares.RateLimitingMiddleware | Rate limit exceeded for IP ::1. Next allowed request in 4 seconds. 
+2025-02-12 09:46:18.0952 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - - 429 - - 9.3407ms 
+2025-02-12 09:46:22.9934 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - 
+2025-02-12 09:46:22.9934 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 11.7492399 seconds. 
+2025-02-12 09:46:22.9934 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:46:22. Request time updated. 
+2025-02-12 09:46:22.9934 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core)' 
+2025-02-12 09:46:22.9934 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "GetAllEmployees", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllEmployees() on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 09:46:22.9934 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 09:46:23.0012 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core) in 3.6071ms 
+2025-02-12 09:46:23.0012 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core)' 
+2025-02-12 09:46:23.0012 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - - 200 - application/json;+charset=utf-8 15.4029ms 
+2025-02-12 09:47:30.0267 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_employee_by_id/1 - - 
+2025-02-12 09:47:30.0267 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 67.0333883 seconds. 
+2025-02-12 09:47:30.0267 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:47:30. Request time updated. 
+2025-02-12 09:47:30.0535 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.GetEmployeeByID (Final_Core)' 
+2025-02-12 09:47:30.0690 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "GetEmployeeByID", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEmployeeByID(Int32) on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 09:47:30.0690 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 09:47:30.0690 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.GetEmployeeByID (Final_Core) in 8.23ms 
+2025-02-12 09:47:30.0690 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.GetEmployeeByID (Final_Core)' 
+2025-02-12 09:47:30.0857 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_employee_by_id/1 - - - 200 - application/json;+charset=utf-8 59.0322ms 
+2025-02-12 09:48:15.9635 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_employee_by_id/11 - - 
+2025-02-12 09:48:15.9635 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 45.9383227 seconds. 
+2025-02-12 09:48:15.9635 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:48:15. Request time updated. 
+2025-02-12 09:48:15.9635 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.GetEmployeeByID (Final_Core)' 
+2025-02-12 09:48:15.9713 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "GetEmployeeByID", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetEmployeeByID(Int32) on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 09:48:15.9713 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 09:48:15.9713 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.GetEmployeeByID (Final_Core) in 3.9303ms 
+2025-02-12 09:48:15.9713 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.GetEmployeeByID (Final_Core)' 
+2025-02-12 09:48:15.9713 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_employee_by_id/11 - - - 200 - application/json;+charset=utf-8 21.0336ms 
+2025-02-12 09:58:26.7702 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLEmp01/add_employee application/json 228 
+2025-02-12 09:58:26.7760 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 610.8084073 seconds. 
+2025-02-12 09:58:26.7760 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:58:26. Request time updated. 
+2025-02-12 09:58:26.7760 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 09:58:26.7760 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.AddEmployee (Final_Core)' 
+2025-02-12 09:58:26.7760 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "AddEmployee", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddEmployee(Final_Core.Models.DTO.DTOEmp01) on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 09:58:26.8244 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 09:58:26.8244 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.AddEmployee (Final_Core) in 42.6479ms 
+2025-02-12 09:58:26.8244 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.AddEmployee (Final_Core)' 
+2025-02-12 09:58:26.8244 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLEmp01/add_employee application/json 228 - 200 - application/json;+charset=utf-8 63.6578ms 
+2025-02-12 09:59:06.5893 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLEmp01/add_employee application/json 234 
+2025-02-12 09:59:06.5893 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 39.8172104 seconds. 
+2025-02-12 09:59:06.5893 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:59:06. Request time updated. 
+2025-02-12 09:59:06.5893 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 09:59:06.5893 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.AddEmployee (Final_Core)' 
+2025-02-12 09:59:06.5893 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "AddEmployee", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddEmployee(Final_Core.Models.DTO.DTOEmp01) on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 09:59:06.6055 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 09:59:06.6055 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.AddEmployee (Final_Core) in 6.2078ms 
+2025-02-12 09:59:06.6055 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.AddEmployee (Final_Core)' 
+2025-02-12 09:59:06.6055 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLEmp01/add_employee application/json 234 - 200 - application/json;+charset=utf-8 26.8232ms 
+2025-02-12 09:59:17.4477 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 DELETE http://localhost:5069/api/CLEmp01/delete_employee/5 - - 
+2025-02-12 09:59:17.4477 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 10.851318 seconds. 
+2025-02-12 09:59:17.4477 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:59:17. Request time updated. 
+2025-02-12 09:59:17.4477 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 09:59:17.4477 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.DeleteEmployee (Final_Core)' 
+2025-02-12 09:59:17.4477 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "DeleteEmployee", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DeleteEmployee(Int32) on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 09:59:17.4680 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 09:59:17.4680 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.DeleteEmployee (Final_Core) in 14.0297ms 
+2025-02-12 09:59:17.4680 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.DeleteEmployee (Final_Core)' 
+2025-02-12 09:59:17.4788 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 DELETE http://localhost:5069/api/CLEmp01/delete_employee/5 - - - 200 - application/json;+charset=utf-8 31.0193ms 
+2025-02-12 09:59:21.8734 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 DELETE http://localhost:5069/api/CLEmp01/delete_employee/5 - - 
+2025-02-12 09:59:21.8734 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 4.4253117 seconds. 
+2025-02-12 09:59:21.8734 | Warn | Final_Core.Middlewares.RateLimitingMiddleware | Rate limit exceeded for IP ::1. Next allowed request in 6 seconds. 
+2025-02-12 09:59:21.8734 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 DELETE http://localhost:5069/api/CLEmp01/delete_employee/5 - - - 429 - - 7.5772ms 
+2025-02-12 09:59:26.8980 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 DELETE http://localhost:5069/api/CLEmp01/delete_employee/5 - - 
+2025-02-12 09:59:26.8980 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 9.4496148 seconds. 
+2025-02-12 09:59:26.8980 | Warn | Final_Core.Middlewares.RateLimitingMiddleware | Rate limit exceeded for IP ::1. Next allowed request in 1 seconds. 
+2025-02-12 09:59:26.9215 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 DELETE http://localhost:5069/api/CLEmp01/delete_employee/5 - - - 429 - - 23.6325ms 
+2025-02-12 09:59:30.1136 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 DELETE http://localhost:5069/api/CLEmp01/delete_employee/5 - - 
+2025-02-12 09:59:30.1136 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 12.665138 seconds. 
+2025-02-12 09:59:30.1136 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:59:30. Request time updated. 
+2025-02-12 09:59:30.1136 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 09:59:30.1136 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.DeleteEmployee (Final_Core)' 
+2025-02-12 09:59:30.1136 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "DeleteEmployee", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DeleteEmployee(Int32) on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 09:59:30.1136 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 09:59:30.1202 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.DeleteEmployee (Final_Core) in 2.806ms 
+2025-02-12 09:59:30.1202 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.DeleteEmployee (Final_Core)' 
+2025-02-12 09:59:30.1202 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 DELETE http://localhost:5069/api/CLEmp01/delete_employee/5 - - - 200 - application/json;+charset=utf-8 13.8637ms 
+2025-02-12 09:59:38.6363 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/check_employee_exists/2 - - 
+2025-02-12 09:59:38.6363 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 8.5218804 seconds. 
+2025-02-12 09:59:38.6363 | Warn | Final_Core.Middlewares.RateLimitingMiddleware | Rate limit exceeded for IP ::1. Next allowed request in 2 seconds. 
+2025-02-12 09:59:38.6363 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/check_employee_exists/2 - - - 429 - - 10.3445ms 
+2025-02-12 09:59:44.0518 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/check_employee_exists/2 - - 
+2025-02-12 09:59:44.0518 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 13.9375136 seconds. 
+2025-02-12 09:59:44.0518 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:59:44. Request time updated. 
+2025-02-12 09:59:44.0579 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.IsEmployeeExists (Final_Core)' 
+2025-02-12 09:59:44.0579 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "IsEmployeeExists", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult IsEmployeeExists(Int32) on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 09:59:44.0579 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 09:59:44.0579 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.IsEmployeeExists (Final_Core) in 3.4102ms 
+2025-02-12 09:59:44.0579 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.IsEmployeeExists (Final_Core)' 
+2025-02-12 09:59:44.0739 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/check_employee_exists/2 - - - 200 - application/json;+charset=utf-8 22.1171ms 
+2025-02-12 09:59:50.7273 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/check_employee_exists/2456 - - 
+2025-02-12 09:59:50.7273 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 6.6752884 seconds. 
+2025-02-12 09:59:50.7329 | Warn | Final_Core.Middlewares.RateLimitingMiddleware | Rate limit exceeded for IP ::1. Next allowed request in 4 seconds. 
+2025-02-12 09:59:50.7329 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/check_employee_exists/2456 - - - 429 - - 13.5670ms 
+2025-02-12 09:59:57.6187 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/check_employee_exists/2456 - - 
+2025-02-12 09:59:57.6187 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 13.5659875 seconds. 
+2025-02-12 09:59:57.6187 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 09:59:57. Request time updated. 
+2025-02-12 09:59:57.6214 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.IsEmployeeExists (Final_Core)' 
+2025-02-12 09:59:57.6214 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "IsEmployeeExists", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult IsEmployeeExists(Int32) on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 09:59:57.6214 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 09:59:57.6214 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.IsEmployeeExists (Final_Core) in 8.6702ms 
+2025-02-12 09:59:57.6214 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.IsEmployeeExists (Final_Core)' 
+2025-02-12 09:59:57.6376 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/check_employee_exists/2456 - - - 200 - application/json;+charset=utf-8 18.8744ms 
+2025-02-12 10:00:05.8504 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get-first-employee - - 
+2025-02-12 10:00:05.8504 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 8.2310503 seconds. 
+2025-02-12 10:00:05.8504 | Warn | Final_Core.Middlewares.RateLimitingMiddleware | Rate limit exceeded for IP ::1. Next allowed request in 2 seconds. 
+2025-02-12 10:00:05.8576 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get-first-employee - - - 429 - - 7.1589ms 
+2025-02-12 10:00:09.8343 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get-first-employee - - 
+2025-02-12 10:00:09.8343 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 12.214928 seconds. 
+2025-02-12 10:00:09.8343 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 10:00:09. Request time updated. 
+2025-02-12 10:00:09.8343 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.GetFirstEmployee (Final_Core)' 
+2025-02-12 10:00:09.8343 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "GetFirstEmployee", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetFirstEmployee() on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 10:00:09.8417 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 10:00:09.8417 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.GetFirstEmployee (Final_Core) in 3.2625ms 
+2025-02-12 10:00:09.8417 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.GetFirstEmployee (Final_Core)' 
+2025-02-12 10:00:09.8417 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get-first-employee - - - 200 - application/json;+charset=utf-8 14.2966ms 
+2025-02-12 10:02:33.8974 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_last_employee - - 
+2025-02-12 10:02:33.8974 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 144.0631201 seconds. 
+2025-02-12 10:02:33.8974 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 10:02:33. Request time updated. 
+2025-02-12 10:02:33.9061 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.GetLastEmployee (Final_Core)' 
+2025-02-12 10:02:33.9061 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "GetLastEmployee", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetLastEmployee() on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 10:02:33.9061 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 10:02:33.9061 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.GetLastEmployee (Final_Core) in 3.3445ms 
+2025-02-12 10:02:33.9061 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.GetLastEmployee (Final_Core)' 
+2025-02-12 10:02:33.9061 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_last_employee - - - 200 - application/json;+charset=utf-8 21.1588ms 
+2025-02-12 10:02:39.7506 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_highest_paid_employee - - 
+2025-02-12 10:02:39.7506 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 5.8479872 seconds. 
+2025-02-12 10:02:39.7506 | Warn | Final_Core.Middlewares.RateLimitingMiddleware | Rate limit exceeded for IP ::1. Next allowed request in 5 seconds. 
+2025-02-12 10:02:39.7506 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_highest_paid_employee - - - 429 - - 11.5744ms 
+2025-02-12 10:02:48.4177 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_highest_paid_employee - - 
+2025-02-12 10:02:48.4177 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 14.5155158 seconds. 
+2025-02-12 10:02:48.4177 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 10:02:48. Request time updated. 
+2025-02-12 10:02:48.4205 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.GetRichEmployee (Final_Core)' 
+2025-02-12 10:02:48.4205 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "GetRichEmployee", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetRichEmployee() on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 10:02:48.4205 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 10:02:48.4205 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.GetRichEmployee (Final_Core) in 11.9836ms 
+2025-02-12 10:02:48.4358 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.GetRichEmployee (Final_Core)' 
+2025-02-12 10:02:48.4358 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_highest_paid_employee - - - 200 - application/json;+charset=utf-8 23.5192ms 
+2025-02-12 10:03:23.3191 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=3 - 0 
+2025-02-12 10:03:23.3191 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 34.9030564 seconds. 
+2025-02-12 10:03:23.3191 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 10:03:23. Request time updated. 
+2025-02-12 10:03:23.3191 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 10:03:23.3191 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 10:03:23.3275 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "PaySalary", controller = "CLCompnay"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaySalary(Int32) on controller Final_Core.Controllers.CLCompnay (Final_Core). 
+2025-02-12 10:03:23.3448 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Boolean, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-12 10:03:23.3448 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLCompnay.PaySalary (Final_Core) in 26.1967ms 
+2025-02-12 10:03:23.3448 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 10:03:23.3618 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=3 - 0 - 200 - application/json;+charset=utf-8 42.7237ms 
+2025-02-12 10:19:29.7012 | Info | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5069 
+2025-02-12 10:19:29.7330 | Info | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down. 
+2025-02-12 10:19:29.7341 | Info | Microsoft.Hosting.Lifetime | Hosting environment: Development 
+2025-02-12 10:19:29.7341 | Info | Microsoft.Hosting.Lifetime | Content root path: F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Final_Core 
+2025-02-12 10:19:30.3572 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/index.html - - 
+2025-02-12 10:19:31.5465 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/index.html - - - 200 - text/html;charset=utf-8 1191.2721ms 
+2025-02-12 10:19:31.5573 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - 
+2025-02-12 10:19:31.5573 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - 
+2025-02-12 10:19:31.5696 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 9.3825ms 
+2025-02-12 10:19:31.8329 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 275.5677ms 
+2025-02-12 10:19:31.9084 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - 
+2025-02-12 10:19:32.1794 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 270.9739ms 
+2025-02-12 10:19:38.3951 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - 
+2025-02-12 10:19:38.4215 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 10:19:38. Request time updated. 
+2025-02-12 10:19:38.4562 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core)' 
+2025-02-12 10:19:38.4726 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "GetAllEmployees", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllEmployees() on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 10:19:38.5176 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 10:19:38.5611 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core) in 84.2385ms 
+2025-02-12 10:19:38.5611 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core)' 
+2025-02-12 10:19:38.5699 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - - 200 - application/json;+charset=utf-8 174.7852ms 
+2025-02-12 10:19:40.8277 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - 
+2025-02-12 10:19:40.8291 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 2.430814 seconds. 
+2025-02-12 10:19:40.8291 | Warn | Final_Core.Middlewares.RateLimitingMiddleware | Rate limit exceeded for IP ::1. Next allowed request in 8 seconds. 
+2025-02-12 10:19:40.8443 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - - 429 - - 16.4558ms 
+2025-02-12 10:19:46.3710 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - 
+2025-02-12 10:20:23.6835 | Info | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5069 
+2025-02-12 10:20:24.2733 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/index.html - - 
+2025-02-12 10:21:23.2488 | Info | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5069 
+2025-02-12 10:21:23.2749 | Info | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down. 
+2025-02-12 10:21:23.2749 | Info | Microsoft.Hosting.Lifetime | Hosting environment: Development 
+2025-02-12 10:21:23.2749 | Info | Microsoft.Hosting.Lifetime | Content root path: F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Final_Core 
+2025-02-12 10:21:23.8513 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/index.html - - 
+2025-02-12 10:21:25.4641 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/index.html - - - 200 - text/html;charset=utf-8 1615.0702ms 
+2025-02-12 10:21:25.4822 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - 
+2025-02-12 10:21:25.4868 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - 
+2025-02-12 10:21:25.4868 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_framework/aspnetcore-browser-refresh.js - - - 200 11990 application/javascript;+charset=utf-8 7.7965ms 
+2025-02-12 10:21:25.5203 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 38.1483ms 
+2025-02-12 10:21:25.6273 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - 
+2025-02-12 10:21:25.7754 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 148.0221ms 
+2025-02-12 10:21:31.0599 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - 
+2025-02-12 10:21:31.0888 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 10:21:31. Request time updated. 
+2025-02-12 10:21:31.1114 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core)' 
+2025-02-12 10:21:31.1114 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "GetAllEmployees", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllEmployees() on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 10:21:31.1602 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 10:21:31.1978 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core) in 70.2465ms 
+2025-02-12 10:21:31.1978 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core)' 
+2025-02-12 10:21:31.2059 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - - 200 - application/json;+charset=utf-8 146.0165ms 
+2025-02-12 10:22:01.7559 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - 
+2025-02-12 10:22:01.7559 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 30.6942795 seconds. 
+2025-02-12 10:22:01.7559 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 10:22:01. Request time updated. 
+2025-02-12 10:22:01.7689 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core)' 
+2025-02-12 10:22:01.7689 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "GetAllEmployees", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllEmployees() on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 10:22:01.7689 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 10:22:01.7689 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core) in 5.4726ms 
+2025-02-12 10:22:01.7689 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core)' 
+2025-02-12 10:22:01.7689 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - - 200 - application/json;+charset=utf-8 27.6896ms 
+2025-02-12 10:22:02.8772 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - 
+2025-02-12 10:22:02.8779 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 1.1198189 seconds. 
+2025-02-12 10:22:02.8779 | Warn | Final_Core.Middlewares.RateLimitingMiddleware | Rate limit exceeded for IP ::1. Next allowed request in 9 seconds. 
+2025-02-12 10:22:02.8779 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - - 429 - - 6.4381ms 
+2025-02-12 10:22:06.2066 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - 
+2025-02-12 10:22:06.2066 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 4.4510464 seconds. 
+2025-02-12 10:22:06.2066 | Warn | Final_Core.Middlewares.RateLimitingMiddleware | Rate limit exceeded for IP ::1. Next allowed request in 6 seconds. 
+2025-02-12 10:22:06.2229 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - - 429 - - 16.3718ms 
+2025-02-12 10:22:11.0112 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - 
+2025-02-12 10:22:11.0112 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 9.2537783 seconds. 
+2025-02-12 10:22:11.0112 | Warn | Final_Core.Middlewares.RateLimitingMiddleware | Rate limit exceeded for IP ::1. Next allowed request in 1 seconds. 
+2025-02-12 10:22:11.0201 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - - 429 - - 8.8119ms 
+2025-02-12 10:22:14.9853 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - 
+2025-02-12 10:22:14.9909 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 13.2327814 seconds. 
+2025-02-12 10:22:14.9909 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 10:22:14. Request time updated. 
+2025-02-12 10:22:14.9909 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core)' 
+2025-02-12 10:22:14.9909 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "GetAllEmployees", controller = "CLEmp01"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetAllEmployees() on controller Final_Core.Controllers.CLEmp01 (Final_Core). 
+2025-02-12 10:22:15.0081 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'Final_Core.Models.Response'. 
+2025-02-12 10:22:15.0081 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core) in 6.7253ms 
+2025-02-12 10:22:15.0081 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLEmp01.GetAllEmployees (Final_Core)' 
+2025-02-12 10:22:15.0081 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 GET http://localhost:5069/api/CLEmp01/get_all_employees - - - 200 - application/json;+charset=utf-8 30.4276ms 
+2025-02-12 10:22:24.6484 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 
+2025-02-12 10:22:24.6484 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 9.6567874 seconds. 
+2025-02-12 10:22:24.6484 | Warn | Final_Core.Middlewares.RateLimitingMiddleware | Rate limit exceeded for IP ::1. Next allowed request in 1 seconds. 
+2025-02-12 10:22:24.6484 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 - 429 - - 6.2450ms 
+2025-02-12 10:22:29.9533 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 
+2025-02-12 10:22:29.9533 | Info | Final_Core.Middlewares.RateLimitingMiddleware | IP ::1 made a request. Time difference: 14.9637294 seconds. 
+2025-02-12 10:22:30.0002 | Info | Final_Core.Middlewares.RateLimitingMiddleware | Request allowed for IP ::1 at 12-02-2025 10:22:30. Request time updated. 
+2025-02-12 10:22:30.0038 | Info | Microsoft.AspNetCore.Cors.Infrastructure.CorsMiddleware | No CORS policy found for the specified request. 
+2025-02-12 10:22:30.0038 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 10:22:30.0297 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "PaySalary", controller = "CLCompnay"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PaySalary(Int32) on controller Final_Core.Controllers.CLCompnay (Final_Core). 
+2025-02-12 10:22:30.1069 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.Boolean, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-02-12 10:22:30.1213 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action Final_Core.Controllers.CLCompnay.PaySalary (Final_Core) in 89.9526ms 
+2025-02-12 10:22:30.1213 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'Final_Core.Controllers.CLCompnay.PaySalary (Final_Core)' 
+2025-02-12 10:22:30.1301 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/1.1 POST http://localhost:5069/api/CLCompnay/pay_salary?id=1 - 0 - 200 - application/json;+charset=utf-8 176.7091ms 

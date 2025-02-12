@@ -16,18 +16,21 @@ namespace Final_Core.BL.Interfaces
 
         /// <summary>
         /// Performs pre-save operations on the data object before saving.
+        /// For example, mapping fields or setting certain properties.
         /// </summary>
         /// <param name="objDto">The data object to be saved.</param>
         void PreSave(T objDto);
 
         /// <summary>
         /// Validates the data before saving.
+        /// Ensures that the data meets required conditions.
         /// </summary>
         /// <returns>A response indicating whether the validation was successful.</returns>
         Response Validation();
 
         /// <summary>
-        /// Saves the data.
+        /// Saves the data to the database.
+        /// This operation may involve inserting or updating records.
         /// </summary>
         /// <returns>A response indicating the result of the save operation.</returns>
         Response Save();

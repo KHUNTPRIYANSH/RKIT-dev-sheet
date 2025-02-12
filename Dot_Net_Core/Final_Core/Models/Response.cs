@@ -1,5 +1,8 @@
 ﻿namespace Final_Core.Models
 {
+    /// <summary>
+    /// Response modal fro every action method includes[message, isError, Data]
+    /// </summary>
     public class Response
     {
         /// <summary>

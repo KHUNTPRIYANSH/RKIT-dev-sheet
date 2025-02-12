@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevExtreme RadioGroup Demo</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="../Content/dx.dark.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+
+    <style>
+        h2 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .radio-group-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .radio-group-container>div {
+            width: 48%;
+        }
+
+        .custom-radio-group {
+            font-weight: bold;
+            font-size: 14px;
+            color: #00d3da;
+        }
+    </style>
+</head>
+
+<body class="dx-viewport">
+    <h2>DevExtreme RadioGroup Demo</h2>
+    <div class="radio-group-container">
+        <div id="radio-group-simple"></div>
+        <div id="radio-group-filter"></div>
+    </div>
+
+    <ul id="task-list"></ul>
+
+    <script>
+        $(function () {
+            const priorities = ['Low', 'Medium', 'High'];
+            const priorityEntities = [
+                { id: 1, text: 'Low' },
+                { id: 2, text: 'Medium' },
+                { id: 3, text: 'High' }
+            ];
+
+            // Radio Group Simple
+            $('#radio-group-simple').dxRadioGroup({
+                items: priorities,
+                value: priorities[1],
+                itemTemplate(itemData, index, itemElement) {
+                    itemElement
+                        .text(itemData)
+                        .addClass('custom-radio-group');
+                }
+            });
+
+            // Radio Group Filter (Task Filter based on Priority)
+            $('#radio-group-filter').dxRadioGroup({
+                items: priorityEntities,
+                valueExpr: 'id',
+                displayExpr: 'text',
+                layout: 'horizontal',
+                value: priorityEntities[0].id,
+                onValueChanged(e) {
+                    // Notify when the value changes using DevExtreme notify
+                    const selectedPriority = priorityEntities.find(item => item.id === e.value);
+                    if (selectedPriority) {
+                        // DevExtreme Notify
+                        DevExpress.ui.notify(`Selected priority: ${selectedPriority.text}`, 'info', 2000);
+                    }
+                }
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

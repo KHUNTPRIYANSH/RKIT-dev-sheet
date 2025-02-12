@@ -24,11 +24,11 @@ namespace ExceptionHandling
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
 
                 // inorder to see how exception look like in production use following code
 
-                //app.UseMiddleware<ExceptionHandlerMiddleware>();
+                app.UseMiddleware<ExceptionHandlerMiddleware>();
             }
             else
             {

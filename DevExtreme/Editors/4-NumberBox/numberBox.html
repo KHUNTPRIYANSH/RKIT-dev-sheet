@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>DevExtreme Numberbox</title>
@@ -93,7 +94,7 @@
                 onPaste: (e) => {
                     alert("You paste something");
                 },
-                
+
                 onKeyDown: (e) => {
                     console.log("KeyDown :", e.event.type, e.event.key);
                 },
@@ -111,7 +112,7 @@
                 height: 70,
                 rtlEnabled: false,
                 //value: 12355.911,
-                min: 00,
+                min: 0,
                 max: 99,
                 showSpinButtons: true,
                 useLargeSpinButtons: false, // for desktop
@@ -132,4 +133,5 @@
         })
     </script>
 </body>
+
 </html>
