@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>DevExtreme ArrayStore</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="../Content/dx.dark.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+
+    <style>
+        .row {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="dx-viewport">
+    <h2>DevExtreme ArrayStore Demo</h2>
+
+    <!-- Buttons to Trigger Method Calleds -->
+    <div class="row">
+        <button onclick="testByKey()">byKey Method Called</button>
+        <button onclick="testInsert()">Insert Method Called</button>
+        <button onclick="testKeyMethods()">Key Methods</button>
+        <button onclick="testLoad()">Load Method Calleds</button>
+        <button onclick="testClear()">Clear Method Calleds</button>
+        <button onclick="testPush()">Push Method Called</button>
+        <button onclick="testRemove()">Remove Method Called</button>
+        <button onclick="testTotalCount()">Total Count Method Called</button>
+        <button onclick="testUpdate()">Update Method Called</button>
+    </div>
+
+    <script>
+        let store;
+
+        $(() => {
+            console.log("Document is Ready!!");
+
+            const productData = [
+                { ID: 1, Emoji: "💻", Name: "Laptop", Category: "Electronics", Link: "#" },
+                { ID: 2, Emoji: "📱", Name: "Smartphone", Category: "Electronics", Link: "#" },
+                { ID: 3, Emoji: "🎧", Name: "Bluetooth Headphones", Category: "Electronics", Link: "#" },
+                { ID: 4, Emoji: "👟", Name: "Sneakers", Category: "Fashion", Link: "#" },
+                { ID: 5, Emoji: "👖", Name: "Jeans", Category: "Fashion", Link: "#" },
+                { ID: 6, Emoji: "👕", Name: "T-Shirt", Category: "Fashion", Link: "#" },
+                { ID: 7, Emoji: "🔥", Name: "Microwave Oven", Category: "Home Appliances", Link: "#" },
+                { ID: 8, Emoji: "🧹", Name: "Vacuum Cleaner", Category: "Home Appliances", Link: "#" },
+                { ID: 9, Emoji: "❄️", Name: "Air Conditioner", Category: "Home Appliances", Link: "#" }
+            ];
+
+            store = new DevExpress.data.ArrayStore({
+                key: "ID",
+                // key: [ "field1", "field2" ],
+                data: productData,
+                onLoading: (loadOptions) => {
+                    console.log("Data is being loaded", loadOptions);
+                },
+
+                // Triggered after data is successfully loaded
+                onLoaded: (result) => {
+                    console.log("Data has been loaded", result);
+                },
+
+                // Triggered before a new record is inserted
+                onInserting: (values) => {
+                    console.log("A new record is being inserted", values);
+                },
+
+                // Triggered after a new record is successfully inserted
+                onInserted: (key, values) => {
+                    console.log("A new record has been inserted", key, values);
+                },
+
+                // Triggered before an existing record is updated
+                onUpdating: (key, values) => {
+                    console.log("A record is being updated", key, values);
+                },
+
+                // Triggered after an existing record is successfully updated
+                onUpdated: (key, values) => {
+                    console.log("A record has been updated", key, values);
+                },
+
+                // Triggered before a record is removed
+                onRemoving: (key) => {
+                    console.log("A record is being removed", key);
+                },
+
+                // Triggered after a record is successfully removed
+                onRemoved: (key) => {
+                    console.log("A record has been removed", key);
+                },
+
+                // Triggered before modifications (update, delete, etc.) occur
+                onModifying: () => {
+                    console.log("A modification operation is being performed");
+                },
+
+                // Triggered after modifications (update, delete, etc.) occur
+                onModified: () => {
+                    console.log("A modification operation has been completed");
+                },
+
+                // Triggered when push changes (real-time updates) are received
+                onPush: (changes) => {
+                    console.log("Real-time data updates received", changes);
+                },
+
+                // Error handling mechanism
+                errorHandler: (error) => {
+                    console.log("Error:", error);
+                },
+
+
+            });
+        });
+
+        function testByKey() {
+            console.log("  byKey Method Called ");
+
+            store.byKey(1)
+                .done((dataItem) => console.log("Record found:", dataItem))
+                .fail((error) => console.log("Error fetching record:", error));
+
+            store.byKey(10000)
+                .done((dataItem) => console.log("Record found:", dataItem))
+                .fail((error) => console.log("Record not found:", error));
+        }
+
+        function testInsert() {
+            console.log("  Insert Method Called ");
+
+            store.insert({ ID: 10000, Emoji: "☂", Name: "Chattri", Category: "Other", Link: "#" })
+                .done((dataObj, key) => console.log("Inserted record:", dataObj, "with key:", key))
+                .fail((error) => console.log("Error inserting record:", error));
+        }
+
+        function testKeyMethods() {
+            console.log("  Key Method Calleds ");
+
+            let keyProps = store.key();
+            console.log("Key Property:", keyProps);
+
+            let key = store.keyOf({ ID: 1, Name: "Laptop" });
+            console.log("Key of given object:", key);
+        }
+
+        function testLoad() {
+            console.log("  Load Method Calleds ");
+
+            store.load()
+                .then((data) => {
+                    console.log("Data Loaded Successfully:", data);
+                })
+
+        }
+
+        function testClear() {
+            console.log(" Clear Method Calleds ");
+
+            store.load()
+                .then(() => {
+                    store.clear();
+                    console.log("Data Cleared");
+                });
+        }
+
+        function testPush() {
+            console.log("  Push Method Called ");
+
+            let newProduct = {
+                ID: 16,
+                Name: "Smart Watch",
+                Category: "Electronics"
+            };
+            // Data change type: "insert", "update", or "remove".
+            store.push([
+                {
+                    type: "insert",
+                    data: newProduct
+                },
+                {
+                    type: "update",
+                    data: {
+                        ID: 16,
+                        Name: "I Watch",
+                        Category: "Electronics"
+                    },
+                    key: 16,
+
+                },
+                {
+                    type: "remove",
+                    key: 2
+                }
+            ]);
+            console.log("Record pushed:", newProduct);
+        }
+
+        function testRemove() {
+            console.log("  Remove Method Called ");
+
+            store.remove(16)
+                .done((key) => console.log("Record removed with key:", key))
+                .fail((error) => console.log("Error removing record:", error));
+        }
+
+        function testTotalCount() {
+            console.log("  Total Count Method Called ");
+
+            store.totalCount()
+                .done((count) => console.log("Total record count:", count))
+                .fail((error) => console.log("Error fetching total count:", error));
+        }
+
+        function testUpdate() {
+            console.log("  Update Method Called ");
+
+            store.update(2, { Name: "Updated Smartphone" })
+                .done((dataObj, key) => console.log("Updated record:", dataObj, "with key:", key))
+                .fail((error) => console.log("Error updating record:", error));
+        }
+    </script>
+</body>
+
+</html>
