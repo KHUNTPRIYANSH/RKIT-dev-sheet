@@ -15,6 +15,35 @@
     <!-- DevExtreme JavaScript -->
     <script type="text/javascript" src="../Scripts/dx.all.js"></script>
 
+    <style>
+        /* Custom CSS for the profile picture drop area */
+        #profile-pic {
+            width: 150px;
+            height: 150px;
+            border: 3px dashed #ccc;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 15px;
+            overflow: hidden;
+        }
+
+        #profile-pic img {
+            border-radius: 50% !important;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        #profile-pic .dx-fileuploader-input-wrapper {
+            /* display: none; */
+            visibility: hidden;
+            /* Hide the default file input */
+        }
+    </style>
 </head>
 
 <body class="dx-viewport">
@@ -22,6 +51,9 @@
     <form id="form">
         <div class="dx-fieldset">
             <div class="dx-fieldset-header">Form</div>
+
+
+            <br>
             <div class="dx-field">
                 <div class="dx-field-label">First Name</div>
                 <div class="dx-field-value">
@@ -53,6 +85,12 @@
                 </div>
             </div>
             <div class="dx-field">
+                <div class="dx-field-label">Age</div>
+                <div class="dx-field-value">
+                    <div id="age"></div>
+                </div>
+            </div>
+            <div class="dx-field">
                 <div class="dx-field-label">Mobile Number</div>
                 <div class="dx-field-value">
                     <div id="mobile"></div>
@@ -68,6 +106,28 @@
                 <div class="dx-field-label">Address</div>
                 <div class="dx-field-value">
                     <div id="address"></div>
+                </div>
+            </div>
+
+            <!-- Radio Group for Gender -->
+            <div class="dx-field">
+                <div class="dx-field-label">Gender</div>
+                <div class="dx-field-value">
+                    <div id="gender"></div>
+                </div>
+            </div>
+
+            <div class="dx-field">
+                <div class="dx-field-label">Category</div>
+                <div class="dx-field-value">
+                    <div id="category"></div>
+                </div>
+            </div>
+            <!-- Drop Area for Profile Picture (dp) -->
+            <div class="dx-field">
+                <div class="dx-field-label">Profile Picture</div>
+                <div class="dx-field-value">
+                    <div id="profile-pic"></div>
                 </div>
             </div>
             <br />
@@ -91,7 +151,6 @@
         $(function () {
             // Initialize validation groups for individual fields
             var firstNameValidator = $("#firstname").dxTextBox({
-                validationMessageMode: "always",
                 placeholder: "Enter your firstname",
             }).dxValidator({
                 name: "FirstName",
@@ -109,7 +168,6 @@
             }).dxValidator("instance");
 
             var lastNameValidator = $("#lastname").dxTextBox({
-                validationMessageMode: "always",
                 placeholder: "Enter your lastname",
             }).dxValidator({
                 name: "LastName",
@@ -128,7 +186,6 @@
 
             // Initialize other fields without validation for now
             $("#email").dxTextBox({
-                validationMessageMode: "always",
                 placeholder: "Enter your email",
             }).dxValidator({
                 name: "EmailAddress",
@@ -143,7 +200,6 @@
 
             $("#password")
                 .dxTextBox({
-                    validationMessageMode: "always",
                     inputAttr: { "aria-label": "Password" },
                     mode: "password",
                 })
@@ -165,7 +221,6 @@
 
             $("#confirm-password")
                 .dxTextBox({
-                    validationMessageMode: "always",
                     inputAttr: { "aria-label": "ConfirmPassword" },
                     mode: "password",
                 })
@@ -187,9 +242,42 @@
                         },
                     ],
                 });
+            $("#age").dxNumberBox({
+                placeholder: "Enter your age",
+                min: 1,
+                max: 100,
+                showSpinButtons: true,
+            }).dxValidator({
+                name: "Age",
+                validationRules: [
+                    {
+                        type: "required",
+                        message: "Age is required",
+                    },
+                    {
+                        type: "range",
+                        min: 1,
+                        max: 100,
+                        message: "Please enter a valid age between 1 and 100",
+                    },
+                ],
+            });
+
+            $("#category").dxSelectBox({
+                displayExpr: "name",  // Show name property in the select box
+                valueExpr: "id",      // Use id property as the value
+                placeholder: "Select your category",
+                showClearButton: true,
+                dataSource: [
+                    { id: 1, name: "ST" },
+                    { id: 2, name: "SC" },
+                    { id: 3, name: "OBC" },
+                    { id: 4, name: "General" }
+                ]
+            });
+
 
             $("#mobile").dxTextBox({
-                validationMessageMode: "always",
                 mask: "+\\91 00000-00000",
                 placeholder: "Enter your mobile number",
             }).dxValidator({
@@ -208,7 +296,6 @@
             });
 
             $("#dob").dxDateBox({
-                validationMessageMode: "always",
                 placeholder: "Enter your date of birth",
                 value: null,
                 applyButtonText: "Confirm",
@@ -231,8 +318,52 @@
             });
 
             $("#address").dxTextArea({
-                validationMessageMode: "always",
                 placeholder: "Enter your address",
+            });
+
+            // Initialize Gender Radio Group
+            $("#gender").dxRadioGroup({
+                items: ["Male", "Female", "Other"],
+                value: "Male",
+                layout: "horizontal",
+
+            });
+
+            // Initialize Hobby Checkboxes
+            // $("#hobbies").dxCheckBoxGroup({
+            //     items: ["Reading", "Music", "Sports", "Traveling"],
+            //     value: ["Reading", "Music"],
+            //     layout: "horizontal",
+            //     
+            // });
+
+            // Initialize Profile Picture Drop Area
+            $("#profile-pic").dxFileUploader({
+                accept: "image/*",
+                uploadMode: 'instantly',
+                uploadUrl: 'https://js.devexpress.com/Demos/WidgetsGalleryDataService/api/ChunkUpload',
+                multiple: false,
+                dialogTrigger: "#profile-pic",
+                dropZone: "#profile-pic",
+                onDropZoneEnter: () => {
+                    $("#profile-pic").css("border-color", "lime")
+                },
+                onDropZoneLeave: () => {
+                    $("#profile-pic").css("border-color", "crimson")
+                    setTimeout(() => {
+                        $("#profile-pic").css("border-color", "#ccc")
+                    }, 1000)
+                },
+                onValueChanged: function (e) {
+                    const file = e.value[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function (event) {
+                            $("#profile-pic").html(`<img src="${event.target.result}" alt="Profile Picture">`);
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                },
             });
 
             // Submit Button Logic
@@ -245,11 +376,30 @@
                     let result = DevExpress.validationEngine.validateGroup();
                     console.log(result);
                     if (result.isValid) {
+                        // Collect form data
+                        let formData = {
+                            firstName: $("#firstname").dxTextBox("instance").option("value"),
+                            lastName: $("#lastname").dxTextBox("instance").option("value"),
+                            email: $("#email").dxTextBox("instance").option("value"),
+                            password: $("#password").dxTextBox("instance").option("value"),
+                            confirmPassword: $("#confirm-password").dxTextBox("instance").option("value"),
+                            mobile: $("#mobile").dxTextBox("instance").option("value"),
+                            dob: $("#dob").dxDateBox("instance").option("value"),
+                            address: $("#address").dxTextArea("instance").option("value"),
+                            gender: $("#gender").dxRadioGroup("instance").option("value"),
+                            category: $("#category").dxSelectBox("instance").option("value"), // For caste category
+                            profilePicture: $("#profile-pic").dxFileUploader("instance").option("value") // If you need to store the profile picture
+                        };
+
+                        // Store data in localStorage
+                        localStorage.setItem("formData", JSON.stringify(formData));
+
+                        // Show success notification
                         DevExpress.ui.notify("Registration Successful!", "success", 5000);
                     } else {
                         DevExpress.ui.notify("Please fix the errors!", "error", 5000);
                     }
-                },
+                }
             });
 
             // "Verify Name" Button Logic
