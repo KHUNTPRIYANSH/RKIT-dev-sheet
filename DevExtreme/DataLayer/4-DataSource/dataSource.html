@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevExtreme Data Grid with Full DataSource Config</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="../Content/dx.dark.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+</head>
+
+<body class="dx-viewport">
+    <h1>DevExtreme Data Grid with Full DataSource Config</h1>
+
+    <!-- Data Grid Container -->
+    <div id="dataGrid"></div>
+
+    <script>
+        $(document).ready(function () {
+            console.log("jQuery Ready!");
+
+            // Product data
+            const productData = [
+                { ID: 1, Emoji: "💻", Name: "Laptop", Category: "Electronics", Link: "#", Price: 1200 },
+                { ID: 2, Emoji: "📱", Name: "Smartphone", Category: "Electronics", Link: "#", Price: 800 },
+                { ID: 3, Emoji: "🎧", Name: "Bluetooth Headphones", Category: "Electronics", Link: "#", Price: 150 },
+                { ID: 4, Emoji: "👟", Name: "Sneakers", Category: "Fashion", Link: "#", Price: 100 },
+                { ID: 5, Emoji: "👖", Name: "Jeans", Category: "Fashion", Link: "#", Price: 60 },
+                { ID: 6, Emoji: "👕", Name: "T-Shirt", Category: "Fashion", Link: "#", Price: 25 },
+                { ID: 7, Emoji: "🔥", Name: "Microwave Oven", Category: "Home Appliances", Link: "#", Price: 200 },
+                { ID: 8, Emoji: "🧹", Name: "Vacuum Cleaner", Category: "Home Appliances", Link: "#", Price: 250 },
+                { ID: 9, Emoji: "❄️", Name: "Air Conditioner", Category: "Home Appliances", Link: "#", Price: 1000 }
+            ];
+
+            // Configure the DataSource
+            const dataSourceConfig = {
+                store: new DevExpress.data.ArrayStore({
+                    key: "ID",
+                    data: productData
+                }),
+
+                // Custom Query Parameters (Only for ODataStore)
+                // customQueryParams: { customParam: "value" },  
+
+                // Expand Navigation Properties (Only for ODataStore)
+                // expand: ["Category"],  
+
+                // Filter Data
+                filter: ["Price", ">", 100], // Show only products with Price > 100
+
+                // Group Data
+                group: "Category",
+
+                // Map Function - Modify data before it's displayed
+                map: function (item) {
+                    item.DisplayName = `${item.Emoji} ${item.Name} - $${item.Price}`;
+                    return item;
+                },
+
+                // Event Handlers
+                onChanged: function (e) {
+                    console.log("Data changed:", e);
+                },
+                onLoadError: function (error) {
+                    console.error("Data loading error:", error);
+                },
+                onLoadingChanged: function (isLoading) {
+                    console.log("Loading state changed:", isLoading);
+                },
+
+                // Pagination
+                paginate: true,
+                pageSize: 5,
+
+                // Post Processing Function - Modify data after load
+                postProcess: function (data) {
+                    console.log("Post-processed data:", data);
+                    return data;
+                },
+
+                // Push Aggregation Timeout
+                pushAggregationTimeout: 100,
+
+                // Reapply sorting, filtering, grouping on push updates
+                reshapeOnPush: true,
+
+                // Request total count of records
+                requireTotalCount: true,
+
+                // Search Settings
+                searchExpr: ["Name", "Category"],
+                searchOperation: "contains",
+                searchValue: "", // Default empty search
+
+                // Select specific fields from data
+                select: ["ID", "Name", "Category", "Price"],
+
+                // Sort Data
+                sort: [{ selector: "Price", desc: false }]
+            };
+
+            // Initialize DataSource
+            const dataSource = new DevExpress.data.DataSource(dataSourceConfig);
+
+            // Debugging Logs
+            console.log("Is last page:", dataSource.isLastPage());
+            console.log("Page index:", dataSource.pageIndex());
+            console.log("Page size:", dataSource.pageSize());
+            console.log("Search expression:", dataSource.searchExpr());
+            console.log("Total count required:", dataSource.requireTotalCount());
+
+            // Initialize DataGrid
+            $("#dataGrid").dxDataGrid({
+                dataSource: dataSource,
+                groupPanel: {
+                    visible: true
+                },
+                paging: {
+                    enabled: true,
+                    pageSize: 5
+                },
+                pager: {
+                    showPageSizeSelector: true,
+                    allowedPageSizes: [5, 10, 20],
+                    showInfo: true
+                },
+                searchPanel: {
+                    visible: true,
+                    highlightCaseSensitive: false
+                },
+                columns: [
+                    { dataField: "ID", caption: "ID", width: 50 },
+                    { dataField: "Emoji", caption: "Icon", width: 50 },
+                    { dataField: "DisplayName", caption: "Product Name" },
+                    { dataField: "Category", caption: "Category" },
+                    { dataField: "Price", caption: "Price ($)", format: "currency" },
+                    {
+                        dataField: "Link",
+                        caption: "More Info",
+                        cellTemplate: function (container, options) {
+                            $("<a>")
+                                .attr("href", options.value)
+                                .text("View")
+                                .appendTo(container);
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>
