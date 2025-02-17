@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Data Table - Query</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/21.1.5/css/dx.dark.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/21.1.5/js/dx.all.js"></script>
+
+    <!-- Import product data from an external JS file -->
+    <script src="data.js"></script> <!-- This is where the product data is stored -->
+</head>
+
+<body class="dx-viewport">
+
+    <!-- Div container to display the DataGrid -->
+    <div id="dataGridContainer"></div>
+
+    <script>
+        $(document).ready(function () {
+            // Initialize the DataGrid and configure it to display the product data
+            $("#dataGridContainer").dxDataGrid({
+                dataSource: productData, // Using the imported productData array as the data source
+                keyExpr: "ID", // Unique identifier for each product
+                columns: [
+                    { dataField: "ID", caption: "Product ID" },
+                    { dataField: "Emoji", caption: "Emoji" },
+                    { dataField: "Name", caption: "Product Name" },
+                    { dataField: "Category", caption: "Category" },
+                    { dataField: "Price", caption: "Price", format: { type: "currency", precision: 2 } },
+                    {
+                        dataField: "Link", caption: "Link", cellTemplate: function (container, options) {
+                            $("<a>").attr("href", options.value).text("View").appendTo(container);
+                        }
+                    },
+                ],
+                paging: { pageSize: 10 }, // Paginate the data (show 10 records per page)
+                sorting: { mode: "multiple" }, // Allow multi-column sorting
+                filterRow: { visible: true }, // Show the filter row for each column
+                searchPanel: { visible: true }, // Enable the search panel to filter by text
+                showBorders: true, // Add borders around the grid cells
+            });
+
+            //We want to count how many products fall into different price ranges:
+            //Low Price: 0 - 100
+            //Medium Price: 101 - 500
+            //High Price: 501+
+            DevExpress.data
+                .query(productData)
+                .aggregate(
+                    { low: 0, medium: 0, high: 0 }, // Seed (initial object to hold counts)
+                    (counts, product) => { // Step function
+                        if (product.Price <= 100) counts.low++;
+                        else if (product.Price <= 500) counts.medium++;
+                        else counts.high++;
+                        return counts; // Return updated counts
+                    },
+                    (counts) => counts // Finalize (return final result)
+                )
+                .done(function (priceRanges) {
+                    console.log(`Products in Price Ranges:`, priceRanges);
+                    // Example Output: { low: 5, medium: 10, high: 3 }
+                });
+
+
+            DevExpress.data
+                .query(productData)
+                .aggregate(0,
+                    (total, product) => total + product.Price * 1.1, // Add price + 10% tax
+                    (total) => total.toFixed(2) // Format result
+                )
+                .done((totalRevenue) => console.log(`Total Revenue (with 10% tax): ${totalRevenue}`));
+
+
+            // Calculate the average price of products directly using DevExpress query
+            DevExpress.data
+                .query(productData)
+                .avg("Price")
+                .done(function (total) {
+                    console.log(`Average Price : ${total}`); // Log average price using the avg method
+                });
+
+            // Filter products with a price greater than 500
+            const filteredData = DevExpress.data
+                .query(productData)
+                .filter(["Price", ">", 500])
+                .toArray();
+            console.log("Filtered Data (Price > 500):", filteredData); // Log filtered products with price > 500
+
+
+            // Filter products with price > 500 AND category === "Electronics"
+            const multiFilteredData = DevExpress.data
+                .query(productData)
+                .filter([
+                    ["Price", ">", 500],
+                    "and",
+                    ["Category", "=", "Electronics"]
+                ])
+                .toArray();
+            console.log("Multi-Filtered Data (Price > 500 AND Category = Electronics):", multiFilteredData);
+
+            // Filter products with price > 500 OR category === "Clothing"
+            const customFilteredData = DevExpress.data
+                .query(productData)
+                .filter(product => product.Price > 500 || product.Category === "Clothing")
+                .toArray();
+            console.log("Custom Filtered Data (Price > 500 OR Category = Clothing):", customFilteredData);
+
+
+            // Group products by their category
+            const groupedProducts = DevExpress.data
+                .query(productData)
+                .groupBy("Category")
+                .toArray();
+            console.log("Grouped Products by Category:", groupedProducts); // Log products grouped by category
+
+            // Find the maximum price among all products
+            DevExpress.data
+                .query(productData)
+                .max("Price")
+                .done((maxPrice) => console.log("Max Price:", maxPrice)); // Log the max price of all products
+
+            // Find the minimum price among all products
+            DevExpress.data
+                .query(productData)
+                .min("Price")
+                .done((minPrice) => console.log("Min Price:", minPrice)); // Log the min price of all products
+
+            // Sort products by price in descending order
+            const sortedByPriceDesc = DevExpress.data
+                .query(productData)
+                .sortBy((product) => product.Price, true) // Sort by price in descending order
+                // thenBy(field_Name,  true / false) here true
+                .toArray();
+            console.log("Sorted by Price Descending:", sortedByPriceDesc); // Log the products sorted by price in descending order
+
+            // Sort products by name alphabetically
+            const sortedByNameAsc = DevExpress.data
+                .query(productData)
+                .sortBy("Name") // Sort products by name in ascending order
+                .toArray();
+            console.log("Sorted by Name Ascending:", sortedByNameAsc); // Log the products sorted by name
+
+            // Slice a subset of the data (display first 3 products)
+            const subset = DevExpress.data.query(productData).slice(0, 3).toArray();
+            console.log("Subset of Products (First 3):", subset); // Log the first 3 products
+
+            // Display the number of products in the dataset
+            DevExpress.data
+                .query(productData)
+                .count()
+                .done(function (total) {
+                    console.log(`Total Products Count: ${total}`); // Log the total number of products
+                });
+
+            // Select product names from the dataset
+            const productNames = DevExpress.data
+                .query(productData)
+                .select((product) => product.Name)
+                .toArray();
+            console.log("Product Names:", productNames); // Log all product names
+
+            // Sum of product prices
+            DevExpress.data
+                .query(productData)
+                .sum("Price")
+                .done((totalSum) => console.log("Total Sum of Prices:", totalSum));
+
+            const sortedData = DevExpress.data
+                .query(productData)
+                .sortBy("Price", true)  // Descending order
+                .thenBy("Name")         // Then by Name (ascending)
+                .toArray();             // Convert to an array
+            console.log("Sorted by Price (Descending) then by Name (Ascending):", sortedData);
+
+
+        });
+    </script>
+
+</body>
+
+</html>
