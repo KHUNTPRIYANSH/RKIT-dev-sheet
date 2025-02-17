@@ -69,74 +69,118 @@
             var customStore = new DevExpress.data.CustomStore({
                 key: "ID", // Adjusted the key to match product ID
                 //Specifies whether raw data should be saved in the cache. Applies only if loadMode is "raw".
-                loadMode: "processed", //  'processed' | 'raw'
+                loadMode: "raw", //  'processed' | 'raw'
                 useDefaultSearch: true, // Defaults to true if the loadMode is "raw" and false if it is "processed"
                 //Specifies whether the store combines the search and filter expressions
                 cacheRawData: true,
                 // Load data from API
+                // load: (loadOptions) => {
+                //     var params = {};
+
+                // Handling filter, search, and other options
+                // if (loadOptions.filter) {
+                //     params.filter = JSON.stringify(loadOptions.filter); // Apply filter
+                // }
+                // if (loadOptions.sort) {
+                //     params.sort = JSON.stringify(loadOptions.sort); // Apply sorting
+                // }
+                // // debugger
+                // if (loadOptions.skip) {
+                //     params._start = loadOptions.skip; // Apply skip for pagination
+                // }
+
+                // if (loadOptions.take) {
+                //     params._limit = loadOptions.take; // Apply take for pagination
+                // }
+
+                // if (loadOptions.select) {
+                //     params.select = JSON.stringify(loadOptions.select); // Apply select fields
+                // }
+
+                // if (loadOptions.searchExpr && loadOptions.searchValue) {
+                //     params.searchExpr = loadOptions.searchExpr;
+                //     params.searchValue = loadOptions.searchValue;
+                //     params.searchOperation = loadOptions.searchOperation || "contains"; // Default search operation
+                // }
+
+                // if (loadOptions.group) {
+                //     params.group = JSON.stringify(loadOptions.group); // Apply grouping
+                // }
+
+                // if (loadOptions.groupSummary) {
+                //     params.groupSummary = JSON.stringify(loadOptions.groupSummary); // Apply group summaries
+                // }
+
+                //     try {
+                //         return $.ajax({
+                //             url: "https://67aee3c19e85da2f020eac23.mockapi.io/dummy_product_mock/api/products/products",
+                //             data: params,
+                //             dataType: "json",
+                //             method: "GET",
+                //             success: function (data, status, xhr) {
+                //                 console.log("Data Loaded:", data);
+                //                 displayData(data); // Call displayData with loaded data
+                //                 return data; // Ensure data is returned
+                //             },
+                //             error: function (xhr, status, error) {
+                //                 // Handle different error scenarios
+                //                 if (xhr && xhr.responseText) {
+                //                     console.error("Error loading data:", xhr.responseText); // Log responseText if available
+                //                 } else {
+                //                     console.error("Error loading data:", error || "Unknown error");
+                //                 }
+                //                 return []; // Return an empty array on error
+                //             }
+                //         });
+                //     } catch (e) {
+                //         // Handle errors thrown during the AJAX request
+                //         console.error("AJAX Request Error:", e);
+                //         return []; // Return an empty array on exception
+                //     }
+                // }
                 load: (loadOptions) => {
                     var params = {};
 
-                    // Handling filter, search, and other options
+                    // Handling pagination
+                    if (loadOptions.skip !== undefined && loadOptions.take !== undefined) {
+                        params.page = Math.floor(loadOptions.skip / loadOptions.take) + 1; // Calculate page number
+                        params.limit = loadOptions.take; // Limit results per page
+                    }
+
+                    // Handling filtering
                     if (loadOptions.filter) {
-                        params.filter = JSON.stringify(loadOptions.filter); // Apply filter
+                        params.filter = JSON.stringify(loadOptions.filter);
                     }
+
+                    // Handling sorting
                     if (loadOptions.sort) {
-                        params.sort = JSON.stringify(loadOptions.sort); // Apply sorting
+                        params.sort = JSON.stringify(loadOptions.sort);
                     }
 
-                    if (loadOptions.skip) {
-                        params.skip = loadOptions.skip; // Apply skip for pagination
-                    }
-
-                    if (loadOptions.take) {
-                        params.take = loadOptions.take; // Apply take for pagination
-                    }
-
-                    if (loadOptions.select) {
-                        params.select = JSON.stringify(loadOptions.select); // Apply select fields
-                    }
-
+                    // Handling search
                     if (loadOptions.searchExpr && loadOptions.searchValue) {
                         params.searchExpr = loadOptions.searchExpr;
                         params.searchValue = loadOptions.searchValue;
-                        params.searchOperation = loadOptions.searchOperation || "contains"; // Default search operation
+                        params.searchOperation = loadOptions.searchOperation || "contains";
                     }
 
-                    if (loadOptions.group) {
-                        params.group = JSON.stringify(loadOptions.group); // Apply grouping
-                    }
-
-                    if (loadOptions.groupSummary) {
-                        params.groupSummary = JSON.stringify(loadOptions.groupSummary); // Apply group summaries
-                    }
-
-                    try {
-                        return $.ajax({
-                            url: "https://67aee3c19e85da2f020eac23.mockapi.io/dummy_product_mock/api/products/products",
-                            data: params,
-                            method: "GET",
-                            success: function (data, status, xhr) {
-                                console.log("Data Loaded:", data);
-                                displayData(data); // Call displayData with loaded data
-                                return data; // Ensure data is returned
-                            },
-                            error: function (xhr, status, error) {
-                                // Handle different error scenarios
-                                if (xhr && xhr.responseText) {
-                                    console.error("Error loading data:", xhr.responseText); // Log responseText if available
-                                } else {
-                                    console.error("Error loading data:", error || "Unknown error");
-                                }
-                                return []; // Return an empty array on error
-                            }
-                        });
-                    } catch (e) {
-                        // Handle errors thrown during the AJAX request
-                        console.error("AJAX Request Error:", e);
-                        return []; // Return an empty array on exception
-                    }
+                    return $.ajax({
+                        url: "https://67aee3c19e85da2f020eac23.mockapi.io/dummy_product_mock/api/products/products",
+                        data: params,
+                        dataType: "json",
+                        method: "GET",
+                        success: function (data) {
+                            console.log("Data Loaded:", data);
+                            displayData(data);
+                            return data;
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Error loading data:", xhr.responseText || error);
+                            return [];
+                        }
+                    });
                 }
+
                 ,
 
                 // Insert a new record
@@ -195,20 +239,21 @@
             // store.clearRawDataCache();
 
             // Load initial data
-            customStore.load();
 
-            // customStore.load({
-            //     skip: 0,
-            //     take: 5,
-            // filter: ["category", "=", "Electronics"],  // Example of a filter
-            // sort: [{ selector: "name", desc: false }],  // Sort by name ascending
-            // group: ["category"],  // Group by category
-            // searchExpr: "name",  // Search by name field
-            // searchValue: "Phone",  // Search value to filter
-            // searchOperation: "contains",  // Search operation: 'contains'
-            // requireTotalCount: true,
-            // select: ["name", "category", "emoji"],  // Select only specific fields
-            // });
+            // customStore.load();
+
+            customStore.load({
+                skip: 1,
+                take: 2,
+                filter: ["category", "=", "Electronics"],  // Example of a filter
+                // sort: [{ selector: "name", desc: false }],  // Sort by name ascending
+                // group: ["category"],  // Group by category
+                // searchExpr: "name",  // Search by name field
+                // searchValue: "Phone",  // Search value to filter
+                // searchOperation: "contains",  // Search operation: 'contains'
+                // requireTotalCount: true,
+                // select: ["name", "category", "emoji"],  // Select only specific fields
+            });
 
             // Function to display data dynamically in the table
             function displayData(data) {

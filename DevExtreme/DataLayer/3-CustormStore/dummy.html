@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>DevExtreme CustomStore</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="../Content/dx.dark.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+
+    <!-- Bootstrap CSS (Dark Theme) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .table-dark th,
+        .table-dark td {
+            color: white;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .btn-group {
+            margin-left: 10px;
+        }
+
+        #formContainer {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="dx-viewport">
+
+    <div class="container">
+        <h2 class="text-center">Product List</h2>
+        <table class="table table-dark table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Emoji</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Link</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody">
+                <!-- Data will be inserted here -->
+            </tbody>
+        </table>
+
+        <button class="btn btn-primary" id="addUserBtn">Insert Product</button>
+
+        <!-- Form Container for Add/Update -->
+        <div id="formContainer">
+            <input type="text" id="name" placeholder="Product Name" class="form-control mb-2">
+            <input type="text" id="category" placeholder="Product Category" class="form-control mb-2">
+            <input type="text" id="link" placeholder="Product Link" class="form-control mb-2">
+            <button id="saveButton" class="btn btn-success">Save</button>
+            <button id="cancelButton" class="btn btn-secondary">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            const mockApiUrl = "https://67aee3c19e85da2f020eac23.mockapi.io/dummy_product_mock/api/products/products";
+
+            // Initialize CustomStore
+            var customStore = new DevExpress.data.CustomStore({
+                key: "id",
+                load: function (loadOptions) {
+                    let params = {};
+
+                    // Handling Sorting
+                    if (loadOptions.sort) {
+                        params._sort = loadOptions.sort[0].selector;
+                        params._order = loadOptions.sort[0].desc ? "desc" : "asc";
+                    }
+
+                    // Handling Filtering
+                    if (loadOptions.filter) {
+                        params._filter = JSON.stringify(loadOptions.filter);
+                    }
+
+                    // Handling Pagination
+                    if (loadOptions.skip !== undefined) {
+                        params._start = loadOptions.skip;
+                    }
+                    if (loadOptions.take !== undefined) {
+                        params._limit = loadOptions.take;
+                    }
+
+                    // Handling Grouping (if any)
+                    if (loadOptions.group) {
+                        params._group = JSON.stringify(loadOptions.group);
+                    }
+
+
+                    // Handling Field Selection (if any)
+                    if (loadOptions.select) {
+                        params._select = loadOptions.select.join(',');
+                    }
+
+                    // Handling Total Count (for pagination)
+                    if (loadOptions.requireTotalCount) {
+                        params._totalCount = true;
+                    }
+                    if (loadOptions.group) {
+                        params._group = JSON.stringify(loadOptions.group);
+                    }
+
+                    return $.ajax({
+                        url: mockApiUrl,
+                        method: "GET",
+                        data: params,
+                        dataType: "json"
+                    }).then(function (data) {
+                        // Process grouping on client-side (if required)
+                        if (loadOptions.group) {
+                            // Group the data based on the group field
+                            const groupField = loadOptions.group[0]; // Assuming single-level grouping
+                            let groupedData = {};
+
+                            // Group the data by the selected field
+                            data.forEach(function (item) {
+                                let key = item[groupField];
+                                if (!groupedData[key]) {
+                                    groupedData[key] = [];
+                                }
+                                groupedData[key].push(item);
+                            });
+
+                            // Prepare data for grouped structure
+                            let result = [];
+                            Object.keys(groupedData).forEach(function (key) {
+                                let group = {
+                                    key: key,
+                                    items: groupedData[key],
+                                    // Add group summaries here (e.g., count, sum, avg)
+                                    summary: {
+                                        count: groupedData[key].length,
+                                        // Example: sum of a field (replace 'price' with actual field)
+                                        sum: groupedData[key].reduce(function (sum, item) { return sum + item.price; }, 0)
+                                    }
+                                };
+                                result.push(group);
+                            });
+
+                            return result;
+                        }
+
+                        return data;
+                    });
+                },
+                loadMode: 'raw',
+
+                byKey: function (key) {
+                    return $.ajax({
+                        url: `${mockApiUrl}/${key}`,
+                        method: "GET",
+                        dataType: "json"
+                    });
+                },
+
+                insert: function (values) {
+                    return $.ajax({
+                        url: mockApiUrl,
+                        method: "POST",
+                        data: JSON.stringify(values),
+                        contentType: "application/json"
+                    });
+                },
+
+                update: function (key, values) {
+                    return $.ajax({
+                        url: `${mockApiUrl}/${key}`,
+                        method: "PUT",
+                        data: JSON.stringify(values),
+                        contentType: "application/json"
+                    });
+                },
+
+                remove: function (key) {
+                    return $.ajax({
+                        url: `${mockApiUrl}/${key}`,
+                        method: "DELETE"
+                    });
+                },
+
+                totalCount: function () {
+                    return $.ajax({
+                        url: mockApiUrl,
+                        method: "GET",
+                        dataType: "json"
+                    }).then(function (data) {
+                        return data.length;
+                    });
+                },
+
+                errorHandler: function (error) {
+                    alert("An error occurred while processing the request.");
+                }
+            });
+
+            // Fetch and render data
+            // function fetchData() {
+            //     customStore.load().done(function (data) {
+            //         renderTable(data);
+            //     }).fail(function (error) {
+            //         alert("Error loading data");
+            //     });
+            // }
+
+            // Fetch and render data
+            function fetchData() {
+                customStore.load({
+                    // skip: 1, // Pagination: Starting from the second record
+                    take: 30, // Number of records to retrieve per page
+                    // filter: ["category", "=", "Electronics"],  // Example of a filter
+                    sort: [{ selector: "name", desc: false }],  // Sort by name ascending
+                    // group: ["category"],  // Group by category
+                    // select: ["name", "emoji"],  // Select only specific fields
+                }).done(function (data) {
+                    renderTable(data);
+                }).fail(function (error) {
+                    alert("Error loading data");
+                });
+            }
+
+
+            // Render the table
+            function renderTable(data) {
+                var tableBody = $("#userTableBody");
+                tableBody.empty();
+                data.forEach(function (item) {
+                    var row = $("<tr>")
+                        .append($("<td>").text(item.id))
+                        .append($("<td>").text(item.emoji || "N/A"))
+                        .append($("<td>").text(item.name))
+                        .append($("<td>").text(item.category || "N/A"))
+                        .append($("<td>").html(`<a href="${item.link}" target="_blank">Link</a>`))
+                        .append($("<td>").html(`
+                            <button class="editButton btn btn-warning btn-sm" data-id="${item.id}">Edit</button>
+                            <button class="deleteButton btn btn-danger btn-sm" data-id="${item.id}">Delete</button>
+                        `));
+                    tableBody.append(row);
+                });
+            }
+
+            // Add Product Button
+            $("#addUserBtn").click(function () {
+                $("#name").val("");
+                $("#category").val("");
+                $("#link").val("");
+                $("#formContainer").show();
+                $("#saveButton").data("action", "add");
+            });
+
+            // Save Button (Add/Update)
+            $("#saveButton").click(function () {
+                var name = $("#name").val();
+                var category = $("#category").val();
+                var link = $("#link").val();
+                var action = $(this).data("action");
+
+                if (name && category && link) {
+                    var data = { name: name, category: category, link: link };
+
+                    if (action === "add") {
+                        customStore.insert(data).done(function () {
+                            fetchData();
+                            $("#formContainer").hide();
+                        }).fail(function () {
+                            alert("Error adding record");
+                        });
+                    } else if (action === "update") {
+                        var id = $(this).data("id");
+                        customStore.update(id, data).done(function () {
+                            fetchData();
+                            $("#formContainer").hide();
+                        }).fail(function () {
+                            alert("Error updating record");
+                        });
+                    }
+                } else {
+                    alert("All fields are required!");
+                }
+            });
+
+            // Cancel Button
+            $("#cancelButton").click(function () {
+                $("#formContainer").hide();
+            });
+
+            // Edit Button
+            // Edit Button
+            $(document).on("click", ".editButton", function () {
+                var id = $(this).data("id");
+
+                customStore.byKey(id).done(function (data) {
+                    // Prompt for new values, defaulting to the existing values
+                    var newName = prompt("Enter new product name:", data.name);
+                    var newEmoji = prompt("Enter new product emoji:", data.emoji);
+                    var newCategory = prompt("Enter new product category:", data.category);
+                    var newLink = prompt("Enter new product link:", data.link);
+
+                    // Validate the new values
+                    if (newName && newCategory && newLink) {
+                        var updatedData = {
+                            name: newName,
+                            emoji: newEmoji,
+                            category: newCategory,
+                            link: newLink
+                        };
+
+                        // Update the record with the new values
+                        customStore.update(id, updatedData).done(function () {
+                            alert("Product updated successfully!");
+                            location.reload();
+                        }).fail(function () {
+                            alert("Error updating record");
+                        });
+                    } else {
+                        alert("All fields are required!");
+                    }
+                }).fail(function () {
+                    alert("Error fetching record");
+                });
+            });
+
+
+            // Delete Button
+            $(document).on("click", ".deleteButton", function () {
+                var id = $(this).data("id");
+                if (confirm("Are you sure you want to delete this product?")) {
+                    customStore.remove(id).done(function () {
+                        location.reload();
+
+                    }).fail(function () {
+                        alert("Error deleting record");
+                    });
+                }
+            });
+
+            // Load initial data
+            fetchData();
+        });
+    </script>
+
+</body>
+
+</html>
