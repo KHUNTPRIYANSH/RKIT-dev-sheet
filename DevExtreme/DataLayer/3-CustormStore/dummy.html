@@ -24,17 +24,8 @@
             font-family: Arial, sans-serif;
         }
 
-        .table-dark th,
-        .table-dark td {
-            color: white;
-        }
-
         .container {
             margin-top: 20px;
-        }
-
-        .btn-group {
-            margin-left: 10px;
         }
 
         #formContainer {
@@ -47,23 +38,7 @@
 
     <div class="container">
         <h2 class="text-center">Product List</h2>
-        <table class="table table-dark table-bordered">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Emoji</th>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Link</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="userTableBody">
-                <!-- Data will be inserted here -->
-            </tbody>
-        </table>
-
-        <button class="btn btn-primary" id="addUserBtn">Insert Product</button>
+        <div id="dataGridContainer"></div>
 
         <!-- Form Container for Add/Update -->
         <div id="formContainer">
@@ -79,103 +54,28 @@
         $(function () {
             const mockApiUrl = "https://67aee3c19e85da2f020eac23.mockapi.io/dummy_product_mock/api/products/products";
 
-            // Initialize CustomStore
             var customStore = new DevExpress.data.CustomStore({
                 key: "id",
+                loadMode: "raw",
                 load: function (loadOptions) {
                     let params = {};
-
-                    // Handling Sorting
                     if (loadOptions.sort) {
                         params._sort = loadOptions.sort[0].selector;
                         params._order = loadOptions.sort[0].desc ? "desc" : "asc";
                     }
-
-                    // Handling Filtering
-                    if (loadOptions.filter) {
-                        params._filter = JSON.stringify(loadOptions.filter);
-                    }
-
-                    // Handling Pagination
                     if (loadOptions.skip !== undefined) {
                         params._start = loadOptions.skip;
                     }
                     if (loadOptions.take !== undefined) {
                         params._limit = loadOptions.take;
                     }
-
-                    // Handling Grouping (if any)
-                    if (loadOptions.group) {
-                        params._group = JSON.stringify(loadOptions.group);
-                    }
-
-
-                    // Handling Field Selection (if any)
-                    if (loadOptions.select) {
-                        params._select = loadOptions.select.join(',');
-                    }
-
-                    // Handling Total Count (for pagination)
-                    if (loadOptions.requireTotalCount) {
-                        params._totalCount = true;
-                    }
-                    if (loadOptions.group) {
-                        params._group = JSON.stringify(loadOptions.group);
-                    }
-
                     return $.ajax({
                         url: mockApiUrl,
                         method: "GET",
                         data: params,
                         dataType: "json"
-                    }).then(function (data) {
-                        // Process grouping on client-side (if required)
-                        if (loadOptions.group) {
-                            // Group the data based on the group field
-                            const groupField = loadOptions.group[0]; // Assuming single-level grouping
-                            let groupedData = {};
-
-                            // Group the data by the selected field
-                            data.forEach(function (item) {
-                                let key = item[groupField];
-                                if (!groupedData[key]) {
-                                    groupedData[key] = [];
-                                }
-                                groupedData[key].push(item);
-                            });
-
-                            // Prepare data for grouped structure
-                            let result = [];
-                            Object.keys(groupedData).forEach(function (key) {
-                                let group = {
-                                    key: key,
-                                    items: groupedData[key],
-                                    // Add group summaries here (e.g., count, sum, avg)
-                                    summary: {
-                                        count: groupedData[key].length,
-                                        // Example: sum of a field (replace 'price' with actual field)
-                                        sum: groupedData[key].reduce(function (sum, item) { return sum + item.price; }, 0)
-                                    }
-                                };
-                                result.push(group);
-                            });
-
-                            return result;
-                        }
-
-                        return data;
                     });
                 },
-                loadMode: 'raw',
-
-                byKey: function (key) {
-                    return $.ajax({
-                        url: `${mockApiUrl}/${key}`,
-                        method: "GET",
-                        dataType: "json"
-                    });
-                },
-
                 insert: function (values) {
                     return $.ajax({
                         url: mockApiUrl,
@@ -184,7 +84,6 @@
                         contentType: "application/json"
                     });
                 },
-
                 update: function (key, values) {
                     return $.ajax({
                         url: `${mockApiUrl}/${key}`,
@@ -193,174 +92,91 @@
                         contentType: "application/json"
                     });
                 },
-
                 remove: function (key) {
                     return $.ajax({
                         url: `${mockApiUrl}/${key}`,
                         method: "DELETE"
                     });
-                },
-
-                totalCount: function () {
-                    return $.ajax({
-                        url: mockApiUrl,
-                        method: "GET",
-                        dataType: "json"
-                    }).then(function (data) {
-                        return data.length;
-                    });
-                },
-
-                errorHandler: function (error) {
-                    alert("An error occurred while processing the request.");
                 }
             });
 
-            // Fetch and render data
-            // function fetchData() {
-            //     customStore.load().done(function (data) {
-            //         renderTable(data);
-            //     }).fail(function (error) {
-            //         alert("Error loading data");
-            //     });
-            // }
+            let dataGridRef = $("#dataGridContainer").dxDataGrid({
+                dataSource: customStore,
+                columns: [
+                    { dataField: "id", caption: "ID" },
+                    { dataField: "emoji", caption: "Emoji" },
+                    { dataField: "name", caption: "Name" },
+                    {
+                        dataField: "category", caption: "Category",
+                        //  groupIndex: 0 
+                    },
+                    {
+                        dataField: "link", caption: "Link", cellTemplate: function (container, options) {
+                            $("<a>").attr("href", options.value).attr("target", "_blank").text("Link").appendTo(container);
+                        }
+                    },
+                    {
+                        type: "buttons", buttons: [
+                            "edit", "delete"
+                        ]
+                    }
+                ],
+                editing: {
+                    mode: "popup",
+                    allowAdding: true,
+                    allowUpdating: true,
+                    allowDeleting: true
+                },
+                paging: { pageSize: 10 },
+                filterRow: { visible: true },
+                searchPanel: { visible: true },
+                groupPanel: { visible: true },
+                grouping: {
+                    autoExpandAll: false,
+                    groupContinually: true // Optional, to keep expanding groups after each load
+                },
+                summary: {
+                    groupItems: [
+                        {
+                            column: "category", // Group by category
+                            summaryType: "count", // Count the number of items in each group
+                            displayFormat: "{0} items"
+                        }
+                    ]
+                },
+                onOptionChanged: function (e) {
+                    if (e.name === "grouping") {
+                        let groupedColumns = e.component.option("columns").filter(col => col.groupIndex !== undefined);
+                        let groupSummary = e.component.option("summary.groupItems");
 
-            // Fetch and render data
-            function fetchData() {
-                customStore.load({
-                    // skip: 1, // Pagination: Starting from the second record
-                    take: 30, // Number of records to retrieve per page
-                    // filter: ["category", "=", "Electronics"],  // Example of a filter
-                    sort: [{ selector: "name", desc: false }],  // Sort by name ascending
-                    // group: ["category"],  // Group by category
-                    // select: ["name", "emoji"],  // Select only specific fields
-                }).done(function (data) {
-                    renderTable(data);
-                }).fail(function (error) {
-                    alert("Error loading data");
+                        // Log the group summary details
+                        console.log("Grouped Columns:", groupedColumns);
+                        console.log("Group Summary:", groupSummary);
+                    }
+                }
+            }).dxDataGrid("instance");
+
+            function applyLoadOption() {
+                let loadOption = {
+                    take: 10, // Number of records to fetch
+                    skip: 0, // Skip the first n records
+                    sort: [{ selector: "name", desc: false }], // Sort by name field
+                    // groupSummary: [{ summaryType: "count" }], // Example of group summary type
+                    searchExpr: ["name", "category"], // Search by name field
+                    searchOperation: "contains", // Search operation: 'contains'
+                    requireTotalCount: true,
+                    select: ["name", "category", "emoji", "id", "link"], // Select only specific fields
+                };
+
+                customStore.load(loadOption).done((data) => {
+                    console.log(data);
+                    dataGridRef.option("dataSource", data);
                 });
             }
 
-
-            // Render the table
-            function renderTable(data) {
-                var tableBody = $("#userTableBody");
-                tableBody.empty();
-                data.forEach(function (item) {
-                    var row = $("<tr>")
-                        .append($("<td>").text(item.id))
-                        .append($("<td>").text(item.emoji || "N/A"))
-                        .append($("<td>").text(item.name))
-                        .append($("<td>").text(item.category || "N/A"))
-                        .append($("<td>").html(`<a href="${item.link}" target="_blank">Link</a>`))
-                        .append($("<td>").html(`
-                            <button class="editButton btn btn-warning btn-sm" data-id="${item.id}">Edit</button>
-                            <button class="deleteButton btn btn-danger btn-sm" data-id="${item.id}">Delete</button>
-                        `));
-                    tableBody.append(row);
-                });
-            }
-
-            // Add Product Button
-            $("#addUserBtn").click(function () {
-                $("#name").val("");
-                $("#category").val("");
-                $("#link").val("");
-                $("#formContainer").show();
-                $("#saveButton").data("action", "add");
-            });
-
-            // Save Button (Add/Update)
-            $("#saveButton").click(function () {
-                var name = $("#name").val();
-                var category = $("#category").val();
-                var link = $("#link").val();
-                var action = $(this).data("action");
-
-                if (name && category && link) {
-                    var data = { name: name, category: category, link: link };
-
-                    if (action === "add") {
-                        customStore.insert(data).done(function () {
-                            fetchData();
-                            $("#formContainer").hide();
-                        }).fail(function () {
-                            alert("Error adding record");
-                        });
-                    } else if (action === "update") {
-                        var id = $(this).data("id");
-                        customStore.update(id, data).done(function () {
-                            fetchData();
-                            $("#formContainer").hide();
-                        }).fail(function () {
-                            alert("Error updating record");
-                        });
-                    }
-                } else {
-                    alert("All fields are required!");
-                }
-            });
-
-            // Cancel Button
-            $("#cancelButton").click(function () {
-                $("#formContainer").hide();
-            });
-
-            // Edit Button
-            // Edit Button
-            $(document).on("click", ".editButton", function () {
-                var id = $(this).data("id");
-
-                customStore.byKey(id).done(function (data) {
-                    // Prompt for new values, defaulting to the existing values
-                    var newName = prompt("Enter new product name:", data.name);
-                    var newEmoji = prompt("Enter new product emoji:", data.emoji);
-                    var newCategory = prompt("Enter new product category:", data.category);
-                    var newLink = prompt("Enter new product link:", data.link);
-
-                    // Validate the new values
-                    if (newName && newCategory && newLink) {
-                        var updatedData = {
-                            name: newName,
-                            emoji: newEmoji,
-                            category: newCategory,
-                            link: newLink
-                        };
-
-                        // Update the record with the new values
-                        customStore.update(id, updatedData).done(function () {
-                            alert("Product updated successfully!");
-                            location.reload();
-                        }).fail(function () {
-                            alert("Error updating record");
-                        });
-                    } else {
-                        alert("All fields are required!");
-                    }
-                }).fail(function () {
-                    alert("Error fetching record");
-                });
-            });
-
-
-            // Delete Button
-            $(document).on("click", ".deleteButton", function () {
-                var id = $(this).data("id");
-                if (confirm("Are you sure you want to delete this product?")) {
-                    customStore.remove(id).done(function () {
-                        location.reload();
-
-                    }).fail(function () {
-                        alert("Error deleting record");
-                    });
-                }
-            });
-
-            // Load initial data
-            fetchData();
+            applyLoadOption();
         });
     </script>
-
 </body>
 
 </html>

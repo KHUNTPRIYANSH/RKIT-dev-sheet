@@ -246,13 +246,13 @@
                 skip: 1,
                 take: 2,
                 filter: ["category", "=", "Electronics"],  // Example of a filter
-                // sort: [{ selector: "name", desc: false }],  // Sort by name ascending
-                // group: ["category"],  // Group by category
-                // searchExpr: "name",  // Search by name field
-                // searchValue: "Phone",  // Search value to filter
-                // searchOperation: "contains",  // Search operation: 'contains'
-                // requireTotalCount: true,
-                // select: ["name", "category", "emoji"],  // Select only specific fields
+                sort: [{ selector: "name", desc: false }],  // Sort by name ascending
+                group: ["category"],  // Group by category
+                searchExpr: "name",  // Search by name field
+                searchValue: "Phone",  // Search value to filter
+                searchOperation: "contains",  // Search operation: 'contains'
+                requireTotalCount: true,
+                select: ["name", "category", "emoji"],  // Select only specific fields
             });
 
             // Function to display data dynamically in the table

@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevExtreme Data Layer Components</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+            crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, var(--color1), var(--color2));
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .card:hover {
+                transform: scale(1.05);
+            }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .dx-name {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 2px solid white;
+            margin-top: 10px;
+            transition: all 0.3s ease-in-out;
+            font-weight: bold;
+        }
+
+            .btn:hover {
+                background: white;
+                color: black;
+            }
+    </style>
+</head>
+
+<body>
+
+    <h1>DevExtreme Data Layer Components</h1>
+    <div class="container">
+
+        <div class="card" style="--color1: #43a047; --color2: #6696bb;">
+            <i class="fas fa-th icon"></i>
+            <h3>Data Binding</h3>
+            <div class="dx-name">DevExtreme: Data Binding</div>
+            <a href="./1-DataBinding/dataBinding.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #6a1b9a; --color2: #42c9d3;">
+            <i class="fas fa-list-ol icon"></i>
+            <h3>Paging</h3>
+            <div class="dx-name">DevExtreme: Paging</div>
+            <a href="./Paging/paging.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #ffb300; --color2: #ff5728;">
+            <i class="fas fa-arrow-down icon"></i>
+            <h3>Scrolling</h3>
+            <div class="dx-name">DevExtreme: Scrolling</div>
+            <a href="./Scrolling/scrolling.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #d32f2f; --color2: #35e567;">
+            <i class="fas fa-edit icon"></i>
+            <h3>Editing</h3>
+            <div class="dx-name">DevExtreme: Editing</div>
+            <a href="./Editing/editing.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #f57c00; --color2: #8e00fb;">
+            <i class="fas fa-users icon"></i>
+            <h3>Grouping</h3>
+            <div class="dx-name">DevExtreme: Grouping</div>
+            <a href="./Grouping/grouping.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #1e88e5; --color2: #f5425a;">
+            <i class="fas fa-filter icon"></i>
+            <h3>Filtering</h3>
+            <div class="dx-name">DevExtreme: Filtering</div>
+            <a href="./Filtering/filtering.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #43a047; --color2: #6696bb;">
+            <i class="fas fa-sort icon"></i>
+            <h3>Sorting</h3>
+            <div class="dx-name">DevExtreme: Sorting</div>
+            <a href="./Sorting/sorting.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #6a1b9a; --color2: #42c9d3;">
+            <i class="fas fa-check-square icon"></i>
+            <h3>Selection</h3>
+            <div class="dx-name">DevExtreme: Selection</div>
+            <a href="./Selection/selection.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #ffb300; --color2: #ff5728;">
+            <i class="fas fa-columns icon"></i>
+            <h3>Columns</h3>
+            <div class="dx-name">DevExtreme: Columns</div>
+            <a href="./Columns/columns.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #d32f2f; --color2: #35e567;">
+            <i class="fas fa-save icon"></i>
+            <h3>State Persistence</h3>
+            <div class="dx-name">DevExtreme: State Persistence</div>
+            <a href="./StatePersistence/statePersistence.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #f57c00; --color2: #8e00fb;">
+            <i class="fas fa-paint-brush icon"></i>
+            <h3>Appearance</h3>
+            <div class="dx-name">DevExtreme: Appearance</div>
+            <a href="./Appearance/appearance.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #1e88e5; --color2: #f5425a;">
+            <i class="fas fa-cogs icon"></i>
+            <h3>Template</h3>
+            <div class="dx-name">DevExtreme: Template</div>
+            <a href="./Template/template.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #43a047; --color2: #6696bb;">
+            <i class="fas fa-signal icon"></i>
+            <h3>Data Summaries</h3>
+            <div class="dx-name">DevExtreme: Data Summaries</div>
+            <a href="./DataSummaries/dataSummaries.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #6a1b9a; --color2: #42c9d3;">
+            <i class="fas fa-table icon"></i>
+            <h3>Master-Detail</h3>
+            <div class="dx-name">DevExtreme: Master-Detail</div>
+            <a href="./MasterDetail/masterDetail.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #ffb300; --color2: #ff5728;">
+            <i class="fas fa-download icon"></i>
+            <h3>Export</h3>
+            <div class="dx-name">DevExtreme: Export</div>
+            <a href="./Export/export.html" class="btn">Open</a>
+        </div>
+
+        <div class="card" style="--color1: #d32f2f; --color2: #35e567;">
+            <i class="fas fa-exchange-alt icon"></i>
+            <h3>Adaptability</h3>
+            <div class="dx-name">DevExtreme: Adaptability</div>
+            <a href="./Adaptability/adaptability.html" class="btn">Open</a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
