@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevExtreme DataGrid Scrolling Demo</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/21.1.6/css/dx.dark.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/21.1.6/js/dx.all.js"></script>
+
+    <style>
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #dataGridContainer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body class="dx-viewport">
+    <div class="container">
+        <h2 class="text-center">DevExtreme DataGrid Infinite Scrolling Demo</h2>
+
+        <!-- DataGrid Container -->
+        <div id="dataGridContainer"></div>
+    </div>
+
+    <script>
+        // Function to fetch data from the JSONPlaceholder API with pagination
+
+        // Create DevExtreme DataGrid instance
+        let dataGridRef = $("#dataGridContainer").dxDataGrid({
+            height: 600,
+            dataSource: {
+                load() {
+                    return $.ajax({
+                        url: "https://jsonplaceholder.typicode.com/photos",
+                        method: "GET",
+
+                        dataType: "json",
+                    })
+                        .then((result) => {
+                            return { data: result };
+                        })
+                        .fail(() => {
+                            throw new Error("Data Loading Error");
+                        });
+                },
+            },
+
+            // Scrolling Configuration
+            scrolling: {
+                // mode: "infinite", // Infinite scrolling mode, which loads more data as the user scrolls down
+                mode: "virtual", // Renders only the rows within the viewport
+                // mode: "standard", // Loads all data at once
+                // "standard" shows pager we have to manually disable it 
+                // rowRenderingMode: "virtual", // Renders only the rows within the viewport
+
+                useNative: 'auto',  //[works only if height is given] Use native scrolling if needed (based on the environment only for mac / older android)
+                useNative: false,
+                preloadEnabled: true, // Preload adjacent pages for smoother scrolling (set to false to improve performance on older devices)
+
+                scrollByContent: false, // [works only if height is given] Allows scrolling with swipe gesture
+                scrollByThumb: true, // [works only if height is given] Disables thumb-based scrolling
+                showScrollbar: "onHover", // [works only if height is given]  'always' | 'never' | 'onHover' | 'onScroll'
+                scrollDirection: "vertical", // Defines vertical scrolling direction
+                // Specify the component height if using virtual or infinite scrolling
+                // height: 500 // Optional: Adjust based on your layout and needs
+            },
+
+            paging: {
+                enabled: false // Disable paging when using infinite scrolling
+            },
+
+            columns: [
+                { dataField: "albumId", dataType: "number", caption: "ID" },
+                { dataField: "id", dataType: "number", caption: "ID1" },
+                {
+                    dataField: "title",
+                    dataType: "string",
+                    caption: "Title",
+                },
+                {
+                    dataField: "url",
+                    dataType: "string",
+                    caption: "URL",
+                },
+                {
+                    dataField: "thumbnailUrl",
+                    dataType: "string",
+                    caption: "Thumbnail URL",
+                },
+            ],
+
+            filterRow: { visible: true }, // Display filter row for easy searching
+            searchPanel: { visible: true }, // Display search panel to filter data
+            showRowLines: true,  // Show row borders for better readability
+            showColumnLines: true // Show column borders for better readability
+        }).dxDataGrid("instance");
+
+
+        // Scrolling Properties Explained:
+        //
+        //  mode: Specifies the scrolling mode for the grid.
+        //    - "infinite" mode: Loads data gradually as the user scrolls down.
+        //    - "standard" mode: Loads all data at once.
+        //    - "virtual" mode: Loads only visible rows to optimize performance.
+        //
+        //  scrollByContent: Allows scrolling by swipe gestures (enabled on touch devices).
+        //    - If set to true, users can swipe to scroll the content.
+        //
+        //  scrollByThumb: Disables the scrollbar thumb for scrolling.
+        //    - If false, users will not be able to scroll using the scrollbar thumb.
+        //
+        //  showScrollbar: Controls when the scrollbar is visible.
+        //    - "onScroll": Shows the scrollbar when scrolling.
+        //    - "onHover": Displays the scrollbar when hovering over the grid.
+        //    - "always": Always shows the scrollbar.
+        //    - "never": Hides the scrollbar.
+        //
+        //  useNative: Enables or disables native scrolling.
+        //    - "auto" (default): Uses native scrolling on most platforms.
+        //    - true: Forces native scrolling on all platforms.
+        //    - false: Forces simulated scrolling on all platforms.
+        //
+    </script>
+</body>
+
+</html>

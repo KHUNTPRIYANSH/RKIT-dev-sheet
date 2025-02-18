@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevExtreme - Editing</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="../Content/dx.material.orange.dark.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+
+</head>
+
+<body class="dx-viewport">
+    <div id="gridContainer"></div>
+    <script src="../Data/data.js"></script>
+    <script>
+        $(() => {
+            let changes = [];
+            const dataGrid = $("#gridContainer").dxDataGrid({
+                dataSource: productData,
+                keyExpr: "id",
+                showBorders: true,
+                refreshMode: "reshape", //When the refreshMode is "reshape" or "repaint", the server should respond to the insert or update request by sending back the data item saved in the database
+                editRowKey: null,
+
+                // full (Default)
+
+                //Completely reloads the grid data when an update happens.
+                //Re-renders the entire grid.
+                //Might be slower for large datasets since it refreshes everything.
+
+                //reshape
+
+                //Updates only the modified rows.
+                //Keeps the current grid state (sorting, filtering, grouping).
+                //More efficient than full because it doesn’t reload the entire data source.
+
+                //repaint
+
+                //Only re-renders the visible grid area (without fetching data again).
+                //Useful for performance optimization when UI changes but data remains the same.
+
+                editing: {
+                    // mode: "row",
+                    // mode: 'batch',
+                    // mode: 'cell',
+                    // mode: 'form',
+                    // mode: 'popup',
+                    allowAdding: true,
+                    allowDeleting: true,
+                    allowUpdating: true,
+                    confirmDelete: true,
+                    selectTextOnEditStart: true, // batch mode only
+                    startEditAction: 'click',// click or dblClick
+                    // useIcons: true,
+                    texts: {
+                        confirmDeleteTitle: "Are you sure?",
+                        addRow: "Hint: Click here to add a new row.",
+                        cancelRowChanges: "❌",
+                        deleteRow: 'Delete',
+                        confirmDeleteMessage: "Are you sure you want to delete this row? This action cannot be undone.",
+                        editRow: "📝",
+                        saveRowChanges: "💾",
+                        undeleteRow: "Hint: Restore the deleted row."
+                    },
+
+                },
+
+                scrolling: {
+                    mode: "virtual",
+                },
+                onEditingStart: (e) => {
+                    editRowKey = e.key;
+                    console.log("Editing started for row:", editRowKey);
+                },
+                onInitNewRow: (e) => {
+                    console.log("Initializing new row", e);
+                },
+                onRowInserting: (e) => {
+                    console.log("Row inserting", e);
+                },
+
+
+                onRowUpdated: (e) => {
+                    console.log("Row updated", e);
+                },
+
+                onRowRemoved: (e) => {
+                    console.log("Row removed", e);
+                },
+
+                onSaved: (e) => {
+                    console.log("Data saved", e);
+                },
+                onEditCanceling: (e) => {
+                    console.log("Edit canceling", e);
+                },
+                onEditCanceled: (e) => {
+                    console.log("Edit canceled", e);
+                },
+                onOptionChanged: (e) => {
+                    if (e.name === "editing.changes") {
+                        console.log("Editing Changes Updated:", e.value);
+                    }
+                },
+                onRowInserting: (e) => {
+                    changes.push({ type: "insert", data: e.data, index: e.component.getDataSource().items().length });
+                    console.log("Row Inserting:", e.data);
+                },
+                onRowUpdating: (e) => {
+                    changes.push({ type: "update", key: e.key, data: e.newData });
+                    editRowKey = e.key;
+                    console.log("Row Updating:", e.newData);
+                },
+                onRowRemoving: (e) => {
+                    changes.push({ type: "remove", key: e.key });
+                    console.log("Row Removing:", e.key);
+                },
+                onSaving: (e) => {
+                    console.log("Pending Changes:", changes);
+                    e.changes.forEach(change => {
+                        if (change.type === "insert") {
+                            productData.push(change.data);
+                        } else if (change.type === "update") {
+                            const item = productData.find(p => p.id === change.key);
+                            if (item) Object.assign(item, change.data);
+                        } else if (change.type === "remove") {
+                            const index = productData.findIndex(p => p.id === change.key);
+                            if (index !== -1) productData.splice(index, 1);
+                        }
+                    });
+                    changes = []; // Reset changes after saving
+                    editRowKey = null;
+                },
+                columns: [
+                    {
+                        dataField: "id",
+                        caption: "ID",
+                        validationRules: [{ type: "required", message: "ID is required." }]
+                    },
+                    {
+                        dataField: "emoji",
+                        caption: "Icon",
+                        width: 80
+                    },
+                    {
+                        dataField: "name",
+                        caption: "Product Name",
+                        validationRules: [{ type: "required", message: "Product Name is required." }]
+                    },
+                    {
+                        dataField: "category",
+                        caption: "Category",
+                        validationRules: [{ type: "required", message: "Category is required." }]
+                    },
+                    {
+                        dataField: "link",
+                        caption: "Link",
+                        validationRules: [
+                            { type: "required", message: "Link is required." },
+                            { type: "pattern", pattern: "https?://.*", message: "Enter a valid URL (starting with http:// or https://)." }
+                        ],
+                        cellTemplate: (container, options) => {
+                            $("<a>")
+                                .attr("href", options.value)
+                                .text("View")
+                                .appendTo(container);
+                        }
+                    },
+                    {
+                        dataField: "price",
+                        caption: "Price ($)",
+                        format: { type: "currency", currency: "USD" },
+                        validationRules: [
+                            { type: "required", message: "Price is required." },
+                            { type: "numeric", message: "Price must be a number." },
+                            { type: "range", min: 0, message: "Price must be a positive value." }
+                        ]
+                    }
+                ],
+
+            }).dxDataGrid("instance");
+        });
+
+
+    </script>
+</body>
+
+</html>

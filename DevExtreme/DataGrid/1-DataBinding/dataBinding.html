@@ -44,6 +44,14 @@
             background-color: #0056b3;
         }
 
+        #reloadBtn {
+            background-color: #f2ab41;
+        }
+
+        #reloadBtn:hover {
+            background-color: #dc9223;
+        }
+
         #dataGridContainer {
             margin-top: 20px;
         }
@@ -58,6 +66,8 @@
         <div class="button-container">
             <button id="arrayDataBtn">Array Data</button>
             <button id="ajaxDataBtn">AJAX Data</button>
+            <button id="jsonDataBtn">JSON File Data</button>
+            <button id="reloadBtn">Reload Page</button>
         </div>
 
         <!-- DataGrid Container -->
@@ -67,10 +77,9 @@
     <!-- External JS file with product data (data.js) -->
     <script src="../Data/data.js"></script>
     <script>
-
-
         // URL for mock API
         const mockApiUrl = "https://67aee3c19e85da2f020eac23.mockapi.io/dummy_product_mock/api/products/products";
+        const jsonDataUrl = "../Data/products.json"; // Local JSON file for demonstration
 
         // Create DevExtreme DataGrid instance
         let dataGridRef = $("#dataGridContainer").dxDataGrid({
@@ -106,6 +115,18 @@
                     dataGridRef.option("dataSource", data);
                 }
             });
+        });
+
+        // Button to load data from JSON file
+        $('#jsonDataBtn').click(function () {
+            $.getJSON(jsonDataUrl, function (data) {
+                dataGridRef.option("dataSource", data);
+            });
+        });
+
+        // Reload the page
+        $('#reloadBtn').click(function () {
+            location.reload();
         });
     </script>
 </body>
