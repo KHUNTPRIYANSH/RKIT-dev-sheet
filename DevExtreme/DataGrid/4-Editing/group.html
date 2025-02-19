@@ -76,7 +76,22 @@
                     allowUpdating: true,
                     confirmDelete: true
                 },
+                grouping: {
+                    // allowCollapsing: true,
+                    autoExpandAll: false,
+                    expandMode: "rowClick", // "rowClick" | "buttonClick" 
+                    contextMenuEnabled: true,// when true , we can right click on header of column to group
+                    texts: {
+                        groupByThisColumn: "Group By This Column",
+                        groupContinuedMessage: "Continued from the previous page",// when we do paging
+                        groupContinuesMessage: "Continued on the next page",// when we do paging
+                        ungroup: "Ungroup",
+                        ungroupAll: "Ungroup All"
+                    }
+                },
                 groupPanel: {
+                    // allowColumnDragging: false,
+                    emptyPanelText: 'Drag a column header here to group by that column',
                     visible: true,
                 },
                 scrolling: { mode: "virtual" },
