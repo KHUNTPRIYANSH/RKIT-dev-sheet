@@ -1,0 +1,85 @@
+﻿:root {
+    --bg-color-light: #f4f4f4;
+    --text-color-light: #333;
+    --bg-color-dark: #1e1e1e;
+    --text-color-dark: #fff;
+    --input-bg-light: #fff;
+    --input-bg-dark: #333;
+    --btn-bg-light: #007bff;
+    --btn-bg-dark: #ff9800;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    transition: background 0.3s, color 0.3s;
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+}
+
+.container {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background: var(--input-bg-light);
+    transition: background 0.3s;
+    display:flex;
+    flex-direction:column;
+}
+
+input {
+    flex:1;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background: var(--btn-bg-light);
+    color: white;
+    transition: background 0.3s;
+}
+
+    button:hover {
+        opacity: 0.9;
+    }
+
+.theme-toggle {
+    background: var(--btn-bg-dark);
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+
+.dark-mode .container {
+    background: var(--input-bg-dark);
+    color: var(--text-color-dark);
+}
+
+.dark-mode input {
+    background: var(--input-bg-dark);
+    color: var(--text-color-dark);
+    border: 1px solid #666;
+}
+
+.dark-mode button {
+    background: var(--btn-bg-dark);
+}
+
+.dark-mode .theme-toggle {
+    background: var(--btn-bg-light);
+}

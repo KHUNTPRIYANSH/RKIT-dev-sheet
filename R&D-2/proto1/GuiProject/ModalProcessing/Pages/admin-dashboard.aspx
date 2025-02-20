@@ -17,15 +17,14 @@
             --btn-bg-light: #007bff;
             --btn-bg-dark: #20e8a9;
         }
-        main{
+        main {
             border: 3px double var(--bg-light);
             background: #ddd;
-            display:flex;
-            width:100%;
-            flex-direction:column;
+            display: flex;
+            width: 100%;
+            flex-direction: column;
             margin-top: 25px;
-            padding:17.5px;
-
+            padding: 17.5px;
         }
         body {
             font-family: 'Arial', sans-serif;
@@ -35,7 +34,6 @@
             margin: 0;
             display: flex;
         }
-
         .sidebar {
             width: 250px;
             height: 100vh;
@@ -44,19 +42,16 @@
             transition: background 0.3s;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
         }
-
         .content {
             flex-grow: 1;
             padding: 20px;
-            display:flex;
-            flex-direction:column;
+            display: flex;
+            flex-direction: column;
         }
-
         ul {
             list-style: none;
             padding: 0;
         }
-
         ul li {
             padding: 10px;
             margin: 5px 0;
@@ -66,24 +61,19 @@
             text-align: center;
             cursor: pointer;
         }
-
         ul li:hover {
             opacity: 0.9;
         }
-
         .dark-mode {
             background-color: var(--bg-dark);
             color: var(--text-dark);
         }
-
         .dark-mode .sidebar {
             background: var(--sidebar-bg-dark);
         }
-
         .dark-mode ul li {
             background: var(--btn-bg-dark);
         }
-
         .theme-toggle {
             padding: 10px;
             background: var(--btn-bg-light);
@@ -92,38 +82,32 @@
             border-radius: 5px;
             cursor: pointer;
         }
-        .dark-mode main{
+        .dark-mode main {
             background: #353535;
         }
-
         .dark-mode .theme-toggle {
             background: var(--btn-bg-dark);
         }
-       
     </style>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", async function () {
             let dtoData = sessionStorage.getItem("userDTO");
-            console.log("Admin internal script working")
+            if (!dtoData) {
+                console.warn("DTO missing in sessionStorage. Trying to restore from cookie...");
+                const token = getTokenFromCookie();
+                if (token) {
+                    await restoreDTOFromToken(token);
+                    dtoData = sessionStorage.getItem("userDTO");
+                }
+            }
             if (!dtoData) {
                 document.body.innerHTML = "<h2>No user data found. Please log in.</h2>";
                 return;
             }
-
-            let dto;
-            try {
-                dto = JSON.parse(dtoData);
-            } catch (e) {
-                console.error("Error parsing userDTO:", e);
-                document.body.innerHTML = "<h2>Invalid user data. Please log in again.</h2>";
-                return;
-            }
-
-            // Apply User Preference (Theme)
+            let dto = JSON.parse(dtoData);
             let theme = sessionStorage.getItem("UserPreference") || "light";
             if (theme === "dark") document.body.classList.add("dark-mode");
 
-            // Create Sidebar
             let sidebar = document.createElement("div");
             sidebar.className = "sidebar";
             let sidebarHtml = `<h3>Admin Menu</h3><ul>`;
@@ -134,12 +118,10 @@
             sidebar.innerHTML = sidebarHtml;
             document.body.appendChild(sidebar);
 
-            // Create Content
             let content = document.createElement("div");
             content.className = "content";
             content.innerHTML = `<h2>Welcome, Admin ${dto.Username}</h2>`;
 
-            // Load Allowed Sections
             let sectionsHtml = "<h3>Allowed Sections</h3><ul>";
             dto.AllowedSections.forEach(item => {
                 sectionsHtml += `<li>${item}</li>`;
@@ -147,7 +129,6 @@
             sectionsHtml += "</ul>";
             content.innerHTML += sectionsHtml;
 
-            // Add Theme Toggle Button
             let themeButton = document.createElement("button");
             themeButton.className = "theme-toggle";
             themeButton.innerText = "Toggle Theme";
@@ -156,10 +137,7 @@
                 sessionStorage.setItem("UserPreference", isDarkMode ? "dark" : "light");
             };
             content.appendChild(themeButton);
-
             document.body.appendChild(content);
-
-            // Load Async Scripts & Track Loaded Modules
             let loadedModules = [];
             if (Array.isArray(dto.AsyncScripts)) {
                 dto.AsyncScripts.forEach(script => {
@@ -171,21 +149,28 @@
                     document.head.appendChild(scriptTag);
                 });
             }
-
-            // Update DTO after Processing
-            setTimeout(() => {
-                dto.IsSetupComplete = true;
-                dto.LoadedModules = loadedModules;
-                dto.UserPreference = theme;
-                sessionStorage.setItem("userDTO", JSON.stringify(dto)); // Save updates
-
-                fetch("http://localhost:58530/api/config/update", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(dto)
-                }).catch(error => console.error("Error updating config:", error));
-            }, 3000);
         });
+
+        function getTokenFromCookie() {
+            return document.cookie
+                .split("; ")
+                .find(row => row.startsWith("authToken="))
+                ?.split("=")[1];
+        }
+
+        async function restoreDTOFromToken(token) {
+            try {
+                const response = await fetch("http://localhost:58530/api/data/getdto", {
+                    method: "GET",
+                    headers: { "Authorization": `Bearer ${token}` }
+                });
+                if (!response.ok) return;
+                const dto = await response.json();
+                sessionStorage.setItem("userDTO", JSON.stringify(dto));
+            } catch (error) {
+                console.error("Error restoring DTO:", error);
+            }
+        }
     </script>
 </head>
 <body></body>

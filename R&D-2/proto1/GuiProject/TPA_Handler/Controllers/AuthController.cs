@@ -34,14 +34,14 @@ namespace TPA_Handler.Controllers
             }
 
             // Set the auth token in a cookie
-            var cookie = new HttpCookie("authToken", token)
-            {
-                HttpOnly = true,
-                Secure = true, // Use HTTPS
-                Path = "/",
-                Expires = DateTime.UtcNow.AddHours(2)
-            };
-            HttpContext.Current.Response.Cookies.Add(cookie);
+            //var cookie = new HttpCookie("authToken", token)
+            //{
+            //    HttpOnly = true,
+            //    Secure = true, // Use HTTPS
+            //    Path = "/",
+            //    Expires = DateTime.UtcNow.AddHours(2)
+            //};
+            //HttpContext.Current.Response.Cookies.Add(cookie);
 
             return Ok(new { Token = token, Role = role });
         }
