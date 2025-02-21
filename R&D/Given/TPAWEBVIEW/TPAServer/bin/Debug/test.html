@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title>Miracle</title>
+	<script type="text/javascript">
+			function CallWebView() {
+			   var json = JSON.stringify({ Action:"A001", Message:"msg from webview" });
+			   window.chrome.webview.postMessage(json);
+			}
+	</script>
+	
+</head>
+<body onload="CallWebView()">	
+<div>			
+<a href="javascript:void(0)" onclick="CallWebView()">Click Me</a>
+</div>
+</body>
+</html>

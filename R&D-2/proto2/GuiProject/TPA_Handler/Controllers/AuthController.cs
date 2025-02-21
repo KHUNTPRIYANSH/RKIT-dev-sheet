@@ -12,7 +12,7 @@ namespace TPA_Handler.Controllers
         [Route("api/auth/login")]
         public IHttpActionResult Login([FromBody] LoginRequest request)
         {
-            if (request == null || string.IsNullOrEmpty(request.Username) || string.IsNullOrEmpty(request.Password))
+            if (request == null || string.IsNullOrEmpty(request.Username) || string.IsNullOrEmpty(request.Password)) 
             {
                 return BadRequest("Username and password are required.");
             }

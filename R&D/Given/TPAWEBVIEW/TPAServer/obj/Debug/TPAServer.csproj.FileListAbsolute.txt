@@ -1,0 +1,10 @@
+C:\Users\sandip.k.DEV\source\repos\TPAWEBVIEW\TPAServer\obj\Debug\TPAServer.csproj.AssemblyReference.cache
+C:\Users\sandip.k.DEV\source\repos\TPAWEBVIEW\TPAServer\obj\Debug\TPAWEBVIEW.frmMain.resources
+C:\Users\sandip.k.DEV\source\repos\TPAWEBVIEW\TPAServer\obj\Debug\TPAServer.csproj.GenerateResource.cache
+C:\Users\sandip.k.DEV\source\repos\TPAWEBVIEW\TPAServer\obj\Debug\TPAServer.csproj.CoreCompileInputs.cache
+C:\Users\sandip.k.DEV\source\repos\TPAWEBVIEW\TPAServer\bin\Debug\TPAServer.exe.config
+C:\Users\sandip.k.DEV\source\repos\TPAWEBVIEW\TPAServer\bin\Debug\TPAServer.exe
+C:\Users\sandip.k.DEV\source\repos\TPAWEBVIEW\TPAServer\bin\Debug\TPAServer.pdb
+C:\Users\sandip.k.DEV\source\repos\TPAWEBVIEW\TPAServer\obj\Debug\TPAServer.Properties.Resources.resources
+C:\Users\sandip.k.DEV\source\repos\TPAWEBVIEW\TPAServer\obj\Debug\TPAServer.exe
+C:\Users\sandip.k.DEV\source\repos\TPAWEBVIEW\TPAServer\obj\Debug\TPAServer.pdb
