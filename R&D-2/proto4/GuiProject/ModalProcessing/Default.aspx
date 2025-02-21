@@ -9,6 +9,7 @@
     <link href="styles.css" rel="stylesheet" />
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            //debugger;
             console.log("Full URL: ", window.location.href); // Debugging
             let token = getTokenFromUrl();
             let role = getRoleFromUrl();

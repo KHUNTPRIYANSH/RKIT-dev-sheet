@@ -25,7 +25,6 @@ namespace TPA_Handler.Controllers
             }
 
             var (username, role) = userDetails.Value;
-
             string token = AuthService.GenerateJwtToken(username, role);
 
             if (string.IsNullOrEmpty(token))
@@ -33,17 +32,25 @@ namespace TPA_Handler.Controllers
                 return InternalServerError(new Exception("Token generation failed."));
             }
 
-            // Set the auth token in a cookie
-            //var cookie = new HttpCookie("authToken", token)
-            //{
-            //    HttpOnly = true,
-            //    Secure = true, // Use HTTPS
-            //    Path = "/",
-            //    Expires = DateTime.UtcNow.AddHours(2)
-            //};
-            //HttpContext.Current.Response.Cookies.Add(cookie);
+            // Determine if the client is an API client (e.g., Swagger) based on the Accept header
+            bool isApiClient = Request.Headers.Accept.Any(m => m.MediaType.Contains("application/json"));
 
-            return Ok(new { Token = token, Role = role });
+            if (isApiClient)
+            {
+                // Return JSON response for API clients
+                return Ok(new
+                {
+                    Message = "Cookie setup and script loading completed successfully.",
+                    Token = token,
+                    Role = role
+                });
+            }
+            else
+            {
+                // Redirect browser-based requests to the GUI
+                var redirectUrl = $"http://localhost:58047/default.aspx?token={HttpUtility.UrlEncode(token)}&role={role}";
+                return Redirect(redirectUrl);
+            }
         }
     }
 }
