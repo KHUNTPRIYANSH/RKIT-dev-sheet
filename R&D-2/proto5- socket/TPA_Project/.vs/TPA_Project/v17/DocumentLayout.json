@@ -62,8 +62,7 @@
               "RelativeToolTip": "TPA_Server\\Controllers\\GetDTOController.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAcwF0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T09:18:59.799Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T09:18:59.799Z"
             },
             {
               "$type": "Document",
@@ -75,8 +74,7 @@
               "RelativeToolTip": "TPA_Server\\Modals\\UserDashboardDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T09:18:26.134Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T09:18:26.134Z"
             },
             {
               "$type": "Document",
@@ -88,8 +86,7 @@
               "RelativeToolTip": "TPA_Server\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwBAAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-22T07:31:13.879Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T07:31:13.879Z"
             },
             {
               "$type": "Document",
@@ -101,8 +98,7 @@
               "RelativeToolTip": "TPA_Server\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-22T07:31:10.934Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T07:31:10.934Z"
             },
             {
               "$type": "Document",
@@ -114,8 +110,7 @@
               "RelativeToolTip": "TPA_Server\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAADgvxMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T07:03:55.345Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T07:03:55.345Z"
             },
             {
               "$type": "Document",
@@ -125,7 +120,7 @@
               "RelativeDocumentMoniker": "TPA_Server\\Program.cs",
               "ToolTip": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto5- socket\\TPA_Project\\TPA_Server\\Program.cs",
               "RelativeToolTip": "TPA_Server\\Program.cs",
-              "ViewState": "AgIAAMgAAAAAAAAAAAAmwM4AAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAMgAAAAAAAAAAAAgwM4AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-22T06:59:45.374Z",
               "EditorCaption": ""
@@ -140,8 +135,7 @@
               "RelativeToolTip": "TPA_Server\\Helpers\\JwtHelper.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T08:46:23.425Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T08:46:23.425Z"
             },
             {
               "$type": "Document",
@@ -153,8 +147,7 @@
               "RelativeToolTip": "TPA_Server\\Helpers\\WebSocketManager.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAkwEwAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T07:03:17.275Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T07:03:17.275Z"
             }
           ]
         }
