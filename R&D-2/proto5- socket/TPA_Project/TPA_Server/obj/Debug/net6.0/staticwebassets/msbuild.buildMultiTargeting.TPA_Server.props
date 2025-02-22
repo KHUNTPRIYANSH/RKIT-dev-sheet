@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\TPA_Server.props" />
+</Project>

@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "GfYe7pDUrYE7TGeQiYK0Yh5ivArB9zAykYpKqs3UwBE=",
+  "Source": "TPA_Server",
+  "BasePath": "_content/TPA_Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

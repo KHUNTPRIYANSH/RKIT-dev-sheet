@@ -1,0 +1,130 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto5- socket\\TPA_Project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto5- socket\\tpa_project\\tpa_server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|solutionrelative:tpa_server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto5- socket\\tpa_project\\tpa_server\\helpers\\websocketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|solutionrelative:tpa_server\\helpers\\websocketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto5- socket\\tpa_project\\tpa_server\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|solutionrelative:tpa_server\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto5- socket\\tpa_project\\tpa_server\\helpers\\jwthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|solutionrelative:tpa_server\\helpers\\jwthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto5- socket\\tpa_project\\tpa_server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|solutionrelative:tpa_server\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto5- socket\\tpa_project\\tpa_server\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|solutionrelative:tpa_server\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "JwtHelper.cs",
+              "DocumentMoniker": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto5- socket\\TPA_Project\\TPA_Server\\Helpers\\JwtHelper.cs",
+              "RelativeDocumentMoniker": "TPA_Server\\Helpers\\JwtHelper.cs",
+              "ToolTip": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto5- socket\\TPA_Project\\TPA_Server\\Helpers\\JwtHelper.cs",
+              "RelativeToolTip": "TPA_Server\\Helpers\\JwtHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T08:46:23.425Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto5- socket\\TPA_Project\\TPA_Server\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "TPA_Server\\Properties\\launchSettings.json",
+              "ToolTip": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto5- socket\\TPA_Project\\TPA_Server\\Properties\\launchSettings.json",
+              "RelativeToolTip": "TPA_Server\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-22T07:31:13.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto5- socket\\TPA_Project\\TPA_Server\\appsettings.json",
+              "RelativeDocumentMoniker": "TPA_Server\\appsettings.json",
+              "ToolTip": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto5- socket\\TPA_Project\\TPA_Server\\appsettings.json",
+              "RelativeToolTip": "TPA_Server\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-22T07:31:10.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto5- socket\\TPA_Project\\TPA_Server\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "TPA_Server\\Controllers\\AuthController.cs",
+              "ToolTip": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto5- socket\\TPA_Project\\TPA_Server\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "TPA_Server\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAADgvxMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T07:03:55.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WebSocketManager.cs",
+              "DocumentMoniker": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto5- socket\\TPA_Project\\TPA_Server\\Helpers\\WebSocketManager.cs",
+              "RelativeDocumentMoniker": "TPA_Server\\Helpers\\WebSocketManager.cs",
+              "ToolTip": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto5- socket\\TPA_Project\\TPA_Server\\Helpers\\WebSocketManager.cs",
+              "RelativeToolTip": "TPA_Server\\Helpers\\WebSocketManager.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAkwEwAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T07:03:17.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto5- socket\\TPA_Project\\TPA_Server\\Program.cs",
+              "RelativeDocumentMoniker": "TPA_Server\\Program.cs",
+              "ToolTip": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto5- socket\\TPA_Project\\TPA_Server\\Program.cs",
+              "RelativeToolTip": "TPA_Server\\Program.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAkwEIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T06:59:45.374Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
