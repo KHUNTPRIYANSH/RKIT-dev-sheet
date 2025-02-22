@@ -1,18 +1,17 @@
-﻿namespace TPA_Server.Controllers
-{
-    using Microsoft.AspNetCore.Authorization;
-    using Microsoft.AspNetCore.Mvc;
-    using System.IdentityModel.Tokens.Jwt;
-    using System.Linq;
-    using System.Security.Claims;
-    using TPA_Server.Modals;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using System.Collections.Generic;
+using TPA_Server.Modals;
 
+namespace TPA_Server.Controllers
+{
     [Route("api/data")]
     [ApiController]
     public class GetDTOController : ControllerBase
     {
         [HttpGet("getdto")]
-        [Authorize] // Ensures only authenticated users can access
+        //[Authorize] // Ensures only authenticated users can access
         public IActionResult GetDTO()
         {
             var username = User.FindFirst(ClaimTypes.Name)?.Value;
@@ -36,11 +35,11 @@
         {
             // Mock user roles for simplicity
             var userRoles = new Dictionary<string, string>
-        {
-            { "priyansh", "User" },
-            { "romil", "Editor" },
-            { "admin", "Admin" }
-        };
+            {
+                { "priyansh", "User" },
+                { "romil", "Editor" },
+                { "string", "Admin" }
+            };
 
             if (!userRoles.ContainsKey(username))
             {
@@ -90,4 +89,5 @@
         }
     }
 
+  
 }

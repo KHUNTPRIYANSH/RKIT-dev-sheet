@@ -68,6 +68,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="scripts\admin-controls.js" />
+    <Content Include="scripts\Admin\allowedSections\settings.js" />
+    <Content Include="scripts\Admin\sidebarOptions\dashboard.js" />
+    <Content Include="scripts\Admin\sidebarOptions\reports.js" />
+    <Content Include="scripts\Admin\sidebarOptions\settings.js" />
+    <Content Include="scripts\Admin\sidebarOptions\users.js" />
+    <Content Include="scripts\dashboard.js" />
+    <Content Include="scripts\editor-tools.js" />
+    <Content Include="scripts\User\allowedSections\profile.js" />
+    <Content Include="scripts\User\allowedSections\settings.js" />
+    <Content Include="scripts\User\sidebarOptions\home.js" />
+    <Content Include="scripts\User\sidebarOptions\settings.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
