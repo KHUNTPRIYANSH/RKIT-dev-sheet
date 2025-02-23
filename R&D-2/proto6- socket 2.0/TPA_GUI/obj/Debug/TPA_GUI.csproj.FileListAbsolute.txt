@@ -1,0 +1,118 @@
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\TPA_GUI.dll.config
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\TPA_GUI.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\TPA_GUI.pdb
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\csc.exe
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\csc.exe.config
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\csc.rsp
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\csi.exe
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\csi.exe.config
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\csi.rsp
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\Microsoft.Managed.Core.targets
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\Microsoft.Win32.Primitives.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.AppContext.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Collections.Immutable.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Console.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Globalization.Calendars.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.IO.Compression.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.IO.Compression.ZipFile.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.IO.FileSystem.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Net.Http.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Net.Sockets.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Reflection.Metadata.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Text.Encoding.CodePages.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Threading.Tasks.Extensions.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.ValueTuple.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Xml.ReaderWriter.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Xml.XmlDocument.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Xml.XPath.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\System.Xml.XPath.XDocument.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\vbc.exe
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\vbc.exe.config
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\vbc.rsp
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\VBCSCompiler.exe
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\roslyn\VBCSCompiler.exe.config
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\obj\Debug\TPA_GUI.csproj.AssemblyReference.cache
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\obj\Debug\TPA_GUI.csproj.CoreCompileInputs.cache
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\obj\Debug\TPA_GUI.csproj.Up2Date
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\obj\Debug\TPA_GUI.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_GUI\obj\Debug\TPA_GUI.pdb
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\TPA_GUI.dll.config
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\TPA_GUI.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\TPA_GUI.pdb
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\csc.exe
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\csc.exe.config
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\csc.rsp
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\csi.exe
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\csi.exe.config
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\csi.rsp
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\Microsoft.Managed.Core.targets
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\Microsoft.Win32.Primitives.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.AppContext.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Collections.Immutable.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Console.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Globalization.Calendars.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.IO.Compression.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.IO.Compression.ZipFile.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.IO.FileSystem.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Net.Http.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Net.Sockets.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Reflection.Metadata.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Text.Encoding.CodePages.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Threading.Tasks.Extensions.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.ValueTuple.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Xml.ReaderWriter.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Xml.XmlDocument.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Xml.XPath.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\System.Xml.XPath.XDocument.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\vbc.exe
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\vbc.exe.config
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\vbc.rsp
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\VBCSCompiler.exe
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\roslyn\VBCSCompiler.exe.config
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\obj\Debug\TPA_GUI.csproj.AssemblyReference.cache
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\obj\Debug\TPA_GUI.csproj.CoreCompileInputs.cache
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\obj\Debug\TPA_GUI.csproj.Up2Date
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\obj\Debug\TPA_GUI.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_GUI\obj\Debug\TPA_GUI.pdb
