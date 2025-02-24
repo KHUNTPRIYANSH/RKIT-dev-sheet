@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto6- socket 2.0\\tpa_project\\tpa_server\\controllers\\getdtocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|solutionrelative:tpa_server\\controllers\\getdtocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto6- socket 2.0\\tpa_project\\tpa_server\\services\\websocketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|solutionrelative:tpa_server\\services\\websocketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto6- socket 2.0\\tpa_project\\tpa_server\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|solutionrelative:tpa_server\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto6- socket 2.0\\tpa_project\\tpa_server\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|solutionrelative:tpa_server\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto6- socket 2.0\\tpa_project\\tpa_server\\modals\\userdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|solutionrelative:tpa_server\\modals\\userdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto6- socket 2.0\\tpa_project\\tpa_server\\helpers\\jwthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|solutionrelative:tpa_server\\helpers\\jwthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto6- socket 2.0\\tpa_project\\tpa_server\\modals\\userdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|solutionrelative:tpa_server\\modals\\userdashboarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto6- socket 2.0\\tpa_project\\tpa_server\\services\\websocketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|solutionrelative:tpa_server\\services\\websocketmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto6- socket 2.0\\tpa_project\\tpa_server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|solutionrelative:tpa_server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto6- socket 2.0\\tpa_project\\tpa_server\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|solutionrelative:tpa_server\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto6- socket 2.0\\tpa_project\\tpa_server\\controllers\\getdtocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|solutionrelative:tpa_server\\controllers\\getdtocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto6- socket 2.0\\tpa_project\\tpa_server\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|solutionrelative:tpa_server\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6A72CC7E-2BF8-457F-B382-0BC1B97A61C7}|TPA_Server\\TPA_Server.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto6- socket 2.0\\tpa_project\\tpa_server\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -46,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,78 +58,78 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "TPA_Server\\Services\\UserService.cs",
-              "ToolTip": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Services\\UserService.cs",
-              "RelativeToolTip": "TPA_Server\\Services\\UserService.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAADwvy8AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-23T10:15:22.475Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Program.cs",
-              "RelativeDocumentMoniker": "TPA_Server\\Program.cs",
-              "ToolTip": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Program.cs",
-              "RelativeToolTip": "TPA_Server\\Program.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAqwDYAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T06:59:45.374Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "WebSocketManager.cs",
-              "DocumentMoniker": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Services\\WebSocketManager.cs",
-              "RelativeDocumentMoniker": "TPA_Server\\Services\\WebSocketManager.cs",
-              "ToolTip": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Services\\WebSocketManager.cs",
-              "RelativeToolTip": "TPA_Server\\Services\\WebSocketManager.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAowD4AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-23T10:14:01.645Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GetDTOController.cs",
-              "DocumentMoniker": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Controllers\\GetDTOController.cs",
-              "RelativeDocumentMoniker": "TPA_Server\\Controllers\\GetDTOController.cs",
-              "ToolTip": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Controllers\\GetDTOController.cs",
-              "RelativeToolTip": "TPA_Server\\Controllers\\GetDTOController.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAmwBoAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T09:18:59.799Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "AuthController.cs",
               "DocumentMoniker": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "TPA_Server\\Controllers\\AuthController.cs",
               "ToolTip": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Controllers\\AuthController.cs",
               "RelativeToolTip": "TPA_Server\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAowEAAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAQwG8AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-22T07:03:55.345Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GetDTOController.cs",
+              "DocumentMoniker": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Controllers\\GetDTOController.cs",
+              "RelativeDocumentMoniker": "TPA_Server\\Controllers\\GetDTOController.cs",
+              "ToolTip": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Controllers\\GetDTOController.cs",
+              "RelativeToolTip": "TPA_Server\\Controllers\\GetDTOController.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAQwEQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T09:18:59.799Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "TPA_Server\\Services\\UserService.cs",
+              "ToolTip": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Services\\UserService.cs",
+              "RelativeToolTip": "TPA_Server\\Services\\UserService.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwEYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-23T10:15:22.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Program.cs",
+              "RelativeDocumentMoniker": "TPA_Server\\Program.cs",
+              "ToolTip": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Program.cs",
+              "RelativeToolTip": "TPA_Server\\Program.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAUwFEAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T06:59:45.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WebSocketManager.cs",
+              "DocumentMoniker": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Services\\WebSocketManager.cs",
+              "RelativeDocumentMoniker": "TPA_Server\\Services\\WebSocketManager.cs",
+              "ToolTip": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Services\\WebSocketManager.cs",
+              "RelativeToolTip": "TPA_Server\\Services\\WebSocketManager.cs",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAcwIQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-23T10:14:01.645Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "JwtHelper.cs",
               "DocumentMoniker": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Helpers\\JwtHelper.cs",
               "RelativeDocumentMoniker": "TPA_Server\\Helpers\\JwtHelper.cs",
               "ToolTip": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Helpers\\JwtHelper.cs",
               "RelativeToolTip": "TPA_Server\\Helpers\\JwtHelper.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAjwC4AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAUwD4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-22T08:46:23.425Z",
               "EditorCaption": ""
@@ -144,8 +144,7 @@
               "RelativeToolTip": "TPA_Server\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-22T07:31:10.934Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T07:31:10.934Z"
             },
             {
               "$type": "Document",
@@ -157,18 +156,17 @@
               "RelativeToolTip": "TPA_Server\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-22T07:31:13.879Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T07:31:13.879Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "UserDashboardDTO.cs",
               "DocumentMoniker": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Modals\\UserDashboardDTO.cs",
               "RelativeDocumentMoniker": "TPA_Server\\Modals\\UserDashboardDTO.cs",
               "ToolTip": "F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_Project\\TPA_Server\\Modals\\UserDashboardDTO.cs",
               "RelativeToolTip": "TPA_Server\\Modals\\UserDashboardDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAUwEEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-22T09:18:26.134Z",
               "EditorCaption": ""

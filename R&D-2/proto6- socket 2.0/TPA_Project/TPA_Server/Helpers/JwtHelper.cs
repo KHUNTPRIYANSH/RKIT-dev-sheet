@@ -8,11 +8,19 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace TPA_Server.Helpers
 {
+    /// <summary>
+    /// Helper class for configuring JWT authentication and generating tokens.
+    /// </summary>
     public static class JwtConfig
     {
+        #region JWT Configuration
         private static readonly string _secretKey = "Priyansh Khunt's Secret-Key12345";
         public static readonly SymmetricSecurityKey SecurityKey = new(Encoding.UTF8.GetBytes(_secretKey));
 
+        /// <summary>
+        /// Configures JWT authentication for the application.
+        /// </summary>
+        /// <param name="services">The service collection to configure.</param>
         public static void ConfigureAuthentication(IServiceCollection services)
         {
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -33,6 +41,11 @@ namespace TPA_Server.Helpers
             services.AddAuthorization();
         }
 
+        /// <summary>
+        /// Generates a JWT token for the specified username.
+        /// </summary>
+        /// <param name="username">The username to include in the token claims.</param>
+        /// <returns>The generated JWT token as a string.</returns>
         public static string GenerateToken(string username)
         {
             var credentials = new SigningCredentials(SecurityKey, SecurityAlgorithms.HmacSha256);
@@ -45,5 +58,6 @@ namespace TPA_Server.Helpers
             );
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+        #endregion
     }
 }

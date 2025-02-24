@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "TPA_Server.Controllers.LoginModel",
+        "Type": "TPA_Server.Controllers.AuthController\u002BLoginModel",
         "IsRequired": true
       }
     ],

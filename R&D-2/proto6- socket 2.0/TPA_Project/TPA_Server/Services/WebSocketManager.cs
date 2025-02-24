@@ -6,17 +6,33 @@ using System.Text.Json;
 
 namespace TPA_Server.Services
 {
-
+    /// <summary>
+    /// Manages WebSocket connections and communication between the server and clients.
+    /// </summary>
     public sealed class WebSocketManager
     {
+        #region Fields
         private readonly List<IWebSocketConnection> _connectedClients = new();
-        private readonly ConcurrentDictionary<string, TaskCompletionSource<UserDashboardDTO>> _pendingTokens = new(); private readonly ILogger<WebSocketManager> _logger;
+        private readonly ConcurrentDictionary<string, TaskCompletionSource<UserDashboardDTO>> _pendingTokens = new();
+        private readonly ILogger<WebSocketManager> _logger;
+        #endregion
 
+        #region Constructor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WebSocketManager"/> class.
+        /// </summary>
+        /// <param name="logger">Logger for capturing runtime events and errors.</param>
         public WebSocketManager(ILogger<WebSocketManager> logger)
         {
             _logger = logger;
         }
+        #endregion
 
+        #region WebSocket Server Initialization
+        /// <summary>
+        /// Initializes the WebSocket server and sets up event handlers.
+        /// </summary>
+        /// <param name="serviceProvider">The service provider for dependency injection.</param>
         public void InitializeWebSocketServer(IServiceProvider serviceProvider)
         {
             var server = new WebSocketServer("ws://0.0.0.0:8181");
@@ -27,7 +43,9 @@ namespace TPA_Server.Services
                 socket.OnClose = () => HandleConnectionClose(socket);
             });
         }
+        #endregion
 
+        #region Event Handlers
         private void HandleConnectionOpen(IWebSocketConnection socket)
         {
             _logger.LogInformation("Client connected: {ClientId}", socket.ConnectionInfo.Id);
@@ -80,12 +98,23 @@ namespace TPA_Server.Services
             _logger.LogInformation("Client disconnected: {ClientId}", socket.ConnectionInfo.Id);
             _connectedClients.Remove(socket);
         }
+        #endregion
 
+        #region Token Management
+        /// <summary>
+        /// Adds a pending token to await DTO confirmation.
+        /// </summary>
+        /// <param name="token">The authentication token.</param>
+        /// <param name="tcs">The task completion source to resolve when DTO is confirmed.</param>
         public void AddPendingToken(string token, TaskCompletionSource<UserDashboardDTO> tcs)
         {
             _pendingTokens.TryAdd(token, tcs);
         }
 
+        /// <summary>
+        /// Sends a message to all connected WebSocket clients.
+        /// </summary>
+        /// <param name="message">The message to send.</param>
         public void SendTokenToClients(string message)
         {
             foreach (var client in _connectedClients.ToList())
@@ -104,9 +133,14 @@ namespace TPA_Server.Services
             }
         }
 
+        /// <summary>
+        /// Removes a pending token from the tracking dictionary.
+        /// </summary>
+        /// <param name="token">The authentication token to remove.</param>
         public void RemovePendingToken(string token)
         {
             _pendingTokens.TryRemove(token, out _);
         }
+        #endregion
     }
 }

@@ -2,10 +2,23 @@
 
 namespace TPA_Server.Services
 {
+    /// <summary>
+    /// Service responsible for fetching user-specific dashboard data (DTO).
+    /// </summary>
     public class UserService
     {
+        #region User Roles and Dashboard Configuration
+        /// <summary>
+        /// Fetches the user's dashboard DTO based on their username.
+        /// </summary>
+        /// <param name="username">The username of the user.</param>
+        /// <returns>
+        /// Returns a <see cref="UserDashboardDTO"/> object containing the user's dashboard configuration.
+        /// If the username is not found, returns null.
+        /// </returns>
         public UserDashboardDTO? GetUserDashboard(string username)
         {
+            // Define user roles and their corresponding dashboard configurations
             var roles = new Dictionary<string, string>
             {
                 ["priyansh"] = "User",
@@ -13,7 +26,14 @@ namespace TPA_Server.Services
                 ["string"] = "Admin"
             };
 
-            return !roles.TryGetValue(username, out var role) ? null : new UserDashboardDTO
+            // Check if the username exists in the roles dictionary
+            if (!roles.TryGetValue(username, out var role))
+            {
+                return null; // Return null if the username is not found
+            }
+
+            // Return the user's dashboard DTO based on their role
+            return new UserDashboardDTO
             {
                 Username = username,
                 Role = role,
@@ -46,5 +66,6 @@ namespace TPA_Server.Services
                 UserPreference = ""
             };
         }
+        #endregion
     }
 }

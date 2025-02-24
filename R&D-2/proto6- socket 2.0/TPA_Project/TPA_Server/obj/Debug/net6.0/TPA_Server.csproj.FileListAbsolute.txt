@@ -54,14 +54,6 @@ F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_Project\TPA_Server\obj\Deb
 F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_Project\TPA_Server\obj\Debug\net6.0\TPA_Server.pdb
 F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_Project\TPA_Server\obj\Debug\net6.0\TPA_Server.genruntimeconfig.cache
 F:\FreshClone\RKIT-dev-sheet\R&D-2\proto5- socket\TPA_Project\TPA_Server\obj\Debug\net6.0\ref\TPA_Server.dll
-F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\obj\Debug\net6.0\TPA_Server.csproj.AssemblyReference.cache
-F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\obj\Debug\net6.0\TPA_Server.GeneratedMSBuildEditorConfig.editorconfig
-F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\obj\Debug\net6.0\TPA_Server.AssemblyInfoInputs.cache
-F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\obj\Debug\net6.0\TPA_Server.AssemblyInfo.cs
-F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\obj\Debug\net6.0\TPA_Server.csproj.CoreCompileInputs.cache
-F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\obj\Debug\net6.0\TPA_Server.MvcApplicationPartsAssemblyInfo.cs
-F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\obj\Debug\net6.0\TPA_Server.MvcApplicationPartsAssemblyInfo.cache
-F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\obj\Debug\net6.0\TPA_Server.sourcelink.json
 F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\bin\Debug\net6.0\appsettings.Development.json
 F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\bin\Debug\net6.0\appsettings.json
 F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\bin\Debug\net6.0\TPA_Server.staticwebassets.endpoints.json
@@ -93,6 +85,14 @@ F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\bin
 F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\bin\Debug\net6.0\System.Net.WebSockets.WebSocketProtocol.dll
 F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\obj\Debug\net6.0\TPA_Server.csproj.AssemblyReference.cache
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\obj\Debug\net6.0\TPA_Server.GeneratedMSBuildEditorConfig.editorconfig
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\obj\Debug\net6.0\TPA_Server.AssemblyInfoInputs.cache
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\obj\Debug\net6.0\TPA_Server.AssemblyInfo.cs
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\obj\Debug\net6.0\TPA_Server.csproj.CoreCompileInputs.cache
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\obj\Debug\net6.0\TPA_Server.MvcApplicationPartsAssemblyInfo.cs
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\obj\Debug\net6.0\TPA_Server.MvcApplicationPartsAssemblyInfo.cache
+F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\obj\Debug\net6.0\TPA_Server.sourcelink.json
 F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\obj\Debug\net6.0\scopedcss\bundle\TPA_Server.styles.css
 F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\obj\Debug\net6.0\staticwebassets.build.json
 F:\FreshClone\RKIT-dev-sheet\R&D-2\proto6- socket 2.0\TPA_Project\TPA_Server\obj\Debug\net6.0\staticwebassets.development.json

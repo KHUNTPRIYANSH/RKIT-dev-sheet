@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{C3095EC5-0C23-4B4A-9A6F-5C270629742F}|TPA_GUI.csproj|solutionrelative:default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C3095EC5-0C23-4B4A-9A6F-5C270629742F}|TPA_GUI.csproj|f:\\freshclone\\rkit-dev-sheet\\r\u0026d-2\\proto6- socket 2.0\\tpa_gui\\scripts\\admin\\sidebar\\dashboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{C3095EC5-0C23-4B4A-9A6F-5C270629742F}|TPA_GUI.csproj|F:\\FreshClone\\RKIT-dev-sheet\\R\u0026D-2\\proto6- socket 2.0\\TPA_GUI\\scripts\\admin\\sidebar\\dashboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{C3095EC5-0C23-4B4A-9A6F-5C270629742F}|TPA_GUI.csproj|solutionrelative:scripts\\admin\\sidebar\\dashboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
@@ -38,8 +38,7 @@
               "RelativeToolTip": "scripts\\Admin\\sidebar\\dashboard.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-02-23T09:38:54.166Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-23T09:38:54.166Z"
             },
             {
               "$type": "Document",
