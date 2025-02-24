@@ -7,7 +7,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Collections.Generic;
-using TPA_Server.Modals;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,12 +1,11 @@
 {
   "Version": 1,
-  "Hash": "GfYe7pDUrYE7TGeQiYK0Yh5ivArB9zAykYpKqs3UwBE=",
+  "Hash": "Akl5ohXfudH2F6Jf823c9cZfowG6UJETVYehWTgWrU0=",
   "Source": "TPA_Server",
   "BasePath": "_content/TPA_Server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "Assets": []
 }

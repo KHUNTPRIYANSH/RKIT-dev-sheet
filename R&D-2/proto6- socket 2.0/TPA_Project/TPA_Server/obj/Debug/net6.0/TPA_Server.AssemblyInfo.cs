@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TPA_Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c71feaba71c79c992727702cbe0d9b99d521429")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("TPA_Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TPA_Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,10 @@
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\R&D-2\proto1\GuiProject\NonGui\bin\NonGui.dll.config
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\R&D-2\proto1\GuiProject\NonGui\bin\NonGui.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\R&D-2\proto1\GuiProject\NonGui\bin\NonGui.pdb
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\R&D-2\proto1\GuiProject\NonGui\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\R&D-2\proto1\GuiProject\NonGui\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\R&D-2\proto1\GuiProject\NonGui\obj\Debug\NonGui.csproj.AssemblyReference.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\R&D-2\proto1\GuiProject\NonGui\obj\Debug\NonGui.csproj.CoreCompileInputs.cache
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\R&D-2\proto1\GuiProject\NonGui\obj\Debug\NonGui.csproj.CopyComplete
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\R&D-2\proto1\GuiProject\NonGui\obj\Debug\NonGui.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\R&D-2\proto1\GuiProject\NonGui\obj\Debug\NonGui.pdb

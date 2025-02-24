@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>DevExtreme SelectBox</title>
@@ -91,9 +92,8 @@
                 showDataBeforeSearch: false,
                 showDropDownButton: true,
                 //showSelectionControls: true,
-                selectionMode: "multiple", // not working in selectbox
+                // selectionMode: "multiple", // not working in selectbox
                 spellcheck: true,
-                useItemTextAsTitle:false,
                 showClearButton: true,
                 groupTemplate(data) {
                     return $(`<div class='custom-icon'><span class='dx-icon-box icon'></span> ${data.key}</div>`);
@@ -133,7 +133,7 @@
                             }
                         }
                     }
-                   
+
                 ],
                 onValueChanged: (e) => {
                     const selectedItem = data.find(item => item.ID === e.value);
@@ -155,4 +155,5 @@
         });
     </script>
 </body>
+
 </html>

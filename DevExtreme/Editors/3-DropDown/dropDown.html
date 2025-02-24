@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
     <!-- DevExtreme JavaScript -->
     <script type="text/javascript" src="../Scripts/dx.all.js"></script>
 </head>
+
 <body class="dx-viewport">
     <h2>DevExtreme DropDown Demo</h2>
     <div id="dropDownContainer"></div>
@@ -30,12 +32,12 @@
         //    { id: 5, name: "Camera" }
         //];
 
-       
-      
-        
+
+
+
 
         // 2. Dictionary as Data Source (Uncomment to use)
-       
+
         //var productsDict = {
         //    1: "Laptop",
         //    2: "Phone",
@@ -47,19 +49,19 @@
         //    id: key,
         //    name: productsDict[key]
         //}));
-       
+
 
         // 3. DevExtreme DataSource (Uncomment to use)
-        
+
         var dataSource = new DevExpress.data.DataSource({
             load: function () {
                 return $.getJSON("https://jsonplaceholder.typicode.com/users");
             }
         });
-        
+
 
         // 4. XML Data (Uncomment to use)
-       
+
         //var xmlData = `<products>
         //    <product id="1" name="Laptop"/>
         //    <product id="2" name="Phone"/>
@@ -79,27 +81,26 @@
         //        name: $product.attr("name")
         //    });
         //});
-        
+
 
         // Function to Initialize DropDown
         function initializeDropDown(dataSource, displayExpr = "name", valueExpr = "id") {
             $('#dropDownContainer').dxDropDownBox({
-                deferRandering: false,
                 contentTemplate: function (e) {
                     var $list = $("<div>").dxList({
                         dataSource: dataSource,
                         displayExpr: displayExpr,
                         valueExpr: valueExpr,
-                        selectionMode: "multiple", 
+                        selectionMode: "multiple",
                         showSelectionControls: true,
-                       
+
                     });
                     return $list;
                 },
                 placeholder: 'Select a value...',
                 showDropDownButton: true, // default : true
                 acceptCustomValue: true, // default : false
-               
+
             });
         }
 
@@ -108,4 +109,5 @@
 
     </script>
 </body>
+
 </html>

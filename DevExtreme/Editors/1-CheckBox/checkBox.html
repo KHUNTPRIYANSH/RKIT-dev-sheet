@@ -44,7 +44,7 @@
                 value: true,
                 text: 'Checked',
                 validationErrors: [{ message: "This checkbox must be checked." }],
-                validationMessageMode: "always",
+                validationMessageMode: "always",// never / auto
                 elementAttr: {
                     'aria-label': 'Checked',
                 },
@@ -91,7 +91,7 @@
                 accessKey: 'c',
                 text: 'Access Key',
                 activeStateEnabled: false,
-                enableThreeStateBehavior: true,
+                enableThreeStateBehavior: true, // for 24.2
                 value: undefined,
                 focusStateEnabled: false,
                 hoverStateEnabled: false,
@@ -133,7 +133,7 @@
                 isValid: false,
                 name: "agreementCheck",
                 readOnly: false,
-                rtlEnabled:true,
+                rtlEnabled: true,
                 tabIndex: 2,
                 text: 'Accept Terms and Conditions',
                 validationError: { message: "You must check this box." },

@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>DevExtreme Checkbox</title>
@@ -37,15 +38,14 @@
         $(function () {
 
 
-           
+
 
             $('#dateBox-container').dxDateBox({
                 acceptCustomValue: false, // prevents putting value mannualy
-                accessKey: 'c' ,// alt + 'c' to focus
+                accessKey: 'c',// alt + 'c' to focus
                 focusStateEnabled: true,
                 //readOnly: true,
                 activeStateEnabled: false,
-                adaptivityEnabled: true, //the date box is displayed without the digital clock face.
                 applyButtonText: "Ok 👌", // The text displayed on the Apply button.
                 applyValueMode: "useButtons", //instantly Applies the selected value immediately after a user clicks the required value in the drop-down menu. This mode cannot be used if the pickerType is "rollers" or the type is "datetime"
                 max: new Date("31/12/2025"),
@@ -58,7 +58,9 @@
                 dateOutOfRangeMessage: 'date is out of range',
                 cancelButtonText: "Cancle 🗑",
                 displayFormat: "yyyy-MM-dd",
-                deferRendering: false, // Specifies whether to render the drop- down field's content when it is displayed. If false, the content is rendered immediately.
+                deferRendering: false,
+                // Specifies whether to render the drop- down field's content when it is displayed.
+                // If false, the content is rendered immediately.
                 height: '50px',
                 width: '750px',
                 hint: 'Date Box Here!!!',
@@ -70,14 +72,14 @@
                 rtlEnabled: true,
                 showClearButton: true,
                 stylingMode: 'filled',  // Others:  outlined underlined filled
-                useMaskBehavior: true 
+                useMaskBehavior: true
             });
 
             $('#datetimeBox-container').dxDateBox({
                 type: 'time',
                 stylingMode: 'filled',
                 interval: 10, // default 30
-                pickerType: 'calendar', // native calendar rollers list
+                pickerType: 'list', // native calendar rollers list
                 value: new Date(),
             });
 
@@ -107,13 +109,13 @@
             dateBoxInstance.focus(); // focus method
             setTimeout(function () {
                 datetimeBoxInstance.close(); // close method
-                dateBoxInstance.blur(); 
+                dateBoxInstance.blur();
 
                 dateBoxInstance.beginUpdate(); // beginUpdate method
                 dateBoxInstance.option("value", new Date()); // options method to set value
                 dateBoxInstance.option("disabled", false);
                 dateBoxInstance.endUpdate(); // endUpdate method
-            }, 14000)
+            }, 4000)
 
             //const clearButton = dateBoxInstance.getButton("clear");
             //console.log(clearButton);
@@ -126,4 +128,5 @@
         })
     </script>
 </body>
+
 </html>
