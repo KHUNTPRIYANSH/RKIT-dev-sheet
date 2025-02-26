@@ -39,7 +39,7 @@ namespace Adv_Final.Controllers
                 _objResponse.IsError = true;
                 _objResponse.Message = "Error: Unable to retrieve user by ID.";
                 string strResponse = $"Data: [no data], IsError: {_objResponse.IsError}, Message: {_objResponse.Message}";
-                return BadRequest(strResponse);
+                return Ok(_objResponse);
             }
             else
             {
@@ -64,7 +64,7 @@ namespace Adv_Final.Controllers
             else
             {
                 string strResponse = $"Data: [no data], IsError: {_objResponse.IsError}, Message: {_objResponse.Message}";
-                return BadRequest(strResponse);
+                return Ok(_objResponse);
             }
             return Ok(_objResponse);
         }
@@ -89,7 +89,7 @@ namespace Adv_Final.Controllers
         {
             _objResponse = _objBLUser.Delete(id);
             if (_objResponse.IsError)
-                return BadRequest(_objResponse.Message);
+                return Ok(_objResponse);
             return Ok(_objResponse);
         }
 
@@ -106,7 +106,7 @@ namespace Adv_Final.Controllers
             }
             else
             {
-                return BadRequest("User not found.");
+                return Ok(_objResponse);
             }
         }
 

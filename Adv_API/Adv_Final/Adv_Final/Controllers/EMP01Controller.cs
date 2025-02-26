@@ -45,7 +45,7 @@ namespace Adv_Final.Controllers
                 _objResponse.IsError = true;
                 _objResponse.Message = "Error : can't get use by id";
                 string strResponse = $"Data : [no data], IsError : {_objResponse.IsError}, Message: {_objResponse.Message}";
-                return BadRequest(strResponse);
+                return Ok(_objResponse); 
             }
             else
             {
@@ -70,7 +70,7 @@ namespace Adv_Final.Controllers
             else if (_objResponse.IsError)
             {
                 string strResponse = $"Data : [no data], IsError : {_objResponse.IsError}, Message: {_objResponse.Message}";
-                return BadRequest(strResponse);
+                return Ok(_objResponse);
             }
             return Ok(_objResponse);
         }
@@ -96,7 +96,7 @@ namespace Adv_Final.Controllers
         {
             _objResponse = _objBLEmployee.Delete(id);
             if (_objResponse.IsError)
-                return BadRequest(_objResponse.Message);
+                return Ok(_objResponse);
             return Ok(_objResponse);
         }
 
@@ -116,12 +116,11 @@ namespace Adv_Final.Controllers
             }
             else
             {
-                return BadRequest("Employee not found");
+                _objResponse.Data = null;
+                _objResponse.Message = "Error : Employee not found";
+                return Ok(_objResponse); ;
             }
         }
-
         #endregion
-
-
     }
 }

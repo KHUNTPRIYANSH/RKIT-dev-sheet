@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevExtreme DataGrid Demo</title>
+    <!-- jQuery -->
+    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="../Content/dx.material.blue.dark.compact.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+
+    <style>
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #dataGridContainer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body class="dx-viewport">
+    <div class="container">
+        <h2 class="text-center">DevExtreme DataGrid State Persistence Demo</h2>
+
+        <!-- Buttons -->
+        <div>
+            <button id="saveStateButton">Save State</button>
+            <button id="loadStateButton">Load State</button>
+            <button id="resetStateButton">Reset State</button>
+        </div>
+
+        <!-- DataGrid Container -->
+        <div id="dataGridContainer"></div>
+    </div>
+
+    <!-- External JS file with product data (data.js) -->
+    <script src="../Data/data.js"></script>
+    <script>
+        // Create DevExtreme DataGrid instance
+        $(() => {
+            let dataGridRef = $("#dataGridContainer").dxDataGrid({
+                dataSource: productData,
+                selection: {
+                    mode: "single",
+                },
+                filterRow: {
+                    visible: true,
+                },
+                groupPanel: {
+                    visible: true,
+                },
+                columns: [
+                    { dataField: "id", caption: "ID" },
+                    {
+                        dataField: "emoji", caption: "Emoji"
+                    },
+                    {
+                        dataField: "name", caption: "Product Name"
+                    },
+                    { dataField: "category", caption: "Category" },
+                    {
+                        dataField: "link", caption: "Link", cellTemplate: function (container, options) {
+                            $("<a>").attr("href", options.value).attr("target", "_blank").text("View").appendTo(container);
+                        }
+                    },
+                    { dataField: "price", caption: "Price" }
+                ],
+                stateStoring: {
+                    type: "sessionStorage", //  'custom' | 'localStorage' (default)| 'sessionStorage'
+                    enabled: true,
+                    storageKey: "lastGridState",
+                },
+                showRowLines: true,  // Show row borders
+                showColumnLines: true, // Show column borders
+            }).dxDataGrid("instance");
+
+            // Save State Button Click Event
+            $("#saveStateButton").on("click", function () {
+                var state = dataGridRef.state(); // gets the current state
+                console.log(state);
+                // sessionStorage.setItem("lastGridState", JSON.stringify(state));
+                DevExpress.ui.notify("State Saved", "success", 500);
+            });
+
+            // Load State Button Click Event
+            $("#loadStateButton").on("click", function () {
+                var state = JSON.parse(sessionStorage.getItem("lastGridState"));
+                dataGridRef.state(state);
+                DevExpress.ui.notify("State Loaded", "success", 500);
+            });
+
+            // Reset State Button Click Event
+            $("#resetStateButton").on("click", function () {
+                dataGridRef.state(null);
+                DevExpress.ui.notify("State Reset", "success", 500);
+            });
+        });
+    </script>
+</body>
+
+</html>

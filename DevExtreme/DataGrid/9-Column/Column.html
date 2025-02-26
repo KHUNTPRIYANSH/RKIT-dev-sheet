@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevExtreme DataGrid Sorting Demo</title>
+    <!-- jQuery -->
+    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="../Content/dx.material.blue.dark.compact.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+
+    <style>
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #dataGridContainer {
+            margin-top: 20px;
+        }
+
+        h3 {
+            color: chartreuse;
+        }
+
+        .grd-1 {
+            background: rgb(54, 57, 74);
+
+            border-right: 1px solid #515159 !important;
+        }
+
+        .grd-2 {
+            background: rgb(54, 57, 74);
+            border-right: 3px solid #fff !important;
+        }
+    </style>
+</head>
+
+<body class="dx-viewport">
+    <div class="container">
+        <h2 class="text-center">DevExtreme DataGrid Sorting Demo</h2>
+
+        <!-- DataGrid Container -->
+
+        <div id="dataGridContainer"></div>
+
+
+    </div>
+
+    <!-- External JS file with product data (data.js) -->
+    <script src="../Data/data.js"></script>
+    <script>
+        // Create DevExtreme DataGrid instance
+        $(() => {
+
+            let dataGridRef = $("#dataGridContainer").dxDataGrid({
+                dataSource: productData,
+                allowColumnResizing: true, // default is false
+                columnResizingMode: 'widget', // defailt 'nextColumn'
+                columnMinWidth: 30,
+                showBorders: true,
+                columnAutoWidth: true,
+                allowColumnReordering: true,
+                // columnWidth: 100, // width for all columns
+                columnFixing: {
+                    enabled: true,
+                },
+                columns: [
+                    {
+                        dataField: "id",
+                        alignment: "center", // undefined (default) | center | left | right
+                        allowEditing: true, // By default, inherits the value of the "editing"
+                        allowFiltering: false,
+                        allowFixing: true, // Applies only if columnFixing.enabled is true
+                        allowGrouping: false, //  Applies only when grouping is enabled
+                        allowHeaderFiltering: false, // Applies only if headerFilter.visible is true
+                        allowHiding: false, // Applies only if columnChooser.enabled is true.
+                        allowReordering: false, // Applies only if allowColumnReordering is true.
+                        allowResizing: false, //  Applies only if allowColumnResizing is true.
+                        allowSearch: true, //  Applies only if searchPanel.visible is true.
+                        allowSorting: true, // Applies only if sorting.mode differs from "none".
+                        caption: "ID",
+                        fixed: true,
+                        fixedPosition: "left", // left' | 'right'
+                        cssClass: "grd-1",
+                    },
+                    {
+                        dataField: "emoji",
+                        cssClass: "grd-2",
+                        alignment: "center", // undefined (default) | center | left | right
+                        caption: "Emoji", fixed: true,
+
+                    },
+                    {
+                        dataField: "Product Category Mapping",
+                        filterOperations: ["contains"],//  '=' | '<>' | '<' | '<=' | '>' | '>=' | 'contains' | 'endswith' | 'isblank' | 'isnotblank' | 'notcontains' | 'startswith' | 'between' | 'anyof' | 'noneof'
+                        // filterValue: "Beauty", // default filter value
+                        showInColumnChooser: false, // columnChooser contain the column header or not
+
+                        headerCellTemplate(container) {
+                            container.append($('<h4><marquee>Category & Product Mapping... </marquee></h3>'));
+                        }, columns: [{
+                            dataField: "name", caption: "Product Name"
+
+                        },
+                        {
+                            dataField: "category",
+                            caption: "Category"
+                        },]
+                    },
+
+                    {
+                        dataField: "link", caption: "Link", cellTemplate: function (container, options) {
+                            $("<a>").attr("href", options.value).attr("target", "_blank").text("View").appendTo(container);
+                        }
+                    },
+                    { dataField: "price", caption: "Price" },
+                    // buttons column
+                    {
+                        width: 200,
+                        caption: "Buttons",
+                        type: "buttons", // 'adaptive' | 'buttons' | 'detailExpand' | 'groupExpand' | 'selection' | 'drag'
+                        // Applies only if the column's type is "buttons".
+                        buttons: [
+                            {
+                                name: "edit",
+                                icon: "edit",
+                                visible: true,
+                                hint: "edit",
+                                onClick: (e) => {
+                                    e.component.editRow(e.row.rowIndex);
+                                    DevExpress.ui.notify("Editing started", "success", 500);
+                                    // console.log(e);
+                                },
+                            },
+                            // custom button using template
+                            {
+                                template: function () {
+                                    var link = $("<button>").text("Click me button");
+                                    link.on("click", function () {
+                                        DevExpress.ui.notify("Click me Clicked", "success", 500);
+                                    });
+                                    return link;
+                                },
+                            },
+                        ], // built-in buttons: 'cancel' | 'delete' | 'edit' | 'save' | 'undelete'
+                    },
+                ],
+
+                sorting: {
+                    mode: "multiple",
+                },
+                columnFixing: {
+                    enabled: true,
+                },
+                grouping: {
+                    contextMenuEnabled: true,
+                },
+                headerFilter: {
+                    visible: true,
+                },
+                columnChooser: {
+                    enabled: true,
+                },
+                searchPanel: {
+                    visible: true,
+                },
+                editing: {
+                    allowUpdating: true,
+                    mode: "row",
+                },
+                filterRow: {
+                    visible: true,
+                },
+                showBorders: true,
+                paging: {
+                    pageSize: 10,
+                },
+                showRowLines: true,  // Show row borders
+                // showColumnLines: true // Show column borders
+            }).dxDataGrid("instance");
+
+        });
+    </script>
+</body>
+
+</html>

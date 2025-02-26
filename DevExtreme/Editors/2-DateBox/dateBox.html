@@ -37,9 +37,6 @@
     <script>
         $(function () {
 
-
-
-
             $('#dateBox-container').dxDateBox({
                 acceptCustomValue: false, // prevents putting value mannualy
                 accessKey: 'c',// alt + 'c' to focus
@@ -50,17 +47,14 @@
                 applyValueMode: "useButtons", //instantly Applies the selected value immediately after a user clicks the required value in the drop-down menu. This mode cannot be used if the pickerType is "rollers" or the type is "datetime"
                 max: new Date("31/12/2025"),
                 min: new Date("1/1/2000"),
-                //disabledDates: function (args) {
-                //    const dayOfWeek = args.date.getDay();
-                //    const isWeekend = args.view === 'month' && (dayOfWeek%2 === 0);
-                //    return isWeekend;
-                //},
+                // disabledDates: function (args) {
+                //     const dayOfWeek = args.date.getDay();
+                //     const isWeekend = args.view === 'month' && (dayOfWeek % 2 === 0);
+                //     return isWeekend;
+                // },
                 dateOutOfRangeMessage: 'date is out of range',
                 cancelButtonText: "Cancle 🗑",
                 displayFormat: "yyyy-MM-dd",
-                deferRendering: false,
-                // Specifies whether to render the drop- down field's content when it is displayed.
-                // If false, the content is rendered immediately.
                 height: '50px',
                 width: '750px',
                 hint: 'Date Box Here!!!',

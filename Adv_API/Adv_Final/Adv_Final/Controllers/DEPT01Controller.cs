@@ -41,7 +41,8 @@ namespace Adv_Final.Controllers
                 _objResponse.IsError = true;
                 _objResponse.Message = "Error: can't get department by id";
                 string strResponse = $"Data: [no data], IsError: {_objResponse.IsError}, Message: {_objResponse.Message}";
-                return BadRequest(strResponse);
+                //return BadRequest(strResponse);
+                return Ok(_objResponse);
             }
             else
             {
@@ -65,8 +66,9 @@ namespace Adv_Final.Controllers
             }
             else if (_objResponse.IsError)
             {
-                string strResponse = $"Data: [no data], IsError: {_objResponse.IsError}, Message: {_objResponse.Message}";
-                return BadRequest(strResponse);
+                _objResponse.Data = $"Data: [no data], IsError: {_objResponse.IsError}, Message: {_objResponse.Message}";
+                //return BadRequest(strResponse);
+                return Ok(_objResponse);
             }
             return Ok(_objResponse);
         }
@@ -91,7 +93,7 @@ namespace Adv_Final.Controllers
         {
             _objResponse = _objBLDepartment.Delete(id);
             if (_objResponse.IsError)
-                return BadRequest(_objResponse.Message);
+               return Ok(_objResponse);
             return Ok(_objResponse);
         }
 
@@ -108,7 +110,9 @@ namespace Adv_Final.Controllers
             }
             else
             {
-                return BadRequest("Department not found");
+                _objResponse.Data = null;
+                _objResponse.Message = "Department not found";
+                return Ok(_objResponse);
             }
         }
 

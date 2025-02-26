@@ -90,7 +90,8 @@ namespace CSharpFinalDemo
 
                 Console.Write("Enter account type (Savings, Business): ");
                 string accountType = Console.ReadLine();
-
+                if(!(accountType == "savings" || accountType == "business"))
+                    throw new ArgumentException("Invalid account type");
                 int id = accounts.Count;
                 var account = new AccountInfo(id, name, aadhaar, pan, accountType);
                 accounts.Add(account);

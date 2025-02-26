@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevExtreme DataGrid Sorting Demo</title>
+    <!-- jQuery -->
+    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="../Content/dx.material.blue.dark.compact.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+
+    <style>
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #dataGridContainer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body class="dx-viewport">
+    <div class="container">
+        <h2 class="text-center">DevExtreme DataGrid Sorting Demo</h2>
+
+        <!-- DataGrid Container -->
+        <div id="dataGridContainer"></div>
+    </div>
+
+    <!-- External JS file with product data (data.js) -->
+    <script src="../Data/data.js"></script>
+    <script>
+        // Create DevExtreme DataGrid instance
+        $(() => {
+
+            let dataGridRef = $("#dataGridContainer").dxDataGrid({
+                dataSource: productData,
+                sorting: {
+                    // use "shift" to sort
+                    // use "ctrl" to remove sort
+
+                    mode: "multiple", //  Default["single"] | "multiple" | "none"
+                    ascendingText: "Sort Ascending",
+                    descendingText: "Sort Descending",
+                    clearText: "Reset Sort",
+                    showSortIndexes: true, // sorting order number , only for 'multiple'
+                },
+                columns: [
+                    { dataField: "id", caption: "ID", allowSorting: false },
+                    {
+                        dataField: "emoji", caption: "Emoji", sortOrder: "asc",
+                        sortIndex: 2,
+                    },
+                    {
+                        dataField: "name", caption: "Product Name", sortOrder: "asc",
+                        sortIndex: 1,
+                    },
+                    { dataField: "category", caption: "Category" },
+                    {
+                        dataField: "link", caption: "Link", cellTemplate: function (container, options) {
+                            $("<a>").attr("href", options.value).attr("target", "_blank").text("View").appendTo(container);
+                        }
+                    },
+                    { dataField: "price", caption: "Price" }
+                ],
+
+
+                showRowLines: true,  // Show row borders
+                showColumnLines: true // Show column borders
+            }).dxDataGrid("instance");
+
+            // dataGridRef.clearSorting(); // removes all sorts
+        });
+    </script>
+</body>
+
+</html>

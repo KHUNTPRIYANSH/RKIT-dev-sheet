@@ -49,6 +49,10 @@ namespace TPA_Server.Controllers
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
             _logger.LogInformation("Login attempt for {Username}", model.Username);
+            
+            // Here you can write verify GLOBAL user 
+
+            // Else verify COMPNAY Specific user
 
             // Validate credentials (hardcoded for demonstration purposes)
             if (model.Username == "string" && model.Password == "string")

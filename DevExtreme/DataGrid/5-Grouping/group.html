@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevExtreme - Cascading Lookups</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="../Content/dx.material.orange.dark.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+
+</head>
+
+<body class="dx-viewport">
+    <div id="gridContainer"></div>
+
+    <script src="./dummy.js"></script>
+    <script>
+        $(function () {
+            let changes = [];
+
+            const productData = [
+                { id: 1, emoji: "💻", name: "Laptop", category: "Electronics", subcategory: "Computers", link: "#", price: 1200 },
+                { id: 2, emoji: "📱", name: "Smartphone", category: "Electronics", subcategory: "Mobile Phones", link: "#", price: 800 },
+                { id: 3, emoji: "🎧", name: "Bluetooth Headphones", category: "Electronics", subcategory: "Audio", link: "#", price: 150 },
+                { id: 4, emoji: "👟", name: "Sneakers", category: "Fashion", subcategory: "Footwear", link: "#", price: 100 },
+                { id: 5, emoji: "👖", name: "Jeans", category: "Fashion", subcategory: "Clothing", link: "#", price: 25 },
+                { id: 6, emoji: "👕", name: "T-Shirt", category: "Fashion", subcategory: "Clothing", link: "#", price: 25 },
+                { id: 7, emoji: "🔥", name: "Microwave Oven", category: "Home Appliances", subcategory: "Kitchen Appliances", link: "#", price: 200 },
+                { id: 8, emoji: "🧹", name: "Vacuum Cleaner", category: "Home Appliances", subcategory: "Cleaning Appliances", link: "#", price: 250 },
+                { id: 9, emoji: "❄️", name: "Air Conditioner", category: "Home Appliances", subcategory: "Cooling Appliances", link: "#", price: 1000 },
+                { id: 10, emoji: "📺", name: "Television", category: "Electronics", subcategory: "Entertainment", link: "#", price: 500 },
+                { id: 11, emoji: "🎮", name: "Gaming Console", category: "Electronics", subcategory: "Entertainment", link: "#", price: 300 },
+                { id: 12, emoji: "🖥️", name: "Desktop Computer", category: "Electronics", subcategory: "Computers", link: "#", price: 900 },
+                { id: 13, emoji: "💡", name: "Smart Light Bulb", category: "Home Appliances", subcategory: "Smart Home", link: "#", price: 25 },
+                { id: 14, emoji: "📸", name: "Camera", category: "Electronics", subcategory: "Photography", link: "#", price: 450 },
+                { id: 15, emoji: "📚", name: "Bookshelf", category: "Furniture", subcategory: "Furniture", link: "#", price: 80 },
+                { id: 16, emoji: "🛋️", name: "Sofa", category: "Furniture", subcategory: "Furniture", link: "#", price: 500 },
+                { id: 17, emoji: "🪑", name: "Chair", category: "Furniture", subcategory: "Furniture", link: "#", price: 75 },
+                { id: 18, emoji: "🚲", name: "Bicycle", category: "Sports", subcategory: "Sports Equipment", link: "#", price: 200 },
+                { id: 19, emoji: "🏀", name: "Basketball", category: "Sports", subcategory: "Sports Equipment", link: "#", price: 20 },
+                { id: 20, emoji: "⚽", name: "Soccer Ball", category: "Sports", subcategory: "Sports Equipment", link: "#", price: 15 }
+            ];
+
+            const categoryMapping = [
+                { category: "Electronics", subcategories: ["Computers", "Mobile Phones", "Audio", "Entertainment", "Photography"] },
+                { category: "Fashion", subcategories: ["Clothing", "Footwear", "Accessories"] },
+                { category: "Home Appliances", subcategories: ["Kitchen Appliances", "Cleaning Appliances", "Cooling Appliances", "Smart Home"] },
+                { category: "Furniture", subcategories: ["Furniture"] },
+                { category: "Sports", subcategories: ["Sports Equipment"] },
+                { category: "Office Supplies", subcategories: ["Stationery"] },
+                { category: "Kitchen", subcategories: ["Kitchen Essentials"] },
+                { category: "Outdoor", subcategories: ["Camping", "Travel"] },
+                { category: "Decor", subcategories: ["Home Decor"] },
+                { category: "Beauty", subcategories: ["Personal Care"] }
+            ];
+
+            let categoryList = categoryMapping.map(item => item.category);
+
+            console.log("Category List:", categoryList); // Debugging line to check categories
+
+            $("#gridContainer").dxDataGrid({
+                dataSource: productData,
+                keyExpr: "id",
+                showBorders: true,
+                editing: {
+                    mode: "row",
+                    allowAdding: true,
+                    allowDeleting: true,
+                    allowUpdating: true,
+                    confirmDelete: true
+                },
+                grouping: {
+                    // allowCollapsing: true,
+                    autoExpandAll: false,
+                    expandMode: "rowClick", // "rowClick" | "buttonClick" 
+                    contextMenuEnabled: true,// when true , we can right click on header of column to group
+                    texts: {
+                        groupByThisColumn: "Group By This Column",
+                        groupContinuedMessage: "Continued from the previous page",// when we do paging
+                        groupContinuesMessage: "Continued on the next page",// when we do paging
+                        ungroup: "Ungroup",
+                        ungroupAll: "Ungroup All"
+                    }
+                },
+                groupPanel: {
+                    // allowColumnDragging: false,
+                    emptyPanelText: 'Drag a column header here to group by that column',
+                    visible: true,
+                },
+                scrolling: { mode: "virtual" },
+                onEditorPreparing: function (e) {
+                    if (e.dataField === "subcategory") {
+                        let selectedCategory = e.row.data.category;
+                        if (selectedCategory) {
+                            let categoryObj = categoryMapping.find(item => item.category === selectedCategory);
+                            e.editorOptions.dataSource = categoryObj ? categoryObj.subcategories : [];
+                        } else {
+                            e.editorOptions.dataSource = [];
+                        }
+                    }
+                },
+                columns: [
+                    { dataField: "id", caption: "ID", allowEditing: false },
+                    { dataField: "name", caption: "Product Name", validationRules: [{ type: "required" }] },
+                    {
+                        dataField: "category",
+                        caption: "Category",
+                        groupIndex: 0,
+                        lookup: {
+                            dataSource: categoryList
+                        },
+                        validationRules: [{ type: "required" }],
+                        setCellValue: function (newData, value) {
+                            newData.category = value;
+                            newData.subcategory = null; // Reset subcategory when category changes
+                        }
+                    },
+                    {
+                        dataField: "subcategory",
+                        caption: "Subcategory",
+                        // groupIndex: 1,
+                        lookup: {
+                            dataSource: [] // Initially empty, dynamically filled in onEditorPreparing
+                        }
+                    },
+                    { dataField: "price", caption: "Price ($)", format: { type: "currency", currency: "USD" } }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>

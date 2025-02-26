@@ -1,3 +1,5 @@
-0,Parth,123456789012,sdffsdvwe,Business,1300
+0,Parth,123456789012,sdffsdvwe,Business,1550
 1,Keyur,999988887777,jebtiu4bh,Saving,11418
 2,Priyansh,124578451245,sgskjgss,Saving,1300
+3,YASH LATHIYA	,794613824650,nhjdfjuh,Business,5500
+4,meet,457845124578,sdgrbjg,savings,1400
