@@ -36,14 +36,7 @@
 
 <body class="dx-viewport">
     <div class="container">
-        <h2 class="text-center">DevExtreme DataGrid State Persistence Demo</h2>
-
-        <!-- Buttons -->
-        <div>
-            <button id="saveStateButton">Save State</button>
-            <button id="loadStateButton">Load State</button>
-            <button id="resetStateButton">Reset State</button>
-        </div>
+        <h2 class="text-center">DevExtreme DataGrid Demo</h2>
 
         <!-- DataGrid Container -->
         <div id="dataGridContainer"></div>
@@ -54,24 +47,18 @@
     <script>
         // Create DevExtreme DataGrid instance
         $(() => {
+
             let dataGridRef = $("#dataGridContainer").dxDataGrid({
                 dataSource: productData,
-                selection: {
-                    mode: "single",
-                },
-                filterRow: {
-                    visible: true,
-                },
-                groupPanel: {
-                    visible: true,
-                },
                 columns: [
                     { dataField: "id", caption: "ID" },
                     {
                         dataField: "emoji", caption: "Emoji"
+
                     },
                     {
                         dataField: "name", caption: "Product Name"
+
                     },
                     { dataField: "category", caption: "Category" },
                     {
@@ -81,34 +68,14 @@
                     },
                     { dataField: "price", caption: "Price" }
                 ],
-                stateStoring: {
-                    type: "sessionStorage", //  'custom' | 'localStorage' (default)| 'sessionStorage'
-                    enabled: true,
-                    storageKey: "lastGridState",
-                },
+
+
                 showRowLines: true,  // Show row borders
                 showColumnLines: true, // Show column borders
+                rowAlternationEnabled: true, // Show one dark and one light row
+                showBorders: true, // Show borders around grid
             }).dxDataGrid("instance");
 
-            // Save State Button Click Event
-            $("#saveStateButton").on("click", function () {
-                var state = dataGridRef.state(); // gets the current state
-                console.log(state);
-                DevExpress.ui.notify("State Saved", "success", 500);
-            });
-
-            // Load State Button Click Event
-            $("#loadStateButton").on("click", function () {
-                var state = JSON.parse(sessionStorage.getItem("lastGridState"));
-                dataGridRef.state(state);
-                DevExpress.ui.notify("State Loaded", "success", 500);
-            });
-
-            // Reset State Button Click Event
-            $("#resetStateButton").on("click", function () {
-                dataGridRef.state(null);
-                DevExpress.ui.notify("State Reset", "success", 500);
-            });
         });
     </script>
 </body>

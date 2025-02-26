@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevExtreme DataGrid Demo</title>
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/22.2.6/css/dx.material.blue.dark.compact.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/22.2.6/js/dx.all.js"></script>
+
+    <style>
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #dataGridContainer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body class="dx-viewport">
+    <div class="container">
+        <h2 class="text-center">DevExtreme DataGrid Demo</h2>
+
+        <!-- DataGrid Container -->
+        <div id="dataGridContainer"></div>
+    </div>
+
+    <script>
+        $(() => {
+            // Fetch data from the API
+            $.ajax({
+                url: "https://dummyjson.com/products",
+                type: "GET",
+                success: function (data) {
+                    console.log(data.products);
+                    const productData = data.products; // Extract the products array
+                    // Initialize the DataGrid
+                    let dataGridRef = $("#dataGridContainer").dxDataGrid({
+                        dataSource: productData,
+                        columns: [
+                            { dataField: "id", caption: "ID" },
+                            { dataField: "title", caption: "Title" },
+                            {
+                                dataField: "description",
+                                width: 300,
+                                caption: "Description"
+                            },
+                            { dataField: "category", caption: "Category" },
+                            {
+                                dataField: "price", caption: "Price",
+                                cellTemplate: function (container, options) {
+                                    // Customize the price column to display with a dollar sign
+                                    const price = options.value;
+                                    container.text(`$${price.toFixed(2)}`);
+                                }
+                            },
+                            {
+                                dataField: "rating", caption: "Rating",
+                                cellTemplate: function (container, options) {
+                                    // Customize the rating column to display stars
+                                    const rating = options.value;
+                                    const stars = "⭐".repeat(Math.round(rating));
+                                    container.text(stars);
+                                }
+                            },
+                            {
+                                dataField: "thumbnail", caption: "Thumbnail",
+                                cellTemplate: function (container, options) {
+                                    // Customize the thumbnail column to display an image
+                                    const thumbnailUrl = options.value;
+                                    $("<img>").attr("src", thumbnailUrl).attr("width", "50").appendTo(container);
+                                }
+                            },
+                            {
+                                dataField: "images", caption: "Images",
+                                cellTemplate: function (container, options) {
+                                    // Customize the images column to display the first image
+                                    const images = options.value;
+                                    if (images && images.length > 0) {
+                                        $("<img>").attr("src", images[0]).attr("width", "50").appendTo(container);
+                                    }
+                                }
+                            }
+                        ],
+                        showRowLines: true,  // Show row borders
+                        showColumnLines: true, // Show column borders
+                        columnAutoWidth: true, // Auto-adjust column width
+                        paging: {
+                            enabled: true,
+                            pageSize: 10 // Set page size
+                        },
+                        pager: {
+                            showPageSizeSelector: true,
+                            allowedPageSizes: [5, 10, 20],
+                            showInfo: true
+                        }
+                    }).dxDataGrid("instance");
+                },
+            });
+        });
+    </script>
+</body>
+
+</html>
