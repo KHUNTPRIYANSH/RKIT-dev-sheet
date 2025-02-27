@@ -31,6 +31,18 @@
         #dataGridContainer {
             margin-top: 20px;
         }
+
+        .cheap {
+            background: linear-gradient(to left, #56ab2f, #a8e063) !important;
+        }
+
+        .moderate {
+            background: linear-gradient(to left, #fdc830, #f37335) !important;
+        }
+
+        .expensive {
+            background: linear-gradient(to right, #ed213a, #93291e) !important;
+        }
     </style>
 </head>
 
@@ -52,16 +64,38 @@
                 dataSource: productData,
                 columns: [
                     { dataField: "id", caption: "ID" },
-                    { dataField: "emoji", caption: "Emoji" },
-                    { dataField: "name", caption: "Product Name" },
+                    {
+                        dataField: "emoji", caption: "Emoji"
+
+                    },
+                    {
+                        dataField: "name", caption: "Product Name"
+
+                    },
                     { dataField: "category", caption: "Category" },
                     {
                         dataField: "link", caption: "Link", cellTemplate: function (container, options) {
                             $("<a>").attr("href", options.value).attr("target", "_blank").text("View").appendTo(container);
                         }
                     },
-                    { dataField: "price", caption: "Price" }
+                    {
+                        dataField: "price", caption: "Price",
+                        alignment: "center"
+                    }
                 ],
+                onCellPrepared: (e) => {
+                    if (e.rowType === "data" && e.column.dataField === "price") {
+                        if (e.data.price < 50) {
+                            e.cellElement.addClass("cheap");
+                        }
+                        else if (e.data.price >= 50 && e.data.price < 750) {
+                            e.cellElement.addClass("moderate");
+                        }
+                        else {
+                            e.cellElement.addClass("expensive");
+                        }
+                    }
+                },
                 showRowLines: true,  // Show row borders
                 showColumnLines: true // Show column borders
             }).dxDataGrid("instance");

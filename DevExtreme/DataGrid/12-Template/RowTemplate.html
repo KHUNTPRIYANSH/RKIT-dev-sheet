@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevExtreme DataGrid Demo</title>
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/22.2.6/css/dx.material.blue.dark.compact.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/22.2.6/js/dx.all.js"></script>
+
+    <style>
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #dataGridContainer {
+            margin-top: 20px;
+        }
+
+        /* Custom row template styling */
+        .main-row {
+            background: linear-gradient(to right, #2b5876, #4e4376);
+        }
+
+        .main-row td {
+            padding: 10px;
+            line-height: 45px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .notes-row td {
+            padding: 10px;
+            background-color: #232232;
+        }
+
+        .notes-row div {
+            color: #bbb;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+        }
+
+        .discount {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .stock {
+            color: #dc3545;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="dx-viewport">
+    <div class="container">
+        <h2 class="text-center">DevExtreme DataGrid Demo</h2>
+
+        <!-- DataGrid Container -->
+        <div id="dataGridContainer"></div>
+    </div>
+
+    <script>
+        $(() => {
+            // Fetch data from the API
+            $.getJSON("https://dummyjson.com/products", function (data) {
+                const productData = data.products; // Extract the products array
+
+                // Initialize the DataGrid
+                let dataGridRef = $("#dataGridContainer").dxDataGrid({
+                    dataSource: productData,
+                    columns: [
+                        { dataField: "thumbnail", caption: "Thumbnail" },
+                        // { dataField: "id", caption: "ID", width: 50 },
+                        { dataField: "title", caption: "Title" },
+                        { dataField: "category", caption: "Category" },
+                        { dataField: "price", caption: "Price" },
+                        { dataField: "discountPercentage", caption: "Discount" },
+                        { dataField: "rating", caption: "Rating" },
+                        { dataField: "stock", caption: "Stock" },
+                        { dataField: "warrantyInformation", caption: "Warranty" },
+                    ],
+                    dataRowTemplate: function (container, item) {
+                        const { data } = item;
+                        const customRow = `
+                            <tr class='main-row' role='row'>
+                                <td role='gridcell'><img src='${data.thumbnail}' alt='${data.title}' tabindex='0'/></td>
+                                <td>${data.title}</td>
+                                <td role='gridcell'>${data.category}</td>
+                                <td role='gridcell'>$${data.price.toFixed(2)}</td>
+                                <td role='gridcell' class='discount'>${data.discountPercentage}%</td>
+                                <td role='gridcell'>${"⭐".repeat(Math.round(data.rating))}</td>
+                                <td role='gridcell' class='stock'>${data.stock}</td>
+                                <td role='gridcell'>${data.brand}</td>
+                            </tr>
+                            <tr class='notes-row' role='row'>
+                                <td colspan='8' role='gridcell'>
+                                    <div>
+                                        <strong>Description:</strong> ${data.description}<br>
+                                        <strong>Warranty:</strong> ${data.warrantyInformation}<br>
+                                    </div>
+                                </td>
+                            </tr>
+                        `;
+                        container.append(customRow);
+                    },
+                    rowAlternationEnabled: true, // Alternate row colors
+                    showRowLines: true, // Show row borders
+                    // showColumnLines: true, // Show column borders
+                    columnAutoWidth: true, // Auto-adjust column width
+                    paging: {
+                        enabled: true,
+                        pageSize: 10 // Set page size
+                    },
+                    pager: {
+                        showPageSizeSelector: true,
+                        allowedPageSizes: [5, 10, 20],
+                        showInfo: true
+                    },
+                    filterRow: {
+                        visible: true // Enable filtering
+                    },
+                    searchPanel: {
+                        placeholder: "Search Product...",// Search input placeholder
+                        highlightCaseSensitive: true,
+                        visible: true // Enable search
+                    }
+                }).dxDataGrid("instance");
+            });
+        });
+    </script>
+</body>
+
+</html>
