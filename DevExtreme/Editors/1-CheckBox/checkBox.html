@@ -108,7 +108,6 @@
                 name: "abc",
                 hint: "you can't see me",
                 elementAttr: {
-                    name: "xyz",
                     'aria-label': 'Three state mode',
                 },
             });
@@ -139,7 +138,6 @@
                 validationError: { message: "You must check this box." },
                 validationErrors: [{ message: "Validation error 1" }, { message: "Validation error 2" }],
                 validationMessageMode: "always",
-                validationStatus: "valid",
                 value: false,
                 visible: true,
 
@@ -159,15 +157,6 @@
             checkBox.option("text", "Updated: Accept Terms");
             checkBox.endUpdate();
 
-            DevExpress.ui.dxCheckBox.defaultOptions({
-                options: {
-                    stylingMode: "outlined",
-                    width: 220
-                }
-            });
-
-            checkBox.repaint(); // it is not generally used for checkbox but for other widgets
-
             setTimeout(() => {
                 checkBox.focus();
             }, 2000);
@@ -179,7 +168,7 @@
             setTimeout(() => {
                 checkBox.reset();
                 console.log("CheckBox Reset");
-            }, 5000);
+            }, 7000);
 
             checkBox.option("value", true);
             checkBox.option({ readOnly: true });

@@ -38,7 +38,6 @@
         $(function () {
 
             $('#dateBox-container').dxDateBox({
-                acceptCustomValue: false, // prevents putting value mannualy
                 accessKey: 'c',// alt + 'c' to focus
                 focusStateEnabled: true,
                 //readOnly: true,
@@ -66,7 +65,9 @@
                 rtlEnabled: true,
                 showClearButton: true,
                 stylingMode: 'filled',  // Others:  outlined underlined filled
-                useMaskBehavior: true
+                useMaskBehavior: true,
+                acceptCustomValue: false, // prevents putting value mannualy
+
             });
 
             $('#datetimeBox-container').dxDateBox({
@@ -82,6 +83,7 @@
                 adaptivityEnabled: true,
                 applyButtonText: 'Apply Value',
                 displayFormat: 'EEEE, d of MMM, yyyy HH:mm',
+                // EEEE: day of week, d: day, MMM: month, yyyy: year, HH: hour, mm: minute
                 invalidDateMessage: 'Date or time is invalid',
                 maxLength: 6,
                 opened: false,
@@ -101,15 +103,15 @@
             var datetimeBoxInstance = $("#timeBox-container").dxDateBox("instance");
 
             dateBoxInstance.focus(); // focus method
-            setTimeout(function () {
-                datetimeBoxInstance.close(); // close method
-                dateBoxInstance.blur();
 
-                dateBoxInstance.beginUpdate(); // beginUpdate method
-                dateBoxInstance.option("value", new Date()); // options method to set value
-                dateBoxInstance.option("disabled", false);
-                dateBoxInstance.endUpdate(); // endUpdate method
-            }, 4000)
+            datetimeBoxInstance.close(); // close method
+            dateBoxInstance.blur();
+
+            dateBoxInstance.beginUpdate(); // beginUpdate method
+            dateBoxInstance.option("value", new Date()); // options method to set value
+            dateBoxInstance.option("disabled", false);
+            dateBoxInstance.endUpdate(); // endUpdate method
+
 
             //const clearButton = dateBoxInstance.getButton("clear");
             //console.log(clearButton);

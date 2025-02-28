@@ -137,14 +137,7 @@
                 <label>Allow Multiple Files:</label>
                 <div id="multiple-option"></div>
             </div>
-            <div class="dx-field">
-                <label>Enable Max File Size Limit:</label>
-                <div id="enable-max-size"></div>
-            </div>
-            <div class="dx-field hidden" id="max-file-size">
-                <label>Max File Size (MB):</label>
-                <input type="number" id="max-size-input" min="1" />
-            </div>
+
             <div class="dx-field">
                 <label>Allowed File Extensions:</label>
                 <div id="allowed-extensions"></div>
@@ -169,12 +162,10 @@
                 multiple: false,
                 accept: '*',
                 width: "80%",
-                value: [],
                 allowCanceling: true,
                 uploadMode: 'instantly',
                 uploadUrl: 'https://js.devexpress.com/Demos/WidgetsGalleryDataService/api/ChunkUpload',
                 chunkSize: 1000000,  // 1mb
-                name: 'file',
                 dialogTrigger: "#file-uploader",
                 dropZone: "#drop-zone",
                 invalidFileExtensionMessage: "[Error]: File extension is not proper",
@@ -253,23 +244,6 @@
                 },
             }).dxFileUploader('instance');
 
-            // Enable/Disable Max File Size input
-            $('#enable-max-size').dxCheckBox({
-                value: false,
-                text: 'Enable Max File Size',
-                onValueChanged(e) {
-                    if (e.value) {
-                        $('#max-file-size').removeClass('hidden');
-                        const maxSizeInMb = parseInt($('#max-size-input').val());
-                        if (maxSizeInMb > 0) {
-                            fileUploader.option('maxFileSize', maxSizeInMb * 1024 * 1024); // Convert MB to Bytes
-                        }
-                    } else {
-                        $('#max-file-size').addClass('hidden');
-                        fileUploader.option('maxFileSize', 4000000); // Reset to default value (4MB)
-                    }
-                },
-            });
 
             // File Type Selection
             $('#accept-option').dxSelectBox({

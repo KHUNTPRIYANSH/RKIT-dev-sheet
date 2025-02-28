@@ -35,30 +35,28 @@
         $(() => {
 
             $("#numberBox-zipcode-container").dxNumberBox({
-                //mode: 'tel', // Effect keyboard of mobile device
                 //value: '',
                 //placeholder: '360002',
 
                 // '0' : zero represent single digit if not given than it display zero it self
                 format: "0.00", // 123.45 → "123.45"
-                format: "0.00", // 123 → "123.00"
+                // format: "0.00", // 123 → "123.00"
 
-                // '#' : Represents a digit, but if the number doesn’t have a digit in that position, it shows nothing.
-                format: "#.##", // 123.45 → "123.45"
-                format: "#.##", // 123 → "123"
+                // // '#' : Represents a digit, but if the number doesn’t have a digit in that position, it shows nothing.
+                // format: "#.##", // 123.45 → "123.45"
+                // format: "#.##", // 123 → "123"
 
-                // ',' : Represents the thousands separator.
-                format: ",0",// 123456 → "123,456"
+                // // ',' : Represents the thousands separator.
+                // format: ",0",// 123456 → "123,456"
 
-                // '%' : Multiplies the number by 100 and adds a % sign.
-                format: "#0.##%",// 0.123 → "12.3%"
+                // // ; (Semicolon) formats for positive and negative numbers.
+                // format: "#0.##; |#0.##|", // 123 → "123", -123 → "(123)"
 
-                // ; (Semicolon) formats for positive and negative numbers.
-                format: "#0.##; |#0.##|", // 123 → "123", -123 → "(123)"
                 //// doubt
                 //format: "000'-'000",
                 //value: 123456,
                 //format: "000-000",
+
                 width: 500,
                 height: 75,
                 min: -999999,
@@ -70,20 +68,6 @@
                 // On mobile devices, this will display the standard keyboard(with letters, numbers, and symbols).
                 // Use this mode if you want users to enter general text or if you don’t need a specialized keyboard.
 
-
-                //validationRules: [
-                //    {
-                //        type: "custom",
-                //        validationCallback: function (e) {
-                //            const zipRegex = /^[0-9]{6}$/;
-                //            if (!zipRegex.test(e.value)) {
-                //                return false;
-                //            }
-                //            return true;
-                //        },
-                //        message: "Please enter a proper zipcode."
-                //    }
-                //],
 
                 onCopy: (e) => {
                     alert("You copied something");
