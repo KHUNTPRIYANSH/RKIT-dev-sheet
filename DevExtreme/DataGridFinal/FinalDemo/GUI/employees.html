@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="/Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="/Content/dx.dark.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="/Scripts/dx.all.js"></script>
+
+    <!-- Bootstrap CSS (Dark Theme) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body class="dx-viewport">
+    <div class="container">
+        <h2 class="text-center">Employees</h2>
+        <div id="dataGridContainer"></div>
+    </div>
+
+    <script>
+        $(function () {
+            const apiUrl = "https://localhost:44310/get_all_employees";
+            const userRole = localStorage.getItem("urole"); // Get user role from localStorage
+
+            // Define the CustomStore for the DataGrid
+            const customStore = new DevExpress.data.CustomStore({
+                key: "P01F01",
+                loadMode: "raw",
+                load: function () {
+                    return $.ajax({
+                        url: apiUrl,
+                        headers: {
+                            "Authorization": "Bearer " + localStorage.getItem("utoken")
+                        },
+                        method: "GET",
+                        dataType: "json"
+                    }).then(
+                        (res) => {
+                            console.log("Data : ");
+                            console.log(res.Data);
+                            return res.Data;
+                        }
+                    );
+                },
+                insert: function (values) {
+                    return $.ajax({
+                        url: "https://localhost:44310/add_employee",
+                        method: "POST",
+                        headers: {
+                            "Authorization": "Bearer " + localStorage.getItem("utoken")
+                        },
+                        contentType: "application/json",
+                        data: JSON.stringify(values)
+                    });
+                },
+                update: function (key, values) {
+                    return $.ajax({
+                        url: "https://localhost:44310/update_employee",
+                        method: "PUT",
+                        headers: {
+                            "Authorization": "Bearer " + localStorage.getItem("utoken")
+                        },
+                        contentType: "application/json",
+                        data: JSON.stringify(values)
+                    });
+                },
+                remove: function (key) {
+                    return $.ajax({
+                        url: `https://localhost:44310/delete_employee?id=${key}`,
+                        headers: {
+                            "Authorization": "Bearer " + localStorage.getItem("utoken")
+                        },
+                        method: "DELETE"
+                    });
+                }
+            });
+
+            // Configure the DataGrid
+            $("#dataGridContainer").dxDataGrid({
+                dataSource: customStore,
+                keyExpr: "P01F01",
+                columns: [
+                    { dataField: "P01F01", dataType: "number", caption: "ID", allowEditing: false },
+                    { dataField: "P01F02", caption: "First Name" },
+                    { dataField: "P01F03", caption: "Last Name" },
+                    { dataField: "P01F04", caption: "Date of Birth", dataType: "date" },
+                    { dataField: "P01F05", caption: "Department ID", dataType: "number" },
+                    { dataField: "P01F06", caption: "Position" },
+                    { dataField: "P01F07", caption: "Salary", dataType: "number" },
+                ],
+                editing: {
+                    mode: "popup",
+                    allowAdding: userRole === "Admin" || userRole === "Editor",
+                    allowUpdating: userRole === "Admin" || userRole === "Editor",
+                    allowDeleting: userRole === "Admin"
+                },
+                paging: { pageSize: 10 },
+                filterRow: { visible: true },
+                searchPanel: { visible: true },
+                showBorders: true,
+                onRowInserted: function (e) {
+                    e.component.refresh();
+                },
+                onRowUpdated: function (e) {
+                    e.component.refresh();
+                },
+                onRowRemoved: function (e) {
+                    e.component.refresh();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

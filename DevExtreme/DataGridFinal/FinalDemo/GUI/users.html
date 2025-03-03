@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Management</title>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="/Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="/Content/dx.dark.css">
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="/Scripts/dx.all.js"></script>
+
+    <!-- Bootstrap CSS (Dark Theme) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body class="dx-viewport">
+    <div class="container">
+        <h2 class="text-center">Users Management</h2>
+        <div id="dataGridContainer"></div>
+    </div>
+
+    <script>
+        $(function () {
+            const apiUrl = "https://localhost:44310/get_all_users";
+            const userRole = localStorage.getItem("urole"); // Get user role from localStorage
+
+            // Define the CustomStore for the DataGrid
+            const customStore = new DevExpress.data.CustomStore({
+                key: "R01F01",
+                loadMode: "raw",
+                load: function () {
+                    return $.ajax({
+                        url: apiUrl,
+                        headers: {
+                            "Authorization": "Bearer " + localStorage.getItem("utoken")
+                        },
+                        method: "GET",
+                        dataType: "json"
+                    }).then(
+                        (res) => {
+                            console.log("Data : ");
+                            console.log(res.Data);
+                            return res.Data;
+                        }
+                    );
+                },
+                insert: function (values) {
+                    return $.ajax({
+                        url: "https://localhost:44310/add_user",
+                        method: "POST",
+                        headers: {
+                            "Authorization": "Bearer " + localStorage.getItem("utoken")
+                        },
+                        contentType: "application/json",
+                        data: JSON.stringify(values)
+                    });
+                },
+                update: function (key, values) {
+                    return $.ajax({
+                        url: "https://localhost:44310/update_user",
+                        method: "PUT",
+                        headers: {
+                            "Authorization": "Bearer " + localStorage.getItem("utoken")
+                        },
+                        contentType: "application/json",
+                        data: JSON.stringify(values)
+                    });
+                },
+                remove: function (key) {
+                    return $.ajax({
+                        url: `https://localhost:44310/delete_user?id=${key}`,
+                        headers: {
+                            "Authorization": "Bearer " + localStorage.getItem("utoken")
+                        },
+                        method: "DELETE"
+                    });
+                }
+            });
+
+            // Configure the DataGrid
+            $("#dataGridContainer").dxDataGrid({
+                dataSource: customStore,
+                keyExpr: "R01F01",
+                columns: [
+                    { dataField: "R01F01", dataType: "number", caption: "ID", allowEditing: false },
+                    { dataField: "R01F02", caption: "User Name" },
+                    { dataField: "R01F03", caption: "Password", dataType: "string", visible: false },
+                    { dataField: "R01F04", caption: "Role", lookup: { dataSource: ["Admin", "Editor", "User"], valueExpr: "", displayExpr: "" } }
+                ],
+                editing: {
+                    mode: "popup",
+                    allowAdding: userRole === "Admin",
+                    allowUpdating: userRole === "Admin" || userRole === "Editor",
+                    allowDeleting: userRole === "Admin"
+                },
+                paging: { pageSize: 10 },
+                filterRow: { visible: true },
+                searchPanel: { visible: true },
+                showBorders: true,
+                onRowInserted: function (e) {
+                    e.component.refresh();
+                },
+                onRowUpdated: function (e) {
+                    e.component.refresh();
+                },
+                onRowRemoved: function (e) {
+                    e.component.refresh();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
