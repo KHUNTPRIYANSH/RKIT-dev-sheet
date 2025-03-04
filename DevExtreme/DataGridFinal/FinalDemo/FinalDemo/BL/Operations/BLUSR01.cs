@@ -195,6 +195,7 @@ namespace FinalDemo.BL.Operations
         /// <param name="objDTO">The DTO object to prepare.</param>
         public void PreSave(DTOUSR01 objDTO)
         {
+          
             // Encrypt the password from DTO before converting to POCO
             objDTO.R01F02 = objDTO.R01F02.Trim().ToLower();
             _objUsr01 = objDTO.Convert<USR01>();

@@ -47,10 +47,10 @@ namespace FinalDemo.Models.DTO
         public string P01F06 { get; set; }
 
         /// <summary>
-        /// P01F06 = Salary
+        /// P01F08 = Salary
         /// </summary>
 
-        public decimal P01F07 { get; set; }
+        public decimal P01F08 { get; set; }
 
         #endregion
     }

@@ -15,8 +15,8 @@ namespace FinalDemo.Models.POCO
         /// T01F01 = DeptId
         /// </summary>
         [PrimaryKey] // Indicates this is the primary key.
-        [AutoIncrement]
-        public int T01F01 { get; set; } = 0; // DepartmentId
+        //[AutoIncrement]
+        public int T01F01 { get; set; }  // DepartmentId
 
         /// <summary>
         /// T01F02 = DeptName

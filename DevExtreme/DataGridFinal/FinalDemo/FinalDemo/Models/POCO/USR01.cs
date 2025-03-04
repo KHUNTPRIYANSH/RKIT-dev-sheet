@@ -33,7 +33,7 @@ namespace FinalDemo.Models.POCO
         /// <summary>
         /// Gets or sets the role of the user. The role is ignored during update operations.
         /// </summary>
-        [IgnoreOnUpdate]
+      
         [EnumDataType(typeof(EnmRoleType))]
         public EnmRoleType R01F04 { get; set; }
 

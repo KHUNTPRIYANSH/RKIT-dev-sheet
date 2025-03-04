@@ -75,7 +75,7 @@ namespace FinalDemo.Controllers
         [HttpPost]
         [Route("add_employee")]
         [JWTAuthorizationFilter(EnmRoleType.Admin, EnmRoleType.Editor)]
-        public IHttpActionResult AddEmployee(DTOEMP01 objDTOEmp01)
+        public IHttpActionResult AddEmployee( DTOEMP01 objDTOEmp01)
         {
             _objBLEmployee.Type = EnumType.A;
             _objBLEmployee.PreSave(objDTOEmp01);
@@ -95,17 +95,29 @@ namespace FinalDemo.Controllers
         [HttpPut]
         [Route("update_employee")]
         [JWTAuthorizationFilter(EnmRoleType.Admin, EnmRoleType.Editor)]
-        public IHttpActionResult UpdateEmployee(DTOEMP01 objDTOEmp01)
+        public IHttpActionResult UpdateEmployee( DTOEMP01 objDTOEmp01) // <== Add [FromBody]
         {
+            if (objDTOEmp01 == null)
+            {
+                return BadRequest("Invalid request body");
+            }
+
+            Console.WriteLine("Received Update Request:");
+            Console.WriteLine($"P01F01: {objDTOEmp01.P01F01}");
+            Console.WriteLine($"P01F02: {objDTOEmp01.P01F02}");
+
             _objBLEmployee.Type = EnumType.E;
             _objBLEmployee.PreSave(objDTOEmp01);
             _objResponse = _objBLEmployee.Validation();
+
             if (!_objResponse.IsError)
             {
                 _objResponse = _objBLEmployee.Save();
             }
+
             return Ok(_objResponse);
         }
+
 
         /// <summary>
         /// Deletes an employee by their ID.

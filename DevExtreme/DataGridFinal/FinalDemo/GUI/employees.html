@@ -40,7 +40,8 @@
     <script>
         $(function () {
             const apiUrl = "https://localhost:44310/get_all_employees";
-            const userRole = localStorage.getItem("urole"); // Get user role from localStorage
+            const token = localStorage.getItem("utoken");
+            const userRole = localStorage.getItem("urole");
 
             // Define the CustomStore for the DataGrid
             const customStore = new DevExpress.data.CustomStore({
@@ -49,48 +50,90 @@
                 load: function () {
                     return $.ajax({
                         url: apiUrl,
-                        headers: {
-                            "Authorization": "Bearer " + localStorage.getItem("utoken")
-                        },
                         method: "GET",
+                        headers: { "Authorization": "Bearer " + token },
                         dataType: "json"
-                    }).then(
-                        (res) => {
-                            console.log("Data : ");
-                            console.log(res.Data);
-                            return res.Data;
-                        }
-                    );
+                    }).then(response => {
+                        console.log("Data Loaded: ", response.Data);
+                        return response.Data;
+                    });
                 },
                 insert: function (values) {
+                    console.log("Insert Values:", values);
+                    let serData = JSON.stringify({
+                        P01F01: 0, // Employee ID (Auto-generated)
+                        P01F02: values.P01F02, // First Name
+                        P01F03: values.P01F03, // Last Name
+                        P01F04: values.P01F04, // Date of Birth
+                        P01F05: values.P01F05, // Department ID
+                        P01F06: values.P01F06, // Position
+                        P01F08: values.P01F08, // Salary
+
+                    });
+                    console.log("Serialized Data:", serData);
                     return $.ajax({
                         url: "https://localhost:44310/add_employee",
                         method: "POST",
-                        headers: {
-                            "Authorization": "Bearer " + localStorage.getItem("utoken")
-                        },
+                        headers: { "Authorization": "Bearer " + token },
                         contentType: "application/json",
-                        data: JSON.stringify(values)
+                        data: serData
+                    }).done(() => {
+                        $("#dataGridContainer").dxDataGrid("instance").refresh();
+                    }).fail((jqXHR, textStatus, errorThrown) => {
+                        console.error("Insert Error:", textStatus, errorThrown, jqXHR.responseText);
                     });
                 },
                 update: function (key, values) {
+                    console.log("Update Values:", values);
+                    // alert("Update Values:", values);
+                    // Fetch the existing record first
                     return $.ajax({
-                        url: "https://localhost:44310/update_employee",
-                        method: "PUT",
-                        headers: {
-                            "Authorization": "Bearer " + localStorage.getItem("utoken")
-                        },
-                        contentType: "application/json",
-                        data: JSON.stringify(values)
+                        url: `https://localhost:44310/get_employee_by_id?id=${key}`,
+                        method: "GET",
+                        headers: { "Authorization": "Bearer " + token },
+                        dataType: "json"
+                    }).then(res => {
+                        // Merge existing fields with the new values
+                        console.log("res", res);
+                        let existingRecord = res.Data;
+                        console.log("Existing Record:", existingRecord);
+                        let updatedRecord = {
+                            P01F01: existingRecord.P01F01, // Employee ID
+                            P01F02: values.P01F02 !== undefined ? values.P01F02 : existingRecord.P01F02, // First Name
+                            P01F03: values.P01F03 !== undefined ? values.P01F03 : existingRecord.P01F03, // Last Name
+                            P01F04: values.P01F04 !== undefined ? values.P01F04 : existingRecord.P01F04, // Date of Birth
+                            P01F05: values.P01F05 !== undefined ? values.P01F05 : existingRecord.P01F05, // Department ID
+                            P01F06: values.P01F06 !== undefined ? values.P01F06 : existingRecord.P01F06, // Position
+                            P01F08: values.P01F08 !== undefined ? values.P01F08 : existingRecord.P01F08  // Salary
+                        };
+
+                        console.log("Merged Update Data:", updatedRecord);
+
+                        return $.ajax({
+                            url: "https://localhost:44310/update_employee",
+                            method: "PUT",
+                            headers: { "Authorization": "Bearer " + token },
+                            contentType: "application/json",
+                            data: JSON.stringify(updatedRecord)
+                        });
+                    }).done(() => {
+                        $("#dataGridContainer").dxDataGrid("instance").refresh();
+                    }).fail((jqXHR, textStatus, errorThrown) => {
+                        console.error("Update Error:", textStatus, errorThrown, jqXHR.responseText);
                     });
-                },
+                }
+                ,
                 remove: function (key) {
+                    console.log("Delete Employee ID:", key);
+
                     return $.ajax({
                         url: `https://localhost:44310/delete_employee?id=${key}`,
-                        headers: {
-                            "Authorization": "Bearer " + localStorage.getItem("utoken")
-                        },
-                        method: "DELETE"
+                        method: "DELETE",
+                        headers: { "Authorization": "Bearer " + token }
+                    }).done(() => {
+                        $("#dataGridContainer").dxDataGrid("instance").refresh();
+                    }).fail((jqXHR, textStatus, errorThrown) => {
+                        console.error("Delete Error:", textStatus, errorThrown, jqXHR.responseText);
                     });
                 }
             });
@@ -101,12 +144,12 @@
                 keyExpr: "P01F01",
                 columns: [
                     { dataField: "P01F01", dataType: "number", caption: "ID", allowEditing: false },
-                    { dataField: "P01F02", caption: "First Name" },
-                    { dataField: "P01F03", caption: "Last Name" },
-                    { dataField: "P01F04", caption: "Date of Birth", dataType: "date" },
-                    { dataField: "P01F05", caption: "Department ID", dataType: "number" },
-                    { dataField: "P01F06", caption: "Position" },
-                    { dataField: "P01F07", caption: "Salary", dataType: "number" },
+                    { dataField: "P01F02", caption: "First Name", validationRules: [{ type: "required" }] },
+                    { dataField: "P01F03", caption: "Last Name", validationRules: [{ type: "required" }] },
+                    { dataField: "P01F04", caption: "Date of Birth", dataType: "date", validationRules: [{ type: "required" }] },
+                    { dataField: "P01F05", caption: "Department ID", dataType: "number", validationRules: [{ type: "required" }] },
+                    { dataField: "P01F06", caption: "Position", validationRules: [{ type: "required" }] },
+                    { dataField: "P01F08", caption: "Salary", dataType: "number", alignment: "center", validationRules: [{ type: "required" }] }
                 ],
                 editing: {
                     mode: "popup",
@@ -119,12 +162,15 @@
                 searchPanel: { visible: true },
                 showBorders: true,
                 onRowInserted: function (e) {
+                    console.log("Row Inserted:", e.data);
                     e.component.refresh();
                 },
                 onRowUpdated: function (e) {
+                    console.log("Row Updated:", e.data);
                     e.component.refresh();
                 },
                 onRowRemoved: function (e) {
+                    console.log("Row Removed:", e.data);
                     e.component.refresh();
                 }
             });

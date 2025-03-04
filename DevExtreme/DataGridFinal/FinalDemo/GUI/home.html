@@ -33,23 +33,23 @@
             color: white;
         }
 
-            .sidebar ul {
-                list-style: none;
-                padding: 0;
-            }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
 
-                .sidebar ul li {
-                    padding: 10px;
-                    cursor: pointer;
-                    background: #444;
-                    margin-bottom: 5px;
-                    text-align: center;
-                    border-radius: 5px;
-                }
+        .sidebar ul li {
+            padding: 10px;
+            cursor: pointer;
+            background: #444;
+            margin-bottom: 5px;
+            text-align: center;
+            border-radius: 5px;
+        }
 
-                    .sidebar ul li:hover {
-                        background: #555;
-                    }
+        .sidebar ul li:hover {
+            background: #555;
+        }
 
         .content {
             margin-left: 220px;
@@ -77,7 +77,7 @@
         <h1 id="page-title">Home Page</h1>
         <h4></h4>
         <div id="profile-section" style="display:none;"></div>
-        <iframe id="content-frame"></iframe>
+        <iframe id="holding-frame"></iframe>
     </div>
 
     <script>
@@ -106,7 +106,7 @@
         });
 
         function openProfile() {
-            $("#content-frame").hide();
+            $("#holding-frame").hide();
             $("#page-title").text("Profile").show();
             $("#profile-section").show().html(`
                     <form id="profile-form">
@@ -163,11 +163,13 @@
             let userPass = localStorage.getItem("upass");
             if (currentRole === "User") {
                 alert("You are not allowed to edit your profile.");
+
                 return;
             } else if (currentRole === "Editor" && updatedRole !== currentRole) {
                 alert("Editors can only update their username.");
                 return;
             }
+
 
             $.ajax({
                 url: "https://localhost:44310/update_user",
@@ -187,6 +189,7 @@
                     localStorage.setItem("urole", updatedRole);
                     alert("Profile updated successfully!");
                     $("h4").text("Welcome " + updatedName);
+                    logout();
                 },
                 error: function (xhr) {
                     alert("Error updating profile: " + xhr.responseText);
@@ -209,7 +212,7 @@
         function loadPage(page) {
             $("#profile-section").hide();
             $("#page-title").hide();
-            $("#content-frame").show().attr("src", page);
+            $("#holding-frame").show().attr("src", page);
         }
     </script>
 </body>

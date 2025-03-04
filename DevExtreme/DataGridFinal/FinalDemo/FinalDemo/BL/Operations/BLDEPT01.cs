@@ -186,7 +186,6 @@ namespace FinalDemo.BL.Operation
                 {
                     if (Type == EnumType.A)
                     {
-                        _objDept01.T01F01 = 0;
                         int id = (int)db.Insert(_objDept01, selectIdentity: true);
                         _objResponse.Message = $"Data Added [ID]:{id}";
                     }

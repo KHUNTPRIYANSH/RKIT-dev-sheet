@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -9,62 +9,118 @@
     <script type="text/javascript" src="/Scripts/jquery-3.5.1.min.js"></script>
 
     <!-- DevExtreme CSS -->
-    <link rel="stylesheet" href="/Content/dx.dark.css">
+
+    <link rel="stylesheet" href="/Content/dx.material.purple.light.css">
 
     <!-- DevExtreme JavaScript -->
     <script type="text/javascript" src="/Scripts/dx.all.js"></script>
 
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            width: 100vw;
+            background: #bbb !important;
+        }
+
+        section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f4f4f4;
+            color: #252525;
+            gap: 25px;
+            padding: 25px;
+            border-radius: 15px;
+            padding-left: 50px;
+        }
+
+        #form {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            padding: 25px;
+            display: flex;
+            align-self: center;
+            flex-direction: column;
+            gap: 15px;
+            box-shadow: 0 0 15px 1px rgba(128, 0, 128, 0.246);
+            width: 40%;
+        }
+
+        .dx-field-value {
+            width: 100% !important;
+        }
+
+        main {
+            width: 60%;
+        }
+
+        main img {
+            scale: 0.9;
+            width: 100%;
+            mix-blend-mode: multiply;
+        }
+
+        #submit-button {
+            width: 100%;
+        }
+
+        #login-button {
+            width: 100%;
+        }
+
+        .dx-fieldset-header {
+            font-size: 1.7rem;
+            margin-bottom: 0px;
+        }
+    </style>
 </head>
 
 <body class="dx-viewport">
-    <h1>SignUp Page</h1>
+    <section>
+        <form id="form">
+            <div class="dx-fieldset-header">SignUp</div>
 
-    <form id="form">
-        <div class="dx-fieldset">
-            <div class="dx-fieldset-header">Form</div>
 
-            <br>
-            <div class="dx-field">
-                <div class="dx-field-label">User Name</div>
-                <div class="dx-field-value">
-                    <div id="userName"></div>
-                </div>
+            <div class="dx-field-value">
+                <div id="userName"></div>
             </div>
 
-            <div class="dx-field">
-                <div class="dx-field-label">Password</div>
-                <div class="dx-field-value">
-                    <div id="password"></div>
-                </div>
+            <div class="dx-field-value">
+                <div id="password"></div>
             </div>
 
-            <div class="dx-field">
-                <div class="dx-field-label">Confirm Password</div>
-                <div class="dx-field-value">
-                    <div id="confirm-password"></div>
-                </div>
+            <div class="dx-field-value">
+                <div id="confirm-password"></div>
             </div>
 
-            <div class="dx-field">
-                <div class="dx-field-label">Role</div>
-                <div class="dx-field-value">
-                    <div id="role"></div>
-                </div>
+            <div class="dx-field-value">
+                <div id="role"></div>
             </div>
 
-            <div class="dx-field">
-                <div class="dx-field-value">
-                    <div id="submit-button"></div>
-                </div>
+            <div class="dx-field-value">
+                <div id="submit-button"></div>
             </div>
 
-            <div class="dx-field">
-                <div class="dx-field-value">
-                    <div id="login-button"></div>
-                </div>
-            </div>
-        </div>
-    </form>
+            <p>Already have account?
+
+                <a href="/login.html">Login</a>
+            </p>
+
+        </form>
+
+        <main>
+            <img src="/imgs/signup.gif" alt="">
+        </main>
+    </section>
 
     <script>
         $(function () {
@@ -134,12 +190,11 @@
                 ],
                 valueExpr: "key",
                 displayExpr: "name",
-                
             });
 
             $("#submit-button").dxButton({
-                text: "Submit",
-                type: "success",
+                text: "Sign Up",
+                type: "default",
                 useSubmitBehavior: false,
                 onClick: function (e) {
                     var validationGroup = DevExpress.validationEngine.validateGroup();
@@ -174,13 +229,7 @@
                 }
             });
 
-            $("#login-button").dxButton({
-                text: "Go To Login",
-                type: "default",
-                onClick: function () {
-                    window.location.href = "login.html";
-                }
-            });
+
         });
     </script>
 </body>

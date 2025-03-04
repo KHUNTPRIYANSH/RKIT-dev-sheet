@@ -58,7 +58,7 @@ namespace FinalDemo.Models.POCO
         public bool P01F07 { get; set; } = true;
 
         /// <summary>
-        /// P01F06 = Salary
+        /// P01F08 = Salary
         /// </summary>
 
         public decimal P01F08 { get; set; }

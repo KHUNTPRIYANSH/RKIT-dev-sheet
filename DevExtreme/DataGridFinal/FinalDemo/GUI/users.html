@@ -40,12 +40,15 @@
     <script>
         $(function () {
             const apiUrl = "https://localhost:44310/get_all_users";
+            const token = localStorage.getItem("utoken");
+
             const userRole = localStorage.getItem("urole"); // Get user role from localStorage
 
             // Define the CustomStore for the DataGrid
             const customStore = new DevExpress.data.CustomStore({
                 key: "R01F01",
                 loadMode: "raw",
+
                 load: function () {
                     return $.ajax({
                         url: apiUrl,
@@ -74,16 +77,42 @@
                     });
                 },
                 update: function (key, values) {
+                    console.log("Update Values:", values);
+                    // alert("Update Values:", values);
+                    // Fetch the existing record first
                     return $.ajax({
-                        url: "https://localhost:44310/update_user",
-                        method: "PUT",
-                        headers: {
-                            "Authorization": "Bearer " + localStorage.getItem("utoken")
-                        },
-                        contentType: "application/json",
-                        data: JSON.stringify(values)
+                        url: `https://localhost:44310/get_user_by_id?id=${key}`,
+                        method: "GET",
+                        headers: { "Authorization": "Bearer " + token },
+                        dataType: "json"
+                    }).then(res => {
+                        // Merge existing fields with the new values
+                        console.log("res", res);
+                        let existingRecord = res.Data;
+                        console.log("Existing Record:", existingRecord);
+                        let updatedRecord = {
+                            R01F01: existingRecord.R01F01,
+                            R01F02: values.R01F02 !== undefined ? values.R01F02 : existingRecord.R01F02,
+                            R01F03: values.R01F03 !== undefined ? values.R01F03 : existingRecord.R01F03,
+                            R01F04: values.R01F04 !== undefined ? values.R01F04 : existingRecord.R01F04,
+                        };
+
+                        console.log("Merged Update Data:", updatedRecord);
+
+                        return $.ajax({
+                            url: "https://localhost:44310/update_user",
+                            method: "PUT",
+                            headers: { "Authorization": "Bearer " + token },
+                            contentType: "application/json",
+                            data: JSON.stringify(updatedRecord)
+                        });
+                    }).done(() => {
+                        $("#dataGridContainer").dxDataGrid("instance").refresh();
+                    }).fail((jqXHR, textStatus, errorThrown) => {
+                        console.error("Update Error:", textStatus, errorThrown, jqXHR.responseText);
                     });
-                },
+                }
+                ,
                 remove: function (key) {
                     return $.ajax({
                         url: `https://localhost:44310/delete_user?id=${key}`,
@@ -94,7 +123,11 @@
                     });
                 }
             });
-
+            let roleToVal = [
+                { key: 1, role: "Admin" },
+                { key: 2, role: "Editor" },
+                { key: 3, role: "User" }
+            ];
             // Configure the DataGrid
             $("#dataGridContainer").dxDataGrid({
                 dataSource: customStore,
@@ -103,10 +136,10 @@
                     { dataField: "R01F01", dataType: "number", caption: "ID", allowEditing: false },
                     { dataField: "R01F02", caption: "User Name" },
                     { dataField: "R01F03", caption: "Password", dataType: "string", visible: false },
-                    { dataField: "R01F04", caption: "Role", lookup: { dataSource: ["Admin", "Editor", "User"], valueExpr: "", displayExpr: "" } }
+                    { dataField: "R01F04", caption: "Role", lookup: { dataSource: roleToVal, valueExpr: "key", displayExpr: "role" } }
                 ],
                 editing: {
-                    mode: "popup",
+                    mode: "row",
                     allowAdding: userRole === "Admin",
                     allowUpdating: userRole === "Admin" || userRole === "Editor",
                     allowDeleting: userRole === "Admin"

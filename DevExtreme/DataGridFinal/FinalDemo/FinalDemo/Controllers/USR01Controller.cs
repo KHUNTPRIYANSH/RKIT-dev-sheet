@@ -96,6 +96,8 @@ namespace FinalDemo.Controllers
         [JWTAuthorizationFilter(EnmRoleType.Admin, EnmRoleType.Editor)]
         public IHttpActionResult UpdateUser(DTOUSR01 objDTOUser)
         {
+
+            var temp = objDTOUser.R01F04;
             _objBLUser.Type = EnumType.E;
             _objBLUser.PreSave(objDTOUser);
             _objResponse = _objBLUser.Validation();
