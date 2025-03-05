@@ -6,17 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employees</title>
 
+    <!-- Excel Export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.4.0/polyfill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.1.1/exceljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <!-- jQuery -->
     <script type="text/javascript" src="/Scripts/jquery-3.5.1.min.js"></script>
 
     <!-- DevExtreme CSS -->
-    <link rel="stylesheet" href="/Content/dx.dark.css">
+    <link rel="stylesheet" href="/Content/dx.material.purple.light.css">
+    <!-- <link rel="stylesheet" href="/Content/dx.material.purple.dark.css"> -->
 
     <!-- DevExtreme JavaScript -->
     <script type="text/javascript" src="/Scripts/dx.all.js"></script>
 
     <!-- Bootstrap CSS (Dark Theme) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+
 
     <style>
         body {
@@ -28,6 +36,18 @@
         .container {
             margin-top: 20px;
         }
+
+        .middleClass {
+            background: linear-gradient(to left, #56ab2f, #a8e063) !important;
+        }
+
+        .rich {
+            background: linear-gradient(to left, #fdc830, #f37335) !important;
+        }
+
+        .bpl {
+            background: linear-gradient(to right, #ed213a, #93291e) !important;
+        }
     </style>
 </head>
 
@@ -35,6 +55,7 @@
     <div class="container">
         <h2 class="text-center">Employees</h2>
         <div id="dataGridContainer"></div>
+        <div id="selectionInfo"></div>
     </div>
 
     <script>
@@ -147,19 +168,151 @@
                     { dataField: "P01F02", caption: "First Name", validationRules: [{ type: "required" }] },
                     { dataField: "P01F03", caption: "Last Name", validationRules: [{ type: "required" }] },
                     { dataField: "P01F04", caption: "Date of Birth", dataType: "date", validationRules: [{ type: "required" }] },
-                    { dataField: "P01F05", caption: "Department ID", dataType: "number", validationRules: [{ type: "required" }] },
+                    { dataField: "P01F05", caption: "Department ID", dataType: "number", validationRules: [{ type: "required" }], groupIndex: 0, },
                     { dataField: "P01F06", caption: "Position", validationRules: [{ type: "required" }] },
                     { dataField: "P01F08", caption: "Salary", dataType: "number", alignment: "center", validationRules: [{ type: "required" }] }
                 ],
+
+                rowAlternationEnabled: true, // Show one dark and one light row
+
                 editing: {
                     mode: "popup",
                     allowAdding: userRole === "Admin" || userRole === "Editor",
                     allowUpdating: userRole === "Admin" || userRole === "Editor",
                     allowDeleting: userRole === "Admin"
                 },
-                paging: { pageSize: 10 },
+                paging: {
+                    enabled: true, //Default Value: true
+                    pageSize: 5,  // Set the default page size
+                    pageIndex: 0, // Set the default page index [zero based index]
+                },
+
+                pager: {
+                    label: "Employeess Page Navigation",
+                    showPageSizeSelector: true, // Enable page size selector 
+                    // displayMode: 'full', // [default 'full'] 'compact' | 'full' |  'adaptive' 
+                    // displayMode: 'compact',
+                    displayMode: 'adaptive', //The "adaptive" display mode switches between these two modes based on the component width.
+                    allowedPageSizes: [5, 10, 'all'], // [default 'auto'] Available page sizes
+                    showNavigationButtons: true, // Enable navigation buttons
+                    showInfo: true, // shows summary of page like [Page 1 of 10 (100 items)]
+                    infoText: "Page {0} of {1} ({2} Employeess )", // Custom text for page info
+                    visible: true, // [default] Show pager at the bottom of the DataGrid
+
+                },
+                grouping: {
+                    // allowCollapsing: true,
+                    autoExpandAll: false,
+                    expandMode: "rowClick", // "rowClick" | "buttonClick" 
+                    contextMenuEnabled: true,// when true , we can right click on header of column to group
+
+                },
+                groupPanel: {
+                    // allowColumnDragging: false,
+                    emptyPanelText: 'Drag a column header here to group by that column',
+                    visible: true,
+                },
+                scrolling: {
+                    mode: "standard", // Renders only the rows within the viewport
+                    scrollByContent: false, // [works only if height is given] Allows scrolling with swipe gesture
+                    scrollByThumb: true, // [works only if height is given] Disables thumb-based scrolling
+                    showScrollbar: "onHover", // [works only if height is given]  'always' | 'never' | 'onHover' | 'onScroll'
+                    scrollDirection: "vertical", // Defines vertical scrolling direction
+                },
                 filterRow: { visible: true },
                 searchPanel: { visible: true },
+
+                filterPanel: {
+                    visible: true,
+                    customizeText: function (e) {
+                        console.log(e)
+                        return "Filter by " + e.text;
+                    },
+                    // filterEnabled: false,
+                },
+
+                filterRow: {
+                    visible: true,
+                    applyFilter: 'onClick', // "auto"
+                    applyFilterText: 'Apply Filter', // Custom text for the apply filter button
+                    betweenEndText: 'To', // Custom text for the end value in the 'between' filter operation
+                    betweenStartText: 'From', // Custom text for the start value in the 'between' filter operation
+                    resetOperationText: 'Reset', // Custom text for the reset filter button
+                    showAllText: 'Show All', // for lookup we get (ALL) as placeholder we can change it by this value
+                    showOperationChooser: true, // Show the operation chooser in the filter row
+                },
+                filterValue: ['P01F01', '>', 7],
+
+
+
+                selection: {
+                    mode: "multiple", // single | multiple | none (default)
+                    allowSelectAll: true, // can/can't select all
+                    selectAllMode: "page", // page | allPages (default)
+                    showCheckBoxesMode: "always", // always | none | onClick (default) | onLongTap
+                },
+                onCellPrepared: (e) => {
+                    if (e.rowType === "data" && e.column.dataField === "P01F08") {
+                        if (e.data.P01F08 < 5000) {
+                            e.cellElement.addClass("bpl");
+                        }
+                        else if (e.data.P01F08 >= 5000 && e.data.P01F08 < 15000) {
+                            e.cellElement.addClass("middleClass");
+                        }
+                        else {
+                            e.cellElement.addClass("rich");
+                        }
+                    }
+                },
+                onSelectionChanged: (e) => {
+                    var data = e.selectedRowsData;
+                    var removedItems = e.removedItems; // Tracks removed items
+                    var previousSelectionCount = e.component.getSelectedRowKeys().length;
+
+                    console.log(data);
+
+                    // Clear selection info
+                    $("#selectionInfo").html("");
+
+                    if (data && data.length > 0) {
+                        let curr = data[data.length - 1];
+                        data.forEach((element) => {
+                            $("#selectionInfo").append(
+                                `<div>${element.P01F01} from department[${element.P01F05}] added into the selection list</div>`
+                            );
+                        });
+
+                        // Show success notification for the last selected item
+                        DevExpress.ui.notify(`${curr.P01F02} added successfully!`, "success", 1500);
+                    }
+
+                    // Notify when items are deselected (removed from selection)
+                    if (removedItems && removedItems.length > 0) {
+                        removedItems.forEach((item) => {
+                            DevExpress.ui.notify(`${item.P01F02} removed from selection list successfully!`, "error", 1500);
+                        });
+                    }
+
+                    // If no items are left in the cart
+                    if (previousSelectionCount === 0 && (!data || data.length === 0)) {
+                        DevExpress.ui.notify("Selection list is empty!", "error", 1500);
+                    }
+                },
+
+                onToolbarPreparing: (e) => {
+                    var toolbarItems = e.toolbarOptions.items;
+
+                    toolbarItems.push({
+                        widget: "dxButton",
+                        options: {
+                            text: "Clear Selection",
+                            onClick: function () {
+                                grid2Instance.clearSelection();
+                            },
+                        },
+                        location: "after",
+                    });
+                },
                 showBorders: true,
                 onRowInserted: function (e) {
                     console.log("Row Inserted:", e.data);
@@ -172,7 +325,97 @@
                 onRowRemoved: function (e) {
                     console.log("Row Removed:", e.data);
                     e.component.refresh();
-                }
+                },
+                summary: {
+                    //"sum","min","max","avg","count","custom"
+
+                    groupItems: [
+                        {
+                            column: "P01F08",
+                            summaryType: "sum",
+                            valueFormat: 'currency',
+                            alignment: "right",
+                            showInGroupFooter: true,
+                            recalculateWhileEditing: true,
+                        },
+                        {
+                            column: "P01F08",
+                            summaryType: 'min',
+                            alignment: "center",
+                            displayFormat: "Min Salary : {0}",
+                            skipEmptyValues: false,
+                        },
+                        {
+                            column: "P01F08",
+                            summaryType: 'avg',
+                            alignment: "left",
+                        },
+                        {
+                            column: "P01F01",
+                            summaryType: 'count',
+                        },
+                        {},
+                    ],
+                    totalItems: [{
+                        column: "P01F08",
+                        summaryType: "sum",
+                        valueFormat: 'currency',
+                        alignment: "right",
+                        cssClass: "totalSalary",
+                        recalculateWhileEditing: true,
+                    },
+
+                    {
+                        column: "P01F08",
+                        summaryType: 'min',
+                        alignment: "center",
+                        displayFormat: "Min Price : {0}",
+
+                        skipEmptyValues: false,
+                    },
+                    {
+                        column: "P01F08",
+                        summaryType: 'avg',
+                        alignment: "left",
+                        cssClass: "avgPrice",
+                    },
+                    {
+                        column: "P01F01",
+
+                        summaryType: 'count',
+                    },
+                    {},
+
+
+                    ],
+
+
+                },
+
+                export: {
+                    enabled: true,
+                    allowExportSelectedData: true,
+                },
+                onExporting(e) {
+                    const workbook = new ExcelJS.Workbook();
+                    const worksheet = workbook.addWorksheet("Employees");
+
+                    DevExpress.excelExporter
+                        .exportDataGrid({
+                            component: e.component,
+                            worksheet,
+                            autoFilterEnabled: true, // to get header filter in excel
+                        })
+                        .then(() => {
+                            workbook.xlsx.writeBuffer().then((buffer) => {
+                                saveAs(
+                                    new Blob([buffer], { type: "application/octet-stream" }),
+                                    "Users.xlsx"
+                                );
+                            });
+                        });
+                },
+
             });
         });
     </script>

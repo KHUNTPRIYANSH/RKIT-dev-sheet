@@ -136,7 +136,7 @@ namespace FinalDemo.BL.Operations
                 {
                     Response temp = Get(id);
 
-                    if (temp.Data.R01F04 == EnmRoleType.Admin && count > 1)
+                    if ( count > 1)
                     {
                         return temp;
                     }

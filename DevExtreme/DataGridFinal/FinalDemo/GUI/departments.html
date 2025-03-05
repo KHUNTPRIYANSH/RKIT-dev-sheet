@@ -10,7 +10,8 @@
     <script type="text/javascript" src="/Scripts/jquery-3.5.1.min.js"></script>
 
     <!-- DevExtreme CSS -->
-    <link rel="stylesheet" href="/Content/dx.dark.css">
+    <link rel="stylesheet" href="/Content/dx.material.purple.light.css">
+    <!-- <link rel="stylesheet" href="/Content/dx.material.purple.dark.css"> -->
 
     <!-- DevExtreme JavaScript -->
     <script type="text/javascript" src="/Scripts/dx.all.js"></script>
@@ -27,6 +28,10 @@
 
         .container {
             margin-top: 20px;
+        }
+
+        .totalCount {
+            color: goldenrod !important;
         }
     </style>
 </head>
@@ -66,7 +71,7 @@
                         contentType: "application/json",
                         data: JSON.stringify({
                             T01F02: values.T01F02,  // Department Name
-                      
+
                         })
                     }).done(() => {
                         $("#dataGridContainer").dxDataGrid("instance").refresh();
@@ -81,7 +86,7 @@
                         data: JSON.stringify({
                             T01F01: key,  // ID must be included in update
                             T01F02: values.T01F02,  // Department Name
-                      
+
                         })
                     }).done(() => {
                         $("#dataGridContainer").dxDataGrid("instance").refresh();
@@ -107,16 +112,70 @@
                     { dataField: "T01F02", caption: "Department Name", validationRules: [{ type: "required" }] },
                     //{ dataField: "T01F03", caption: "Is Active", dataType: "boolean" },
                 ],
+
+                rowAlternationEnabled: true, // Show one dark and one light row
+
                 editing: {
                     mode: "popup",
                     allowAdding: userRole === "Admin" || userRole === "Editor",
                     allowUpdating: userRole === "Admin" || userRole === "Editor",
                     allowDeleting: userRole === "Admin"
                 },
-                paging: { pageSize: 10 },
+                paging: {
+                    enabled: true, //Default Value: true
+                    pageSize: 5,  // Set the default page size
+                    pageIndex: 0, // Set the default page index [zero based index]
+                },
+
+                pager: {
+                    label: "Departments Page Navigation",
+                    showPageSizeSelector: true, // Enable page size selector 
+                    // displayMode: 'full', // [default 'full'] 'compact' | 'full' |  'adaptive' 
+                    // displayMode: 'compact',
+                    displayMode: 'adaptive', //The "adaptive" display mode switches between these two modes based on the component width.
+                    allowedPageSizes: [5, 10, 'all'], // [default 'auto'] Available page sizes
+                    showNavigationButtons: true, // Enable navigation buttons
+                    showInfo: true, // shows summary of page like [Page 1 of 10 (100 items)]
+                    infoText: "Page {0} of {1} ({2} Departments )", // Custom text for page info
+                    visible: true, // [default] Show pager at the bottom of the DataGrid
+
+                },
+
+                scrolling: {
+                    mode: "standard", // Renders only the rows within the viewport
+                    scrollByContent: false, // [works only if height is given] Allows scrolling with swipe gesture
+                    scrollByThumb: true, // [works only if height is given] Disables thumb-based scrolling
+                    showScrollbar: "onHover", // [works only if height is given]  'always' | 'never' | 'onHover' | 'onScroll'
+                    scrollDirection: "vertical", // Defines vertical scrolling direction
+                },
+
+
+                filterPanel: {
+                    visible: true,
+                    customizeText: function (e) {
+                        console.log(e)
+                        return "Filter by " + e.text;
+                    },
+                    // filterEnabled: false,
+                },
                 filterRow: { visible: true },
                 searchPanel: { visible: true },
-                showBorders: true
+                showBorders: true,
+
+                summary: {
+                    //"sum","min","max","avg","count","custom"
+
+                    totalItems: [{
+                        column: "T01F01",
+                        summaryType: "count",
+                        alignment: "right",
+                        cssClass: "totalCount",
+                        recalculateWhileEditing: true,
+                    },
+
+
+                    ]
+                }
             });
         });
     </script>
