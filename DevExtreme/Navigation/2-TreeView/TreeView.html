@@ -15,25 +15,38 @@
     <script type="text/javascript" src="../Scripts/dx.all.js"></script>
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         .container {
-            height: 100vh;
-            width: 100vw;
+            height: 100dvh;
+            width: 100dvw;
             display: flex;
+            overflow: hidden;
             align-items: center;
             justify-content: flex-start;
 
         }
 
         main {
-            height: 100%;
+            height: 100vh;
+            padding: 25px;
             width: 70%;
-            display: grid;
-            place-items: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px 15px;
+            flex-wrap: wrap;
+            overflow: auto;
         }
 
         #product-details {
             background: #252525;
-            width: 300px;
+            width: 250px;
+            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -94,20 +107,29 @@
 
         <!-- DataGrid Container -->
         <div id="treeview"></div>
-        <main>
+        <main id="product-container">
+    </div>
 
-            <div id="product-details" class="hidden">
-                <div class="icon"></div>
-                <div class="price"></div>
-                <div class="name"></div>
-            </div>
-        </main>
     </div>
 
     <!-- External JS file with product data (data.js) -->
     <script src="../Data/data.js"></script>
     <script>
         $(() => {
+            const updateProductCards = (selectedItems) => {
+                const container = $('#product-container');
+                container.empty();
+                selectedItems.forEach(item => {
+                    if (item.price) {
+                        const card = `<div class="product-card" id="product-details">
+                            <div class="icon">${item.icon}</div>
+                            <div class="price">$${item.price}</div>
+                            <div class="name">${item.name}</div>
+                        </div>`;
+                        container.append(card);
+                    }
+                });
+            };
             $("#treeview").dxTreeView({
                 dataSource: productData,
                 animationEnabled: false,
@@ -175,17 +197,11 @@
                     console.log(e);
                 },
                 selectByClick: false, // omItemClick work if this is false
-                onItemClick(data) {
-                    console.log(data.itemData);
-                    const item = data.itemData;
-                    if (item.price) {
-                        $('#product-details').removeClass('hidden');
-                        $('#product-details > .icon').text(`${item.icon}`);
-                        $('#product-details > .price').text(`\$${item.price}`);
-                        $('#product-details > .name').text(item.name);
-                    }
-                },
 
+                onItemSelectionChanged: (e) => {
+                    const selectedItems = e.component.getSelectedNodes().map(node => node.itemData);
+                    updateProductCards(selectedItems);
+                },
                 onItemCollapsed: (e) => {
                     console.log("Item Collapsed");
                     console.log(e);
@@ -200,8 +216,9 @@
                 },
 
                 onItemSelectionChanged: (e) => {
-                    console.log("Item Selection Changed");
-                    console.log(e);
+                    console.log("Item Selection Changed", e);
+                    const selectedItems = e.component.getSelectedNodes().map(node => node.itemData);
+                    updateProductCards(selectedItems);
                 },
                 onSelectAllValueChanged: (e) => {
                     console.log("Select All Value Changed");
@@ -230,7 +247,7 @@
                 showCheckBoxesMode: 'selectAll', // 'normal' | 'selectAll' | 'none'
 
                 selectAllText: "Select All Products",
-                selectByClick: false,
+                selectByClick: true,
                 selectedExpr: "selected",
 
                 selectNodesRecursive: true,
