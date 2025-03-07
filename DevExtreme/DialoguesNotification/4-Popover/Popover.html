@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevExtreme Popover Demo</title>
+
+    <!-- jQuery -->
+    <script
+      type="text/javascript"
+      src="../Scripts/jquery-3.5.1.min.js"
+    ></script>
+
+    <!-- DevExtreme CSS -->
+    <link
+      rel="stylesheet"
+      href="../Content/dx.material.blue.dark.compact.css"
+    />
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #28283d;
+        color: white;
+        margin-top: 50px;
+      }
+
+      #area {
+        height: 300px;
+        width: 300px;
+        border: 5px double gold;
+        background: rgba(0, 0, 0, 0.36);
+        display: grid;
+        place-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      #area-min {
+        height: 60px;
+        width: 200px;
+        border: 5px double crimson;
+        background: rgba(0, 0, 0, 0.36);
+        display: grid;
+        place-items: center;
+        position: absolute;
+        bottom: 100px;
+        left: 100px;
+      }
+      #area span {
+        color: #aaa;
+      }
+
+      .dx-button {
+        margin: 10px;
+      }
+
+      /* Hide popover container initially */
+      #PopoverContainer {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body class="dx-viewport">
+    <div id="container">
+      <div id="showPopoverButton"></div>
+      <div id="showPopoverWithScrollViewButton"></div>
+
+      <!-- Normal Popover -->
+      <div id="PopoverContainer">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et
+          lacus nec justo dignissim hendrerit. Curabitur aliquam metus nec magna
+          commodo, eu pharetra risus rhoncus.
+        </p>
+      </div>
+
+      <!-- Popover with ScrollView -->
+      <div id="PopoverWithScrollView"></div>
+
+      <div id="area">
+        <span>
+          Popover will be <br />
+          shown here
+        </span>
+      </div>
+      <div id="area-min">
+        <span>
+          Hover here <br />
+          this is target
+        </span>
+      </div>
+    </div>
+
+    <script>
+      $(function () {
+        // Initialize Normal Popover
+        let Popover = $("#PopoverContainer")
+          .dxPopover({
+            title: "Normal Popover 1",
+            width: 300,
+            height: 300,
+            visible: false, // Initially hidden
+            closeOnOutsideClick: true,
+            showCloseButton: true,
+            showTitle: true,
+            position: { my: "center", at: "center", of: "#area" }, // Positioning near #area
+            animation: {
+              show: { type: "fadeIn", duration: 500 },
+              hide: { type: "fadeOut", duration: 500 },
+            },
+            toolbarItems: [
+              {
+                toolbar: "bottom",
+                location: "after",
+                widget: "dxButton",
+                options: {
+                  text: "Close",
+                  onClick: function () {
+                    Popover.hide();
+                  },
+                },
+              },
+            ],
+
+            hoverStateEnabled: true,
+            showEvent: "mouseenter",
+            hideEvent: "mouseleave",
+            target: "#area-min",
+          })
+          .dxPopover("instance"); // Ensure we get the instance
+
+        // Initialize ScrollView Popover
+        let PopoverWithScrollView = $("#PopoverWithScrollView")
+          .dxPopover({
+            title: "Popover with ScrollView 2",
+            width: 300,
+            height: 300,
+            showTitle: true,
+
+            visible: false,
+            closeOnOutsideClick: true,
+            showCloseButton: true,
+            position: { my: "center", at: "center", of: "#area" },
+            contentTemplate: function () {
+              let $scrollView = $("<section>");
+              $scrollView.append(
+                $("<section>").html(`
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <p>Vestibulum et lacus nec justo dignissim hendrerit.</p>
+                  <p>Curabitur aliquam metus nec magna commodo, eu pharetra risus rhoncus.</p>
+                  <p>Fusce tincidunt nisl id augue congue, eget tincidunt sapien consequat.</p>
+                  <p>Proin ut ex nec sapien cursus facilisis.</p>
+                  <p>Donec vulputate risus ut felis dictum, sed fermentum nisi aliquet.</p>
+                  <p>Suspendisse potenti. Integer vehicula massa a est ultricies accumsan.</p>
+                  <p>Aliquam auctor metus ut sem tempus, id ultrices turpis placerat.</p>
+                `)
+              );
+
+              $scrollView.dxScrollView({
+                width: "100%",
+                height: "100%",
+              });
+
+              return $scrollView;
+            },
+          })
+          .dxPopover("instance");
+
+        // Button to Show Normal Popover
+        $("#showPopoverButton").dxButton({
+          text: "Show Popover",
+          width: 300,
+          type: "success",
+          onClick: function () {
+            Popover.show(); // Correctly referencing the instance
+          },
+        });
+
+        // Button to Show Popover with ScrollView
+        $("#showPopoverWithScrollViewButton").dxButton({
+          text: "Show Popover with ScrollView",
+          width: 300,
+          type: "danger",
+          onClick: function () {
+            PopoverWithScrollView.show();
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

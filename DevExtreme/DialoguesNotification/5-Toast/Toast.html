@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <title>Document</title>
+
+    <!-- jQuery -->
+    <script
+      type="text/javascript"
+      src="../Scripts/jquery-3.5.1.min.js"
+    ></script>
+
+    <!-- DevExtreme CSS -->
+    <link
+      rel="stylesheet"
+      href="../Content/dx.material.blue.dark.compact.css"
+    />
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+  </head>
+  <body class="dx-viewport">
+    <button id="showToastButton1">Show success Toast</button>
+    <button id="showToastButton2">Show warning Toast</button>
+    <button id="showToastButton3">Show error Toast</button>
+    <button id="showToastButton4">Show info Toast</button>
+    <div id="toastContainer"></div>
+  </body>
+
+  <script>
+    $(function () {
+      $("#showToastButton1").click(() => {
+        showToast("First toast message", "success");
+      });
+      $("#showToastButton2").click(() => {
+        showToast("Second toast message", "warning");
+      });
+
+      $("#showToastButton3").click(() => {
+        showToast("Third toast message", "error");
+      });
+      $("#showToastButton4").click(() => {
+        showToast("forth toast message", "info");
+      });
+
+      // Function to show a single toast notification
+      function showToast(message, type) {
+        // Log message for debugging
+        console.log("Showing toast: " + message);
+
+        $("#toastContainer")
+          .dxToast({
+            message: message,
+            type: type, //'custom' | 'error' | 'info' | 'success' | 'warning'
+
+            //If you assign "custom" to the type property,
+            //the dx-toast-custom class is applied to the UI component element.
+            // Implement the appropriate CSS class to specify toast appearance.
+            displayTime: 3000,
+            animation: {
+              show: { type: "fade", duration: 500 },
+              hide: { type: "fade", duration: 500 },
+            },
+            closeOnClick: true,
+            width: "auto",
+            height: "auto",
+            maxWidth: 400,
+            minWidth: 200,
+            rtlEnabled: false,
+            closeOnOutsideClick: true,
+            closeOnSwipe: true,
+            // shading: true,
+            // shadingColor: "rgba(15, 255, 85, 0.1)",
+          })
+          .dxToast("show"); // Show the toast
+      }
+    });
+  </script>
+</html>

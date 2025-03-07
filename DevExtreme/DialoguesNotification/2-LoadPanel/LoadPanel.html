@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevExtreme Image Loader</title>
+
+    <!-- jQuery -->
+    <script
+      type="text/javascript"
+      src="../Scripts/jquery-3.5.1.min.js"
+    ></script>
+
+    <!-- DevExtreme CSS -->
+    <link
+      rel="stylesheet"
+      href="../Content/dx.material.blue.dark.compact.css"
+    />
+    <!-- <link rel="stylesheet" href="../Content/dx.dark.css"> -->
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #28283d;
+        color: white;
+        padding: 20px;
+      }
+
+      #imageContainer {
+        background: rgb(40, 40, 57);
+        height: 300px;
+        width: 500px;
+        border: 5px double gold;
+        margin: 25px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px;
+      }
+
+      #imageContainer img {
+        max-width: 100%;
+        max-height: 100%;
+        display: none;
+      }
+
+      .loadpanel {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body class="dx-viewport">
+    <div class="container">
+      <h2>DevExtreme Image Loader</h2>
+
+      <button id="loadImage">Load Image</button>
+
+      <div id="imageContainer">
+        <img id="loadedImage" src="" alt="Loading Image" />
+      </div>
+
+      <div class="loadpanel"></div>
+    </div>
+
+    <!-- External JS file with image data -->
+    <script src="../Data/data.js"></script>
+    <script>
+      $(() => {
+        const imageData = {
+          ImageUrl: "../Data/load.png",
+        };
+
+        const showImage = () => {
+          $("#loadedImage").attr("src", imageData.ImageUrl).fadeIn();
+        };
+
+        const loadPanel = $(".loadpanel")
+          .dxLoadPanel({
+            closeOnOutsideClick: true, // bool /  func
+            shadingColor: "rgba(0,0,0,0.4)",
+            position: { of: "#imageContainer" },
+            visible: false,
+            delay: 1000,
+
+            message: "Loaderrr ...", // wont work with material ui css
+            showIndicator: true,
+            showPane: true,
+            shading: true,
+            hideOnOutsideClick: false,
+            onShown() {
+              setTimeout(() => {
+                loadPanel.hide();
+              }, 2000);
+            },
+            onHidden() {
+              showImage();
+            },
+          })
+          .dxLoadPanel("instance");
+
+        $("#loadImage").on("click", function () {
+          loadPanel.show();
+          $("#loadedImage").hide(); // Hide image while loading
+        });
+      });
+    </script>
+  </body>
+</html>

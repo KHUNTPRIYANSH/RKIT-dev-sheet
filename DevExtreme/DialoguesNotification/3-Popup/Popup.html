@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- jQuery -->
+    <script
+      type="text/javascript"
+      src="../Scripts/jquery-3.5.1.min.js"
+    ></script>
+
+    <!-- DevExtreme CSS -->
+    <link
+      rel="stylesheet"
+      href="../Content/dx.material.blue.dark.compact.css"
+    />
+    <!-- <link rel="stylesheet" href="../Content/dx.dark.css"> -->
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #area {
+        height: 300px;
+        width: 300px;
+        border: 5px double gold;
+        background: #0000005c;
+        display: grid;
+        place-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      span {
+        color: #fff;
+      }
+      #area span {
+        color: #aaa;
+      }
+      #container {
+        /* background: crimson; */
+        height: 100dvh;
+        width: 100dvw;
+        padding: 25px;
+      }
+    </style>
+  </head>
+
+  <body class="dx-viewport">
+    <div id="container" style="text-align: center">
+      <div id="showPopupButton"></div>
+      <div id="showPopupWithScrollViewButton"></div>
+
+      <!-- Popup without ScrollView -->
+      <div id="popupContainer">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et
+          lacus nec justo dignissim hendrerit. Curabitur aliquam metus nec magna
+          commodo, eu pharetra risus rhoncus.
+        </p>
+        <div id="refreshContent"></div>
+      </div>
+
+      <!-- Popup with ScrollView -->
+      <div id="popupWithScrollView"></div>
+      <div id="area">
+        <span>
+          Popup will be <br />
+          shown here</span
+        >
+      </div>
+      <script>
+        $(function () {
+          // Button to Show Normal Popup
+          $("#showPopupButton").dxButton({
+            text: "Show Popup",
+            width: 300,
+            type: "success",
+            onClick: function () {
+              popup.show(); // Show the normal popup when clicked
+            },
+          });
+
+          // Button to Show Popup with ScrollView
+          $("#showPopupWithScrollViewButton").dxButton({
+            text: "Show Popup with ScrollView",
+            width: 300,
+            type: "danger",
+            onClick: function () {
+              popupWithScrollView.show(); // Show the popup with ScrollView when clicked
+            },
+          });
+
+          let popup = $("#popupContainer")
+            .dxPopup({
+              // Title displayed on top of the popup
+              title: "Normal Popup",
+
+              width: 500,
+              height: 250,
+              visible: false, // true , false
+              closeOnOutsideClick: true,
+              container: "#container",
+              showCloseButton: true,
+              //// doubt in drag
+              dragEnabled: true,
+              //// resize doubt
+              resizeEnabled: true,
+              shading: true,
+              shadingColor: "rgba(15, 255, 85, 0.6)",
+              fullScreen: false,
+              showTitle: true,
+              animation: {
+                show: { type: "fadeIn", duration: 3000 },
+                hide: { type: "fadeOut", duration: 3000 },
+              },
+              toolbarItems: [
+                {
+                  toolbar: "bottom",
+                  location: "before",
+                  widget: "dxButton",
+                  options: {
+                    text: "Close ❌",
+                    onClick: function () {
+                      popup.hide(); // Hide the popup when clicking the close button
+                    },
+                  },
+                },
+              ],
+
+              onShowing: function () {
+                console.log("Popup is about to show");
+              },
+
+              onShown: function () {
+                console.log("Popup is shown");
+              },
+
+              onHiding: function () {
+                console.log("Popup is about to hide");
+              },
+
+              onHidden: function (e) {
+                console.log("Popup is hidden");
+                console.log(e);
+                popup.option("position", {
+                  my: "center",
+                  at: "center",
+                  of: "#area",
+                });
+              },
+            })
+            .dxPopup("instance");
+
+          // Content for ScrollView inside the popup
+          let scrollViewContent = `
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Vestibulum et lacus nec justo dignissim hendrerit.</p>
+        <p>Curabitur aliquam metus nec magna commodo, eu pharetra risus rhoncus.</p>
+        <p>Fusce tincidunt nisl id augue congue, eget tincidunt sapien consequat.</p>
+        <p>Proin ut ex nec sapien cursus facilisis.</p>
+        <p>Donec vulputate risus ut felis dictum, sed fermentum nisi aliquet.</p>
+        <p>Suspendisse potenti. Integer vehicula massa a est ultricies accumsan.</p>
+        <p>Aliquam auctor metus ut sem tempus, id ultrices turpis placerat.</p>
+    `;
+
+          // Popup with ScrollView Instance
+          let popupWithScrollView = $("#popupWithScrollView")
+            .dxPopup({
+              title: "Popup with ScrollView",
+              width: 300,
+              height: 300,
+              visible: true,
+              closeOnOutsideClick: true,
+              showCloseButton: true,
+              onHidden: function (e) {
+                console.log("Popup is hidden");
+                console.log(e);
+                popupWithScrollView.option("position", {
+                  my: "center",
+                  at: "center",
+                  of: "#area",
+                });
+              },
+              position: { my: "center", at: "center", of: "#area" },
+              contentTemplate: function () {
+                let $scrollView = $("<section>");
+                $scrollView.append($("<section>").html(scrollViewContent));
+
+                $scrollView.dxScrollView({
+                  width: "100%",
+                  height: "100%",
+                });
+
+                return $scrollView;
+              },
+            })
+            .dxPopup("instance");
+        });
+      </script>
+    </div>
+  </body>
+</html>
