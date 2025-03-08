@@ -220,9 +220,11 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="BL\Interface\IDataHandler.cs" />
+    <Compile Include="BL\Operations\BLATT01.cs" />
     <Compile Include="BL\Operations\BLDEPT01.cs" />
     <Compile Include="BL\Operations\BLEMP01.cs" />
     <Compile Include="BL\Operations\BLUSR01.cs" />
+    <Compile Include="Controllers\ATT01Controller.cs" />
     <Compile Include="Controllers\LoginPanel.cs" />
     <Compile Include="Controllers\DEPT01Controller.cs" />
     <Compile Include="Controllers\EMP01Controller.cs" />
@@ -234,12 +236,14 @@
     </Compile>
     <Compile Include="Helpers\EncryptionHelper.cs" />
     <Compile Include="Helpers\JWTHelper.cs" />
+    <Compile Include="Models\DTO\DTOATT01.cs" />
     <Compile Include="Models\DTO\DTODEPT01.cs" />
     <Compile Include="Models\DTO\DTOEMP01.cs" />
     <Compile Include="Models\DTO\DTOUSR01.cs" />
     <Compile Include="Models\DTO\Login.cs" />
     <Compile Include="Models\ENUM\EnumType.cs" />
     <Compile Include="Models\ENUM\EnmRoleType.cs" />
+    <Compile Include="Models\POCO\ATT01.cs" />
     <Compile Include="Models\POCO\DEPT01.cs" />
     <Compile Include="Models\POCO\EMP01.cs" />
     <Compile Include="Models\POCO\USR01.cs" />

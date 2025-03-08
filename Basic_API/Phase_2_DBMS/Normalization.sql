@@ -6,6 +6,9 @@
 -- #################
 -- # CLEANUP CODE  #
 -- #################
+
+DROP DATABASE KPD_Normalization;
+
 DROP TABLE IF EXISTS BCNF_OrderItems, BCNF_Products, BCNF_Orders, BCNF_Customers;
 DROP TABLE IF EXISTS 3NF_OrderItems, 3NF_Products, 3NF_Orders, 3NF_Customers;
 DROP TABLE IF EXISTS 2NF_OrderItems, 2NF_Products, 2NF_Orders, 2NF_Customers;
@@ -33,18 +36,23 @@ CREATE TABLE UnnormalizedOrders (
 );
 
 INSERT INTO UnnormalizedOrders VALUES
-(1, '2023-10-01', 101, 'Amit Sharma', '9998887776', 
- 'P001,P002', 'Laptop,Wireless Mouse', '1,2', '50000.00,500.00', 51000.00, 'Delhi'),
-(2, '2023-10-02', 102, 'Priya Singh', '8887776665', 
- 'P003', 'Mechanical Keyboard', '1', '2500.00', 2500.00, 'Mumbai'),
-(3, '2023-10-05', 103, 'Rahul Verma', '7776665554', 
- 'P002,P004', 'Wireless Mouse,Smartphone', '1,1', '500.00,20000.00', 20500.00, 'Bangalore');
+(1, '2023-10-01', 101, 'Amit Sharma', '9998887776', 'P001,P002', 'Laptop,Wireless Mouse', '1,2', '50000.00,500.00', 51000.00, 'Delhi, India'),
+(2, '2023-10-02', 102, 'Priya Singh', '8887776665', 'P003', 'Mechanical Keyboard', '1', '2500.00', 2500.00, 'Mumbai, India'),
+(3, '2023-10-05', 103, 'Rahul Verma', '7776665554', 'P002,P004', 'Wireless Mouse,Smartphone', '1,1', '500.00,20000.00', 20500.00, 'Bangalore, India');
+
 
 SELECT * FROM UnnormalizedOrders;
+
+-- Data Redundancy & Repeating Groups
+-- Issue: In UnnormalizedOrders, 
+-- multiple products are stored in a single row using comma-separated values 
+-- (ProductIDs, ProductNames, Quantities, Prices).
 
 -- ############################
 -- # STEP 1: First Normal Form 
 -- ############################
+-- Create separate tables for Orders and Order Items.
+-- Each order item should be one row per product.
 CREATE TABLE 1NF_Orders (
     OrderID INT PRIMARY KEY,
     OrderDate DATE,
@@ -76,6 +84,11 @@ INSERT IGNORE INTO 1NF_OrderItems VALUES
 SELECT * FROM 1NF_Orders;
 SELECT * FROM 1NF_OrderItems;
 
+-- Issue: The table 1NF_OrderItems has columns like ProductName and Price, 
+-- but they depend only on ProductID, not OrderID.
+-- Redundancy: If the same product appears in multiple orders, its name and price are repeated.
+-- Solution: Separate Products into a dedicated table (2NF).
+
 -- #############################
 -- # STEP 2: Second Normal Form 
 -- #############################
@@ -86,13 +99,13 @@ CREATE TABLE 2NF_Orders (
     TotalAmount DECIMAL(10,2),
     ShippingAddress VARCHAR(200)
 );
-
+-- (CustomerID → CustomerName, CustomerPhone)
 CREATE TABLE 2NF_Customers (
     CustomerID INT PRIMARY KEY,
     CustomerName VARCHAR(50) NOT NULL,
     CustomerPhone VARCHAR(15)
 );
-
+-- (ProductID → ProductName, Price)
 CREATE TABLE 2NF_Products (
     ProductID VARCHAR(10) PRIMARY KEY,
     ProductName VARCHAR(50) NOT NULL,
@@ -116,22 +129,31 @@ SELECT * FROM 2NF_Customers;
 SELECT * FROM 2NF_Products;
 SELECT * FROM 2NF_OrderItems;
 
+-- Problem in 2NF: Transitive Dependency
+-- Issue: ShippingAddress in 2NF_Orders contains both city and address.
+-- The city depends on ShippingAddress, not OrderID.
+-- Solution: Extract city into a separate attribute (3NF).
+
 -- ############################
 -- # STEP 3: Third Normal Form 
 -- ############################
+
+-- Removed ShippingAddress from 3NF_Orders and replaced it with ShippingCity
 CREATE TABLE 3NF_Orders (
     OrderID INT PRIMARY KEY,
     OrderDate DATE,
     CustomerID INT,
     TotalAmount DECIMAL(10,2),
-    ShippingCity VARCHAR(50)  
+    ShippingCity VARCHAR(50) -- Separated City
 );
+
 
 CREATE TABLE 3NF_Customers LIKE 2NF_Customers;
 CREATE TABLE 3NF_Products LIKE 2NF_Products;
 CREATE TABLE 3NF_OrderItems LIKE 2NF_OrderItems;
 
-INSERT INTO 3NF_Orders SELECT OrderID, OrderDate, CustomerID, TotalAmount, SUBSTRING_INDEX(ShippingAddress, ',', -1) AS ShippingCity FROM 2NF_Orders;
+INSERT INTO 3NF_Orders (OrderID, OrderDate, CustomerID, TotalAmount, ShippingCity)
+SELECT OrderID, OrderDate, CustomerID, TotalAmount, SUBSTRING_INDEX(ShippingAddress, ',', 1) AS ShippingCity FROM UnnormalizedOrders;
 INSERT INTO 3NF_Customers SELECT * FROM 2NF_Customers;
 INSERT INTO 3NF_Products SELECT * FROM 2NF_Products;
 INSERT INTO 3NF_OrderItems SELECT * FROM 2NF_OrderItems;
@@ -140,21 +162,3 @@ SELECT * FROM 3NF_Orders;
 SELECT * FROM 3NF_Customers;
 SELECT * FROM 3NF_Products;
 SELECT * FROM 3NF_OrderItems;
-
--- ##############################
--- # STEP 4: Boyce-Codd Normal Form 
--- ##############################
-CREATE TABLE BCNF_Orders LIKE 3NF_Orders;
-CREATE TABLE BCNF_Customers LIKE 3NF_Customers;
-CREATE TABLE BCNF_Products LIKE 3NF_Products;
-CREATE TABLE BCNF_OrderItems LIKE 3NF_OrderItems;
-
-INSERT INTO BCNF_Orders SELECT * FROM 3NF_Orders;
-INSERT INTO BCNF_Customers SELECT * FROM 3NF_Customers;
-INSERT INTO BCNF_Products SELECT * FROM 3NF_Products;
-INSERT INTO BCNF_OrderItems SELECT * FROM 3NF_OrderItems;
-
-SELECT * FROM BCNF_Orders;
-SELECT * FROM BCNF_Customers;
-SELECT * FROM BCNF_Products;
-SELECT * FROM BCNF_OrderItems;

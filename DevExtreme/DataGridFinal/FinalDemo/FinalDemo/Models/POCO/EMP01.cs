@@ -63,6 +63,12 @@ namespace FinalDemo.Models.POCO
 
         public decimal P01F08 { get; set; }
 
+
+        /// <summary>
+        /// P01F09 = User Id
+        /// </summary>
+
+        public decimal P01F09 { get; set; }
         #endregion
     }
 }
