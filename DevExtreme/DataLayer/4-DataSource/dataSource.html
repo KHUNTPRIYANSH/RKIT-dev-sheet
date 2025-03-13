@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DevExtreme Data Grid with Full DataSource Config</title>
 
     <!-- jQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script
+      type="text/javascript"
+      src="../Scripts/jquery-3.5.1.min.js"
+    ></script>
 
     <!-- DevExtreme CSS -->
-    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/21.1.5/css/dx.dark.css">
+    <link rel="stylesheet" href="../Content/dx.dark.css" />
 
     <!-- DevExtreme JavaScript -->
-    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/21.1.5/js/dx.all.js"></script>
-</head>
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+  </head>
 
-<body class="dx-viewport">
+  <body class="dx-viewport">
     <h1>DevExtreme Data Grid with Full DataSource Config</h1>
 
     <!-- Data Grid Container -->
@@ -24,157 +26,155 @@
 
     <script src="./data.js"></script>
     <script>
-        $(document).ready(function () {
-            console.log("jQuery Ready!");
+      $(document).ready(function () {
+        console.log("jQuery Ready!");
 
+        // Configure the DataSource
+        const dataSourceConfig = {
+          // store: "array"
+          // store: "local"
+          // store: "odata"
+          store: new DevExpress.data.ArrayStore({
+            key: "ID",
+            data: productData,
+          }),
 
-            // Configure the DataSource
-            const dataSourceConfig = {
-                // store: "array"
-                // store: "local"
-                // store: "odata"
-                store: new DevExpress.data.ArrayStore({
-                    key: "ID",
-                    data: productData
-                }),
+          // Custom Query Parameters (Only for ODataStore)
+          // Allows you to pass custom parameters to an OData service when loading data. This is specific to the ODataStore
+          // customQueryParams: { customParam: "value" },
 
-                // Custom Query Parameters (Only for ODataStore)
-                // Allows you to pass custom parameters to an OData service when loading data. This is specific to the ODataStore
-                // customQueryParams: { customParam: "value" },  
+          // Expand Navigation Properties (Only for ODataStore)
+          // Load related data in a single request. This is specific to the ODataStore
+          // expand: ["Category"],
 
-                // Expand Navigation Properties (Only for ODataStore)
-                // Load related data in a single request. This is specific to the ODataStore
-                // expand: ["Category"],  
+          // Filter Data
+          filter: ["ID", ">", 15], // Show only products with ID > 30
 
-                // Filter Data
-                filter: ["ID", ">", 30], // Show only products with ID > 30
+          // Group Data
+          // It cannot perform nested grouping or complex aggregations
+          group: "Category",
 
-                // Group Data
-                // It cannot perform nested grouping or complex aggregations
-                group: "Category",
+          // Map Function - Modify data before it's displayed
+          map: function (item) {
+            item.DisplayName = `${item.Name} [${item.Emoji}]`;
+            return item;
+          },
 
-                // Map Function - Modify data before it's displayed
-                map: function (item) {
-                    item.DisplayName = `${item.Name} [${item.Emoji}]`;
-                    return item;
-                },
+          // Event Handlers
+          onChanged: function (e) {
+            console.log("Data changed:", e);
+          },
+          onLoadError: function (error) {
+            console.error("Data loading error:", error);
+          },
+          // A callback function executed when the loading status changes.
+          onLoadingChanged: function (isLoading) {
+            console.log("Loading state changed:", isLoading);
+          },
 
-                // Event Handlers
-                onChanged: function (e) {
-                    console.log("Data changed:", e);
-                },
-                onLoadError: function (error) {
-                    console.error("Data loading error:", error);
-                },
-                // A callback function executed when the loading status changes.
-                onLoadingChanged: function (isLoading) {
-                    console.log("Loading state changed:", isLoading);
-                },
+          // Pagination
+          paginate: true,
 
-                // Pagination
-                paginate: true,
+          // number of items per page when pagination is enabled.
+          pageSize: 10,
 
-                // number of items per page when pagination is enabled.
-                pageSize: 10,
+          // Post Processing Function - Modify data after load
+          postProcess: function (data) {
+            console.log("Post-processed data:", data);
+            return data;
+          },
 
-                // Post Processing Function - Modify data after load
-                postProcess: function (data) {
-                    console.log("Post-processed data:", data);
-                    return data;
-                },
+          // Push Aggregation Timeout
+          // S                                                                                                             re pushing changes to the DataSource
+          pushAggregationTimeout: 100,
 
-                // Push Aggregation Timeout
-                // S                                                                                                             re pushing changes to the DataSource
-                pushAggregationTimeout: 100,
+          // Reapply sorting, filtering, grouping on push updates
+          reshapeOnPush: true,
 
-                // Reapply sorting, filtering, grouping on push updates
-                reshapeOnPush: true,
+          // Request total count of records
+          requireTotalCount: false,
 
-                // Request total count of records
-                requireTotalCount: true,
+          // Search Settings
+          searchExpr: ["Name", "Category"],
+          searchOperation: "contains",
+          searchValue: "", // Default empty search
+          // searchValue: "Jeans",
 
-                // Search Settings
-                searchExpr: ["Name", "Category"],
-                searchOperation: "contains",
-                searchValue: "", // Default empty search
-                // searchValue: "Jeans",
+          // Select specific fields from data
+          select: ["ID", "Name", "Category", "Price", "Emoji"],
 
-                // Select specific fields from data
-                select: ["ID", "Name", "Category", "Price", "Emoji"],
+          // Sort Data
+          sort: [{ selector: "Price", desc: true }],
+        };
 
-                // Sort Data
-                sort: [{ selector: "Price", desc: true }]
-            };
+        // Initialize DataSource
+        const dataSource = new DevExpress.data.DataSource(dataSourceConfig);
 
-            // Initialize DataSource
-            const dataSource = new DevExpress.data.DataSource(dataSourceConfig);
+        // Debugging Logs
+        console.log("Is last page:", dataSource.isLastPage());
+        console.log("Page index:", dataSource.pageIndex());
+        console.log("Page size:", dataSource.pageSize());
+        console.log("Search expression:", dataSource.searchExpr());
+        console.log("Total count required:", dataSource.requireTotalCount());
 
-            // Debugging Logs
-            console.log("Is last page:", dataSource.isLastPage());
-            console.log("Page index:", dataSource.pageIndex());
-            console.log("Page size:", dataSource.pageSize());
-            console.log("Search expression:", dataSource.searchExpr());
-            console.log("Total count required:", dataSource.requireTotalCount());
+        // Additional DataSource Methods Usage
+        console.log("Filter value:", dataSource.filter()); // Get current filter
 
-            // Additional DataSource Methods Usage
-            console.log("Filter value:", dataSource.filter()); // Get current filter
+        // dataSource.filter(["Category", "=", "Fashion"]); // Set filter
 
-            // dataSource.filter(["Category", "=", "Fashion"]); // Set filter
+        console.log("Updated filter:", dataSource.filter());
+        console.log("Current group:", dataSource.group()); // Get current group
 
-            console.log("Updated filter:", dataSource.filter());
-            console.log("Current group:", dataSource.group()); // Get current group
+        // dataSource.group("Price"); // Set group
 
-            // dataSource.group("Price"); // Set group
+        console.log("Updated group:", dataSource.group());
+        console.log("Is data loaded:", dataSource.isLoaded()); // Check if data is loaded
+        console.log("Is loading:", dataSource.isLoading()); // Check if data is loading
+        console.log("Items on current page:", dataSource.items()); // Get items on current page
+        console.log("Data store key:", dataSource.key()); // Get store key
 
-            console.log("Updated group:", dataSource.group());
-            console.log("Is data loaded:", dataSource.isLoaded()); // Check if data is loaded
-            console.log("Is loading:", dataSource.isLoading()); // Check if data is loading
-            console.log("Items on current page:", dataSource.items()); // Get items on current page
-            console.log("Data store key:", dataSource.key()); // Get store key
+        dataSource.load(); // Load data
+        console.log("Load options:", dataSource.loadOptions()); // Get current load options
+        console.log("Total count:", dataSource.totalCount()); // Get total count if required
 
-            dataSource.load(); // Load data
-            console.log("Load options:", dataSource.loadOptions()); // Get current load options
-            console.log("Total count:", dataSource.totalCount()); // Get total count if required
-
-            // Initialize DataGrid
-            $("#dataGrid").dxDataGrid({
-                dataSource: dataSource,
-                groupPanel: {
-                    visible: true
-                },
-                paging: {
-                    enabled: true,
-                    // pageSize: 20
-                },
-                pager: {
-                    showPageSizeSelector: true,
-                    allowedPageSizes: [5, 10, 20],
-                    // showInfo: true
-                },
-                searchPanel: {
-                    visible: true,
-                    highlightCaseSensitive: false
-                },
-                columns: [
-                    { dataField: "ID", caption: "ID", width: 50 },
-                    { dataField: "Emoji", caption: "Icon", width: 50 },
-                    { dataField: "DisplayName", caption: "Product Name" },
-                    { dataField: "Category", caption: "Category" },
-                    { dataField: "Price", caption: "Price ($)", format: "currency" },
-                    {
-                        dataField: "Link",
-                        caption: "More Info",
-                        cellTemplate: function (container, options) {
-                            $("<a>")
-                                .attr("href", options.value)
-                                .text("View")
-                                .appendTo(container);
-                        }
-                    }
-                ]
-            });
+        // Initialize DataGrid
+        $("#dataGrid").dxDataGrid({
+          dataSource: dataSource,
+          groupPanel: {
+            visible: true,
+          },
+          paging: {
+            enabled: true,
+            // pageSize: 20
+          },
+          pager: {
+            showPageSizeSelector: true,
+            allowedPageSizes: [5, 10, 20],
+            // showInfo: true
+          },
+          searchPanel: {
+            visible: true,
+            highlightCaseSensitive: false,
+          },
+          columns: [
+            { dataField: "ID", caption: "ID", width: 50 },
+            { dataField: "Emoji", caption: "Icon", width: 50 },
+            { dataField: "DisplayName", caption: "Product Name" },
+            { dataField: "Category", caption: "Category" },
+            { dataField: "Price", caption: "Price ($)", format: "currency" },
+            {
+              dataField: "Link",
+              caption: "More Info",
+              cellTemplate: function (container, options) {
+                $("<a>")
+                  .attr("href", options.value)
+                  .text("View")
+                  .appendTo(container);
+              },
+            },
+          ],
         });
+      });
     </script>
-</body>
-
+  </body>
 </html>

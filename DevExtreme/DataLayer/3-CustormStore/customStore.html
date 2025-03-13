@@ -1,330 +1,346 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <title>DevExtreme CustomStore</title>
 
     <!-- jQuery -->
-    <script type="text/javascript" src="../Scripts/jquery-3.5.1.min.js"></script>
+    <script
+      type="text/javascript"
+      src="../Scripts/jquery-3.5.1.min.js"
+    ></script>
 
     <!-- DevExtreme CSS -->
-    <link rel="stylesheet" href="../Content/dx.dark.css">
+    <link rel="stylesheet" href="../Content/dx.dark.css" />
 
     <!-- DevExtreme JavaScript -->
     <script type="text/javascript" src="../Scripts/dx.all.js"></script>
 
     <!-- Bootstrap CSS (Dark Theme) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
 
     <style>
-        body {
-            background-color: #121212;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
+      body {
+        background-color: #121212;
+        color: white;
+        font-family: Arial, sans-serif;
+      }
 
-        .table-dark th,
-        .table-dark td {
-            color: white;
-        }
+      .table-dark th,
+      .table-dark td {
+        color: white;
+      }
 
-        .container {
-            margin-top: 20px;
-        }
+      .container {
+        margin-top: 20px;
+      }
 
-        .btn-group {
-            margin-left: 10px;
-        }
+      .btn-group {
+        margin-left: 10px;
+      }
     </style>
-</head>
+  </head>
 
-<body class="dx-viewport">
-
+  <body class="dx-viewport">
     <div class="container">
-        <h2 class="text-center">Product List</h2>
-        <table class="table table-dark table-bordered">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Emoji</th>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Link</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="userTableBody">
-                <!-- Data will be inserted here -->
-            </tbody>
-        </table>
+      <h2 class="text-center">Product List</h2>
+      <table class="table table-dark table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Emoji</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Link</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="userTableBody">
+          <!-- Data will be inserted here -->
+        </tbody>
+      </table>
 
-        <button class="btn btn-primary" id="addUserBtn">Insert Product</button>
+      <button class="btn btn-primary" id="addUserBtn">Insert Product</button>
     </div>
 
     <script>
-        $(document).ready(() => {
-            console.log("Document is Ready");
+      $(document).ready(() => {
+        console.log("Document is Ready");
 
-            var customStore = new DevExpress.data.CustomStore({
-                key: "ID", // Adjusted the key to match product ID
-                //Specifies whether raw data should be saved in the cache. Applies only if loadMode is "raw".
-                loadMode: "raw", //  'processed' | 'raw'
-                useDefaultSearch: true, // Defaults to true if the loadMode is "raw" and false if it is "processed"
-                //Specifies whether the store combines the search and filter expressions
-                cacheRawData: true,
-                // Load data from API
-                // load: (loadOptions) => {
-                //     var params = {};
+        var customStore = new DevExpress.data.CustomStore({
+          key: "ID", // Adjusted the key to match product ID
+          //Specifies whether raw data should be saved in the cache. Applies only if loadMode is "raw".
+          loadMode: "raw", //  'processed' | 'raw'
+          useDefaultSearch: true, // Defaults to true if the loadMode is "raw" and false if it is "processed"
+          //Specifies whether the store combines the search and filter expressions
+          cacheRawData: true,
+          // Load data from API
+          // load: (loadOptions) => {
+          //     var params = {};
 
-                // Handling filter, search, and other options
-                // if (loadOptions.filter) {
-                //     params.filter = JSON.stringify(loadOptions.filter); // Apply filter
-                // }
-                // if (loadOptions.sort) {
-                //     params.sort = JSON.stringify(loadOptions.sort); // Apply sorting
-                // }
-                // // debugger
-                // if (loadOptions.skip) {
-                //     params._start = loadOptions.skip; // Apply skip for pagination
-                // }
+          // Handling filter, search, and other options
+          // if (loadOptions.filter) {
+          //     params.filter = JSON.stringify(loadOptions.filter); // Apply filter
+          // }
+          // if (loadOptions.sort) {
+          //     params.sort = JSON.stringify(loadOptions.sort); // Apply sorting
+          // }
+          // // debugger
+          // if (loadOptions.skip) {
+          //     params._start = loadOptions.skip; // Apply skip for pagination
+          // }
 
-                // if (loadOptions.take) {
-                //     params._limit = loadOptions.take; // Apply take for pagination
-                // }
+          // if (loadOptions.take) {
+          //     params._limit = loadOptions.take; // Apply take for pagination
+          // }
 
-                // if (loadOptions.select) {
-                //     params.select = JSON.stringify(loadOptions.select); // Apply select fields
-                // }
+          // if (loadOptions.select) {
+          //     params.select = JSON.stringify(loadOptions.select); // Apply select fields
+          // }
 
-                // if (loadOptions.searchExpr && loadOptions.searchValue) {
-                //     params.searchExpr = loadOptions.searchExpr;
-                //     params.searchValue = loadOptions.searchValue;
-                //     params.searchOperation = loadOptions.searchOperation || "contains"; // Default search operation
-                // }
+          // if (loadOptions.searchExpr && loadOptions.searchValue) {
+          //     params.searchExpr = loadOptions.searchExpr;
+          //     params.searchValue = loadOptions.searchValue;
+          //     params.searchOperation = loadOptions.searchOperation || "contains"; // Default search operation
+          // }
 
-                // if (loadOptions.group) {
-                //     params.group = JSON.stringify(loadOptions.group); // Apply grouping
-                // }
+          // if (loadOptions.group) {
+          //     params.group = JSON.stringify(loadOptions.group); // Apply grouping
+          // }
 
-                // if (loadOptions.groupSummary) {
-                //     params.groupSummary = JSON.stringify(loadOptions.groupSummary); // Apply group summaries
-                // }
+          // if (loadOptions.groupSummary) {
+          //     params.groupSummary = JSON.stringify(loadOptions.groupSummary); // Apply group summaries
+          // }
 
-                //     try {
-                //         return $.ajax({
-                //             url: "https://67aee3c19e85da2f020eac23.mockapi.io/dummy_product_mock/api/products/products",
-                //             data: params,
-                //             dataType: "json",
-                //             method: "GET",
-                //             success: function (data, status, xhr) {
-                //                 console.log("Data Loaded:", data);
-                //                 displayData(data); // Call displayData with loaded data
-                //                 return data; // Ensure data is returned
-                //             },
-                //             error: function (xhr, status, error) {
-                //                 // Handle different error scenarios
-                //                 if (xhr && xhr.responseText) {
-                //                     console.error("Error loading data:", xhr.responseText); // Log responseText if available
-                //                 } else {
-                //                     console.error("Error loading data:", error || "Unknown error");
-                //                 }
-                //                 return []; // Return an empty array on error
-                //             }
-                //         });
-                //     } catch (e) {
-                //         // Handle errors thrown during the AJAX request
-                //         console.error("AJAX Request Error:", e);
-                //         return []; // Return an empty array on exception
-                //     }
-                // }
-                load: (loadOptions) => {
-                    var params = {};
+          //     try {
+          //         return $.ajax({
+          //             url: "https://67aee3c19e85da2f020eac23.mockapi.io/dummy_product_mock/api/products/products",
+          //             data: params,
+          //             dataType: "json",
+          //             method: "GET",
+          //             success: function (data, status, xhr) {
+          //                 console.log("Data Loaded:", data);
+          //                 displayData(data); // Call displayData with loaded data
+          //                 return data; // Ensure data is returned
+          //             },
+          //             error: function (xhr, status, error) {
+          //                 // Handle different error scenarios
+          //                 if (xhr && xhr.responseText) {
+          //                     console.error("Error loading data:", xhr.responseText); // Log responseText if available
+          //                 } else {
+          //                     console.error("Error loading data:", error || "Unknown error");
+          //                 }
+          //                 return []; // Return an empty array on error
+          //             }
+          //         });
+          //     } catch (e) {
+          //         // Handle errors thrown during the AJAX request
+          //         console.error("AJAX Request Error:", e);
+          //         return []; // Return an empty array on exception
+          //     }
+          // }
+          load: (loadOptions) => {
+            var params = {};
 
-                    // Handling pagination
-                    if (loadOptions.skip !== undefined && loadOptions.take !== undefined) {
-                        params.page = Math.floor(loadOptions.skip / loadOptions.take) + 1; // Calculate page number
-                        params.limit = loadOptions.take; // Limit results per page
-                    }
+            // Handling pagination
+            if (
+              loadOptions.skip !== undefined &&
+              loadOptions.take !== undefined
+            ) {
+              params.page = Math.floor(loadOptions.skip / loadOptions.take) + 1; // Calculate page number
+              params.limit = loadOptions.take; // Limit results per page
+            }
 
-                    // Handling filtering
-                    if (loadOptions.filter) {
-                        params.filter = JSON.stringify(loadOptions.filter);
-                    }
+            // Handling filtering
+            if (loadOptions.filter) {
+              params.filter = JSON.stringify(loadOptions.filter);
+            }
 
-                    // Handling sorting
-                    if (loadOptions.sort) {
-                        params.sort = JSON.stringify(loadOptions.sort);
-                    }
+            // Handling sorting
+            if (loadOptions.sort) {
+              params.sort = JSON.stringify(loadOptions.sort);
+            }
 
-                    // Handling search
-                    if (loadOptions.searchExpr && loadOptions.searchValue) {
-                        params.searchExpr = loadOptions.searchExpr;
-                        params.searchValue = loadOptions.searchValue;
-                        params.searchOperation = loadOptions.searchOperation || "contains";
-                    }
+            // Handling search
+            if (loadOptions.searchExpr && loadOptions.searchValue) {
+              params.searchExpr = loadOptions.searchExpr;
+              params.searchValue = loadOptions.searchValue;
+              params.searchOperation =
+                loadOptions.searchOperation || "contains";
+            }
 
-                    return $.ajax({
-                        url: "https://67aee3c19e85da2f020eac23.mockapi.io/dummy_product_mock/api/products/products",
-                        data: params,
-                        dataType: "json",
-                        method: "GET",
-                        success: function (data) {
-                            console.log("Data Loaded:", data);
-                            displayData(data);
-                            return data;
-                        },
-                        error: function (xhr, status, error) {
-                            console.error("Error loading data:", xhr.responseText || error);
-                            return [];
-                        }
-                    });
-                }
-
-                ,
-
-                // Insert a new record
-                insert: (values) => {
-                    return $.ajax({
-                        url: "https://67aee3c19e85da2f020eac23.mockapi.io/dummy_product_mock/api/products/products",
-                        method: "POST",
-                        data: values,
-                    })
-                        .then((response) => {
-                            console.log("Inserted:", response);
-                            customStore.load(); // Reload data after insert
-                        })
-                        .fail((error) => {
-                            console.error("Error inserting data:", error);
-                        });
-                },
-
-                // Update an existing record
-                update: (key, values) => {
-                    return $.ajax({
-                        url: `https://67aee3c19e85da2f020eac23.mockapi.io/dummy_product_mock/api/products/products/${key}`,
-                        method: "PUT",
-                        data: values,
-                    })
-                        .then((response) => {
-                            console.log("Updated:", response);
-                            customStore.load(); // Reload data after update
-                        })
-                        .fail((error) => {
-                            console.error("Error updating data:", error);
-                        });
-                },
-
-                // Delete a record
-                remove: (key) => {
-                    return $.ajax({
-                        url: `https://67aee3c19e85da2f020eac23.mockapi.io/dummy_product_mock/api/products/products/${key}`,
-                        method: "DELETE",
-                    })
-                        .then((response) => {
-                            console.log("Deleted:", response);
-                            customStore.load(); // Reload data after delete
-                        })
-                        .fail((error) => {
-                            console.error("Error deleting data:", error);
-                        });
-                },
-
-
-                errorHandler: (error) => {
-                    alert(error.message);
-                },
+            return $.ajax({
+              url: "https://67aee3c19e85da2f020eac23.mockapi.io/dummy_product_mock/api/products/products",
+              data: params,
+              dataType: "json",
+              method: "GET",
+              success: function (data) {
+                console.log("Data Loaded:", data);
+                displayData(data);
+                return data;
+              },
+              error: function (xhr, status, error) {
+                console.error("Error loading data:", xhr.responseText || error);
+                return [];
+              },
             });
+          },
 
-            // store.clearRawDataCache();
+          // Insert a new record
+          insert: (values) => {
+            return $.ajax({
+              url: "https://67aee3c19e85da2f020eac23.mockapi.io/dummy_product_mock/api/products/products",
+              method: "POST",
+              data: values,
+            })
+              .then((response) => {
+                console.log("Inserted:", response);
+                customStore.load(); // Reload data after insert
+              })
+              .fail((error) => {
+                console.error("Error inserting data:", error);
+              });
+          },
 
-            // Load initial data
+          // Update an existing record
+          update: (key, values) => {
+            return $.ajax({
+              url: `https://67aee3c19e85da2f020eac23.mockapi.io/dummy_product_mock/api/products/products/${key}`,
+              method: "PUT",
+              data: values,
+            })
+              .then((response) => {
+                console.log("Updated:", response);
+                customStore.load(); // Reload data after update
+              })
+              .fail((error) => {
+                console.error("Error updating data:", error);
+              });
+          },
 
-            // customStore.load();
+          // Delete a record
+          remove: (key) => {
+            return $.ajax({
+              url: `https://67aee3c19e85da2f020eac23.mockapi.io/dummy_product_mock/api/products/products/${key}`,
+              method: "DELETE",
+            })
+              .then((response) => {
+                console.log("Deleted:", response);
+                customStore.load(); // Reload data after delete
+              })
+              .fail((error) => {
+                console.error("Error deleting data:", error);
+              });
+          },
 
-            customStore.load({
-                skip: 1,
-                take: 2,
-                filter: ["category", "=", "Electronics"],  // Example of a filter
-                sort: [{ selector: "name", desc: false }],  // Sort by name ascending
-                group: ["category"],  // Group by category
-                searchExpr: "name",  // Search by name field
-                searchValue: "Phone",  // Search value to filter
-                searchOperation: "contains",  // Search operation: 'contains'
-                requireTotalCount: true,
-                select: ["name", "category", "emoji"],  // Select only specific fields
-            });
+          errorHandler: (error) => {
+            alert(error.message);
+          },
+        });
 
-            // Function to display data dynamically in the table
-            function displayData(data) {
-                let tableBody = $("#userTableBody");
-                tableBody.empty(); // Clear existing rows before adding new ones
+        // store.clearRawDataCache();
 
-                data.forEach((product) => {
-                    let row = `<tr>
+        // Load initial data
+
+        customStore.load();
+
+        // customStore.load({
+        //   skip: 1,
+        //   take: 2,
+        //   filter: ["category", "=", "Electronics"], // Example of a filter
+        //   sort: [{ selector: "name", desc: false }], // Sort by name ascending
+        //   group: ["category"], // Group by category
+        //   searchExpr: "name", // Search by name field
+        //   searchValue: "Phone", // Search value to filter
+        //   searchOperation: "contains", // Search operation: 'contains'
+        //   requireTotalCount: true,
+        //   select: ["name", "category", "emoji"], // Select only specific fields
+        // });
+
+        // Function to display data dynamically in the table
+        function displayData(data) {
+          let tableBody = $("#userTableBody");
+          tableBody.empty(); // Clear existing rows before adding new ones
+
+          data.forEach((product) => {
+            let row = `<tr>
             <td>${product.id}</td> <!-- Change ID to 'id' -->
             <td>${product.emoji || "N/A"}</td> <!-- Change Emoji to 'emoji' -->
             <td>${product.name || "N/A"}</td> <!-- Change Name to 'name' -->
-            <td>${product.category || "N/A"}</td> <!-- Change Category to 'category' -->
-            <td><a href="${product.link}" target="_blank">Link</a></td> <!-- Change Link to 'link' -->
+            <td>${
+              product.category || "N/A"
+            }</td> <!-- Change Category to 'category' -->
+            <td><a href="${
+              product.link
+            }" target="_blank">Link</a></td> <!-- Change Link to 'link' -->
             <td>
-                <button class="btn btn-success edit-btn" data-id="${product.id}">Edit</button>
-                <button class="btn btn-danger delete-btn" data-id="${product.id}">Delete</button>
+                <button class="btn btn-success edit-btn" data-id="${
+                  product.id
+                }">Edit</button>
+                <button class="btn btn-danger delete-btn" data-id="${
+                  product.id
+                }">Delete</button>
             </td>
         </tr>`;
-                    tableBody.append(row);
-                });
+            tableBody.append(row);
+          });
 
-                attachEventListeners(); // Attach event listeners after table data is populated
-            }
+          attachEventListeners(); // Attach event listeners after table data is populated
+        }
 
+        // Insert new product
+        $("#addUserBtn").on("click", function () {
+          let name = prompt("Enter Name:");
+          let emoji = prompt("Enter Emoji:");
+          let category = prompt("Enter Category:");
+          let link = prompt("Enter Link:");
 
-            // Insert new product
-            $("#addUserBtn").on("click", function () {
-                let name = prompt("Enter Name:");
-                let emoji = prompt("Enter Emoji:");
-                let category = prompt("Enter Category:");
-                let link = prompt("Enter Link:");
-
-                if (name && emoji && category && link) {
-                    let newProduct = { name: name, emoji: emoji, category: category, link: link };
-                    customStore.insert(newProduct);
-                } else {
-                    alert("All fields are required.");
-                }
-            });
-
-            // Attach event listeners for Edit and Delete buttons
-            function attachEventListeners() {
-                // Use event delegation for dynamically added elements
-                $(document).on("click", ".edit-btn", function () {
-                    let id = $(this).data("id");
-                    let name = prompt("Enter name:");
-                    let emoji = prompt("Enter emoji:");
-                    let category = prompt("Enter category:");
-                    let link = prompt("Enter link:");
-
-                    if (name && emoji && category && link) {
-                        customStore.update(id, { name: name, emoji: emoji, category: category, link: link });
-                    } else {
-                        alert("All fields are required.");
-                    }
-                });
-
-                $(document).on("click", ".delete-btn", function () {
-                    let id = $(this).data("id");
-                    if (confirm("Are you sure you want to delete this product?")) {
-                        customStore.remove(id);
-                    }
-                });
-            }
-
+          if (name && emoji && category && link) {
+            let newProduct = {
+              name: name,
+              emoji: emoji,
+              category: category,
+              link: link,
+            };
+            customStore.insert(newProduct);
+          } else {
+            alert("All fields are required.");
+          }
         });
 
+        // Attach event listeners for Edit and Delete buttons
+        function attachEventListeners() {
+          // Use event delegation for dynamically added elements
+          $(document).on("click", ".edit-btn", function () {
+            let id = $(this).data("id");
+            let name = prompt("Enter name:");
+            let emoji = prompt("Enter emoji:");
+            let category = prompt("Enter category:");
+            let link = prompt("Enter link:");
 
+            if (name && emoji && category && link) {
+              customStore.update(id, {
+                name: name,
+                emoji: emoji,
+                category: category,
+                link: link,
+              });
+            } else {
+              alert("All fields are required.");
+            }
+          });
 
+          $(document).on("click", ".delete-btn", function () {
+            let id = $(this).data("id");
+            if (confirm("Are you sure you want to delete this product?")) {
+              customStore.remove(id);
+            }
+          });
+        }
+      });
     </script>
-
-</body>
-
+  </body>
 </html>
