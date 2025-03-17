@@ -1,0 +1,71 @@
+   /* Reset default padding, margin, and set box-sizing */
+   * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  /* Set body to full screen with a centered grid layout and background color */
+  body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: #bbb !important;
+  }
+
+  /* Styling for the main login section */
+  section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+    color: #252525;
+    gap: 25px;
+    padding: 25px;
+    border-radius: 15px;
+    padding-left: 50px;
+  }
+
+  /* Styling for the form container */
+  #form {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 25px;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 0 15px 1px rgba(128, 0, 128, 0.246);
+    width: 40%;
+  }
+
+  /* Ensures input fields take full width */
+  .dx-field-value {
+    width: 100% !important;
+  }
+
+  /* Styling for the image container */
+  main {
+    width: 60%;
+  }
+
+  /* Ensures the image scales properly within its container */
+  main img {
+    scale: 0.9;
+    width: 100%;
+    mix-blend-mode: multiply;
+  }
+
+  /* Header styling for the login form */
+  .dx-fieldset-header {
+    font-size: 1.7rem;
+    margin-bottom: 0px;
+  }
+
+  /* Ensures buttons take full width */
+  #submit-button,
+  #signup-button {
+    width: 100%;
+  }

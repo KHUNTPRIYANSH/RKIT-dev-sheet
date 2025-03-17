@@ -1,0 +1,21 @@
+body {
+    background-color: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+
+  .container {
+    margin-top: 20px;
+  }
+
+  .middleClass {
+    background: linear-gradient(to left, #56ab2f, #a8e063) !important;
+  }
+
+  .rich {
+    background: linear-gradient(to left, #fdc830, #f37335) !important;
+  }
+
+  .bpl {
+    background: linear-gradient(to right, #ed213a, #93291e) !important;
+  }

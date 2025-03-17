@@ -1,7 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <title>SignUp Page</title>
 
@@ -10,228 +9,230 @@
 
     <!-- DevExtreme CSS -->
 
-    <link rel="stylesheet" href="/Content/dx.material.purple.light.css">
+    <link rel="stylesheet" href="/Content/dx.material.purple.light.css" />
 
     <!-- DevExtreme JavaScript -->
     <script type="text/javascript" src="/Scripts/dx.all.js"></script>
 
     <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            display: grid;
-            place-items: center;
-            height: 100vh;
-            width: 100vw;
-            background: #bbb !important;
-        }
+      body {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        width: 100vw;
+        background: #bbb !important;
+      }
 
-        section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f4f4f4;
-            color: #252525;
-            gap: 25px;
-            padding: 25px;
-            border-radius: 15px;
-            padding-left: 50px;
-        }
+      section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f4f4f4;
+        color: #252525;
+        gap: 25px;
+        padding: 25px;
+        border-radius: 15px;
+        padding-left: 50px;
+      }
 
-        #form {
-            background: #fff;
-            border-radius: 15px;
-            overflow: hidden;
-            padding: 25px;
-            display: flex;
-            align-self: center;
-            flex-direction: column;
-            gap: 15px;
-            box-shadow: 0 0 15px 1px rgba(128, 0, 128, 0.246);
-            width: 40%;
-        }
+      #form {
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        padding: 25px;
+        display: flex;
+        align-self: center;
+        flex-direction: column;
+        gap: 15px;
+        box-shadow: 0 0 15px 1px rgba(128, 0, 128, 0.246);
+        width: 40%;
+      }
 
-        .dx-field-value {
-            width: 100% !important;
-        }
+      .dx-field-value {
+        width: 100% !important;
+      }
 
-        main {
-            width: 60%;
-        }
+      main {
+        width: 60%;
+      }
 
-        main img {
-            scale: 0.9;
-            width: 100%;
-            mix-blend-mode: multiply;
-        }
+      main img {
+        scale: 0.9;
+        width: 100%;
+        mix-blend-mode: multiply;
+      }
 
-        #submit-button {
-            width: 100%;
-        }
+      #submit-button {
+        width: 100%;
+      }
 
-        #login-button {
-            width: 100%;
-        }
+      #login-button {
+        width: 100%;
+      }
 
-        .dx-fieldset-header {
-            font-size: 1.7rem;
-            margin-bottom: 0px;
-        }
+      .dx-fieldset-header {
+        font-size: 1.7rem;
+        margin-bottom: 0px;
+      }
     </style>
-</head>
+  </head>
 
-<body class="dx-viewport">
+  <body class="dx-viewport">
     <section>
-        <form id="form">
-            <div class="dx-fieldset-header">SignUp</div>
+      <form id="form">
+        <div class="dx-fieldset-header">SignUp</div>
 
+        <div class="dx-field-value">
+          <div id="userName"></div>
+        </div>
 
-            <div class="dx-field-value">
-                <div id="userName"></div>
-            </div>
+        <div class="dx-field-value">
+          <div id="password"></div>
+        </div>
 
-            <div class="dx-field-value">
-                <div id="password"></div>
-            </div>
+        <div class="dx-field-value">
+          <div id="confirm-password"></div>
+        </div>
 
-            <div class="dx-field-value">
-                <div id="confirm-password"></div>
-            </div>
+        <div class="dx-field-value">
+          <div id="role"></div>
+        </div>
 
-            <div class="dx-field-value">
-                <div id="role"></div>
-            </div>
+        <div class="dx-field-value">
+          <div id="submit-button"></div>
+        </div>
 
-            <div class="dx-field-value">
-                <div id="submit-button"></div>
-            </div>
+        <p>
+          Already have account?
 
-            <p>Already have account?
+          <a href="/pages/login/login.html">Login</a>
+        </p>
+      </form>
 
-                <a href="/login.html">Login</a>
-            </p>
-
-        </form>
-
-        <main>
-            <img src="/imgs/signup.gif" alt="">
-        </main>
+      <main>
+        <img src="/imgs/signup.gif" alt="" />
+      </main>
     </section>
 
     <script>
-        $(function () {
-            $("#userName").dxTextBox({
-                value: "",
-                placeholder: "User Name",
-                showClearButton: true,
-            }).dxValidator({
-                validationRules: [
-                    {
-                        type: "required",
-                        message: "User Name is required",
-                    },
-                    {
-                        type: "pattern",
-                        pattern: "^[a-zA-Z ]*$",
-                        message: "Only alphabets and spaces are allowed",
-                    },
-                ],
-            });
+      $(function () {
+        $("#userName")
+          .dxTextBox({
+            value: "",
+            placeholder: "User Name",
+            showClearButton: true,
+          })
+          .dxValidator({
+            validationRules: [
+              {
+                type: "required",
+                message: "User Name is required",
+              },
+              {
+                type: "pattern",
+                pattern: "^[a-zA-Z ]*$",
+                message: "Only alphabets and spaces are allowed",
+              },
+            ],
+          });
 
-            $("#password").dxTextBox({
-                value: "",
-                mode: "password",
-                placeholder: "Password",
-                showClearButton: true
-            }).dxValidator({
-                validationRules: [
-                    {
-                        type: "required",
-                        message: "Password is required",
-                    },
-                    {
-                        type: "stringLength",
-                        min: 8,
-                        message: "Password must be at least 8 characters long",
-                    },
-                ],
-            });
+        $("#password")
+          .dxTextBox({
+            value: "",
+            mode: "password",
+            placeholder: "Password",
+            showClearButton: true,
+          })
+          .dxValidator({
+            validationRules: [
+              {
+                type: "required",
+                message: "Password is required",
+              },
+              {
+                type: "stringLength",
+                min: 8,
+                message: "Password must be at least 8 characters long",
+              },
+            ],
+          });
 
-            $("#confirm-password").dxTextBox({
-                value: "",
-                mode: "password",
-                placeholder: "Confirm Password",
-                showClearButton: true
-            }).dxValidator({
-                validationRules: [
-                    {
-                        type: "required",
-                        message: "Confirm Password is required",
-                    },
-                    {
-                        type: "compare",
-                        comparisonTarget: function () {
-                            return $("#password").dxTextBox("instance").option("value");
-                        },
-                        message: "Passwords do not match!",
-                    },
-                ]
-            });
+        $("#confirm-password")
+          .dxTextBox({
+            value: "",
+            mode: "password",
+            placeholder: "Confirm Password",
+            showClearButton: true,
+          })
+          .dxValidator({
+            validationRules: [
+              {
+                type: "required",
+                message: "Confirm Password is required",
+              },
+              {
+                type: "compare",
+                comparisonTarget: function () {
+                  return $("#password").dxTextBox("instance").option("value");
+                },
+                message: "Passwords do not match!",
+              },
+            ],
+          });
 
-            $("#role").dxSelectBox({
-                items: [
-                    { key: 3, name: "Admin" },
-                    { key: 2, name: "Editor" },
-                    { key: 1, name: "User" },
-                ],
-                valueExpr: "key",
-                displayExpr: "name",
-            });
-
-            $("#submit-button").dxButton({
-                text: "Sign Up",
-                type: "default",
-                useSubmitBehavior: false,
-                onClick: function (e) {
-                    var validationGroup = DevExpress.validationEngine.validateGroup();
-                    if (!validationGroup.isValid) {
-                        return;
-                    }
-
-                    let dataObj = {
-                        "R01F01": 0,
-                        "R01F02": $("#userName").dxTextBox("instance").option("value"),
-                        "R01F03": $("#password").dxTextBox("instance").option("value"),
-                        "R01F04": $("#role").dxSelectBox("instance").option("value")
-                    };
-
-                    let api = "https://localhost:44310/add_user";
-                    $.ajax({
-                        url: api,
-                        type: "POST",
-                        data: JSON.stringify(dataObj),
-                        contentType: "application/json",
-                        success: function (data) {
-                            alert("User added successfully!");
-                            console.log(data);
-                            let uid = data.Message.split(":")[1];
-                            localStorage.setItem("uid", uid);
-                            window.location.href = "login.html";
-                        },
-                        error: function (xhr, status, error) {
-                            alert("Error: " + xhr.responseText);
-                        }
-                    });
-                }
-            });
-
-
+        $("#role").dxSelectBox({
+          items: [
+            { key: 3, name: "Admin" },
+            { key: 2, name: "Editor" },
+            { key: 1, name: "User" },
+          ],
+          valueExpr: "key",
+          displayExpr: "name",
         });
-    </script>
-</body>
 
+        $("#submit-button").dxButton({
+          text: "Sign Up",
+          type: "default",
+          useSubmitBehavior: false,
+          onClick: function (e) {
+            var validationGroup = DevExpress.validationEngine.validateGroup();
+            if (!validationGroup.isValid) {
+              return;
+            }
+
+            let dataObj = {
+              R01F01: 0,
+              R01F02: $("#userName").dxTextBox("instance").option("value"),
+              R01F03: $("#password").dxTextBox("instance").option("value"),
+              R01F04: $("#role").dxSelectBox("instance").option("value"),
+            };
+
+            let api = "https://localhost:44310/add_user";
+            $.ajax({
+              url: api,
+              type: "POST",
+              data: JSON.stringify(dataObj),
+              contentType: "application/json",
+              success: function (data) {
+                alert("User added successfully!");
+                console.log(data);
+                let uid = data.Message.split(":")[1];
+                localStorage.setItem("uid", uid);
+                window.location.href = "/pages/login/login.html";
+              },
+              error: function (xhr, status, error) {
+                alert("Error: " + xhr.responseText);
+              },
+            });
+          },
+        });
+      });
+    </script>
+  </body>
 </html>

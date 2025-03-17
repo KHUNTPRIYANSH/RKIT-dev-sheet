@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance Management</title>
+
+    <!-- Excel Export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.4.0/polyfill.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.1.1/exceljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
+
+    <!-- PDF Export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.7.1/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="/Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS -->
+    <link rel="stylesheet" href="/Content/dx.material.purple.light.css" />
+    <!-- <link rel="stylesheet" href="/Content/dx.material.purple.dark.css" /> -->
+
+    <!-- DevExtreme JavaScript -->
+    <script type="text/javascript" src="/Scripts/dx.all.js"></script>
+
+    <style>
+      body {
+        background-color: #121212;
+        color: white;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        margin-top: 20px;
+      }
+      .late-entry {
+        background: linear-gradient(to right, #ff416d58, #ff4b2b40) !important;
+      }
+      .on-time {
+        background: linear-gradient(to right, #56ab2f81, #a8e06349) !important;
+      }
+    </style>
+  </head>
+  <body class="dx-viewport">
+    <div class="container">
+      <h2 class="text-center">Attendance Records</h2>
+      <div id="gridContainer"></div>
+    </div>
+
+    <script src="att.js"></script>
+  </body>
+</html>

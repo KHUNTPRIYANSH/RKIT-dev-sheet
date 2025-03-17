@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+
+    <!-- jQuery library for handling DOM manipulations and AJAX requests -->
+    <script type="text/javascript" src="/Scripts/jquery-3.5.1.min.js"></script>
+
+    <!-- DevExtreme CSS for UI styling and theme -->
+    <link rel="stylesheet" href="/Content/dx.material.purple.light.css" />
+
+    <!-- DevExtreme JavaScript for UI components like textboxes, buttons, etc. -->
+    <script type="text/javascript" src="/Scripts/dx.all.js"></script>
+
+    <link rel="stylesheet" href="login.css" />
+  </head>
+
+  <body class="dx-viewport">
+    <section>
+      <!-- Login Form -->
+      <form id="form">
+        <div class="dx-fieldset-header">Login</div>
+
+        <!-- Username input field -->
+        <div class="dx-field-value">
+          <div id="userName"></div>
+        </div>
+
+        <!-- Password input field -->
+        <div class="dx-field-value">
+          <div id="password"></div>
+        </div>
+
+        <!-- Submit button container -->
+        <div class="dx-field-value">
+          <div id="submit-button"></div>
+        </div>
+
+        <!-- Signup link -->
+        <p>Don't have account yet? <a href="../../default.html">Sign Up</a></p>
+      </form>
+
+      <!-- Image section -->
+      <main>
+        <img src="../../imgs/login.gif" alt="" />
+      </main>
+    </section>
+
+    <script src="login.js"></script>
+  </body>
+</html>
