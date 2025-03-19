@@ -161,20 +161,39 @@
 
           // Content for ScrollView inside the popup
           let scrollViewContent = `
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <p>Vestibulum et lacus nec justo dignissim hendrerit.</p>
-        <p>Curabitur aliquam metus nec magna commodo, eu pharetra risus rhoncus.</p>
-        <p>Fusce tincidunt nisl id augue congue, eget tincidunt sapien consequat.</p>
-        <p>Proin ut ex nec sapien cursus facilisis.</p>
-        <p>Donec vulputate risus ut felis dictum, sed fermentum nisi aliquet.</p>
-        <p>Suspendisse potenti. Integer vehicula massa a est ultricies accumsan.</p>
-        <p>Aliquam auctor metus ut sem tempus, id ultrices turpis placerat.</p>
-    `;
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Vestibulum et lacus nec justo dignissim hendrerit.</p>
+            <p>Curabitur aliquam metus nec magna commodo, eu pharetra risus rhoncus.</p>
+            <p>Fusce tincidunt nisl id augue congue, eget tincidunt sapien consequat.</p>
+            <p>Proin ut ex nec sapien cursus facilisis.</p>
+            <p>Donec vulputate risus ut felis dictum, sed fermentum nisi aliquet.</p>
+            <p>Suspendisse potenti. Integer vehicula massa a est ultricies accumsan.</p>
+            <p>Aliquam auctor metus ut sem tempus, id ultrices turpis placerat.</p>
+        `;
 
           // Popup with ScrollView Instance
           let popupWithScrollView = $("#popupWithScrollView")
             .dxPopup({
               title: "Popup with ScrollView",
+              //// doubt in title template
+              //// if we use titletemplate then toolbar will not shown
+              titleTemplate: (e) => {
+                console.log("E of title template : ", e);
+                let logo = $("<img>")
+                  .attr(
+                    "src",
+                    "https://mticketdemo1.rkitsoftware.com/Theme/img/miracle.png"
+                  )
+                  .css({
+                    height: "50px",
+                  });
+                return $("<a>")
+                  .attr(
+                    "href",
+                    "https://mticketdemo1.rkitsoftware.com/screens/login.aspx"
+                  )
+                  .append(logo);
+              },
               width: 300,
               height: 300,
               visible: true,
@@ -189,6 +208,20 @@
                   of: "#area",
                 });
               },
+              toolbarItems: [
+                {
+                  toolbar: "bottom",
+                  location: "after",
+                  widget: "dxButton",
+                  options: {
+                    stylingMode: "outlined",
+                    text: "Close ❌",
+                    onClick: function () {
+                      popupWithScrollView.hide(); // Hide the popup when clicking the close button
+                    },
+                  },
+                },
+              ],
               position: { my: "center", at: "center", of: "#area" },
               contentTemplate: function () {
                 let $scrollView = $("<section>");
