@@ -1,0 +1,46 @@
+.item-card {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    color: #ddd;
+    padding: 15px;
+    min-width: 250px;
+    height: 350px;
+    background: #1f2f60;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+  }
+  .item-card h3 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .item-card #icon {
+    font-size: 5rem;
+    text-align: center;
+  }
+  .item-card p {
+    font-size: 1rem;
+    text-align: center;
+  }
+  .card-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+  }
+  .fullscreen-popup .dx-overlay-content {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  #cards-container {
+    /* border: 5px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }

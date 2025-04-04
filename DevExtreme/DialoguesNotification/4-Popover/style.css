@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #28283d;
+    color: white;
+    margin-top: 50px;
+  }
+  .btns > * {
+    flex: 1;
+    width: 100%;
+  }
+  .btns {
+    width: 97%;
+    display: flex;
+    margin-top: -50px;
+    flex-direction: column;
+  }
+  #area {
+    height: 300px;
+    width: 300px;
+    border: 5px double gold;
+    background: rgba(0, 0, 0, 0.36);
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #area-min {
+    height: 60px;
+    width: 200px;
+    border: 5px double crimson;
+    background: rgba(0, 0, 0, 0.36);
+    display: grid;
+    place-items: center;
+    position: absolute;
+    bottom: 100px;
+    left: 100px;
+  }
+  #area span {
+    color: #aaa;
+  }
+
+  .dx-button {
+    margin: 10px;
+  }
+
+  /* Hide popover container initially */
+  #PopoverContainer {
+    display: none;
+  }

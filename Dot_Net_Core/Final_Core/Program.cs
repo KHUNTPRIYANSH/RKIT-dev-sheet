@@ -2,17 +2,14 @@ using Final_Core.Services;
 using Final_Core.Middlewares;
 using Final_Core.Data;
 using ServiceStack.OrmLite;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using NLog;
 using NLog.Web;
-using Microsoft.Extensions.Logging;
 using ServiceStack.Data;
 using LogLevel = Microsoft.Extensions.Logging.LogLevel;
 using Final_Core.BL.Operations;
 using Final_Core.Filters;
 using Final_Core.BL.Interfaces;
+using System.Reflection;
 
 namespace Final_Core
 {
@@ -33,7 +30,6 @@ namespace Final_Core
                 var builder = WebApplication.CreateBuilder(args);
 
                 #region Configure Logging
-                // Configure NLog for logging
                 builder.Logging.ClearProviders();
                 builder.Logging.SetMinimumLevel(LogLevel.Information);
                 builder.Host.UseNLog();
@@ -46,8 +42,15 @@ namespace Final_Core
                     options.Filters.Add<GlobalExceptionFilter>(); // Register global exception filter
                 });
                 builder.Services.AddEndpointsApiExplorer();
-                builder.Services.AddSwaggerGen();
-                builder.Services.AddAuthorization();
+                // Enable XML comments in Swagger
+                var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFilename);
+
+                builder.Services.AddSwaggerGen(c =>
+                {
+                    c.IncludeXmlComments(xmlPath); // Load XML file
+                });
+                    builder.Services.AddAuthorization();
 
                 // Register the database connection factory
                 builder.Services.AddSingleton<IDbConnectionFactory>(new OrmLiteConnectionFactory(

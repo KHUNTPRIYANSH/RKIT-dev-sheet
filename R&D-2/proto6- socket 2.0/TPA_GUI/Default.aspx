@@ -95,6 +95,7 @@
         // Fetch user-specific data (DTO) from server
         async function fetchDTO(token) {
             try {
+                debugger;
                 const response = await $.ajax({
                     url: `${API_BASE_URL}/api/GetDTO`,
                     method: "GET",

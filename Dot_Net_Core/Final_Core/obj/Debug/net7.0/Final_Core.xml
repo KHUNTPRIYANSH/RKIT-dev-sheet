@@ -1,0 +1,671 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Final_Core</name>
+    </assembly>
+    <members>
+        <member name="T:Final_Core.BL.Interfaces.IBank">
+            <summary>
+            Interface for Bank operations related to employee salary processing.
+            </summary>
+        </member>
+        <member name="P:Final_Core.BL.Interfaces.IBank.BankName">
+            <summary>
+            Gets the name of the bank.
+            </summary>
+        </member>
+        <member name="M:Final_Core.BL.Interfaces.IBank.ProcessSalary(Final_Core.Models.POCO.Emp01,System.Decimal)">
+            <summary>
+            Processes the salary for an employee.
+            </summary>
+            <param name="employee">The employee whose salary is to be processed.</param>
+            <param name="amount">The salary amount to be processed.</param>
+        </member>
+        <member name="M:Final_Core.BL.Interfaces.IBank.GetOperationId">
+            <summary>
+            Gets the operation ID for the salary processing transaction.
+            Used for service lifetime tracking.
+            </summary>
+            <returns>A unique operation ID.</returns>
+        </member>
+        <member name="T:Final_Core.BL.Interfaces.ICompany">
+            <summary>
+            Interface for company operations related to employee salary payments.
+            </summary>
+        </member>
+        <member name="P:Final_Core.BL.Interfaces.ICompany.CompanyName">
+            <summary>
+            Gets or sets the name of the company.
+            This should be initialized in the implementing class.
+            </summary>
+        </member>
+        <member name="P:Final_Core.BL.Interfaces.ICompany.BankName">
+            <summary>
+            Gets the name of the bank associated with the company.
+            </summary>
+        </member>
+        <member name="M:Final_Core.BL.Interfaces.ICompany.PaySalary(System.Int32)">
+            <summary>
+            Processes the salary payment for an employee.
+            </summary>
+            <param name="id">The ID of the employee whose salary is to be paid.</param>
+        </member>
+        <member name="T:Final_Core.BL.Interfaces.IDataHandler`1">
+            <summary>
+            Interface for handling data operations of a specific type.
+            </summary>
+            <typeparam name="T">The type of data to handle.</typeparam>
+        </member>
+        <member name="P:Final_Core.BL.Interfaces.IDataHandler`1.Type">
+            <summary>
+            Gets or sets the type of operation (e.g., Edit, Add).
+            </summary>
+        </member>
+        <member name="M:Final_Core.BL.Interfaces.IDataHandler`1.PreSave(`0)">
+            <summary>
+            Performs pre-save operations on the data object before saving.
+            For example, mapping fields or setting certain properties.
+            </summary>
+            <param name="objDto">The data object to be saved.</param>
+        </member>
+        <member name="M:Final_Core.BL.Interfaces.IDataHandler`1.Validation">
+            <summary>
+            Validates the data before saving.
+            Ensures that the data meets required conditions.
+            </summary>
+            <returns>A response indicating whether the validation was successful.</returns>
+        </member>
+        <member name="M:Final_Core.BL.Interfaces.IDataHandler`1.Save">
+            <summary>
+            Saves the data to the database.
+            This operation may involve inserting or updating records.
+            </summary>
+            <returns>A response indicating the result of the save operation.</returns>
+        </member>
+        <member name="T:Final_Core.BL.Operations.BLEmp01">
+            <summary>
+            Business logic class for handling employee operations.
+            Implements IDataHandler for DTOEmp01 operations.
+            </summary>
+        </member>
+        <member name="P:Final_Core.BL.Operations.BLEmp01.Type">
+            <summary>
+            Type of operation to perform (Add, Edit, etc.).
+            </summary>
+        </member>
+        <member name="M:Final_Core.BL.Operations.BLEmp01.#ctor(ServiceStack.Data.IDbConnectionFactory)">
+            <summary>
+            Initializes the BLEmp01 class with the database connection factory.
+            </summary>
+            <param name="dbFactory">Database connection factory.</param>
+        </member>
+        <member name="M:Final_Core.BL.Operations.BLEmp01.GetAll">
+            <summary>
+            Retrieves all employees from the database.
+            </summary>
+            <returns>A list of employees.</returns>
+        </member>
+        <member name="M:Final_Core.BL.Operations.BLEmp01.Get(System.Int32)">
+            <summary>
+            Retrieves a single employee by their ID.
+            </summary>
+            <param name="id">The ID of the employee to retrieve.</param>
+            <returns>The employee with the specified ID.</returns>
+        </member>
+        <member name="M:Final_Core.BL.Operations.BLEmp01.Delete(System.Int32)">
+            <summary>
+            Deletes an employee by their ID.
+            </summary>
+            <param name="id">The ID of the employee to delete.</param>
+            <returns>A response indicating the result of the deletion.</returns>
+        </member>
+        <member name="M:Final_Core.BL.Operations.BLEmp01.IsEmployeeExist(System.Int32)">
+            <summary>
+            Checks if an employee exists in the database by their ID.
+            </summary>
+            <param name="id">The ID of the employee to check.</param>
+            <returns>A response indicating whether the employee exists or not.</returns>
+        </member>
+        <member name="M:Final_Core.BL.Operations.BLEmp01.PreDelete(System.Int32)">
+            <summary>
+            Prepares for deletion by checking if the employee exists.
+            </summary>
+            <param name="id">The ID of the employee to check.</param>
+            <returns>The employee object if found, otherwise null.</returns>
+        </member>
+        <member name="M:Final_Core.BL.Operations.BLEmp01.ValidateOnDelete(Final_Core.Models.POCO.Emp01)">
+            <summary>
+            Validates the employee before deletion.
+            </summary>
+            <param name="objEmp01">The employee to validate.</param>
+            <returns>A response indicating the validation result.</returns>
+        </member>
+        <member name="M:Final_Core.BL.Operations.BLEmp01.PreSave(Final_Core.Models.DTO.DTOEmp01)">
+            <summary>
+            Prepares the employee data for saving or updating.
+            </summary>
+            <param name="objDTO">The DTO representing the employee data.</param>
+        </member>
+        <member name="M:Final_Core.BL.Operations.BLEmp01.Validation">
+            <summary>
+            Validates the employee data before saving or updating.
+            </summary>
+            <returns>A response indicating the validation result.</returns>
+        </member>
+        <member name="M:Final_Core.BL.Operations.BLEmp01.Save">
+            <summary>
+            Saves or updates the employee data based on the operation type.
+            </summary>
+            <returns>A response indicating the result of the save operation.</returns>
+        </member>
+        <member name="M:Final_Core.BL.Operations.BLEmp01.FirstEmployee">
+            <summary>
+            Retrieves the first employee from the database.
+            </summary>
+            <returns>A response containing the first employee or an error message.</returns>
+        </member>
+        <member name="M:Final_Core.BL.Operations.BLEmp01.LastEmployee">
+            <summary>
+            Retrieves the last employee from the database.
+            </summary>
+            <returns>A response containing the last employee or an error message.</returns>
+        </member>
+        <member name="M:Final_Core.BL.Operations.BLEmp01.RichestEmployee">
+            <summary>
+            Retrieves the richest employee from the database based on salary.
+            </summary>
+            <returns>A response containing the richest employee or an error message.</returns>
+        </member>
+        <member name="T:Final_Core.BL.Operations.Company">
+            <summary>
+            Represents a company that manages salary payments through a specified bank.
+            </summary>
+        </member>
+        <member name="F:Final_Core.BL.Operations.Company._bank">
+            <summary>
+            Bank service used for processing salary payments.
+            </summary>
+        </member>
+        <member name="F:Final_Core.BL.Operations.Company._objBLEmployee">
+            <summary>
+            Employee business logic operations.
+            </summary>
+        </member>
+        <member name="M:Final_Core.BL.Operations.Company.#ctor(Final_Core.BL.Interfaces.IBank,Final_Core.BL.Operations.BLEmp01)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Final_Core.BL.Operations.Company"/> class.
+            </summary>
+            <param name="bank">Bank service for processing salaries.</param>
+            <param name="objBLEmployee">Employee business logic service.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if any parameter is null.</exception>
+        </member>
+        <member name="P:Final_Core.BL.Operations.Company.CompanyName">
+            <summary>
+            Gets or sets the company name.
+            </summary>
+        </member>
+        <member name="P:Final_Core.BL.Operations.Company.BankName">
+            <summary>
+            Gets the name of the bank used by the company.
+            </summary>
+        </member>
+        <member name="M:Final_Core.BL.Operations.Company.PaySalary(System.Int32)">
+            <summary>
+            Processes the salary payment for an employee by their ID.
+            </summary>
+            <param name="id">Employee ID.</param>
+        </member>
+        <member name="T:Final_Core.Controllers.CLCompnay">
+            <summary>
+            Controller for handling company-related API operations.
+            Includes salary payments and email functionalities.
+            </summary>
+        </member>
+        <member name="M:Final_Core.Controllers.CLCompnay.#ctor(Final_Core.BL.Interfaces.ICompany,Final_Core.BL.Operations.BLEmp01,Final_Core.Services.EmailService)">
+            <summary>
+            Initializes the controller with company, employee, and email services.
+            </summary>
+            <param name="company">Company service for handling company-related operations.</param>
+            <param name="objBLEmployee">Business logic layer for employee operations.</param>
+            <param name="emailService">Service for handling email sending.</param>
+        </member>
+        <member name="M:Final_Core.Controllers.CLCompnay.PaySalary(System.Int32)">
+            <summary>
+            Processes salary payment for an employee by their ID.
+            </summary>
+            <param name="id">The ID of the employee whose salary will be paid.</param>
+            <returns>A response indicating success or failure of the payment.</returns>
+        </member>
+        <member name="T:Final_Core.Controllers.CLEmp01">
+            <summary>
+            Controller to manage employee-related API operations.
+            Provides CRUD and utility operations for employees.
+            </summary>
+        </member>
+        <member name="M:Final_Core.Controllers.CLEmp01.#ctor(Final_Core.BL.Operations.BLEmp01)">
+            <summary>
+            Initializes the controller with the employee business logic service.
+            </summary>
+            <param name="objBLEmployee">Business logic layer for employee operations.</param>
+        </member>
+        <member name="M:Final_Core.Controllers.CLEmp01.GetAllEmployees">
+            <summary>
+            Retrieves all employees from the database.
+            </summary>
+            <returns>A response containing a list of all employees.</returns>
+        </member>
+        <member name="M:Final_Core.Controllers.CLEmp01.GetEmployeeByID(System.Int32)">
+            <summary>
+            Retrieves an employee by their ID.
+            </summary>
+            <param name="id">The ID of the employee.</param>
+            <returns>A response containing the employee data.</returns>
+        </member>
+        <member name="M:Final_Core.Controllers.CLEmp01.AddEmployee(Final_Core.Models.DTO.DTOEmp01)">
+            <summary>
+            Adds a new employee to the system.
+            </summary>
+            <param name="objDTOEmp01">Employee data transfer object containing employee details.</param>
+            <returns>A response indicating the result of the operation.</returns>
+        </member>
+        <member name="M:Final_Core.Controllers.CLEmp01.UpdateEmployee(Final_Core.Models.DTO.DTOEmp01)">
+            <summary>
+            Updates an existing employee's details.
+            </summary>
+            <param name="objDTOEmp01">Employee data transfer object containing updated employee details.</param>
+            <returns>A response indicating the result of the update operation.</returns>
+        </member>
+        <member name="M:Final_Core.Controllers.CLEmp01.DeleteEmployee(System.Int32)">
+            <summary>
+            Deletes an employee by their ID.
+            </summary>
+            <param name="id">The ID of the employee to be deleted.</param>
+            <returns>A response indicating the result of the delete operation.</returns>
+        </member>
+        <member name="M:Final_Core.Controllers.CLEmp01.IsEmployeeExists(System.Int32)">
+            <summary>
+            Validates if an employee exists based on their ID.
+            </summary>
+            <param name="id">The ID of the employee to check.</param>
+            <returns>A response indicating whether the employee exists.</returns>
+        </member>
+        <member name="M:Final_Core.Controllers.CLEmp01.GetFirstEmployee">
+            <summary>
+            Retrieves the first employee from the employee list.
+            </summary>
+            <returns>A response containing the first employee.</returns>
+        </member>
+        <member name="M:Final_Core.Controllers.CLEmp01.GetLastEmployee">
+            <summary>
+            Retrieves the last employee from the employee list.
+            </summary>
+            <returns>A response containing the last employee.</returns>
+        </member>
+        <member name="M:Final_Core.Controllers.CLEmp01.GetRichEmployee">
+            <summary>
+            Retrieves the highest-paid employee from the database.
+            </summary>
+            <returns>A response containing the highest-paid employee.</returns>
+        </member>
+        <member name="T:Final_Core.Data.OrmLiteDbContext">
+            <summary>
+            Provides the DbContext for accessing the database using OrmLite.
+            </summary>
+        </member>
+        <member name="M:Final_Core.Data.OrmLiteDbContext.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Final_Core.Data.OrmLiteDbContext"/> class.
+            Sets up the connection string and OrmLite connection factory.
+            </summary>
+            <param name="configuration">The configuration containing the connection string.</param>
+        </member>
+        <member name="M:Final_Core.Data.OrmLiteDbContext.OpenDbConnection">
+            <summary>
+            Opens a new database connection using OrmLite.
+            </summary>
+            <returns>An open <see cref="T:System.Data.IDbConnection"/>.</returns>
+        </member>
+        <member name="T:Final_Core.Extensions.DTO_To_POCO">
+            <summary>
+            Extension methods to convert DTO from POCO.
+            </summary>
+        </member>
+        <member name="M:Final_Core.Extensions.DTO_To_POCO.Convert``1(System.Object)">
+            <summary>
+            Converts a DTO object to its corresponding POCO type.
+            </summary>
+            <typeparam name="POCO">The target POCO type that the DTO will be converted to.</typeparam>
+            <param name="objDTO">The DTO object to be converted.</param>
+            <returns>A POCO instance with the same property values as the DTO.</returns>
+        </member>
+        <member name="T:Final_Core.Filters.GlobalExceptionFilter">
+            <summary>
+            Global exception filter to handle and log unhandled exceptions.
+            Returns a standardized error response.
+            </summary>
+        </member>
+        <member name="M:Final_Core.Filters.GlobalExceptionFilter.#ctor(Microsoft.Extensions.Logging.ILogger{Final_Core.Filters.GlobalExceptionFilter})">
+            <summary>
+            Initializes an instance of <see cref="T:Final_Core.Filters.GlobalExceptionFilter"/>.
+            </summary>
+            <param name="logger">Logger instance for logging exceptions.</param>
+        </member>
+        <member name="M:Final_Core.Filters.GlobalExceptionFilter.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            Handles unhandled exceptions, logs them, and returns a standardized error response.
+            </summary>
+            <param name="context">Exception context containing details of the error.</param>
+        </member>
+        <member name="T:Final_Core.Filters.ErrorResponse">
+            <summary>
+            Standardized error response model.
+            </summary>
+        </member>
+        <member name="P:Final_Core.Filters.ErrorResponse.Message">
+            <summary>
+            General error message.
+            </summary>
+        </member>
+        <member name="P:Final_Core.Filters.ErrorResponse.Details">
+            <summary>
+            Detailed error message (included only in development mode).
+            </summary>
+        </member>
+        <member name="P:Final_Core.Filters.ErrorResponse.StackTrace">
+            <summary>
+            Stack trace information (included only in development mode).
+            </summary>
+        </member>
+        <member name="T:Final_Core.Middlewares.RateLimitingMiddleware">
+            <summary>
+            Middleware for rate limiting requests based on IP address.
+            Limits each IP to one request every 10 seconds.
+            </summary>
+        </member>
+        <member name="M:Final_Core.Middlewares.RateLimitingMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Logging.ILogger{Final_Core.Middlewares.RateLimitingMiddleware})">
+            <summary>
+            Initializes an instance of <see cref="T:Final_Core.Middlewares.RateLimitingMiddleware"/>.
+            </summary>
+            <param name="next">Next middleware in the pipeline.</param>
+            <param name="logger">Logger for logging request details.</param>
+        </member>
+        <member name="M:Final_Core.Middlewares.RateLimitingMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Invokes the middleware to apply rate limiting on requests.
+            </summary>
+            <param name="context">HTTP context of the request.</param>
+        </member>
+        <member name="T:Final_Core.Middlewares.RequestResponseLoggingMiddleware">
+            <summary>
+            Middleware for logging API requests and responses.
+            </summary>
+        </member>
+        <member name="M:Final_Core.Middlewares.RequestResponseLoggingMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,System.IServiceProvider)">
+            <summary>
+            Initializes a new instance of <see cref="T:Final_Core.Middlewares.RequestResponseLoggingMiddleware"/>.
+            </summary>
+            <param name="next">The next middleware in the pipeline.</param>
+            <param name="serviceProvider">Service provider for resolving dependencies.</param>
+        </member>
+        <member name="M:Final_Core.Middlewares.RequestResponseLoggingMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Invokes the middleware to log request and response data.
+            </summary>
+            <param name="context">The current HTTP context.</param>
+        </member>
+        <member name="T:Final_Core.Models.DTO.DTOEmp01">
+            <summary>
+            Employee Data Transfer Object
+            </summary>
+        </member>
+        <member name="P:Final_Core.Models.DTO.DTOEmp01.P01F01">
+            <summary>P01F01 = Employee ID</summary>
+        </member>
+        <member name="P:Final_Core.Models.DTO.DTOEmp01.P01F02">
+            <summary>P01F02 = Employee Name</summary>
+        </member>
+        <member name="P:Final_Core.Models.DTO.DTOEmp01.P01F03">
+            <summary>P01F03 = Employee Email</summary>
+        </member>
+        <member name="P:Final_Core.Models.DTO.DTOEmp01.P01F04">
+            <summary>P01F04 = Employee Phone Number</summary>
+        </member>
+        <member name="P:Final_Core.Models.DTO.DTOEmp01.P01F05">
+            <summary>P01F05 = Created At</summary>
+        </member>
+        <member name="P:Final_Core.Models.DTO.DTOEmp01.P01F06">
+            <summary>P01F06 = Updated At</summary>
+        </member>
+        <member name="P:Final_Core.Models.DTO.DTOEmp01.P01F07">
+            <summary>P01F07 = Is Active</summary>
+        </member>
+        <member name="P:Final_Core.Models.DTO.DTOEmp01.P01F08">
+            <summary>P01F08 = Salary</summary>
+        </member>
+        <member name="P:Final_Core.Models.DTO.DTOEmp01.P01F09">
+            <summary>P01F09 = Department</summary>
+        </member>
+        <member name="T:Final_Core.Models.Enum.EnmType">
+            <summary>
+            Enum that defines type of operation
+            </summary>
+        </member>
+        <member name="F:Final_Core.Models.Enum.EnmType.A">
+            <summary>
+            A denotes Add operation(api req).
+            </summary>
+        </member>
+        <member name="F:Final_Core.Models.Enum.EnmType.E">
+            <summary>
+            E denotes Edit operation(api req).
+            </summary>
+        </member>
+        <member name="F:Final_Core.Models.Enum.EnmType.D">
+            <summary>
+            D denotes Delete operation(api req).
+            </summary>
+        </member>
+        <member name="T:Final_Core.Models.ApiLog">
+            <summary>
+            Represents an API log entry stored in the database.
+            </summary>
+        </member>
+        <member name="P:Final_Core.Models.ApiLog.Id">
+            <summary>
+            Gets or sets the unique identifier for the log entry.
+            </summary>
+        </member>
+        <member name="P:Final_Core.Models.ApiLog.Timestamp">
+            <summary>
+            Gets or sets the timestamp of the API request.
+            </summary>
+        </member>
+        <member name="P:Final_Core.Models.ApiLog.RequestMethod">
+            <summary>
+            Gets or sets the HTTP method of the request (e.g., GET, POST).
+            </summary>
+        </member>
+        <member name="P:Final_Core.Models.ApiLog.RequestPath">
+            <summary>
+            Gets or sets the requested API path.
+            </summary>
+        </member>
+        <member name="P:Final_Core.Models.ApiLog.Route">
+            <summary>
+            Gets or sets the route of the API endpoint.
+            </summary>
+        </member>
+        <member name="P:Final_Core.Models.ApiLog.RequestBody">
+            <summary>
+            Gets or sets the request body content.
+            </summary>
+        </member>
+        <member name="P:Final_Core.Models.ApiLog.ResponseStatusCode">
+            <summary>
+            Gets or sets the HTTP response status code.
+            </summary>
+        </member>
+        <member name="P:Final_Core.Models.ApiLog.ResponseBody">
+            <summary>
+            Gets or sets the response body content.
+            </summary>
+        </member>
+        <member name="P:Final_Core.Models.ApiLog.ClientIP">
+            <summary>
+            Gets or sets the IP address of the client making the request.
+            </summary>
+        </member>
+        <member name="T:Final_Core.Models.POCO.Emp01">
+            <summary>
+            Employee Table
+            </summary>
+        </member>
+        <member name="P:Final_Core.Models.POCO.Emp01.P01F01">
+            <summary>P01F01 = Employee ID (Primary Key)</summary>
+        </member>
+        <member name="P:Final_Core.Models.POCO.Emp01.P01F02">
+            <summary>P01F02 = Employee Name</summary>
+        </member>
+        <member name="P:Final_Core.Models.POCO.Emp01.P01F03">
+            <summary>P01F03 = Employee Email</summary>
+        </member>
+        <member name="P:Final_Core.Models.POCO.Emp01.P01F04">
+            <summary>P01F04 = Employee Phone Number</summary>
+        </member>
+        <member name="P:Final_Core.Models.POCO.Emp01.P01F05">
+            <summary>P01F05 = Created At</summary>
+        </member>
+        <member name="P:Final_Core.Models.POCO.Emp01.P01F06">
+            <summary>P01F06 = Updated At</summary>
+        </member>
+        <member name="P:Final_Core.Models.POCO.Emp01.P01F07">
+            <summary>P01F07 = Is Active (0 = Inactive, 1 = Active)</summary>
+        </member>
+        <member name="P:Final_Core.Models.POCO.Emp01.P01F08">
+            <summary>P01F08 = Salary</summary>
+        </member>
+        <member name="P:Final_Core.Models.POCO.Emp01.P01F09">
+            <summary>P01F09 = Department</summary>
+        </member>
+        <member name="T:Final_Core.Models.Response">
+            <summary>
+            Response modal fro every action method includes[message, isError, Data]
+            </summary>
+        </member>
+        <member name="P:Final_Core.Models.Response.Data">
+            <summary>
+            Gets or Sets the response data according to the request.
+            </summary>
+        </member>
+        <member name="P:Final_Core.Models.Response.IsError">
+            <summary>
+            Gets or Sets the error status of the request.
+            </summary>
+        </member>
+        <member name="P:Final_Core.Models.Response.Message">
+            <summary>
+            Gets or Sets the message according to the success or error response.
+            </summary>
+        </member>
+        <member name="T:Final_Core.Program">
+            <summary>
+            Entry point for the Final_Core application.
+            </summary>
+        </member>
+        <member name="M:Final_Core.Program.Main(System.String[])">
+            <summary>
+            Main method that initializes and starts the web application.
+            </summary>
+            <param name="args">Command-line arguments.</param>
+        </member>
+        <member name="T:Final_Core.Services.HDFCBankService">
+            <summary>
+            Implementation of <see cref="T:Final_Core.BL.Interfaces.IBank"/> for HDFC Bank salary processing.
+            </summary>
+        </member>
+        <member name="F:Final_Core.Services.HDFCBankService._operationId">
+            <summary>
+            Unique operation identifier for the service instance.
+            </summary>
+        </member>
+        <member name="M:Final_Core.Services.HDFCBankService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Final_Core.Services.HDFCBankService"/> class.
+            </summary>
+        </member>
+        <member name="P:Final_Core.Services.HDFCBankService.BankName">
+            <summary>
+            Gets the bank name.
+            </summary>
+        </member>
+        <member name="M:Final_Core.Services.HDFCBankService.ProcessSalary(Final_Core.Models.POCO.Emp01,System.Decimal)">
+            <summary>
+            Processes the salary payment for an employee.
+            </summary>
+            <param name="employee">Employee for whom salary is being processed.</param>
+            <param name="amount">Salary amount to be processed.</param>
+        </member>
+        <member name="M:Final_Core.Services.HDFCBankService.GetOperationId">
+            <summary>
+            Gets the unique operation identifier for the service instance.
+            </summary>
+            <returns>Operation ID as a <see cref="T:System.Guid"/>.</returns>
+        </member>
+        <member name="T:Final_Core.Services.ICICIBankService">
+            <summary>
+            Implementation of for ICICI Bank salary processing.
+            </summary>
+        </member>
+        <member name="F:Final_Core.Services.ICICIBankService._operationId">
+            <summary>
+            Unique operation identifier for the service instance.
+            </summary>
+        </member>
+        <member name="M:Final_Core.Services.ICICIBankService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Final_Core.Services.ICICIBankService"/> class.
+            </summary>
+        </member>
+        <member name="P:Final_Core.Services.ICICIBankService.BankName">
+            <summary>
+            Gets the bank name.
+            </summary>
+        </member>
+        <member name="M:Final_Core.Services.ICICIBankService.ProcessSalary(Final_Core.Models.POCO.Emp01,System.Decimal)">
+            <summary>
+            Processes the salary payment for an employee.
+            </summary>
+            <param name="employee">Employee for whom salary is being processed.</param>
+            <param name="amount">Salary amount to be processed.</param>
+        </member>
+        <member name="M:Final_Core.Services.ICICIBankService.GetOperationId">
+            <summary>
+            Gets the unique operation identifier for the service instance.
+            </summary>
+            <returns>Operation ID as a <see cref="T:System.Guid"/>.</returns>
+        </member>
+        <member name="T:Final_Core.Services.LoggingService">
+            <summary>
+            Service for logging API requests to the database.
+            </summary>
+        </member>
+        <member name="M:Final_Core.Services.LoggingService.#ctor(Final_Core.Data.OrmLiteDbContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Final_Core.Services.LoggingService"/> class.
+            </summary>
+            <param name="dbContext">Database context for handling database operations.</param>
+        </member>
+        <member name="M:Final_Core.Services.LoggingService.LogApiRequestAsync(System.String,System.String,System.String,System.String,System.Int32,System.String,System.String)">
+            <summary>
+            Logs an API request asynchronously.
+            </summary>
+            <param name="method">HTTP request method (GET, POST, etc.).</param>
+            <param name="path">The request path.</param>
+            <param name="route">The API route.</param>
+            <param name="requestBody">The request body content.</param>
+            <param name="statusCode">The HTTP response status code.</param>
+            <param name="responseBody">The response body content.</param>
+            <param name="clientIp">The IP address of the client making the request.</param>
+        </member>
+    </members>
+</doc>

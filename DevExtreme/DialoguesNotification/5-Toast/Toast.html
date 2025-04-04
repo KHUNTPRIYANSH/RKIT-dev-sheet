@@ -55,7 +55,15 @@
 
         $("#toastContainer")
           .dxToast({
-            message: message,
+            // message: message,
+            contentTemplate: function (contentElement) {
+              let logo = $("<img>")
+                .attr("src", "https://www.devexpress.com/favicon.ico")
+                .css("width", "30px")
+                .css("height", "30px");
+              contentElement.append(logo);
+              contentElement.append(message);
+            },
             type: type, //'custom' | 'error' | 'info' | 'success' | 'warning'
 
             //If you assign "custom" to the type property,

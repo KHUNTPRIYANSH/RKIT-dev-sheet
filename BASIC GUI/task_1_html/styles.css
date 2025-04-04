@@ -1,0 +1,35 @@
+/* Style for table container */
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Makes table scrollable on small screens */
+}
+
+/* Basic table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* Ensures table does not shrink too much */
+}
+
+/* Table headers and cells */
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds "..." for long text */
+    max-width: 150px; /* Adjust as needed */
+}
+
+/* Header styling */
+th {
+    background-color: #f4f4f4;
+}
+
+/* Responsive - Make table scrollable */
+@media screen and (max-width: 600px) {
+    th, td {
+        max-width: 100px; /* Reduce width on small screens */
+    }
+}

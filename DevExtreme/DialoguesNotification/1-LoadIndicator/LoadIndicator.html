@@ -19,100 +19,37 @@
       #light {
         background: rgb(232, 232, 232);
       }
+      #loadOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #5516162d;
+        z-index: 100;
+        /* display: none; */
+      }
+      #globalLoader {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 111;
+      }
     </style>
   </head>
 
   <body class="dx-viewport">
+    <div id="loadOverlay">
+      <div id="globalLoader"></div>
+    </div>
     <div class="container">
       <h1>Load indicator Demo</h1>
-
-      <!-- DataGrid Container -->
       <div id="dataGridContainer"></div>
     </div>
 
     <!-- External JS file with product data (data.js) -->
     <script src="../Data/data.js"></script>
-    <script>
-      // Create DevExtreme DataGrid instance
-      $(() => {
-        $.ajax({
-          url: "https://dummyjson.com/products",
-          type: "GET",
-          success: function (data) {
-            console.log(data.products);
-            const productData = data.products; // Extract the products array
-            // Initialize the DataGrid
-            let dataGridRef = $("#dataGridContainer")
-              .dxDataGrid({
-                dataSource: productData,
-                columns: [
-                  { dataField: "id", caption: "ID" },
-                  {
-                    dataField: "images",
-                    caption: "Images",
-                    alignment: "center",
-                    cellTemplate: function (container, options) {
-                      // Create a container for the load indicator
-                      const $indicator =
-                        $("<div id='light'>").appendTo(container);
-
-                      // Initialize the dxLoadIndicator
-                      $indicator.dxLoadIndicator({
-                        height: 150,
-                        width: 150,
-                        indicatorSrc: "../Data/loader.gif",
-                      });
-                      // Customize the images column to display the first image
-
-                      const $img = $("<img>").attr("src", options.value).css({
-                        maxWidth: "100%",
-                        height: "250px",
-                        display: "none", // Hidden initially
-                      });
-                      // Append the image to the container
-                      $img.appendTo(container);
-                      // When the image loads, hide the indicator and show the image
-                      $img.on("load", () => {
-                        setTimeout(() => {
-                          $indicator
-                            .dxLoadIndicator("instance")
-                            .option("visible", false);
-                          $img.css("display", "block");
-                        }, 3000); // 1-second delay
-                      });
-                    },
-                  },
-
-                  { dataField: "title", caption: "Title" },
-
-                  { dataField: "category", caption: "Category" },
-                  {
-                    dataField: "price",
-                    caption: "Price",
-                    cellTemplate: function (container, options) {
-                      // Customize the price column to display with a dollar sign
-                      const price = options.value;
-                      container.text(`$${price.toFixed(2)}`);
-                    },
-                  },
-                ],
-                showRowLines: true,
-                showColumnLines: true,
-                columnAutoWidth: true,
-                paging: {
-                  enabled: true,
-                  pageSize: 10,
-                },
-                pager: {
-                  showPageSizeSelector: true,
-                  allowedPageSizes: [5, 10, 20],
-                  showInfo: true,
-                },
-              })
-              .dxDataGrid("instance");
-          },
-        });
-      });
-    </script>
+    <script src="./script.js"></script>
   </body>
 </html>

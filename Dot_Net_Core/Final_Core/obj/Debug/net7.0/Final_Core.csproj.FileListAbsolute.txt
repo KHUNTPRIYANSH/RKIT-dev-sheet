@@ -142,3 +142,5 @@ F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Final_Core\obj\Debug\net7.0\r
 F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Final_Core\bin\Debug\net7.0\Newtonsoft.Json.dll
 F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Final_Core\bin\Debug\net7.0\SendGrid.dll
 F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Final_Core\bin\Debug\net7.0\StarkbankEcdsa.dll
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Final_Core\bin\Debug\net7.0\Final_Core.xml
+F:\Priyansh_KPD\GITHUB\RKIT-dev-sheet\Dot_Net_Core\Final_Core\obj\Debug\net7.0\Final_Core.xml

@@ -66,47 +66,6 @@
       <div class="loadpanel"></div>
     </div>
 
-    <!-- External JS file with image data -->
-    <script src="../Data/data.js"></script>
-    <script>
-      $(() => {
-        const imageData = {
-          ImageUrl: "../Data/load.png",
-        };
-
-        const showImage = () => {
-          $("#loadedImage").attr("src", imageData.ImageUrl).fadeIn();
-        };
-
-        const loadPanel = $(".loadpanel")
-          .dxLoadPanel({
-            closeOnOutsideClick: true, // bool /  func
-            shadingColor: "rgba(0,0,0,0.4)",
-            position: { of: "#imageContainer" },
-            visible: false,
-            delay: 1000,
-
-            message: "Loaderrr ...", // wont work with material ui css
-            showIndicator: true,
-            showPane: true,
-            shading: true,
-            hideOnOutsideClick: false,
-            onShown() {
-              setTimeout(() => {
-                loadPanel.hide();
-              }, 2000);
-            },
-            onHidden() {
-              showImage();
-            },
-          })
-          .dxLoadPanel("instance");
-
-        $("#loadImage").on("click", function () {
-          loadPanel.show();
-          $("#loadedImage").hide(); // Hide image while loading
-        });
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>

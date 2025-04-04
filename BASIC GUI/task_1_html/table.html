@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Table</title>
+    <style>
+      body {
+        --color: red;
+      }
+      /* Style for table container */
+      .table-container {
+        width: 100%;
+        overflow-x: auto; /* Makes table scrollable on small screens */
+      }
+
+      /* Basic table styling */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 600px; /* Ensures table does not shrink too much */
+      }
+
+      /* Table headers and cells */
+      th,
+      td {
+        border: 1px solid #ddd;
+        color: var(--color);
+        padding: 10px;
+        text-align: left;
+        white-space: nowrap; /* Prevents text from wrapping */
+        overflow: hidden;
+        text-overflow: ellipsis; /* Adds "..." for long text */
+        max-width: 150px; /* Adjust as needed */
+      }
+
+      /* Header styling */
+      th {
+        background-color: #f4f4f4;
+      }
+
+      /* Responsive - Make table scrollable */
+      @media screen and (max-width: 600px) {
+        th,
+        td {
+          max-width: 100px; /* Reduce width on small screens */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+            <th>Column 4</th>
+            <th>Column 5</th>
+            <th>Column 6</th>
+            <th>Column 7</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Long text example in column 1</td>
+            <td>Short</td>
+            <td>More text here</td>
+            <td>Data 4</td>
+            <td>Example long text for wrapping</td>
+            <td>Something</td>
+            <td>Last column</td>
+          </tr>
+          <tr>
+            <td>Another long text example</td>
+            <td>More data</td>
+            <td>Short text</td>
+            <td>Some data</td>
+            <td>Wrapping text example</td>
+            <td>Something else</td>
+            <td>Final column</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

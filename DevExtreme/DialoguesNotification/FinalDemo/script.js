@@ -41,8 +41,6 @@ function initializeData() {
 }
 
 let selectedItems = [];
-let currentDeleteItem = null;
-
 $(function () {
   initializeData();
   initializeMenu();
@@ -117,11 +115,10 @@ function handleTreeViewSelectionChanged(e) {
 }
 
 /**
- * Initializes popups for adding products, deleting items, and resetting local storage.
+ * Initializes popups for adding products, and resetting local storage.
  */
 function initializePopups() {
   initializeAddProductPopup();
-  initializeDeleteConfirmationPopup();
   initializeResetConfirmationPopup();
 }
 
@@ -150,7 +147,10 @@ function initializeAddProductPopup() {
               editorType: "dxNumberBox",
               editorOptions: { format: "$#0.00", min: 0.01 },
             },
-            { dataField: "icon", label: "Icon (Emoji)" },
+            {
+              dataField: "icon",
+              editorType: "dxTextBox",
+            },
           ],
           formData: {},
         })
@@ -160,28 +160,6 @@ function initializeAddProductPopup() {
             onClick: saveNewProduct,
           })
         ),
-  });
-}
-
-/**
- * Initializes the delete confirmation popup.
- */
-function initializeDeleteConfirmationPopup() {
-  $("#deletePopup").dxPopup({
-    title: "Confirm Delete",
-    contentTemplate: () =>
-      $("<div>").append(
-        $("<p>").text("Delete this item permanently?"),
-        $("<div>").dxButton({
-          text: "Delete",
-          type: "danger",
-          onClick: confirmDelete,
-        }),
-        $("<div>").dxButton({
-          text: "Cancel",
-          onClick: hideDeletePopup,
-        })
-      ),
   });
 }
 
@@ -211,6 +189,19 @@ function initializeResetConfirmationPopup() {
 
 /**
  * Saves a new product to local storage.
+ * Followings are the order of operations which are performed in this function:
+ * 1. fetch the form instance
+ * 2. validate the form
+ * 3. get the local data
+ * 4. get the form data
+ * 5. find the category
+ * 6. check if the category exists
+ * 7. create a new product object
+ * 8. push the new product to the category items
+ * 9. save the local data
+ * 10. refresh the UI
+ * 11. hide the add popup
+ * 12. show a toast message
  */
 function saveNewProduct() {
   const form = $("#addPopup .dx-form").dxForm("instance");
@@ -228,7 +219,6 @@ function saveNewProduct() {
   const newProduct = {
     id: `prod_${Date.now()}`,
     ...formData,
-    items: [],
   };
 
   category.items.push(newProduct);
@@ -236,26 +226,6 @@ function saveNewProduct() {
   refreshUI();
   hideAddPopup();
   showToast("Product added", "success");
-}
-
-/**
- * Confirms deletion of an item.
- */
-function confirmDelete() {
-  const data = getLocalData();
-  for (const category of data) {
-    const index = category.items.findIndex(
-      (i) => i.id === currentDeleteItem.id
-    );
-    if (index > -1) {
-      category.items.splice(index, 1);
-      saveLocalData(data);
-      refreshUI();
-      showToast("Product deleted", "warning");
-      break;
-    }
-  }
-  hideDeletePopup();
 }
 
 /**
@@ -293,6 +263,12 @@ function toggleTreeView() {
 
 /**
  * Refreshes the UI by updating the tree view and clearing selected items.
+ * How:
+ * 1. Get local data
+ * 2. Update tree view data source
+ * 3. Clear selected items
+ * 4. Clear product cards container
+ * 5. If no data, show a message
  */
 function refreshUI() {
   const data = getLocalData();
@@ -314,10 +290,17 @@ function refreshUI() {
 
 /**
  * Renders selected items in the UI.
+ * How:
+ * 1. Empty the cards container
+ * 2. Iterate over selected items
+ * 3. Check if the item has items property
+ * 4. If not, create a card element
+ * 5. Append the card to the cards container
  */
 function renderSelectedItems() {
   $("#cards-container").empty();
   selectedItems.forEach((item) => {
+    console.log(item);
     if (!item.items) {
       // Only show products, not categories
       const card = $("<div>").addClass("item-card").html(`
@@ -355,52 +338,22 @@ function showToast(message, type) {
   });
 }
 
-/**
- * Shows the add product popup.
- */
 function showAddPopup() {
   $("#addPopup").dxPopup("show");
 }
 
-/**
- * Hides the add product popup.
- */
 function hideAddPopup() {
   $("#addPopup").dxPopup("hide");
 }
 
-/**
- * Shows the reset confirmation popup.
- */
 function showResetConfirmPopup() {
   $("#resetConfirmPopup").dxPopup("show");
 }
 
-/**
- * Hides the reset confirmation popup.
- */
-function hideResetConfirmPopup() {
-  $("#resetConfirmPopup").dxPopup("hide");
-}
-
-/**
- * Handles the reset confirmation action.
- */
 function handleResetConfirmation() {
   resetLocalStore();
   hideResetConfirmPopup();
 }
-
-/**
- * Shows the delete confirmation popup.
- */
-function showDeletePopup() {
-  $("#deletePopup").dxPopup("show");
-}
-
-/**
- * Hides the delete confirmation popup.
- */
-function hideDeletePopup() {
-  $("#deletePopup").dxPopup("hide");
+function hideResetConfirmPopup() {
+  $("#resetConfirmPopup").dxPopup("hide");
 }
